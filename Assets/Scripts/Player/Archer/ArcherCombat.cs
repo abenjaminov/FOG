@@ -1,9 +1,11 @@
+using System;
+using Platformer;
 using ScriptableObjects;
 using UnityEngine;
 
 namespace Player.Archer
 {
-    public class ArcherCombat : MonoBehaviour
+    public class ArcherCombat : Character
     {
         [SerializeField] private GameObject _arrowPrefab;
         [SerializeField] private Transform _arrowSpawnPosition;
@@ -27,6 +29,11 @@ namespace Player.Archer
                 _playerChannel.OnAttack1();
                 _playerChannel.OnMovementActive(false);
             }
+        }
+
+        public override void ReceiveDamage(float damage)
+        {
+            Debug.Log("Archer Hit");
         }
     }
 }
