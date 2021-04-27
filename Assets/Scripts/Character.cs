@@ -6,14 +6,14 @@ namespace Platformer
 {
     public abstract class Character : MonoBehaviour
     {
-        [SerializeField] private Traits _traits;
+        public Traits Traits;
 
         protected float _health;
         protected int _defense;
 
         private void Awake()
         {
-            _health = _traits.Health;
+            _health = Traits.Health;
             _defense = _defense;
         }
 

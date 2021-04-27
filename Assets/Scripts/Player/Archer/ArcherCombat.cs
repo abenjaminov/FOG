@@ -15,6 +15,7 @@ namespace Player.Archer
         {
             var arrow = Instantiate(_arrowPrefab, _arrowSpawnPosition.position, transform.rotation).GetComponent<Arrow>();
             arrow.WorldMovementDirection = _playerChannel.FaceDirection;
+            arrow.ParentCharacter = this;
         }
 
         public void OnShootEnd()

@@ -8,9 +8,11 @@ using UnityEngine.Serialization;
 
 public class Arrow : MonoBehaviour
 {
+    [HideInInspector] public Character ParentCharacter;
     [SerializeField] private float _speed; 
     [HideInInspector] public Vector2 WorldMovementDirection;
     [HideInInspector] public Traits _traits;
+    [SerializeField] private CombatChannel _combatChannel;
 
     private void Update()
     {
@@ -21,7 +23,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.TryGetComponent(typeof(Character), out var character))
         {
-            ((Character)character).ReceiveDamage(1);
+            _combatChannel.OnCharacterHit(ParentCharacter, (Character)character);
         }
         
         Destroy(gameObject);
