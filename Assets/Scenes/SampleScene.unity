@@ -2074,7 +2074,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005134523, y: -0.012128353}
+  m_Offset: {x: 0.005134523, y: -0.011744022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2085,7 +2085,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5606667, y: 0.013151169}
+  m_Size: {x: 0.5606667, y: 0.012166023}
   m_EdgeRadius: 0
 --- !u!114 &1359287743
 MonoBehaviour:
@@ -2100,6 +2100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
+  IsOnGround: 0
 --- !u!1 &1438214786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,11 +2378,12 @@ GameObject:
   - component: {fileID: 1823315356}
   - component: {fileID: 1823315355}
   - component: {fileID: 1823315357}
-  - component: {fileID: 1823315358}
   - component: {fileID: 1823315359}
+  - component: {fileID: 1823315358}
   - component: {fileID: 1823315360}
   - component: {fileID: 1823315361}
   - component: {fileID: 1823315354}
+  - component: {fileID: 1823315362}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -2524,7 +2526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b807bd697bfc3ef4ca3b1979d5350850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
   _jumpHeight: 1.1
   _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
 --- !u!114 &1823315360
@@ -2566,6 +2567,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56, y: 0.27316284}
   m_EdgeRadius: 0
+--- !u!114 &1823315362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823315353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bbc53b86e340d598b3a13477db3c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _walkingSpeed: 3
+  _jumpingHeight: 1.1
 --- !u!1 &1854305818
 GameObject:
   m_ObjectHideFlags: 0

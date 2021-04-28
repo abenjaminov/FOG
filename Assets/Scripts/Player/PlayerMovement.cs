@@ -7,7 +7,6 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float _speed;
         [SerializeField] private float _jumpHeight;
         [SerializeField] private PlayerChannel _playerChannel;
 
@@ -54,40 +53,54 @@ namespace Player
 
         void Update()
         {
-            if (!_isMovementActive)
-            {
-                _rigidbody2D.velocity = Vector2.zero;
-                _playerChannel.OnVeloctyChanged(_rigidbody2D.velocity);
-                return;
-            }
-            
-            var horizontalAxis = (int)Input.GetAxisRaw("Horizontal");
-            var velocity = _rigidbody2D.velocity;
+            // if (!_isMovementActive)
+            // {
+            //     _rigidbody2D.velocity = Vector2.zero;
+            //     _playerChannel.OnVeloctyChanged(_rigidbody2D.velocity);
+            //     return;
+            // }
+            //
+            // var horizontalAxis = (int)Input.GetAxisRaw("Horizontal");
+            // var velocity = _rigidbody2D.velocity;
+            //
+            // if (horizontalAxis == 0)
+            // {
+            //     velocity.x = 0;
+            // }
+            // else if(_isOnGround)
+            // {
+            //     LookDirection(horizontalAxis == 1);
+            //     velocity.x = horizontalAxis * Speed;
+            // }
+            //
+            // if (Input.GetKeyDown(KeyCode.LeftAlt) && _isOnGround)
+            // {
+            //     velocity.y = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
+            // }
+            //
+            // _rigidbody2D.velocity = velocity;
+            // _playerChannel.OnVeloctyChanged(velocity);
+            //_rigidbody2D.velocity = Direction * Speed;
+        }
 
-            if (horizontalAxis == 0)
-            {
-                velocity.x = 0;
-            }
-            else if(_isOnGround)
-            {
-                LookDirection(horizontalAxis == 1);
-                velocity.x = horizontalAxis * _speed;
-            }
+        public void SetHorizontalVelocity(float horizontalVelocity)
+        {
+            _rigidbody2D.velocity = new Vector2(horizontalVelocity, _rigidbody2D.velocity.y);
+        }
+        
+        public void SetVerticalVelocity(float verticalVelocity)
+        {
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, verticalVelocity);
+        }
 
-            if (Input.GetKeyDown(KeyCode.LeftAlt) && _isOnGround)
-            {
-                velocity.y = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
-            }
-
+        public void SetVelocity(Vector2 velocity)
+        {
             _rigidbody2D.velocity = velocity;
-            _playerChannel.OnVeloctyChanged(velocity);
         }
 
         private void LookDirection(bool faceRight)
         {
             transform.rotation = Quaternion.Euler(0, faceRight ? 0 : 180, 0);
-
-            _playerChannel.FaceDirection = Vector2.right * (faceRight ? 1 : -1);
         }
     }
 }

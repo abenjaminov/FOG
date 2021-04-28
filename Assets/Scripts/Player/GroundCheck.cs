@@ -6,12 +6,13 @@ namespace Player
     public class GroundCheck : MonoBehaviour
     {
         [SerializeField] private PlayerChannel _playerChannel;
+        public bool IsOnGround;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                _playerChannel.OnGroundCheckEvent(true);
+                IsOnGround = true;
             }
         }
 
@@ -19,7 +20,7 @@ namespace Player
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                _playerChannel.OnGroundCheckEvent(false);
+                IsOnGround = false;
             }
         }
     }
