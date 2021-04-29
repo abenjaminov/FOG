@@ -1,7 +1,9 @@
 using System;
+using System.Numerics;
 using Platformer;
 using ScriptableObjects;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 namespace Player.Archer
 {
@@ -10,11 +12,12 @@ namespace Player.Archer
         [SerializeField] private GameObject _arrowPrefab;
         [SerializeField] private Transform _arrowSpawnPosition;
         [SerializeField] private PlayerChannel _playerChannel;
+        public Vector2 WorldMovementDirection;
 
         public void OnShootArrow()
         {
             var arrow = Instantiate(_arrowPrefab, _arrowSpawnPosition.position, transform.rotation).GetComponent<Arrow>();
-            arrow.WorldMovementDirection = _playerChannel.FaceDirection;
+            arrow.WorldMovementDirection = WorldMovementDirection;
             arrow.ParentCharacter = this;
         }
 

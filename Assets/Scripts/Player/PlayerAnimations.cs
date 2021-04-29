@@ -16,12 +16,6 @@ namespace Player
             _animator = GetComponent<Animator>();
             
             _playerChannel.VelocityChangedEvent += VelocityChangedEvent;
-            _playerChannel.Attack1Event += Attack1Event;
-        }
-
-        private void Attack1Event()
-        {
-            _animator.SetTrigger(CachedAnimatorPropertyNames.Attack1);
         }
 
         private void VelocityChangedEvent(Vector2 newVelocity)
