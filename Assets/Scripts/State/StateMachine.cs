@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace State
 {
@@ -10,16 +11,19 @@ namespace State
         private IState _currentState;
         private List<Transition> _currentTransitions;
         private static List<Transition> NoStateTransitions;
-
+        private bool _showDebug;
+        
         static StateMachine()
         {
             NoStateTransitions = new List<Transition>();
+            
         }
         
-        public StateMachine()
+        public StateMachine(bool showDebug = false)
         {
             _stateTransitions = new Dictionary<Type, List<Transition>>();
             _anyTransition = new List<Transition>();
+            _showDebug = showDebug;
         }
 
         public void Tick()
@@ -28,15 +32,20 @@ namespace State
 
             if (transition != null)
             {
+                if(_showDebug && transition.TransitionName != "")
+                    Debug.Log(transition.TransitionName);
+                
+                transition.TransitionLogic();
                 SetState(transition.To);
             }
             
             _currentState?.Tick();
         }
 
-        public void AddTransition(IState to, Func<bool> predicate,IState from = null)
+        public void AddTransition(IState to, Func<bool> predicate,IState from = null,
+            Action transitionLogic = null,  string transitionName = "")
         {
-            var transition = new Transition(to, predicate);
+            var transition = new Transition(to, predicate,transitionLogic, transitionName);
             
             if (from == null)
             {
@@ -61,6 +70,7 @@ namespace State
             
             _currentState?.OnExit();
             _currentState = state;
+            Debug.Log(_currentState.GetType());
 
             if (!_stateTransitions.TryGetValue(state.GetType(), out _currentTransitions))
             {

@@ -21,6 +21,7 @@ namespace Player
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 IsOnGround = false;
+                Debug.Log("Off ground");
             }
         }
     }

@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float _speed; 
     [HideInInspector] public Vector2 WorldMovementDirection;
     [HideInInspector] public Traits _traits;
+    public float Range;
     [SerializeField] private CombatChannel _combatChannel;
 
     private void Update()

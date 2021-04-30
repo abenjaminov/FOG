@@ -7,7 +7,7 @@ namespace Player.States.Archer
     {
         private ArcherCombat _archerCombat;
         
-        public ArcherShootArrowState(Animator animator, ArcherCombat archerCombat) : base(animator)
+        public ArcherShootArrowState(Animator animator, Rigidbody2D rigidBody, ArcherCombat archerCombat) : base(animator, rigidBody)
         {
             _archerCombat = archerCombat;
         }
@@ -17,7 +17,7 @@ namespace Player.States.Archer
             base.OnEnter();
             
             _archerCombat.WorldMovementDirection =
-                (int)_archerCombat.transform.rotation.y == 180 ? Vector2.left : Vector2.right;
+                (int)_archerCombat.transform.rotation.y != 0 ? Vector2.left : Vector2.right;
         }
     }
 }
