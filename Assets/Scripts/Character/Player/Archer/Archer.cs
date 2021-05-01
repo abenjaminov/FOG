@@ -39,13 +39,12 @@ namespace Player.Archer
             _stateMachine.AddTransition(_shootArrow, ShouldAttack, _idle, setShootAnimationActive,"Idle -> Transition To Shoot");
             _stateMachine.AddTransition(_shootArrow, ShouldAttack, _walkLeft, setShootAnimationActive,"Walk Left -> Transition To Shoot");
             _stateMachine.AddTransition(_shootArrow, ShouldAttack, _walkRight, setShootAnimationActive,"Walk Right -> Transition To Shoot");
-            
-            //_stateMachine.AddTransition(_shootArrow, () => _isShootAnimationActive, transitionToShoot,null,"Transition To Shoot -> Shoot Arrow");
+            _stateMachine.AddTransition(_shootArrow, ShouldAttack, _shootArrow, setShootAnimationActive,"Walk Right -> Transition To Shoot");
         }
 
         protected override void Update()
         {
-            _isLeftControlDown = Input.GetKeyDown(KeyCode.LeftControl);
+            _isLeftControlDown = Input.GetKey(KeyCode.LeftControl);
             
             base.Update();
         }
@@ -53,12 +52,6 @@ namespace Player.Archer
         public void ShootAnimationEnded()
         {
             _isShootAnimationActive = false;
-        }
-        
-        public void ShootAnimationStarted()
-        {
-            //Debug.Log("Shoot animation started");
-            //_isShootAnimationActive = true;
         }
     }
 }

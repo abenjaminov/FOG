@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Traits
   m_EditorClassIdentifier: 
   Health: 100
-  Defense: 100
-  Level: 10
-  Strength: 15
-  Dexterity: 15
+  Defense: 5
+  Level: 1
+  Strength: 5
+  Dexterity: 5

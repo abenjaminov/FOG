@@ -14,5 +14,7 @@ namespace ScriptableObjects
 
         public int Strength;
         public int Dexterity;
+
+        public int PointsLeft;
     }
 }

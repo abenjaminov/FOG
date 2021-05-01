@@ -1,6 +1,6 @@
 ﻿using Platformer;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Enemies
 {
@@ -8,6 +8,7 @@ namespace Enemies
     {
         [SerializeField] private GameObject _damagePrefab;
         [SerializeField] private Transform _damageSpawnPosition;
+        
         public override void ReceiveDamage(float damage)
         {
             var position = _damageSpawnPosition.position;
@@ -15,8 +16,9 @@ namespace Enemies
             damageText.SetText(damage.ToString());
             damageText.SetPosition(position);
 
-            _health -= damage;
-
+            _health = Mathf.Max(0,_health - damage);
+            _healthUI?.ReduceHealth(_health / Traits.Health);
+            
             if (_health <= 0)
             {
                 this.Die();
