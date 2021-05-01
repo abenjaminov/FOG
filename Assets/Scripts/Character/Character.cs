@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Platformer;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Platformer
+namespace Character
 {
     public abstract class Character : MonoBehaviour
     {
@@ -14,7 +13,7 @@ namespace Platformer
         protected int _defense;
         
         protected IHealthUI _healthUI;
-
+        
         private void Awake()
         {
             _health = Traits.Health;
@@ -25,9 +24,6 @@ namespace Platformer
 
         public abstract void ReceiveDamage(float damage);
 
-        protected void Die()
-        {
-            
-        }
+        protected abstract void Die();
     }
 }

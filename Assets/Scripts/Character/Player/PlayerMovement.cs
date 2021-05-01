@@ -8,7 +8,6 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float _jumpHeight;
-        [SerializeField] private PlayerChannel _playerChannel;
 
         private bool _isOnGround;
         

@@ -1880,11 +1880,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &727315148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5305328240111098719, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-  m_PrefabInstance: {fileID: 6314414927163102694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &974365492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,17 +1962,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1141717115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1141717115, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-  m_PrefabInstance: {fileID: 6314414927163102694}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1148291197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2159,7 @@ MonoBehaviour:
   Traits: {fileID: 11400000, guid: 5dd637b84c33ec44188f26fdd1371634, type: 2}
   _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
   _damageSpawnPosition: {fileID: 1854305819}
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
 --- !u!61 &1241252775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2305,13 +2290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d580db8690a9b4397503b082199f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
   IsOnGround: 0
---- !u!1 &1390292654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 195392661574794714, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-  m_PrefabInstance: {fileID: 6314414927163102694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1438214786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,11 +2448,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479129378}
   m_CullTransparentMesh: 1
---- !u!1 &1490035462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 82471881833162658, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-  m_PrefabInstance: {fileID: 6314414927163102694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547438317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,7 +2746,6 @@ GameObject:
   - component: {fileID: 1823315357}
   - component: {fileID: 1823315359}
   - component: {fileID: 1823315358}
-  - component: {fileID: 1823315360}
   - component: {fileID: 1823315361}
   - component: {fileID: 1823315354}
   - component: {fileID: 1823315362}
@@ -2796,11 +2769,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Traits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+  _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
   _arrowPrefab: {fileID: 3779008949166194602, guid: 5ef3e6c719cc13d4ba515c305610495f, type: 3}
   _arrowSpawnPosition: {fileID: 1148291198}
-  _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
   WorldMovementDirection: {x: 0, y: 0}
-  _archerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!212 &1823315355
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2921,20 +2894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpHeight: 1.1
-  _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
---- !u!114 &1823315360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823315353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e85a7c771c74a9bbfe67974b9d6ce80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
 --- !u!61 &1823315361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3099,30 +3058,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 144317614}
     m_Modifications:
-    - target: {fileID: 2074931096, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: _pointsText
-      value: 
-      objectReference: {fileID: 1141717115}
-    - target: {fileID: 2074931096, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: _addButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074931096, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: _addButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 1390292654}
-    - target: {fileID: 2074931096, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: _addButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 1490035462}
-    - target: {fileID: 2074931096, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: _addButtons.Array.data[2]
-      value: 
-      objectReference: {fileID: 727315148}
-    - target: {fileID: 5556291120777692912, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddDefense
-      objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537328, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_Name
       value: Traits Screen

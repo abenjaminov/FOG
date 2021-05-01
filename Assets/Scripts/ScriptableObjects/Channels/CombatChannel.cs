@@ -1,4 +1,5 @@
 ﻿using System;
+using Character.Enemies;
 using Platformer;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,10 +9,17 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "Combat Channel", menuName = "Channels/Combat Channel", order = 1)]
     public class CombatChannel : ScriptableObject
     {
-        public void OnCharacterHit(Character attacker, Character receiver)
+        public UnityAction<Enemy> EnemyDiedEvent;
+        
+        public void OnCharacterHit(Character.Character attacker, Character.Character receiver)
         {
             var damage = TraitsCalculator.CalculateDamage(attacker.Traits, receiver.Traits);
             receiver.ReceiveDamage(damage);
+        }
+
+        public void OnEnemyDied(Enemy enemy)
+        {
+            EnemyDiedEvent?.Invoke(enemy);
         }
     }
 }

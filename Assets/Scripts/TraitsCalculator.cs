@@ -13,7 +13,7 @@ namespace Platformer
 
             var rangeValue = Mathf.Ceil(Random.Range(-randomRangeDiff, randomRangeDiff));
             
-            var damage = Mathf.Ceil(attacker.Strength * ((float)attacker.Level / Traits.MAX_LEVEL));
+            var damage = Mathf.Ceil(attacker.Strength * ((float)attacker.Level / LevelConfiguration.MAX_LEVEL));
             damage += rangeValue;
 
             return (int)Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));

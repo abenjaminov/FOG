@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5fdcd6a1f134df395fc198be39ff004, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e400332113c4f71937964808937b399, type: 3}
   m_Name: Player Traits
   m_EditorClassIdentifier: 
   Health: 100
   Defense: 5
-  Level: 1
+  Level: 2
   Strength: 5
   Dexterity: 5
+  PointsLeft: 0
+  _experienceGained: 17

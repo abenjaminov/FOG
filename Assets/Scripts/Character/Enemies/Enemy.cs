@@ -1,13 +1,13 @@
-﻿using Platformer;
+﻿using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Enemies
+namespace Character.Enemies
 {
     public abstract class Enemy : Character
     {
         [SerializeField] private GameObject _damagePrefab;
         [SerializeField] private Transform _damageSpawnPosition;
+        [SerializeField] private CombatChannel _combatChannel;
         
         public override void ReceiveDamage(float damage)
         {
@@ -23,6 +23,11 @@ namespace Enemies
             {
                 this.Die();
             }
+        }
+
+        protected override void Die()
+        {
+            _combatChannel.OnEnemyDied(this);
         }
     }
 }

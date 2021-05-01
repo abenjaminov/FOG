@@ -1,11 +1,11 @@
 ﻿using System;
+using Character.Player.States.ArcherStates;
 using Player.States;
-using Player.States.Archer;
 using UnityEngine;
 
 namespace Player.Archer
 {
-    public class Archer : Player
+    public class ArcherStates : PlayerStates
     {
         private bool _isLeftControlDown;
         private bool _isShootAnimationActive;
@@ -16,13 +16,12 @@ namespace Player.Archer
         {
             base.Awake();
 
-            var archerCombat = GetComponent<ArcherCombat>();
+            var archer = GetComponent<Character.Player.ArcherCharacter.Archer>();
             
             var ShouldAttack = new Func<bool>(() => _isLeftControlDown && !_isShootAnimationActive);
 
-            _shootArrow = new ArcherShootArrowState(_animator,_rigidBody, archerCombat);
-            //var transitionToShoot = new TransitionToAttackState(_animator);
-            
+            _shootArrow = new ArcherShootArrowState(_animator,_rigidBody, archer);
+
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0 && !_isShootAnimationActive);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && 
                                                      (int)_rigidBody.velocity.y == 0 && 

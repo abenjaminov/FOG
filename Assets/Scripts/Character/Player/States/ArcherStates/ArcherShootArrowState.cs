@@ -1,13 +1,13 @@
-﻿using Player.Archer;
+﻿using Player.States;
 using UnityEngine;
 
-namespace Player.States.Archer
+namespace Character.Player.States.ArcherStates
 {
     public class ArcherShootArrowState : PlayerAttackState
     {
-        private ArcherCombat _archerCombat;
+        private ArcherCharacter.Archer _archerCombat;
         
-        public ArcherShootArrowState(Animator animator, Rigidbody2D rigidBody, ArcherCombat archerCombat) : base(animator, rigidBody)
+        public ArcherShootArrowState(Animator animator, Rigidbody2D rigidBody, ArcherCharacter.Archer archerCombat) : base(animator, rigidBody)
         {
             _archerCombat = archerCombat;
         }
