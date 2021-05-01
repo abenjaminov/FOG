@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Defense: 100
-  Level: 4
-  Strength: 14
-  Dexterity: 5
+  Level: 10
+  Strength: 15
+  Dexterity: 15

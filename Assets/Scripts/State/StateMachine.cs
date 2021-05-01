@@ -70,7 +70,8 @@ namespace State
             
             _currentState?.OnExit();
             _currentState = state;
-            Debug.Log(_currentState.GetType());
+            if(_showDebug)
+                Debug.Log(_currentState.GetType());
 
             if (!_stateTransitions.TryGetValue(state.GetType(), out _currentTransitions))
             {

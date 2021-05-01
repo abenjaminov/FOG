@@ -17,7 +17,7 @@ namespace Player.States
             _speed = speed;
         }
 
-        public void Tick() { }
+        public virtual void Tick() { }
 
         public virtual void OnEnter() {}
 

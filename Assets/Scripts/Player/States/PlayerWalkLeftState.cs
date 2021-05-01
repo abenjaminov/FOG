@@ -9,7 +9,12 @@ namespace Player.States
             base(playerMovement, animator, speed)
         {
         }
-        
+
+        public override void Tick()
+        {
+            _playerMovement.SetHorizontalVelocity(-_speed);
+        }
+
         public override void OnEnter()
         {
             _playerMovement.SetHorizontalVelocity(-_speed);

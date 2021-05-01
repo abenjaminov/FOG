@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Player
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 IsOnGround = true;
+                Debug.Log("On Ground");
             }
         }
 

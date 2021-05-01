@@ -26,7 +26,7 @@ namespace Player
 
         protected virtual void Awake()
         {
-            _stateMachine = new StateMachine(true);
+            _stateMachine = new StateMachine(false);
 
 
             var playerMovement = GetComponent<PlayerMovement>();

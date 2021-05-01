@@ -13,12 +13,14 @@ namespace Player.Archer
         [SerializeField] private Transform _arrowSpawnPosition;
         [SerializeField] private PlayerChannel _playerChannel;
         public Vector2 WorldMovementDirection;
+        [SerializeField] private Traits _archerTraits;
 
         public void OnShootArrow()
         {
             var arrow = Instantiate(_arrowPrefab, _arrowSpawnPosition.position, transform.rotation).GetComponent<Arrow>();
             arrow.WorldMovementDirection = WorldMovementDirection;
             arrow.ParentCharacter = this;
+            arrow.Range = TraitsCalculator.CalculateAttackRange(_archerTraits);
         }
 
         public void OnShootEnd()

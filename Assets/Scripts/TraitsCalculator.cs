@@ -5,9 +5,9 @@ using Random = UnityEngine.Random;
 
 namespace Platformer
 {
-    public class DamageCalculator
+    public static class TraitsCalculator
     {
-        public int CalculateDamage(Traits attacker, Traits receiver)
+        public static int CalculateDamage(Traits attacker, Traits receiver)
         {
             var randomRangeDiff = Mathf.Exp(Mathf.Ceil((float)attacker.Level / attacker.Dexterity));
 
@@ -17,6 +17,12 @@ namespace Platformer
             damage += rangeValue;
 
             return (int)Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));
+        }
+
+        public static float CalculateAttackRange(Traits attacker)
+        {
+            var range = (attacker.Strength + (attacker.Dexterity*1.5f)) / (float)attacker.Level;
+            return range;
         }
     }
 }

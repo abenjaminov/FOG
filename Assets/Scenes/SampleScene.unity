@@ -2408,6 +2408,7 @@ MonoBehaviour:
   _arrowSpawnPosition: {fileID: 1148291198}
   _playerChannel: {fileID: 11400000, guid: 70d2457eb6f9e774e93496164b091bce, type: 2}
   WorldMovementDirection: {x: 0, y: 0}
+  _archerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!212 &1823315355
 SpriteRenderer:
   m_ObjectHideFlags: 0
