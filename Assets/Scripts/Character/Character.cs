@@ -7,7 +7,8 @@ namespace Character
     public abstract class Character : MonoBehaviour
     {
         public Traits Traits;
-
+        public bool IsDead;
+        
         private IHealthUI _healthUIl;
         protected float _health;
         protected int _defense;

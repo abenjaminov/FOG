@@ -1,4 +1,5 @@
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using UnityEngine;
 
 namespace Character.Player.Archer

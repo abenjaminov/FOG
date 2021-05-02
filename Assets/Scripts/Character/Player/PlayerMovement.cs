@@ -1,11 +1,12 @@
 using System;
 using Animations;
+using Character;
 using ScriptableObjects;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, ICharacterMovement
     {
         [SerializeField] private float _jumpHeight;
 
@@ -33,6 +34,11 @@ namespace Player
         public void SetVelocity(Vector2 velocity)
         {
             _rigidbody2D.velocity = velocity;
+        }
+
+        public void SetYRotation(float yRotation)
+        {
+            transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Character.Enemies;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using UnityEngine;
 
 namespace Character.Player
@@ -21,7 +22,7 @@ namespace Character.Player
         private void GainedExperienceEvent()
         {
             var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
-            if (nextLevel != null && _playerTraits.ExperienceGained >= nextLevel.fromExp - 1)
+            if (nextLevel != null && _playerTraits.ExperienceGained >= nextLevel.FromExp - 1)
             {
                 LevelUp();
             }
@@ -30,6 +31,10 @@ namespace Character.Player
         private void LevelUp()
         {
             _playerTraits.Level++;
+            var level = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level);
+            if (level == null) return;
+            
+            _playerTraits.PointsLeft += level.Points;
         }
         
         public override void ReceiveDamage(float damage)
@@ -39,7 +44,7 @@ namespace Character.Player
 
         protected override void Die()
         {
-            
+            this.IsDead = true;
         }
 
         private void EnemyDiedEvent(Enemy DeadEnemy)

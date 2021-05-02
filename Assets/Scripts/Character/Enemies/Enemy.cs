@@ -1,5 +1,4 @@
-﻿using ScriptableObjects;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Character.Enemies
 {
@@ -7,8 +6,7 @@ namespace Character.Enemies
     {
         [SerializeField] private GameObject _damagePrefab;
         [SerializeField] private Transform _damageSpawnPosition;
-        [SerializeField] private CombatChannel _combatChannel;
-        
+
         public override void ReceiveDamage(float damage)
         {
             var position = _damageSpawnPosition.position;
@@ -27,7 +25,7 @@ namespace Character.Enemies
 
         protected override void Die()
         {
-            _combatChannel.OnEnemyDied(this);
+            this.IsDead = true;
         }
     }
 }

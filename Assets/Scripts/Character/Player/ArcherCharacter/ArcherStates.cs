@@ -1,6 +1,5 @@
 ﻿using System;
-using Character.Player.States.ArcherStates;
-using Player.States;
+using State.States.ArcherStates;
 using UnityEngine;
 
 namespace Player.Archer

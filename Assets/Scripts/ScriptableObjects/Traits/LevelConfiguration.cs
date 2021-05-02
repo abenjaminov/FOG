@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
@@ -16,6 +17,7 @@ namespace ScriptableObjects
     public class Level
     {
         public int Order;
-        public int fromExp;
+        public int FromExp;
+        public int Points;
     }
 }

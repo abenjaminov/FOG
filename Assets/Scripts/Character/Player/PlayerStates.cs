@@ -1,6 +1,6 @@
 ﻿using System;
-using Player.States;
 using State;
+using State.States;
 using UnityEngine;
 
 namespace Player
@@ -18,26 +18,25 @@ namespace Player
         protected Animator _animator;
         protected Rigidbody2D _rigidBody;
 
-        protected PlayerIdleState _idle;
-        protected PlayerWalkLeftState _walkLeft;
-        protected PlayerWalkRightState _walkRight;
+        protected IdleState _idle;
+        protected WalkLeftState _walkLeft;
+        protected WalkRightState _walkRight;
         protected PlayerJumpingState _jump;
         protected PlayerFallState _fall;
 
         protected virtual void Awake()
         {
             _stateMachine = new StateMachine(false);
-
-
+            
             var playerMovement = GetComponent<PlayerMovement>();
             _rigidBody = GetComponent<Rigidbody2D>();
             var playerGroundCheck = GetComponentInChildren<GroundCheck>();
             var collider2D = GetComponent<Collider2D>();
             _animator = GetComponent<Animator>();
             
-            _idle = new PlayerIdleState(playerMovement,_animator);
-            _walkLeft = new PlayerWalkLeftState(playerMovement, _animator, _walkingSpeed);
-            _walkRight = new PlayerWalkRightState(playerMovement, _animator, _walkingSpeed);
+            _idle = new IdleState(playerMovement);
+            _walkLeft = new WalkLeftState(playerMovement, _animator, _walkingSpeed);
+            _walkRight = new WalkRightState(playerMovement, _animator, _walkingSpeed);
             _jump = new PlayerJumpingState(collider2D, _animator, playerMovement, _jumpingHeight,_rigidBody);
             _fall = new PlayerFallState(collider2D, _animator, _rigidBody);
 

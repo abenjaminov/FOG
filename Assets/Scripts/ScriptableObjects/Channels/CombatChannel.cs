@@ -1,10 +1,9 @@
-﻿using System;
-using Character.Enemies;
+﻿using Character.Enemies;
 using Platformer;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Channels
 {
     [CreateAssetMenu(fileName = "Combat Channel", menuName = "Channels/Combat Channel", order = 1)]
     public class CombatChannel : ScriptableObject

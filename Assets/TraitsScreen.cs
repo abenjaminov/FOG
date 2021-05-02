@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ public class TraitsScreen : MonoBehaviour
 {
     [SerializeField] private PlayerTraits _playerTraits;
     [SerializeField] private LevelConfiguration _levelConfiguration;
-
+    [SerializeField] private InputChannel _inputChannel;
+    
     [SerializeField] private List<GameObject> _addButtons;
     
     [SerializeField] private TextMeshProUGUI _dexText;
@@ -22,7 +24,14 @@ public class TraitsScreen : MonoBehaviour
     
     private void Awake()
     {
+        this.ToggleView();
+        _inputChannel.RegisterKeyDown(KeyCode.T, ToggleView);
         UpdateTraitsUI();
+    }
+
+    private void ToggleView()
+    {
+        this.gameObject.SetActive(!this.gameObject.activeSelf);
     }
 
     private void UpdateTraitsUI()
@@ -30,7 +39,6 @@ public class TraitsScreen : MonoBehaviour
         _dexText.SetText(_playerTraits.Dexterity.ToString());
         _strText.SetText(_playerTraits.Strength.ToString());
         _defText.SetText(_playerTraits.Defense.ToString());
-        _pointsText.SetText(_playerTraits.PointsLeft.ToString());
 
         SetExp();
 
@@ -54,15 +62,17 @@ public class TraitsScreen : MonoBehaviour
 
     private void SetExp()
     {
+        _levelText.SetText(_playerTraits.Level.ToString());
+        _pointsText.SetText(_playerTraits.PointsLeft.ToString());
+        
         if (previousExp == _playerTraits.ExperienceGained) return;
         
         var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
         var expText = nextLevel != null
-            ? _playerTraits.ExperienceGained.ToString() + " / " + (nextLevel.fromExp).ToString()
+            ? _playerTraits.ExperienceGained.ToString() + " / " + (nextLevel.FromExp)
             : "Max Level Reached";
 
         _expText.SetText(expText);
-        _levelText.SetText(_playerTraits.Level.ToString());
     }
 
     private void Update()
