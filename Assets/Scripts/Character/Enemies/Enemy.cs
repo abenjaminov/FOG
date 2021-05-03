@@ -25,6 +25,7 @@ namespace Character.Enemies
 
         protected override void Die()
         {
+            _collider.enabled = false;
             this.IsDead = true;
         }
     }

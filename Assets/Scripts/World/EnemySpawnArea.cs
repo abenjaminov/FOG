@@ -49,9 +49,9 @@ namespace World
         {
             while (_isSpawning)
             {
-                Spawn();
-                
                 yield return new WaitForSeconds(_spawnInterval);
+                
+                Spawn();
             }
 
             yield return null;
