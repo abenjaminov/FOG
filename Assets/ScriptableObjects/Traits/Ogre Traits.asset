@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b14b8e73164d148dd7b9a0842d9c47, type: 3}
   m_Name: Ogre Traits
   m_EditorClassIdentifier: 
-  Health: 15
+  MaxHealth: 10
   Defense: 1
   Level: 1
   Strength: 1

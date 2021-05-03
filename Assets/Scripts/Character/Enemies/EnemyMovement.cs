@@ -10,6 +10,9 @@ namespace Character.Enemies
         private float _horizontalSpeed;
         private Vector2 _direction;
         [SerializeField] private GameObject _enemyVisuals;
+
+        public Vector2 LeftBounds;
+        public Vector2 RightBounds;
         
         private void Update()
         {

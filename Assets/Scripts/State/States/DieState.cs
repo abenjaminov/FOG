@@ -30,7 +30,7 @@ namespace State.States
 
         public virtual void OnExit()
         {
-            
+            TimeDead = 0;
         }
     }
 }

@@ -7,11 +7,15 @@ namespace State.States.EnemyStates
     public class EnemyWalkState : WalkState
     {
         private EnemyMovement _movement;
+        private Vector2 _rightBounds;
+        private Vector2 _leftBounds;
         
-        public EnemyWalkState(ICharacterMovement characterMovement, Animator animator, float speed) : 
+        public EnemyWalkState(EnemyMovement characterMovement, 
+            Animator animator, 
+            float speed) : 
             base(characterMovement, animator, speed)
         {
-            _movement = (EnemyMovement) characterMovement;
+            _movement = characterMovement;
         }
 
         public override void Tick()
@@ -21,8 +25,8 @@ namespace State.States.EnemyStates
 
         public override void OnEnter()
         {
-            var random = Random.Range(-3, 3);
-            var target = new Vector2(_movement.transform.position.x + random, _movement.transform.position.y);
+            var random = Random.Range(_movement.LeftBounds.x, _movement.RightBounds.x);
+            var target = new Vector2(random, _movement.transform.position.y);
             _movement.SetTarget(target);
             
             base.OnEnter();

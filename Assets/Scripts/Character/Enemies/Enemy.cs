@@ -15,7 +15,7 @@ namespace Character.Enemies
             damageText.SetPosition(position);
 
             _health = Mathf.Max(0,_health - damage);
-            _healthUI?.ReduceHealth(_health / Traits.Health);
+            _healthUI?.SetHealth(_health / Traits.MaxHealth);
             
             if (_health <= 0)
             {

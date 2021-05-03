@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Basic Traits", menuName = "Game Stats/Basic Traits", order = 0)]
     public class Traits : ScriptableObject
     {
-        public int Health;
+        public int MaxHealth;
         public int Defense;
         
         [Range(1,10)]

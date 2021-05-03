@@ -15,7 +15,7 @@ namespace Enemies
             _fullWidth = _healthValueImage.rectTransform.rect.width;
         }
         
-        public void ReduceHealth(float percentage)
+        public void SetHealth(float percentage)
         {
             var newWidth = _fullWidth * percentage;
             _healthValueImage.rectTransform.sizeDelta =

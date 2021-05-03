@@ -22,7 +22,7 @@ namespace Character.Enemies
 
         private void Awake()
         {
-            _stateMachine = new StateMachine(true);
+            _stateMachine = new StateMachine(false);
             
             var enemyMovement = GetComponentInParent<EnemyMovement>();
             var animator = GetComponent<Animator>();
@@ -33,9 +33,9 @@ namespace Character.Enemies
             var dead = new EnemyDieState(enemyMovement,animator,_combatChannel, _enemy);
             var vanishState = new EmptyState();
 
-            var ShouldStand = new Func<bool>(() => enemyMovement.Target != Vector2.positiveInfinity &&
+            var ShouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
                                                    Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .1f);
-            var ShouldWalk = new Func<bool>(() => idle.IdleTime >= _idleTimeBetweenTargets);
+            var ShouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets);
             var ShouldDie = new Func<bool>(() => _enemy.IsDead);
             var ShouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime);
             
@@ -47,12 +47,17 @@ namespace Character.Enemies
             
             _stateMachine.AddTransition(vanishState,ShouldVanish,null, () =>
             {
-                Destroy(enemyMovement.gameObject);
+                enemyMovement.gameObject.SetActive(false);
             });
 
             _defaultState = idle;
         }
-        
+
+        private void OnEnable()
+        {
+            _stateMachine.SetState(_defaultState);
+        }
+
         private void Start()
         {
             _stateMachine.SetState(_defaultState);

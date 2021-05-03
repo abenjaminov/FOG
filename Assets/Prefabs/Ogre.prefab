@@ -351,6 +351,7 @@ MonoBehaviour:
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _walkingSpeed: 3
   _idleTimeBetweenTargets: 2
+  _deadDelayTime: 1
 --- !u!1 &3772371487099271975
 GameObject:
   m_ObjectHideFlags: 0

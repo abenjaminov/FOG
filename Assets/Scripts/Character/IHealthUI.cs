@@ -2,6 +2,6 @@
 {
     public interface IHealthUI
     {
-        void ReduceHealth(float percentage);
+        void SetHealth(float percentage);
     }
 }
