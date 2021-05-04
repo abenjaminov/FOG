@@ -11,8 +11,8 @@ namespace Character.Enemies
         private Vector2 _direction;
         [SerializeField] private GameObject _enemyVisuals;
 
-        public Vector2 LeftBounds;
-        public Vector2 RightBounds;
+        [HideInInspector] public Vector2 LeftBounds;
+        [HideInInspector] public Vector2 RightBounds;
         
         private void Update()
         {

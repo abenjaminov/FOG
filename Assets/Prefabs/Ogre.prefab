@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {x: Infinity, y: Infinity}
   _enemyVisuals: {fileID: 3772371486625076618}
+  LeftBounds: {x: 0, y: 0}
+  RightBounds: {x: 0, y: 0}
 --- !u!1 &3772371485917577992
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _walkingSpeed: 3
-  _idleTimeBetweenTargets: 2
+  _maxIdleTimeBetweenTargets: 1.3
+  _minIdleTimeBetweenTargets: 0.8
   _deadDelayTime: 1
 --- !u!1 &3772371487099271975
 GameObject:

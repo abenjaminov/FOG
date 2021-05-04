@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Platformer;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using TMPro;
@@ -19,6 +20,7 @@ public class TraitsScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _pointsText;
     [SerializeField] private TextMeshProUGUI _expText;
+    [SerializeField] private TextMeshProUGUI _damageText;
 
     private int previousExp = -1;
     
@@ -39,7 +41,8 @@ public class TraitsScreen : MonoBehaviour
         _dexText.SetText(_playerTraits.Dexterity.ToString());
         _strText.SetText(_playerTraits.Strength.ToString());
         _defText.SetText(_playerTraits.Defense.ToString());
-
+        _damageText.SetText(TraitsCalculator.GetMinDamage(_playerTraits) + " - " + TraitsCalculator.GetMaxDamage(_playerTraits));
+        
         SetExp();
 
         previousExp = _playerTraits.ExperienceGained;

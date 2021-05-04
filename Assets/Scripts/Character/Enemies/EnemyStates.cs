@@ -4,6 +4,7 @@ using State;
 using State.States;
 using State.States.EnemyStates;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Character.Enemies
 {
@@ -13,7 +14,9 @@ namespace Character.Enemies
 
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private float _walkingSpeed;
-        [SerializeField] private float _idleTimeBetweenTargets;
+        [SerializeField] private float _maxIdleTimeBetweenTargets;
+        [SerializeField] private float _minIdleTimeBetweenTargets;
+        private float _idleTimeBetweenTargets;
         [SerializeField] private float _deadDelayTime;
         
         private IState _defaultState;
@@ -39,7 +42,10 @@ namespace Character.Enemies
             var ShouldDie = new Func<bool>(() => _enemy.IsDead);
             var ShouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime);
             
-            _stateMachine.AddTransition(idle, ShouldStand, walk);
+            _stateMachine.AddTransition(idle, ShouldStand, walk, () =>
+            {
+                this._idleTimeBetweenTargets = Random.Range(_minIdleTimeBetweenTargets, _maxIdleTimeBetweenTargets);
+            });
             _stateMachine.AddTransition(walk, ShouldWalk, idle);
             
             _stateMachine.AddTransition(dead, ShouldDie, idle);
