@@ -1,5 +1,6 @@
 ﻿using Platformer;
 using ScriptableObjects;
+using UI;
 using UnityEngine;
 
 namespace Character
@@ -13,6 +14,9 @@ namespace Character
         private IHealthUI _healthUIl;
         protected float _health;
         protected int _defense;
+        
+        [SerializeField] private Transform _damageSpawnPosition;
+        [SerializeField] private GameObject _damagePrefab;
         
         protected IHealthUI _healthUI;
         
@@ -31,6 +35,14 @@ namespace Character
             IsDead = false;
             _healthUI?.SetHealth(1);
             _collider.enabled = true;
+        }
+
+        protected void DisplayDamage(float damage)
+        {
+            var position = _damageSpawnPosition.position;
+            var damageText = Instantiate(_damagePrefab, position, Quaternion.identity).GetComponent<DamageText>();
+            damageText.SetText(damage.ToString());
+            damageText.SetPosition(position);
         }
         
         public abstract void ReceiveDamage(float damage);

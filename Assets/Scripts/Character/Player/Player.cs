@@ -39,7 +39,16 @@ namespace Character.Player
         
         public override void ReceiveDamage(float damage)
         {
+            if (IsDead) return;
             
+            DisplayDamage(damage);
+            
+            _health -= damage;
+
+            if (_health <= 0)
+            {
+                IsDead = true;
+            }
         }
 
         protected override void Die()

@@ -5,15 +5,11 @@ namespace Character.Enemies
 {
     public abstract class Enemy : Character
     {
-        [SerializeField] private GameObject _damagePrefab;
-        [SerializeField] private Transform _damageSpawnPosition;
+        
 
         public override void ReceiveDamage(float damage)
         {
-            var position = _damageSpawnPosition.position;
-            var damageText = Instantiate(_damagePrefab, position, Quaternion.identity).GetComponent<DamageText>();
-            damageText.SetText(damage.ToString());
-            damageText.SetPosition(position);
+            DisplayDamage(damage);
 
             _health = Mathf.Max(0,_health - damage);
             _healthUI?.SetHealth(_health / Traits.MaxHealth);

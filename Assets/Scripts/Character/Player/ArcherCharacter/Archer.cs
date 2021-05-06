@@ -19,11 +19,6 @@ namespace Character.Player.ArcherCharacter
             arrow.Range = TraitsCalculator.CalculateAttackRange(Traits);
         }
 
-        public override void ReceiveDamage(float damage)
-        {
-            
-        }
-
         protected override void Die()
         {
             

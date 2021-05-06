@@ -1,6 +1,7 @@
 ﻿using System;
 using State;
 using State.States;
+using State.States.PlayerStates;
 using UnityEngine;
 
 namespace Player
@@ -23,6 +24,7 @@ namespace Player
         protected WalkRightState _walkRight;
         protected PlayerJumpingState _jump;
         protected PlayerFallState _fall;
+        protected DieState _dead;
 
         protected virtual void Awake()
         {
@@ -33,12 +35,14 @@ namespace Player
             var playerGroundCheck = GetComponentInChildren<GroundCheck>();
             var collider2D = GetComponent<Collider2D>();
             _animator = GetComponent<Animator>();
+            var _player = GetComponent<Character.Player.Player>();
             
             _idle = new IdleState(playerMovement);
             _walkLeft = new WalkLeftState(playerMovement, _animator, _walkingSpeed);
             _walkRight = new WalkRightState(playerMovement, _animator, _walkingSpeed);
             _jump = new PlayerJumpingState(collider2D, _animator, playerMovement, _jumpingHeight,_rigidBody);
             _fall = new PlayerFallState(collider2D, _animator, _rigidBody);
+            _dead = new PlayerDieState(playerMovement, _animator);
 
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0);
@@ -48,6 +52,7 @@ namespace Player
             var walkLeftAfterLand = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
             var walkRightAfterLand = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw > 0 && _rigidBody.velocity.y < 0);
             var idleAfterJump = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw == 0 && _rigidBody.velocity.y < 0);
+            var shouldDie = new Func<bool>(() => _player.IsDead);
 
             _stateMachine.AddTransition(_idle, noHorizontalInput, _walkLeft);
             _stateMachine.AddTransition(_idle, noHorizontalInput, _walkRight);
@@ -70,6 +75,12 @@ namespace Player
             
             _stateMachine.AddTransition(_fall, shouldFall,_walkLeft);
             _stateMachine.AddTransition(_fall, shouldFall,_walkRight);
+            
+            _stateMachine.AddTransition(_dead, shouldDie,_fall);
+            _stateMachine.AddTransition(_dead, shouldDie,_jump);
+            _stateMachine.AddTransition(_dead, shouldDie,_walkRight);
+            _stateMachine.AddTransition(_dead, shouldDie,_walkLeft);
+            _stateMachine.AddTransition(_dead, shouldDie,_idle);
 
             _defaultState = _idle;
         }
