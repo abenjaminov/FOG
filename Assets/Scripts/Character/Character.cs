@@ -20,12 +20,11 @@ namespace Character
         
         protected IHealthUI _healthUI;
         
-        private void Awake()
+        protected virtual void Awake()
         {
             _health = Traits.MaxHealth;
             _defense = _defense;
             _collider = GetComponent<Collider2D>();
-            
             _healthUI = GetComponent<IHealthUI>();
         }
 

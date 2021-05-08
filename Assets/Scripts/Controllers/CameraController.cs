@@ -1,21 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Camera
+namespace Controllers
 {
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private BoxCollider2D _boundsCollider;
         [SerializeField] private Transform _player;
+        private UnityEngine.Camera _camera;
         
         private float _rightBound;
         private float _leftBound;
         private float _topBound;
         private float _bottomBound;
 
+        private void Awake()
+        {
+            _camera = GetComponent<Camera>();
+        }
+
         private void Start()
         {
-            var vertExtent = UnityEngine.Camera.main.orthographicSize;
+            var vertExtent = _camera.orthographicSize;
             var horizExtent = vertExtent * Screen.width / Screen.height;
 
             var bounds = _boundsCollider.bounds;

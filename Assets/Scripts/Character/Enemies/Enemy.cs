@@ -1,11 +1,19 @@
-﻿using UI;
+﻿using Game;
+using UI;
 using UnityEngine;
 
 namespace Character.Enemies
 {
     public abstract class Enemy : Character
     {
-        
+        private Dropper _dropper;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            _dropper = GetComponentInParent<Dropper>();
+        }
 
         public override void ReceiveDamage(float damage)
         {
@@ -24,6 +32,7 @@ namespace Character.Enemies
         {
             _collider.enabled = false;
             this.IsDead = true;
+            _dropper.Drop();
         }
     }
 }

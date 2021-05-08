@@ -11,9 +11,11 @@ namespace Character.Player
         private PlayerTraits _playerTraits;
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
-        
-        void Awake()
+
+        protected override void Awake()
         {
+            base.Awake();
+            
             _playerTraits = Traits as PlayerTraits;;
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
