@@ -9,13 +9,17 @@ namespace Player
     {
         public bool IsOnGround;
         public UnityAction<bool, float> OnGroundChanged;
+        public float CurrentPlatformY;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 IsOnGround = true;
-                OnGroundChanged?.Invoke(IsOnGround, other.transform.position.y);
+                var position = other.transform.position;
+                
+                OnGroundChanged?.Invoke(IsOnGround, position.y);
+                CurrentPlatformY = position.y;
             }
         }
 

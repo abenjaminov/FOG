@@ -1,55 +1,59 @@
 ﻿using System;
 using Player;
-using TMPro.EditorUtilities;
+using State;
+using State.States.DropStates;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
     public class Drop : MonoBehaviour
     {
-        private Sprite _sprite;
         [SerializeField] private float _lifeSpan;
         [SerializeField] private float _dropHeight;
 
         private GroundCheck _groundCheck;
         private FloatUpDown _floatComponent;
+        private FadeoutToPoint _fadeoutComponent;
         private SpriteRenderer _renderer;
         private float _timeAlive;
         private Collider2D _collider;
 
-        private float _speed;
+        private bool _isPickedUp;
+
+        private StateMachine _stateMachine;
+        private PickedUpState _pickedUpState;
+        private DroppedState _droppedState;
+        private FloatState _floatState;
 
         private void Awake()
         {
+            
+            _renderer = GetComponent<SpriteRenderer>();
+            _groundCheck = GetComponentInChildren<GroundCheck>();
+            _collider = GetComponent<Collider2D>();
+            _fadeoutComponent = GetComponent<FadeoutToPoint>();
+            _fadeoutComponent.enabled = false;
             _floatComponent = GetComponent<FloatUpDown>();
             _floatComponent.enabled = false;
             
-            _renderer = GetComponent<SpriteRenderer>();
+            _stateMachine = new StateMachine();
 
-            _speed = Mathf.Sqrt(2 * 9.8f * (_dropHeight + Random.Range(-.05f,.05f)));
+            _droppedState = new DroppedState(_floatComponent, transform, _dropHeight, _fadeoutComponent);
+            _floatState = new FloatState(_floatComponent, _groundCheck, _collider, transform);
+            _pickedUpState = new PickedUpState(_floatComponent, _fadeoutComponent, transform);
 
-            _groundCheck = GetComponent<GroundCheck>();
-            _groundCheck.OnGroundChanged += OnGroundChanged;
-
-            _collider = GetComponent<Collider2D>();
+            var shouldFloat = new Func<bool>(() => _groundCheck.IsOnGround);
+            var shouldBePickedUp = new Func<bool>(() => _isPickedUp);
+            
+            _stateMachine.AddTransition(_floatState,shouldFloat, _droppedState);
+            _stateMachine.AddTransition(_pickedUpState,shouldBePickedUp, _floatState);
+            
+            _stateMachine.SetState(_droppedState);
         }
 
         public void SetSprite(Sprite sprite)
         {
             _renderer.sprite = sprite;
-        }
-
-        private void OnGroundChanged(bool isOnGround, float maxHeight)
-        {
-            if (!_floatComponent.enabled && isOnGround)
-            {
-                _floatComponent.enabled = true;
-                _groundCheck.enabled = false;
-                var position = transform.position;
-                position = new Vector3(position.x, maxHeight - _collider.offset.y, position.z);
-                transform.position = position;
-            }
         }
 
         private void Update()
@@ -61,11 +65,13 @@ namespace Game
                 Destroy(gameObject);
             }
 
-            if (_floatComponent.enabled) return;
-            
-            transform.Translate(Vector3.up * (_speed * Time.deltaTime));
+            _stateMachine.Tick();
+        }
 
-            _speed -= 9.8f * Time.deltaTime;
+        public void OnPickedUp(Transform playerTransform)
+        {
+            _pickedUpState.SetPlayerTransform(playerTransform);
+            _isPickedUp = true;
         }
     }
 }

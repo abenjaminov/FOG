@@ -34,9 +34,8 @@ namespace Character.Player.Archer
             if (other.TryGetComponent(typeof(Character), out var character))
             {
                 _combatChannel.OnCharacterHit(ParentCharacter, (Character)character);
+                Destroy(gameObject);
             }
-        
-            Destroy(gameObject);
         }
     }
 }
