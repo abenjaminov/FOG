@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.Channels;
 using State;
 using State.States;
 using State.States.PlayerStates;
@@ -9,12 +10,14 @@ namespace Player
     public class PlayerStates : MonoBehaviour
     {
         protected StateMachine _stateMachine;
+        [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private float _walkingSpeed;
         [SerializeField] private float _jumpingHeight;
 
         private IState _defaultState;
         protected int _horizontalAxisRaw;
-        private bool _isLeftAltDown;
+        private bool _isJumpButtonDown;
+        private bool _isPickupButtonDown;
 
         protected Animator _animator;
         protected Rigidbody2D _rigidBody;
@@ -47,7 +50,7 @@ namespace Player
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0);
             var walkRight = new Func<bool>(() => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0);
-            var shouldJump = new Func<bool>(() =>  _isLeftAltDown && playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
+            var shouldJump = new Func<bool>(() =>  _isJumpButtonDown && playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var shouldFall = new Func<bool>(() =>  !playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var walkLeftAfterLand = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
             var walkRightAfterLand = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw > 0 && _rigidBody.velocity.y < 0);
@@ -83,6 +86,15 @@ namespace Player
             _stateMachine.AddTransition(_dead, shouldDie,_idle);
 
             _defaultState = _idle;
+            
+            RegisterKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
+            RegisterKey(KeyCode.Z,(isKeyDown) => { _isPickupButtonDown = isKeyDown; });
+        }
+
+        private void RegisterKey(KeyCode keyCode, Action<bool> setValue)
+        {
+            _inputChannel.RegisterKeyDown(keyCode, () => setValue(true));
+            _inputChannel.RegisterKeyUp(keyCode, () => setValue(false));
         }
 
         private void Start()
@@ -93,8 +105,7 @@ namespace Player
         protected virtual void Update()
         {
             _horizontalAxisRaw = (int) Input.GetAxisRaw("Horizontal");
-            _isLeftAltDown = Input.GetKeyDown(KeyCode.LeftAlt);
-            
+
             _stateMachine.Tick();
         }
     }

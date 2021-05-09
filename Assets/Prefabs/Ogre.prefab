@@ -65,9 +65,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dropItems:
   - ItemData: {fileID: 11400000, guid: df9d569116e257e48a4ebed9289df66f, type: 2}
-    Percentage: 0.95
+    Percentage: 0.87
   _dropPosition: {fileID: 3772371485917577999}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
+  multiDropOffset: 0.5
 --- !u!1 &3772371485917577992
 GameObject:
   m_ObjectHideFlags: 0

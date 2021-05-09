@@ -2,6 +2,7 @@
 using Player;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -26,7 +27,7 @@ namespace Game
             
             _renderer = GetComponent<SpriteRenderer>();
 
-            _speed = Mathf.Sqrt(2 * 9.8f * _dropHeight);
+            _speed = Mathf.Sqrt(2 * 9.8f * (_dropHeight + Random.Range(-.05f,.05f)));
 
             _groundCheck = GetComponent<GroundCheck>();
             _groundCheck.OnGroundChanged += OnGroundChanged;
@@ -60,7 +61,7 @@ namespace Game
                 Destroy(gameObject);
             }
 
-            if (!_groundCheck.enabled) return;
+            if (_floatComponent.enabled) return;
             
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
 
