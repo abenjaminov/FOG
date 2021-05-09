@@ -8,14 +8,14 @@ namespace Player
     public class GroundCheck : MonoBehaviour
     {
         public bool IsOnGround;
-        public UnityAction<bool> OnGroundChanged;
+        public UnityAction<bool, float> OnGroundChanged;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 IsOnGround = true;
-                OnGroundChanged?.Invoke(IsOnGround);
+                OnGroundChanged?.Invoke(IsOnGround, other.transform.position.y);
             }
         }
 
@@ -24,7 +24,7 @@ namespace Player
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 IsOnGround = false;
-                OnGroundChanged?.Invoke(IsOnGround);
+                OnGroundChanged?.Invoke(IsOnGround, other.transform.position.y);
             }
         }
     }

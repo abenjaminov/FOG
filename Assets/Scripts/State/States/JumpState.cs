@@ -30,7 +30,7 @@ namespace State.States
         {
             var jumpVelocity = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, jumpVelocity);
-            _rigidBody2D.gravityScale = 1;
+            //_rigidBody2D.gravityScale = 1;
             _collider.enabled = false;
             _playerAnimator.SetBool(CachedAnimatorPropertyNames.IsJumping, true);
         }
@@ -38,7 +38,7 @@ namespace State.States
         public void OnExit()
         {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, 0);
-            _rigidBody2D.gravityScale = 0;
+            //_rigidBody2D.gravityScale = 0;
             _collider.enabled = true;
             _playerAnimator.SetBool(CachedAnimatorPropertyNames.IsJumping, false);
         }

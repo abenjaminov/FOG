@@ -15,6 +15,7 @@ namespace Game
         private FloatUpDown _floatComponent;
         private SpriteRenderer _renderer;
         private float _timeAlive;
+        private Collider2D _collider;
 
         private float _speed;
 
@@ -29,6 +30,8 @@ namespace Game
 
             _groundCheck = GetComponent<GroundCheck>();
             _groundCheck.OnGroundChanged += OnGroundChanged;
+
+            _collider = GetComponent<Collider2D>();
         }
 
         public void SetSprite(Sprite sprite)
@@ -36,10 +39,16 @@ namespace Game
             _renderer.sprite = sprite;
         }
 
-        private void OnGroundChanged(bool isOnGround)
+        private void OnGroundChanged(bool isOnGround, float maxHeight)
         {
-            if(!_floatComponent.enabled && isOnGround)
+            if (!_floatComponent.enabled && isOnGround)
+            {
                 _floatComponent.enabled = true;
+                _groundCheck.enabled = false;
+                var position = transform.position;
+                position = new Vector3(position.x, maxHeight - _collider.offset.y, position.z);
+                transform.position = position;
+            }
         }
 
         private void Update()
@@ -51,7 +60,7 @@ namespace Game
                 Destroy(gameObject);
             }
 
-            if (_groundCheck.IsOnGround) return;
+            if (!_groundCheck.enabled) return;
             
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
 

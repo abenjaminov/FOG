@@ -27,12 +27,12 @@ namespace State.States
         {
             _animator.SetBool(CachedAnimatorPropertyNames.IsFalling, true);
             _collider.enabled = false;
-            _rigidBody2D.gravityScale = 1;
+            //_rigidBody2D.gravityScale = 1;
         }
 
         public void OnExit()
         {
-            _rigidBody2D.gravityScale = 0;
+            //_rigidBody2D.gravityScale = 0;
             _collider.enabled = true;
             _animator.SetBool(CachedAnimatorPropertyNames.IsFalling, false);
         }
