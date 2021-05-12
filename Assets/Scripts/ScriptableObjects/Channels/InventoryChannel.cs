@@ -1,0 +1,18 @@
+﻿using Game;
+using ScriptableObjects.Inventory;
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace ScriptableObjects.Channels
+{
+    [CreateAssetMenu(fileName = "Inventory Channel", menuName = "Channels/Inventory Channel", order = 2)]
+    public class InventoryChannel : ScriptableObject
+    {
+        public UnityAction<InventoryItem> ItemAddedEvent;
+
+        public void OnItemAdded(InventoryItem item)
+        {
+            ItemAddedEvent?.Invoke(item);
+        }
+    }
+}

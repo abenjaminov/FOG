@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Character.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -11,6 +12,7 @@ namespace UI
 {
     public class InfoPanel : MonoBehaviour
     {
+        [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] TextMeshProUGUI _infoTextPrefab;
         [SerializeField] private int _maxInfos;
@@ -25,6 +27,8 @@ namespace UI
         void Awake()
         {
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
+            _inventoryChannel.ItemAddedEvent += ItemAddedEvent; 
+            
             _rectTransform = GetComponent<RectTransform>();
             _textHeight = _infoTextPrefab.rectTransform.sizeDelta.y;
             _initialYForText = _textHeight / 2;
@@ -40,7 +44,7 @@ namespace UI
                 });
             }
         }
-
+        
         private void Update()
         {
             for (int i = 0; i < _allTexts.Count; i++)
@@ -59,12 +63,22 @@ namespace UI
             }
         }
 
+        private void ItemAddedEvent(InventoryItem item)
+        {
+            AddInfoItem("Gained " + item.ItemMeta.Name + " (" + item.Amount + ")");
+        }
+        
         private void EnemyDiedEvent(Enemy enemy)
+        {
+            AddInfoItem(((EnemyTraits) enemy.Traits).Experience + " Exp Gained");
+        }
+
+        private void AddInfoItem(string itemText)
         {
             var infoText = _allTexts[_nextInfoIndex].TextMesh;
             infoText.rectTransform.localPosition =
                 new Vector2(-_rectTransform.sizeDelta.x, _initialYForText - _textHeight);
-            infoText.SetText(((EnemyTraits)enemy.Traits).Experience + " Exp Gained");
+            infoText.SetText(itemText);
 
             foreach (var text in _allTexts)
             {

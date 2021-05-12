@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using ScriptableObjects;
 using ScriptableObjects.Inventory;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -11,6 +13,7 @@ namespace Game
         [SerializeField] private List<DropItem> _dropItems;
         [SerializeField] private Transform _dropPosition;
         [SerializeField] private Drop _dropPrefab;
+        [SerializeField] private Traits _dropperTraits;
         [SerializeField] private float multiDropOffset;
 
         public void Drop()
@@ -35,14 +38,14 @@ namespace Game
         {
             var position = _dropPosition.position + new Vector3(xPositionOffset, 0, 0);
             var drop = Instantiate(_dropPrefab, position, Quaternion.identity).GetComponent<Drop>();
-            drop.SetSprite(item.ItemData.ItemSprite);
+            drop.SetInventoryItemMeta(item.ItemMetaData, _dropperTraits);
         }
     }
 
     [Serializable]
     public class DropItem
     {
-        public InventoryItem ItemData;
+        public InventoryItemMeta ItemMetaData;
         public float Percentage;
     }
 }

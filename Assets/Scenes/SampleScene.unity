@@ -3736,10 +3736,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8f7a7aa5d08ed418de78fa62f51898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _infoTextPrefab: {fileID: 3230446801751585693, guid: e8ff01985f8d3654d8c7e9212418477b, type: 3}
   _maxInfos: 7
-  _fadingTime: 2
+  _fadingTime: 3
 --- !u!114 &1481537548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,6 +4537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
 --- !u!61 &1823315361
 BoxCollider2D:
   m_ObjectHideFlags: 0

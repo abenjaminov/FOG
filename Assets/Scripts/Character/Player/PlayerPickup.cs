@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Inventory;
 using UnityEngine;
 
 namespace Character.Player
@@ -9,6 +10,7 @@ namespace Character.Player
     public class PlayerPickup : MonoBehaviour
     {
         [SerializeField] private InputChannel _inputChannel;
+        [SerializeField] private Inventory _playerInventory;
         private List<Drop> _dropsInRange;
 
         private void Awake()
@@ -27,7 +29,7 @@ namespace Character.Player
 
             itemToPickup.OnPickedUp(transform);
 
-            // TODO : Add To Inventory
+            _playerInventory.AddItem(itemToPickup.InventoryItemMeta, itemToPickup.Amount);
         }
         
         private void OnTriggerEnter2D(Collider2D other)

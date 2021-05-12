@@ -1,5 +1,8 @@
 ﻿using System;
+using Helpers;
 using Player;
+using ScriptableObjects;
+using ScriptableObjects.Inventory;
 using State;
 using State.States.DropStates;
 using UnityEngine;
@@ -24,6 +27,9 @@ namespace Game
         private PickedUpState _pickedUpState;
         private DroppedState _droppedState;
         private FloatState _floatState;
+        
+        [HideInInspector] public InventoryItemMeta InventoryItemMeta { get; set; }
+        [HideInInspector] public int Amount { get; private set; }
 
         private void Awake()
         {
@@ -51,9 +57,11 @@ namespace Game
             _stateMachine.SetState(_droppedState);
         }
 
-        public void SetSprite(Sprite sprite)
+        public void SetInventoryItemMeta(InventoryItemMeta invItemMeta, Traits dropperTraits)
         {
-            _renderer.sprite = sprite;
+            InventoryItemMeta = invItemMeta;
+            _renderer.sprite = invItemMeta.ItemSprite;
+            this.Amount = InventoryHelper.GetDropAmount(invItemMeta, dropperTraits);
         }
 
         private void Update()
