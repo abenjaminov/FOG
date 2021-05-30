@@ -8,12 +8,11 @@ using UnityEngine;
 
 namespace UI
 {
-    public class TraitsScreen : MonoBehaviour
+    public class TraitsScreen : GUIScreen
     {
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] private LevelConfiguration _levelConfiguration;
-        [SerializeField] private InputChannel _inputChannel;
-    
+
         [SerializeField] private List<GameObject> _addButtons;
     
         [SerializeField] private TextMeshProUGUI _dexText;
@@ -25,20 +24,13 @@ namespace UI
         [SerializeField] private TextMeshProUGUI _damageText;
 
         private int previousExp = -1;
-    
-        private void Awake()
+
+        protected override KeyCode GetActivationKey()
         {
-            this.ToggleView();
-            _inputChannel.RegisterKeyDown(KeyCode.T, ToggleView);
-            UpdateTraitsUI();
+            return KeyCode.T;
         }
 
-        private void ToggleView()
-        {
-            this.gameObject.SetActive(!this.gameObject.activeSelf);
-        }
-
-        private void UpdateTraitsUI()
+        protected override void UpdateUI()
         {
             _dexText.SetText(_playerTraits.Dexterity.ToString());
             _strText.SetText(_playerTraits.Strength.ToString());
@@ -89,21 +81,21 @@ namespace UI
         {
             _playerTraits.PointsLeft--;
             _playerTraits.Strength++;
-            UpdateTraitsUI();
+            UpdateUI();
         }
 
         public void AddDexterity()
         {
             _playerTraits.PointsLeft--;
             _playerTraits.Dexterity++;
-            UpdateTraitsUI();
+            UpdateUI();
         }
     
         public void AddDefense()
         {
             _playerTraits.PointsLeft--;
             _playerTraits.Defense++;
-            UpdateTraitsUI();
+            UpdateUI();
         }
     }
 }
