@@ -15,4 +15,4 @@ MonoBehaviour:
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   OwnedItems:
   - ItemMeta: {fileID: 11400000, guid: df9d569116e257e48a4ebed9289df66f, type: 2}
-    Amount: 90
+    Amount: 1501

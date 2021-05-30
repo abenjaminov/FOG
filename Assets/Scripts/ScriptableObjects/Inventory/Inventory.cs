@@ -32,7 +32,7 @@ namespace ScriptableObjects.Inventory
                 OwnedItems.Add(newItem);
             }
 
-            _inventoryChannel.OnItemAdded(newItem);
+            _inventoryChannel.OnItemAdded(newItem, item);
         }
         
         public void RemoveItem(InventoryItemMeta itemMetaData, int amount)

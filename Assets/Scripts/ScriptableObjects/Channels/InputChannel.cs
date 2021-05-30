@@ -20,7 +20,7 @@ namespace ScriptableObjects.Channels
         
         public void OnKeyUp(KeyCode keyCode)
         {
-            var action = MappedKeyUpActions[keyCode];
+            MappedKeyUpActions.TryGetValue(keyCode, out var action);
             action?.Invoke();
         }
 
