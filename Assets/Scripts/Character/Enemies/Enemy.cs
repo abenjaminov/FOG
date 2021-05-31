@@ -7,6 +7,7 @@ namespace Character.Enemies
     public abstract class Enemy : Character
     {
         private Dropper _dropper;
+        private float _health;
 
         protected override void Awake()
         {
@@ -19,13 +20,19 @@ namespace Character.Enemies
         {
             DisplayDamage(damage);
 
-            Traits.SetCurrentHealth(Mathf.Max(0,_health - damage));
-            _healthUI?.SetHealth(Traits.GetCurrentHealth() / Traits.MaxHealth);
+            _health = Mathf.Max(0,_health - damage);
+            _healthUI?.SetHealth(_health / Traits.MaxHealth);
             
-            if (Traits.GetCurrentHealth() <= 0)
+            if (_health <= 0)
             {
-                this.Die();
+                Die();
             }
+        }
+
+        public override void ComeAlive()
+        {
+            base.ComeAlive();
+            _health = Traits.MaxHealth;
         }
 
         protected override void Die()

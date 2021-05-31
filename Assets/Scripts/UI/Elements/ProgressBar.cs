@@ -9,9 +9,9 @@ namespace UI
         protected float MaxValue;
         protected  float CurrentValue;
 
-        [SerializeField] private RectTransform _background;
-        [SerializeField] private RectTransform _foreground;
-        [SerializeField] private TextMeshProUGUI _progressText;
+        [SerializeField] protected  RectTransform _background;
+        [SerializeField] protected RectTransform _foreground;
+        [SerializeField] protected  TextMeshProUGUI _progressText;
         
         protected virtual void UpdateUI()
         {

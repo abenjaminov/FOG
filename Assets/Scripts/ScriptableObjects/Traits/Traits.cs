@@ -8,9 +8,9 @@ namespace ScriptableObjects
     public class Traits : ScriptableObject
     {
         public UnityAction HealthChangedEvent;
+        public UnityAction LevelUpEvent;
         
         public float MaxHealth;
-        private float CurrentHealth;
         public int Defense;
         
         [Range(1,10)]
@@ -18,22 +18,5 @@ namespace ScriptableObjects
 
         public int Strength;
         public int Dexterity;
-
-        public void SetCurrentHealth(float health)
-        {
-            CurrentHealth = health;
-            HealthChangedEvent?.Invoke();
-        }
-        
-        public void ChangeCurrentHealth(float healthDelta)
-        {
-            CurrentHealth += healthDelta;
-            HealthChangedEvent?.Invoke();
-        }
-
-        public float GetCurrentHealth()
-        {
-            return CurrentHealth;
-        }
     }
 }

@@ -32,7 +32,7 @@ namespace Character.Player
 
         private void LevelUp()
         {
-            _playerTraits.Level++;
+            _playerTraits.LevelUp();
             var level = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level);
             if (level == null) return;
             
@@ -45,9 +45,9 @@ namespace Character.Player
             
             DisplayDamage(damage);
             
-            Traits.ChangeCurrentHealth(-damage);
+            _playerTraits.ChangeCurrentHealth(-damage);
 
-            if (Traits.GetCurrentHealth() <= 0)
+            if (_playerTraits.GetCurrentHealth() <= 0)
             {
                 IsDead = true;
             }

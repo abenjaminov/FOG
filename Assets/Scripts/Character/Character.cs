@@ -27,9 +27,8 @@ namespace Character
             _healthUI = GetComponent<IHealthUI>();
         }
 
-        public void ComeAlive()
+        public virtual void ComeAlive()
         {
-            Traits.SetCurrentHealth(Traits.MaxHealth);
             IsDead = false;
             _healthUI?.SetHealth(1);
             _collider.enabled = true;

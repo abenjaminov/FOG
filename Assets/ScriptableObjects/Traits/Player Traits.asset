@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   Defense: 5
-  Level: 1
-  Strength: 5
-  Dexterity: 5
-  PointsLeft: 0
-  _experienceGained: 0
+  Level: 6
+  Strength: 20
+  Dexterity: 20
+  CurrentHealth: 87
+  PointsLeft: 20
+  _experienceGained: 168
+  _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
