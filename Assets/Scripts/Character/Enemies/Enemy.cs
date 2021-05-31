@@ -19,10 +19,10 @@ namespace Character.Enemies
         {
             DisplayDamage(damage);
 
-            _health = Mathf.Max(0,_health - damage);
-            _healthUI?.SetHealth(_health / Traits.MaxHealth);
+            Traits.SetCurrentHealth(Mathf.Max(0,_health - damage));
+            _healthUI?.SetHealth(Traits.GetCurrentHealth() / Traits.MaxHealth);
             
-            if (_health <= 0)
+            if (Traits.GetCurrentHealth() <= 0)
             {
                 this.Die();
             }

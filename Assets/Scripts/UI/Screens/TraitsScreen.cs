@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Platformer;
 using ScriptableObjects;
-using ScriptableObjects.Channels;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.Screens
 {
     public class TraitsScreen : GUIScreen
     {

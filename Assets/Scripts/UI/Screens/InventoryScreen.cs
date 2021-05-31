@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Helpers;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
@@ -9,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Screens
 {
     public class InventoryScreen : GUIScreen
     {

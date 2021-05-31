@@ -45,9 +45,9 @@ namespace Character.Player
             
             DisplayDamage(damage);
             
-            _health -= damage;
+            Traits.ChangeCurrentHealth(-damage);
 
-            if (_health <= 0)
+            if (Traits.GetCurrentHealth() <= 0)
             {
                 IsDead = true;
             }

@@ -1,7 +1,7 @@
 ﻿using ScriptableObjects.Channels;
 using UnityEngine;
 
-namespace UI
+namespace UI.Screens
 {
     public abstract class GUIScreen : MonoBehaviour
     {

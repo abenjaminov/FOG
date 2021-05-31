@@ -22,7 +22,6 @@ namespace Character
         
         protected virtual void Awake()
         {
-            _health = Traits.MaxHealth;
             _defense = _defense;
             _collider = GetComponent<Collider2D>();
             _healthUI = GetComponent<IHealthUI>();
@@ -30,7 +29,7 @@ namespace Character
 
         public void ComeAlive()
         {
-            _health = Traits.MaxHealth;
+            Traits.SetCurrentHealth(Traits.MaxHealth);
             IsDead = false;
             _healthUI?.SetHealth(1);
             _collider.enabled = true;
