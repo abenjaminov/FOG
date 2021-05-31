@@ -7,6 +7,7 @@ namespace ScriptableObjects.Inventory
     {
         public string Name;
         public Sprite ItemSprite;
+        public Sprite InventoryItemSprite;
         public bool IsCurrency;
     }
 }

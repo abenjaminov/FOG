@@ -22,7 +22,7 @@ namespace Game
             
             foreach (var dropItem in _dropItems)
             {
-                var randomNumber = Random.Range(0, 1);
+                var randomNumber = Random.Range(0f, 1f);
                 if (randomNumber <= dropItem.Percentage)
                 {
                     var offsetValue = (numberOfInstantiated + 1) / 2;

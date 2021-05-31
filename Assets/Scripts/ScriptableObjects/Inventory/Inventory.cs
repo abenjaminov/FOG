@@ -12,6 +12,7 @@ namespace ScriptableObjects.Inventory
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
         public List<InventoryItem> OwnedItems;
+        public InventoryItem CurrencyItem;
 
         public void AddItem(InventoryItemMeta itemMetaData, int amount)
         {
@@ -20,6 +21,12 @@ namespace ScriptableObjects.Inventory
                 ItemMeta = itemMetaData,
                 Amount = amount
             };
+
+            if (itemMetaData.IsCurrency)
+            {
+                AddCurrency(newItem, amount);
+                return;
+            }
             
             var item = OwnedItems.FirstOrDefault(x => x.ItemMeta.Name == itemMetaData.Name);
             
@@ -34,7 +41,14 @@ namespace ScriptableObjects.Inventory
 
             _inventoryChannel.OnItemAdded(newItem, item);
         }
-        
+
+        private void AddCurrency(InventoryItem currencyAddition, int amount)
+        {
+            CurrencyItem.Amount += amount;
+            
+            _inventoryChannel.OnItemAdded(currencyAddition, CurrencyItem);
+        }
+
         public void RemoveItem(InventoryItemMeta itemMetaData, int amount)
         {
             var item = OwnedItems.FirstOrDefault(x => x.ItemMeta.Name == itemMetaData.Name);

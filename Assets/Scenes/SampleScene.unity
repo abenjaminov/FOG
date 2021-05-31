@@ -4957,7 +4957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 62
+      value: 176.4
       objectReference: {fileID: 0}
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4974,6 +4974,18 @@ PrefabInstance:
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357323005037746517, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357323005037746517, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357323005037746517, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
