@@ -7,7 +7,6 @@ namespace Character.Enemies
     public abstract class Enemy : Character
     {
         private Dropper _dropper;
-        private float _health;
 
         protected override void Awake()
         {

@@ -29,24 +29,27 @@ namespace Player
         protected PlayerFallState _fall;
         protected DieState _dead;
 
+        [SerializeField] private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        
         protected virtual void Awake()
         {
             _stateMachine = new StateMachine(false);
-            
+
+            _character = GetComponent<Assets.HeroEditor.Common.CharacterScripts.Character>();
             var playerMovement = GetComponent<PlayerMovement>();
             _rigidBody = GetComponent<Rigidbody2D>();
             var playerGroundCheck = GetComponentInChildren<GroundCheck>();
             var collider2D = GetComponent<Collider2D>();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
             var _player = GetComponent<Character.Player.Player>();
             
-            _idle = new IdleState(playerMovement);
-            _walkLeft = new WalkLeftState(playerMovement, _animator, _walkingSpeed);
-            _walkRight = new WalkRightState(playerMovement, _animator, _walkingSpeed);
-            _jump = new PlayerJumpingState(collider2D, _animator, playerMovement, _jumpingHeight,_rigidBody);
-            _fall = new PlayerFallState(collider2D, _animator, _rigidBody);
-            _dead = new PlayerDieState(playerMovement, _animator);
-
+            _idle = new IdleState(playerMovement, _character);
+            _walkLeft = new WalkLeftState(_character, playerMovement, _animator, _walkingSpeed);
+            _walkRight = new WalkRightState(_character, playerMovement, _animator, _walkingSpeed);
+            _jump = new PlayerJumpingState(collider2D, _animator, playerMovement, _jumpingHeight,_rigidBody, _character);
+            _fall = new PlayerFallState(collider2D, _animator, _rigidBody, _character);
+            _dead = new PlayerDieState(_character, playerMovement, _animator);
+            
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0);
             var walkRight = new Func<bool>(() => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0);

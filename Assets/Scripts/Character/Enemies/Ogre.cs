@@ -1,7 +1,4 @@
-using Character.Enemies;
-using Platformer;
-
-namespace Enemies
+namespace Character.Enemies
 {
     public class Ogre : Enemy
     {

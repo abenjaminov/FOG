@@ -9,8 +9,8 @@ namespace State.States.EnemyStates
         private CombatChannel _combatChannel;
         private Enemy _enemy;
         
-        public EnemyDieState(EnemyMovement movement,Animator animator, CombatChannel combatChannel, Enemy enemy) 
-            : base(movement, animator)
+        public EnemyDieState(Assets.HeroEditor.Common.CharacterScripts.Character character,EnemyMovement movement,Animator animator, CombatChannel combatChannel, Enemy enemy) 
+            : base(character, movement, animator)
         {
             _combatChannel = combatChannel;
             _enemy = enemy;

@@ -1,0 +1,2288 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba669b94ec0c484e85b7afb7407f75ba, type: 3}
+  m_Name: IconCollection
+  m_EditorClassIdentifier: 
+  Backgrounds:
+  - {fileID: 21300000, guid: 6a7965a697c24a689633cfa2a821ca7e, type: 3}
+  - {fileID: 21300000, guid: 533abca1f345417e984b150a43d1ef78, type: 3}
+  - {fileID: 21300000, guid: b7b50a648b914b71a63c6ede8a31ea9b, type: 3}
+  - {fileID: 21300000, guid: 176661c66228466f9f74c027f6d60f9f, type: 3}
+  - {fileID: 21300000, guid: 3d210ed8562242d3804c2502b7312c3a, type: 3}
+  - {fileID: 21300000, guid: dbff44ea28934646b14fff229f0db0d9, type: 3}
+  Id: WesternHeroes
+  ScanFolder: {fileID: 102900000, guid: 77e2d2a6fc854aaa92003100039a74ad, type: 3}
+  ScanFolders:
+  - {fileID: 102900000, guid: 77e2d2a6fc854aaa92003100039a74ad, type: 3}
+  Icons:
+  - Id: WesternHeroes.Basic.Armor.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: f3223c76c49546718802b630ee9e1577, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: 2b6b6ea69881428d90535d00fa54c9b9, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: 5f580a2193fb4cc3ab98565f2d2e945b, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: 074da08178634e708521ee8f1bd77aaa, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: b1359854175746adb2fe8bda32ef7ac9, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: 736b3019f11b47b48dcbb7d1ac2a532b, type: 3}
+  - Id: WesternHeroes.Basic.Armor.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: efe956d6d93b4457b482e05372bddcd7, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: 89819d8c76414cdcb641fc229e445433, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: 9287fa55bc5644728a4646d7779b5d67, type: 3}
+  - Id: WesternHeroes.Basic.Armor.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: 811c515a10f74cd59edf108997909fd2, type: 3}
+  - Id: WesternHeroes.Basic.Arrow.NativeBowTypeA.Arrow
+    Name: NativeBowTypeA.Arrow
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Arrow/Basic/NativeBowTypeA.Arrow.png
+    Sprite: {fileID: 21300000, guid: b399fed9a6c541ceabd4eb7fb355763f, type: 3}
+  - Id: WesternHeroes.Basic.Arrow.NativeBowTypeB.Arrow
+    Name: NativeBowTypeB.Arrow
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Arrow/Basic/NativeBowTypeB.Arrow.png
+    Sprite: {fileID: 21300000, guid: 7dd1e406c0f64fcc879d77af6ae37dbf, type: 3}
+  - Id: WesternHeroes.Basic.Arrow.NativeBowTypeC.Arrow
+    Name: NativeBowTypeC.Arrow
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Arrow/Basic/NativeBowTypeC.Arrow.png
+    Sprite: {fileID: 21300000, guid: 9dccfc48749245e1b93b7893de5fdee5, type: 3}
+  - Id: WesternHeroes.Basic.Back.NativeArrowQuiver
+    Name: NativeArrowQuiver
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Back/Basic/NativeArrowQuiver.png
+    Sprite: {fileID: 21300000, guid: 7f1170a0d0d84d038be258d0d9ae1c85, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Beard
+    Name: Beard
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Beard.png
+    Sprite: {fileID: 21300000, guid: 9a893966d07642e299a7ea436a2007bc, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache1
+    Name: Moustache1
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache1.png
+    Sprite: {fileID: 21300000, guid: 7e0d6a2abcba406f899833c72ecc68a5, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache2
+    Name: Moustache2
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache2.png
+    Sprite: {fileID: 21300000, guid: 6a7b8a8769fa47c6bf19c03ffc425592, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache3
+    Name: Moustache3
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache3.png
+    Sprite: {fileID: 21300000, guid: 383d7a8780db41e5b383f59e23314a71, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache4
+    Name: Moustache4
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache4.png
+    Sprite: {fileID: 21300000, guid: e72783967e044da1bacdb6d1263e61ec, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache5
+    Name: Moustache5
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache5.png
+    Sprite: {fileID: 21300000, guid: 57bdf647787a4f748f7ba7af65aac594, type: 3}
+  - Id: WesternHeroes.Basic.Beard.Moustache6
+    Name: Moustache6
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Beard/Basic/Moustache6.png
+    Sprite: {fileID: 21300000, guid: 08ab78aabe8b446b8b6d272336006032, type: 3}
+  - Id: WesternHeroes.Basic.Belt.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: 91e754a8437103b4d987e00c5f8d00b7, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: d63939004af047a43bd7959819b225a4, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: d667dfbaba3321a46b419be91cf5c93d, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: bac41f768555df048b3042991df8bc34, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: 33a79452ed1a82542b6000d7aa6953fb, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: 5057172f052a2ae4db011d8cecd23c5b, type: 3}
+  - Id: WesternHeroes.Basic.Belt.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: 41ffe07395dcb6041870537e99fdff9b, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: c3af33d11ea8a7c409821bb5b72ae744, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: 096c593d81a75f445935b9221023f7ce, type: 3}
+  - Id: WesternHeroes.Basic.Belt.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: de5a788659edb214cbf7aa12fec9d75b, type: 3}
+  - Id: WesternHeroes.Basic.Body.Human
+    Name: Human
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Body/Basic/Human.png
+    Sprite: {fileID: 21300000, guid: dee3b37ecff04f2bb954074742665874, type: 3}
+  - Id: WesternHeroes.Basic.Boots.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: 8ce1bd0e77aa6a34685dbdf83b3aedce, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: e2e05b3748068f64183e3edf238053f9, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: a86e05026a2f74a49adfe40a0210a582, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: 408d09633ee469d428f154c729f05ca0, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: 37383e18610d7fc4585f1598dfeeeac0, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: 2ea68593ad3bac44db127e4578089f2b, type: 3}
+  - Id: WesternHeroes.Basic.Boots.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: 790f9eeca5a0bce44970fe56c1eeee49, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: 0d93c9f8d1aaed64fbe0ef42106625e4, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: 1a3de79d0e4a2e34ba9923eddc23dcec, type: 3}
+  - Id: WesternHeroes.Basic.Boots.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: 83071ce07b28bc443bed36cf9bd6f62d, type: 3}
+  - Id: WesternHeroes.Basic.Bow.NativeBowTypeA
+    Name: NativeBowTypeA
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Bow/Basic/NativeBowTypeA.png
+    Sprite: {fileID: 21300000, guid: 59271de51e5e4cfb8687e3c6d5dd7aa5, type: 3}
+  - Id: WesternHeroes.Basic.Bow.NativeBowTypeB
+    Name: NativeBowTypeB
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Bow/Basic/NativeBowTypeB.png
+    Sprite: {fileID: 21300000, guid: 09852ca7fc3a4e1dbafcf05d0f3658db, type: 3}
+  - Id: WesternHeroes.Basic.Bow.NativeBowTypeC
+    Name: NativeBowTypeC
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Bow/Basic/NativeBowTypeC.png
+    Sprite: {fileID: 21300000, guid: aae172034cd745cdba4e40569e837eba, type: 3}
+  - Id: WesternHeroes.Basic.Cape.CotttonCape [Paint]
+    Name: CotttonCape [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Cape/Basic/CotttonCape
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: b0db3b5a078e4e45988592c1b53d3cd1, type: 3}
+  - Id: WesternHeroes.Basic.Cape.OldCape1 [Paint]
+    Name: OldCape1 [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Cape/Basic/OldCape1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: e18e756b80e2476abb4daab0e0debf63, type: 3}
+  - Id: WesternHeroes.Basic.Cape.OldCape2 [Paint]
+    Name: OldCape2 [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Cape/Basic/OldCape2
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 6e5b8c7115614d8598bce9373d27bf94, type: 3}
+  - Id: WesternHeroes.Basic.Earrings.Feathers
+    Name: Feathers
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Earrings/Basic/Feathers.png
+    Sprite: {fileID: 21300000, guid: d28000e89c70410ba3257bc5470b316f, type: 3}
+  - Id: WesternHeroes.Basic.Earrings.GoldenEarring
+    Name: GoldenEarring
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Earrings/Basic/GoldenEarring.png
+    Sprite: {fileID: 21300000, guid: 1fd554631a754cfc9e597018fa6ad3c6, type: 3}
+  - Id: WesternHeroes.Basic.Ears.ElfEar
+    Name: ElfEar
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Ears/Basic/ElfEar.png
+    Sprite: {fileID: 21300000, guid: f917acec665742b9b75a4fa6b75506ff, type: 3}
+  - Id: WesternHeroes.Basic.Ears.HumanEar
+    Name: HumanEar
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Ears/Basic/HumanEar.png
+    Sprite: {fileID: 21300000, guid: c6156688906f4a1c80fe017def25216a, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Angry
+    Name: Angry
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Angry.png
+    Sprite: {fileID: 21300000, guid: ca7288a0e3a045d292043cfd759d9015, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal1
+    Name: Normal1
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal1.png
+    Sprite: {fileID: 21300000, guid: a539802abbee42e384e4b0f93b0ac93d, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal2
+    Name: Normal2
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal2.png
+    Sprite: {fileID: 21300000, guid: 058e247df9f545fa8cab1f895e46b027, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal3
+    Name: Normal3
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal3.png
+    Sprite: {fileID: 21300000, guid: a3ace16f0479402393a59807de6c4fb2, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal4
+    Name: Normal4
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal4.png
+    Sprite: {fileID: 21300000, guid: 39306b5897d048e19cc0e31096b08e01, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal5
+    Name: Normal5
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal5.png
+    Sprite: {fileID: 21300000, guid: a9b36a7372c44188915dce57b346b766, type: 3}
+  - Id: WesternHeroes.Basic.Eyebrows.Normal6
+    Name: Normal6
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Basic/Normal6.png
+    Sprite: {fileID: 21300000, guid: 5702136d6e3b4d1dbbb3f01c931c220f, type: 3}
+  - Id: WesternHeroes.Basic.Eyes.Dead
+    Name: Dead
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Basic/Dead.png
+    Sprite: {fileID: 21300000, guid: 0b067e804856439c8f52d2b8e0df4986, type: 3}
+  - Id: WesternHeroes.Basic.Eyes.Female
+    Name: Female
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Basic/Female.png
+    Sprite: {fileID: 21300000, guid: 94bb82aba2f54888b165200bf7701246, type: 3}
+  - Id: WesternHeroes.Basic.Eyes.Male
+    Name: Male
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Basic/Male.png
+    Sprite: {fileID: 21300000, guid: e227e3763a254394a262f6559bfafe05, type: 3}
+  - Id: WesternHeroes.Basic.Firearms1H.BorderGun
+    Name: BorderGun
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms1H/Basic/BorderGun.png
+    Sprite: {fileID: 21300000, guid: 3fddbf9cee9a4f79af390a0296cbbd9b, type: 3}
+  - Id: WesternHeroes.Basic.Firearms1H.Deserter
+    Name: Deserter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms1H/Basic/Deserter.png
+    Sprite: {fileID: 21300000, guid: 8a5b9f7c6b4a4629a7bb2670a3a1b00c, type: 3}
+  - Id: WesternHeroes.Basic.Firearms1H.Lawgiver
+    Name: Lawgiver
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms1H/Basic/Lawgiver.png
+    Sprite: {fileID: 21300000, guid: 5b2b90b11d2e4856afbd6f55ecb976e7, type: 3}
+  - Id: WesternHeroes.Basic.Firearms1H.Quickshot
+    Name: Quickshot
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms1H/Basic/Quickshot.png
+    Sprite: {fileID: 21300000, guid: d8a11194cc58445097f44186eef3f786, type: 3}
+  - Id: WesternHeroes.Basic.Firearms2H.ChiefGun
+    Name: ChiefGun
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Basic/ChiefGun.png
+    Sprite: {fileID: 21300000, guid: 9680c01cacf34ecc876de77e72e4dae4, type: 3}
+  - Id: WesternHeroes.Basic.Firearms2H.GunfighterRifle
+    Name: GunfighterRifle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Basic/GunfighterRifle.png
+    Sprite: {fileID: 21300000, guid: 2ec51e07e4db4970aa3e3b741ad7b9fc, type: 3}
+  - Id: WesternHeroes.Basic.Firearms2H.LittleHelper
+    Name: LittleHelper
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Basic/LittleHelper.png
+    Sprite: {fileID: 21300000, guid: fe208e7d1df04082bd544ff2c2b3e3cc, type: 3}
+  - Id: WesternHeroes.Basic.Firearms2H.Sweetheart
+    Name: Sweetheart
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Basic/Sweetheart.png
+    Sprite: {fileID: 21300000, guid: cc6c0d98da9146d58d5fbc7ca2a5367b, type: 3}
+  - Id: WesternHeroes.Basic.Firearms2H.TrooperRifle
+    Name: TrooperRifle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Basic/TrooperRifle.png
+    Sprite: {fileID: 21300000, guid: 63e2bb55d8da482fa9a676ef7ed7cb64, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.CasualGlasses
+    Name: CasualGlasses
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/CasualGlasses.png
+    Sprite: {fileID: 21300000, guid: 87c37c3901124631968c3ffa4475fbbb, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.Eyeglasses
+    Name: Eyeglasses
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/Eyeglasses.png
+    Sprite: {fileID: 21300000, guid: 51da6520280248aba12ba61ace88ca9e, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.Eyepatch
+    Name: Eyepatch
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/Eyepatch.png
+    Sprite: {fileID: 21300000, guid: dcad2e6537f64c71969cdb48291ab0bd, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.LibrarianGlasses
+    Name: LibrarianGlasses
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/LibrarianGlasses.png
+    Sprite: {fileID: 21300000, guid: 579d1bc129c241efb10afc52bbfa8c9e, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.Monocle
+    Name: Monocle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/Monocle.png
+    Sprite: {fileID: 21300000, guid: 4dd6989fe90b48fda16a1794de16528e, type: 3}
+  - Id: WesternHeroes.Basic.Glasses.SteampunkGlasses
+    Name: SteampunkGlasses
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Glasses/Basic/SteampunkGlasses.png
+    Sprite: {fileID: 21300000, guid: 99518aa0cdaa4e66afcd6e86355031de, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: 5f98187cbc400a547a887bbc6a3b3066, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: 69869027d1953ba4494fb07aafe5d33a, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: ea99671ae94ac174fbec64841f4603e4, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: cf78c892483750b4396c90e63d9821d9, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: ed64cb288eefde944a021a94ac9d8515, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: d990b3165c2c5f0459827cc699fe8e74, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: 2a37b3bc876d34f488acacd94e8a011f, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: 16a367e5386e01142bd528614c251f41, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: e343253f7c00b57498991cb542060f21, type: 3}
+  - Id: WesternHeroes.Basic.Gloves.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: b33e5419d97d20948a03a755993b4b0a, type: 3}
+  - Id: WesternHeroes.Basic.Hair.Afro
+    Name: Afro
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/Afro.png
+    Sprite: {fileID: 21300000, guid: b1057710ca314aeabae5b404fe142e1e, type: 3}
+  - Id: WesternHeroes.Basic.Hair.AfroSmall
+    Name: AfroSmall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/AfroSmall.png
+    Sprite: {fileID: 21300000, guid: 7f602960764642d4a0cc689f01814d0f, type: 3}
+  - Id: WesternHeroes.Basic.Hair.BuzzCut
+    Name: BuzzCut
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/BuzzCut.png
+    Sprite: {fileID: 21300000, guid: 5680c78d6b2e429483c7f0aca1135d9c, type: 3}
+  - Id: WesternHeroes.Basic.Hair.Leaky
+    Name: Leaky
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/Leaky.png
+    Sprite: {fileID: 21300000, guid: 444f3d19d8b345688375b4f3a66a1f46, type: 3}
+  - Id: WesternHeroes.Basic.Hair.LongHair
+    Name: LongHair
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/LongHair.png
+    Sprite: {fileID: 21300000, guid: df32ed2d1f6947eaaa4f3ca5ac807f2a, type: 3}
+  - Id: WesternHeroes.Basic.Hair.Mohawk
+    Name: Mohawk
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/Mohawk.png
+    Sprite: {fileID: 21300000, guid: 27f47da465014ba09d05b0338e1f0539, type: 3}
+  - Id: WesternHeroes.Basic.Hair.PushedBack
+    Name: PushedBack
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/PushedBack.png
+    Sprite: {fileID: 21300000, guid: 271c2e7d4e5743a5939cde642edb2c61, type: 3}
+  - Id: WesternHeroes.Basic.Hair.Shaggy
+    Name: Shaggy
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/Shaggy.png
+    Sprite: {fileID: 21300000, guid: d705620d1282464f9c0b3351e46a1432, type: 3}
+  - Id: WesternHeroes.Basic.Hair.ShortHair
+    Name: ShortHair
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/ShortHair.png
+    Sprite: {fileID: 21300000, guid: d933cd4e381844d29fe5332264bdb49a, type: 3}
+  - Id: WesternHeroes.Basic.Hair.ShortPonytail
+    Name: ShortPonytail
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/ShortPonytail.png
+    Sprite: {fileID: 21300000, guid: 2a56662a679047f5ad802959e12f2547, type: 3}
+  - Id: WesternHeroes.Basic.Hair.SideFringe
+    Name: SideFringe
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/SideFringe.png
+    Sprite: {fileID: 21300000, guid: 008c7b4707374924a7d3862b2617be61, type: 3}
+  - Id: WesternHeroes.Basic.Hair.Slicked
+    Name: Slicked
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/Slicked.png
+    Sprite: {fileID: 21300000, guid: 4b2d110471534d0fa4f49711903a2808, type: 3}
+  - Id: WesternHeroes.Basic.Hair.SlickedTwintales
+    Name: SlickedTwintales
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/SlickedTwintales.png
+    Sprite: {fileID: 21300000, guid: adeeb7c582014ef8a093000a22713531, type: 3}
+  - Id: WesternHeroes.Basic.Hair.ZombieShabby
+    Name: ZombieShabby
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/ZombieShabby.png
+    Sprite: {fileID: 21300000, guid: 25c9599a7f2047dc98e5966d740c4760, type: 3}
+  - Id: WesternHeroes.Basic.Hair.ZombieSticks
+    Name: ZombieSticks
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Basic/ZombieSticks.png
+    Sprite: {fileID: 21300000, guid: 1f13f57e82cd4a76a91f85a6a046788a, type: 3}
+  - Id: WesternHeroes.Basic.Head.Head
+    Name: Head
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Head/Basic/Head.png
+    Sprite: {fileID: 21300000, guid: e860bb5a0a9f4d629b15c234b31d56df, type: 3}
+  - Id: WesternHeroes.Basic.Head.HeadScar
+    Name: HeadScar
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Head/Basic/HeadScar.png
+    Sprite: {fileID: 21300000, guid: bdf9c9fd4b92453eba98a58d55f8ac7a, type: 3}
+  - Id: WesternHeroes.Basic.Head.PeasantHead
+    Name: PeasantHead
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Head/Basic/PeasantHead.png
+    Sprite: {fileID: 21300000, guid: 9b743be5d1664eb5b9f68bb5c7f3555c, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.BountyHunterHat
+    Name: BountyHunterHat
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/BountyHunterHat.png
+    Sprite: {fileID: 21300000, guid: 43afd4fb478343658e4d5d87c87bfcc0, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.Cutter
+    Name: Cutter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/Cutter.png
+    Sprite: {fileID: 21300000, guid: 300a7b695275412a9da673086e17dd67, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.Gambler
+    Name: Gambler
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/Gambler.png
+    Sprite: {fileID: 21300000, guid: c011ef06ed39441982cc88d19edee7a3, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.GunslingerHat
+    Name: GunslingerHat
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/GunslingerHat.png
+    Sprite: {fileID: 21300000, guid: a9f5052c5fac45fbbef218a48ce768ce, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.MarksmanHat
+    Name: MarksmanHat
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/MarksmanHat.png
+    Sprite: {fileID: 21300000, guid: 7a5ae9dea24646bf96b64dd7182cedb1, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.MarshallHat
+    Name: MarshallHat
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/MarshallHat.png
+    Sprite: {fileID: 21300000, guid: 904818f3f7a34c54a46816a3ce25710f, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.NativeWarriorHeadband [FullHair]
+    Name: NativeWarriorHeadband [FullHair]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/NativeWarriorHeadband
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: d9a93fff2967405e8fa7efa68303e925, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.NativeWarriorHeadgear
+    Name: NativeWarriorHeadgear
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/NativeWarriorHeadgear.png
+    Sprite: {fileID: 21300000, guid: e2bc81557ba449ddb4a07add8068d8bb, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.PinchFront
+    Name: PinchFront
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/PinchFront.png
+    Sprite: {fileID: 21300000, guid: 9059f677329d48e3bc80581ea35a63b1, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.RidgeTop
+    Name: RidgeTop
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/RidgeTop.png
+    Sprite: {fileID: 21300000, guid: 1ade9e8aa7c94c25851d9b1545e0fc92, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.RiflemanCap
+    Name: RiflemanCap
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/RiflemanCap.png
+    Sprite: {fileID: 21300000, guid: 80e1823adca742b681bdfc457b0c89df, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.SheriffHat
+    Name: SheriffHat
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/SheriffHat.png
+    Sprite: {fileID: 21300000, guid: 2e41dd38bcb746eb9a01d21ad8c528a0, type: 3}
+  - Id: WesternHeroes.Basic.Helmet.Sombrero
+    Name: Sombrero
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Basic/Sombrero.png
+    Sprite: {fileID: 21300000, guid: eea82ae0a34a4f799c8ef6c0972dbf9e, type: 3}
+  - Id: WesternHeroes.Basic.Mask.BanditBlindfoldTypeA [Paint]
+    Name: BanditBlindfoldTypeA [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/BanditBlindfoldTypeA
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 4a4889d1de5f41c082b8d5917e3ae1c3, type: 3}
+  - Id: WesternHeroes.Basic.Mask.BanditBlindfoldTypeB [Paint]
+    Name: BanditBlindfoldTypeB [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/BanditBlindfoldTypeB
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: dc6993d2dcc34af0b8c49e66a0ded42c, type: 3}
+  - Id: WesternHeroes.Basic.Mask.BanditBlindfoldTypeC [Paint]
+    Name: BanditBlindfoldTypeC [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/BanditBlindfoldTypeC
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 9c626e9ea67e45d5953213bf692c0e4e, type: 3}
+  - Id: WesternHeroes.Basic.Mask.BanditMask [Paint]
+    Name: BanditMask [Paint]
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/BanditMask
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 138a0463a7d44fba904415644e40bbc8, type: 3}
+  - Id: WesternHeroes.Basic.Mask.ScullBlindfold
+    Name: ScullBlindfold
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/ScullBlindfold.png
+    Sprite: {fileID: 21300000, guid: 5f71b97b5a36437ab8b39c3c29d4787c, type: 3}
+  - Id: WesternHeroes.Basic.Mask.ShoeBlindfold
+    Name: ShoeBlindfold
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Mask/Basic/ShoeBlindfold.png
+    Sprite: {fileID: 21300000, guid: 66bb47d0f86c498f802b610584a3cc9b, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.CheapAxe
+    Name: CheapAxe
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/CheapAxe.png
+    Sprite: {fileID: 21300000, guid: 369831af820a4f619b7b2b82137df434, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.HuntsmanKnife
+    Name: HuntsmanKnife
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Dagger/HuntsmanKnife.png
+    Sprite: {fileID: 21300000, guid: d11e3b6e12424a5bb36263cdca4aadd0, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.NativeAxe
+    Name: NativeAxe
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/NativeAxe.png
+    Sprite: {fileID: 21300000, guid: 85c55ce14a3145c4afcc09fb89d49cdd, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.NativeDagger
+    Name: NativeDagger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Dagger/NativeDagger.png
+    Sprite: {fileID: 21300000, guid: ca86ab698c47484d87436c10d55c976d, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.NativeDoubleAxe
+    Name: NativeDoubleAxe
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/NativeDoubleAxe.png
+    Sprite: {fileID: 21300000, guid: ff0820a4b87845728fc8347d6977682c, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.Pan
+    Name: Pan
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/Pan.png
+    Sprite: {fileID: 21300000, guid: b661d0363f2743bab8e93f58c456e08c, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.Pick
+    Name: Pick
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/Pick.png
+    Sprite: {fileID: 21300000, guid: a4a09a226b044ec09244fdb700ef8e38, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.RitualDagger
+    Name: RitualDagger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Dagger/RitualDagger.png
+    Sprite: {fileID: 21300000, guid: 52990db574a84e0c93f0d7779164f8c5, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.Sledgehammer
+    Name: Sledgehammer
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/Sledgehammer.png
+    Sprite: {fileID: 21300000, guid: d5b0b5a3140441c483f819423e126f55, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.SmallShowel
+    Name: SmallShowel
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/SmallShowel.png
+    Sprite: {fileID: 21300000, guid: 4ed2760659da409c8f6f8568a6192c4c, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon1H.Tomahawk
+    Name: Tomahawk
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Basic/Axe/Tomahawk.png
+    Sprite: {fileID: 21300000, guid: 311492ee5ad94c17834cbd9869cba973, type: 3}
+  - Id: WesternHeroes.Basic.MeleeWeapon2H.BarbedClub
+    Name: BarbedClub
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon2H/Basic/Hammer/BarbedClub.png
+    Sprite: {fileID: 21300000, guid: f68b438593e644aeb626cdd618927b46, type: 3}
+  - Id: WesternHeroes.Basic.Mouth.Angry
+    Name: Angry
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Basic/Angry.png
+    Sprite: {fileID: 21300000, guid: e1ca0088e13d4cc691b06e25247c5006, type: 3}
+  - Id: WesternHeroes.Basic.Mouth.Grin
+    Name: Grin
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Basic/Grin.png
+    Sprite: {fileID: 21300000, guid: 38b98d53f44c4e47ab351b67b241dfe3, type: 3}
+  - Id: WesternHeroes.Basic.Mouth.Normal
+    Name: Normal
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Basic/Normal.png
+    Sprite: {fileID: 21300000, guid: a834b2af96504eb39460dc08d86f9204, type: 3}
+  - Id: WesternHeroes.Basic.Mouth.Smirk
+    Name: Smirk
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Basic/Smirk.png
+    Sprite: {fileID: 21300000, guid: 77bc8200dca54823b89b3287be18a3e6, type: 3}
+  - Id: WesternHeroes.Basic.Mouth.Zombie
+    Name: Zombie
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Basic/Zombie.png
+    Sprite: {fileID: 21300000, guid: 5750603b9d9f474980dd14306e90550a, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: 98ba4595058fd364e870581437f5ce39, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: d76ed8f984568c341adce284a96005f3, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: ddaaf8b2d3f16b349962ea72fb216135, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: 96a4c5d79ae9ce7409599a9bd6479e21, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: 36cad518df4e5724e935bfcef3163024, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: 1bafeaa5042aaec48bad95f6d979187f, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: f1b8dfffdb07955498458dc7fde29b8d, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: 78ef2485e081af44094d5657a538031b, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: d5ec5e3971fe3314c9b3cc5b55054d3e, type: 3}
+  - Id: WesternHeroes.Basic.Pauldrons.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: c99d34108fedc674dbabcce7e9efcd6b, type: 3}
+  - Id: WesternHeroes.Basic.Shield.TowerShield
+    Name: TowerShield
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Shield/Basic/TowerShield.png
+    Sprite: {fileID: 21300000, guid: 3ea7b10064214b379910badbb838395b, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.Bottle
+    Name: Bottle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/Bottle.png
+    Sprite: {fileID: 21300000, guid: 0015e22997104d08ac6b29f40f6ed2fb, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.Dynamite
+    Name: Dynamite
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/Dynamite.png
+    Sprite: {fileID: 21300000, guid: dbd589f3ec9f4c429c8c996c08cead72, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.HandBomb
+    Name: HandBomb
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/HandBomb.png
+    Sprite: {fileID: 21300000, guid: 84dcdb02948241c7954e664f7d228359, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.Lasso
+    Name: Lasso
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/Lasso.png
+    Sprite: {fileID: 21300000, guid: c0b72c1c5ab04e208b18f41a0b226a18, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.NativeBoomerang
+    Name: NativeBoomerang
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/NativeBoomerang.png
+    Sprite: {fileID: 21300000, guid: 7533b64ca3304a6eaa5a5a8f7688e1b5, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.ScotchBottle
+    Name: ScotchBottle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/ScotchBottle.png
+    Sprite: {fileID: 21300000, guid: 497b3984078640f281748d83fa16a336, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.SpikeBomb
+    Name: SpikeBomb
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/SpikeBomb.png
+    Sprite: {fileID: 21300000, guid: 76fe475f34cc4ca69e4f9435ea19ba8b, type: 3}
+  - Id: WesternHeroes.Basic.Supplies.WhiskeyBottle
+    Name: WhiskeyBottle
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Supplies/Basic/WhiskeyBottle.png
+    Sprite: {fileID: 21300000, guid: 9324a2bf42cf470eb8a5b34f30fa821e, type: 3}
+  - Id: WesternHeroes.Basic.Vest.BountyHunter
+    Name: BountyHunter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/BountyHunter.png
+    Sprite: {fileID: 21300000, guid: fe272b7516ef6eb4386f0e9afde8a3c9, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Cattleman
+    Name: Cattleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Cattleman.png
+    Sprite: {fileID: 21300000, guid: 93bd19a92cb96604ea5b4ed7a93c9d0f, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Drifter
+    Name: Drifter
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Drifter.png
+    Sprite: {fileID: 21300000, guid: 91f96b3d33bbb6e4c997a2b02fe607d3, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Gunslinger
+    Name: Gunslinger
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Gunslinger.png
+    Sprite: {fileID: 21300000, guid: 1fca6972d2a144347aa079c72b649b4e, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Marksman
+    Name: Marksman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Marksman.png
+    Sprite: {fileID: 21300000, guid: 933ef7da9ca07b749ad1b5def64ec67c, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Marshall
+    Name: Marshall
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Marshall.png
+    Sprite: {fileID: 21300000, guid: b5fee22b41656444da8fc8f71b7b01b1, type: 3}
+  - Id: WesternHeroes.Basic.Vest.NativeWarrior
+    Name: NativeWarrior
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/NativeWarrior.png
+    Sprite: {fileID: 21300000, guid: bf674be838a842240bc9bc9b0b8f12b0, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Rifleman
+    Name: Rifleman
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Rifleman.png
+    Sprite: {fileID: 21300000, guid: 63ed4d85c7a2ef144a682992eacf63e9, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Sheriff
+    Name: Sheriff
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Sheriff.png
+    Sprite: {fileID: 21300000, guid: 07b70781d8da24c48adbb5c45bef8882, type: 3}
+  - Id: WesternHeroes.Basic.Vest.Trickster
+    Name: Trickster
+    Collection: Basic
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Basic/Trickster.png
+    Sprite: {fileID: 21300000, guid: 16a794508527034418b67f9c69acc1c7, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes1
+    Name: Eyes1
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes1.png
+    Sprite: {fileID: 21300000, guid: bcd873edc6aa4170a9dbc0842e5db3d8, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes10
+    Name: Eyes10
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes10.png
+    Sprite: {fileID: 21300000, guid: 17b21f82fdf14ed8b53094934c17b2ab, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes11
+    Name: Eyes11
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes11.png
+    Sprite: {fileID: 21300000, guid: fe7819ce78254ab4ad24170f10ef08d5, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes12
+    Name: Eyes12
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes12.png
+    Sprite: {fileID: 21300000, guid: f513593ed09d43bab168270e1d178692, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes13
+    Name: Eyes13
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes13.png
+    Sprite: {fileID: 21300000, guid: d8fb3ff802ed4d8bb489f81525036135, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes14
+    Name: Eyes14
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes14.png
+    Sprite: {fileID: 21300000, guid: 5c1cfe9dab6e4053886456e4ff7e8abd, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes15
+    Name: Eyes15
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes15.png
+    Sprite: {fileID: 21300000, guid: eb28a9ca06f6430eaa843ad687d2cda7, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes2
+    Name: Eyes2
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes2.png
+    Sprite: {fileID: 21300000, guid: 0734167472dc48e684f845a43d794ee3, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes3
+    Name: Eyes3
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes3.png
+    Sprite: {fileID: 21300000, guid: 7f2346b3306a40609a025af7b7eb514d, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes4
+    Name: Eyes4
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes4.png
+    Sprite: {fileID: 21300000, guid: f7e13ac7f6bc49f0be7ecc0efc2fcf2d, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes5
+    Name: Eyes5
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes5.png
+    Sprite: {fileID: 21300000, guid: ff2487e0e9e7491fb7ecfca0d8c69e56, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes6
+    Name: Eyes6
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes6.png
+    Sprite: {fileID: 21300000, guid: b24b29b2f5b0410eb30ce2d3a7c223bf, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes7
+    Name: Eyes7
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes7.png
+    Sprite: {fileID: 21300000, guid: 52aeb268b9a048b58ba3b7be1f91fe0b, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes8
+    Name: Eyes8
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes8.png
+    Sprite: {fileID: 21300000, guid: ba0bed4b2f114e8bbbc3e2b1cbdc1c45, type: 3}
+  - Id: WesternHeroes.Bonus.Eyes.Eyes9
+    Name: Eyes9
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Bonus/Eyes9.png
+    Sprite: {fileID: 21300000, guid: 9ba7e30c081a43fda65cf42266a281ed, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms1H.LongBarrelRevolver
+    Name: LongBarrelRevolver
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms1H/Bonus/LongBarrelRevolver.png
+    Sprite: {fileID: 21300000, guid: af24a3d1f0bf4bc691df3d17639e9b35, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms2H.AutomaticRifle
+    Name: AutomaticRifle
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Bonus/AutomaticRifle.png
+    Sprite: {fileID: 21300000, guid: e71440a4710d484ebf8efcd2660fef5f, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms2H.BigBertha
+    Name: BigBertha
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Bonus/BigBertha.png
+    Sprite: {fileID: 21300000, guid: e6978893e25a43a09c2a0bd57f207e82, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms2H.Cannon
+    Name: Cannon
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Bonus/Cannon.png
+    Sprite: {fileID: 21300000, guid: 0397e51b82a34a00a552b70416a93a1a, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms2H.DoubleBarrelShotgun
+    Name: DoubleBarrelShotgun
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Bonus/DoubleBarrelShotgun.png
+    Sprite: {fileID: 21300000, guid: a5b4b60e518943efbdf47523ad3bdcab, type: 3}
+  - Id: WesternHeroes.Bonus.Firearms2H.LongBarrelSniperRifle
+    Name: LongBarrelSniperRifle
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Firearms2H/Bonus/LongBarrelSniperRifle.png
+    Sprite: {fileID: 21300000, guid: 3fc76518574149dab133937f6727c536, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.AnimeGirl
+    Name: AnimeGirl
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/AnimeGirl.png
+    Sprite: {fileID: 21300000, guid: 8dd5a0ff760142f6ab509a4e979509e2, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.Army
+    Name: Army
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/Army.png
+    Sprite: {fileID: 21300000, guid: 08130df94e45449db39f4e819068e7bd, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.BowlCut
+    Name: BowlCut
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/BowlCut.png
+    Sprite: {fileID: 21300000, guid: a3d55310fc2249d4bef5661f8d2e6fd5, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.Bundle
+    Name: Bundle
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/Bundle.png
+    Sprite: {fileID: 21300000, guid: 5ee12d4f9f4d46b7999301230edd060c, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.Clumsy
+    Name: Clumsy
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/Clumsy.png
+    Sprite: {fileID: 21300000, guid: eb121cb2de8b4571b0f1b14e43254599, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.CoolBoy
+    Name: CoolBoy
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/CoolBoy.png
+    Sprite: {fileID: 21300000, guid: 8fc5861340114917b6ef6a1a1209a368, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.Dandy
+    Name: Dandy
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/Dandy.png
+    Sprite: {fileID: 21300000, guid: 5ba48f76ea3e423ab79f461b32fb5be7, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.FauxHawk
+    Name: FauxHawk
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/FauxHawk.png
+    Sprite: {fileID: 21300000, guid: b020a72b53c448018f6439358e8924bb, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.FringedUp
+    Name: FringedUp
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/FringedUp.png
+    Sprite: {fileID: 21300000, guid: 2472822ede77400a9b05fdf9d6316153, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.SideFringeDisheveled
+    Name: SideFringeDisheveled
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/SideFringeDisheveled.png
+    Sprite: {fileID: 21300000, guid: c84f7a4cf2034665a1f909f61d967141, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.SlickedTwintalesDisheveled
+    Name: SlickedTwintalesDisheveled
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/SlickedTwintalesDisheveled.png
+    Sprite: {fileID: 21300000, guid: 8753e8b6361c4343824b22f53517e05f, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.Twisty
+    Name: Twisty
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/Twisty.png
+    Sprite: {fileID: 21300000, guid: b8a8746ff1aa4aeea1a8ff45b8644483, type: 3}
+  - Id: WesternHeroes.Bonus.Hair.VillageGirl
+    Name: VillageGirl
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Bonus/VillageGirl.png
+    Sprite: {fileID: 21300000, guid: 8f22d34542f64a62a9b4590eaa8d3486, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.1
+    Name: 1
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/1.png
+    Sprite: {fileID: 21300000, guid: fc1f52a621214ee48a7bc97d7d6e568c, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.10
+    Name: 10
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/10.png
+    Sprite: {fileID: 21300000, guid: 50174507c85c425d8d0d3fd47753ebcd, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.11
+    Name: 11
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/11.png
+    Sprite: {fileID: 21300000, guid: 25641d5bf9154c7893f3f0b43659995d, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.2
+    Name: 2
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/2.png
+    Sprite: {fileID: 21300000, guid: 3a5fbaf649c2449ca629919cb6af969d, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.3
+    Name: 3
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/3.png
+    Sprite: {fileID: 21300000, guid: 4e084010c0e14032b2e2e61031e28d23, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.4
+    Name: 4
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/4.png
+    Sprite: {fileID: 21300000, guid: 26fdf185332b4f24b3af35d6bbf7bd89, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.5
+    Name: 5
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/5.png
+    Sprite: {fileID: 21300000, guid: 988ef0a6fde24faf8e7611f53b14b205, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.6
+    Name: 6
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/6.png
+    Sprite: {fileID: 21300000, guid: 1d7d97375dc14e2eb8ce5a5fced9446a, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.7
+    Name: 7
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/7.png
+    Sprite: {fileID: 21300000, guid: 3621e7db798b464ab235cfcad6882305, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.8
+    Name: 8
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/8.png
+    Sprite: {fileID: 21300000, guid: d6ea832a442e4bb3b04be5d3247ac924, type: 3}
+  - Id: WesternHeroes.Bonus.Mouth.9
+    Name: 9
+    Collection: Bonus
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Bonus/9.png
+    Sprite: {fileID: 21300000, guid: 6c643a80aa05415099774037d9bf2f16, type: 3}
+  - Id: WesternHeroes.Christmas.Armor.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: 4c283c0f052746b9806b2c16b7e692a0, type: 3}
+  - Id: WesternHeroes.Christmas.Armor.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: ca53ac7b543a4b4d9b8410a4487cd965, type: 3}
+  - Id: WesternHeroes.Christmas.Armor.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Armor/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: a33f7c156c0e447a86d9d44d59f4fcf9, type: 3}
+  - Id: WesternHeroes.Christmas.Belt.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: 2064f1998396c5c4b81137da19a111a8, type: 3}
+  - Id: WesternHeroes.Christmas.Belt.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: 67703926dbf251640a9ccff7aa6d7b7f, type: 3}
+  - Id: WesternHeroes.Christmas.Belt.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Belt/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: b58b846a316b4f847a8c57686ca71ba1, type: 3}
+  - Id: WesternHeroes.Christmas.Boots.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: 9c72f78b79226b34cb99820872952ede, type: 3}
+  - Id: WesternHeroes.Christmas.Boots.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: 87c9e44c7c5b66b49bbe596f8511e138, type: 3}
+  - Id: WesternHeroes.Christmas.Boots.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Boots/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: d32f530887273cf4f975fbd1f07227a0, type: 3}
+  - Id: WesternHeroes.Christmas.Gloves.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: cafb611e72335ac49b027b28f9820dde, type: 3}
+  - Id: WesternHeroes.Christmas.Gloves.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: 19b963ad9f3f29c49affeb1cd62ae35e, type: 3}
+  - Id: WesternHeroes.Christmas.Gloves.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Gloves/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: 00886952abacdc54f98995ded8d1b1bb, type: 3}
+  - Id: WesternHeroes.Christmas.Helmet.SantaHat
+    Name: SantaHat
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Christmas/SantaHat.png
+    Sprite: {fileID: 21300000, guid: 2e67c23f2e564f66b82be36e003f90e2, type: 3}
+  - Id: WesternHeroes.Christmas.Helmet.SantaHelperHat1
+    Name: SantaHelperHat1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Christmas/SantaHelperHat1.png
+    Sprite: {fileID: 21300000, guid: 276f9efd80eb489daf70de7ec93724ec, type: 3}
+  - Id: WesternHeroes.Christmas.Helmet.SantaHelperHat2
+    Name: SantaHelperHat2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Christmas/SantaHelperHat2.png
+    Sprite: {fileID: 21300000, guid: 6f0eda67f4f44d56889b0e418c8ffbf6, type: 3}
+  - Id: WesternHeroes.Christmas.Helmet.SantaHelperHat3
+    Name: SantaHelperHat3
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Christmas/SantaHelperHat3.png
+    Sprite: {fileID: 21300000, guid: f96a6db9ffb5462fb79b413664dcbb4a, type: 3}
+  - Id: WesternHeroes.Christmas.MeleeWeapon1H.SantaHelperWand
+    Name: SantaHelperWand
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Christmas/Wand/SantaHelperWand.png
+    Sprite: {fileID: 21300000, guid: 20b71ad18a0b4b34b0d6def25f425373, type: 3}
+  - Id: WesternHeroes.Christmas.MeleeWeapon1H.SantaWand
+    Name: SantaWand
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/MeleeWeapon1H/Christmas/Wand/SantaWand.png
+    Sprite: {fileID: 21300000, guid: 9442093ceadb4e98bc72eb101389bc79, type: 3}
+  - Id: WesternHeroes.Christmas.Pauldrons.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: 10fe0eaf67e18624989b32c1662df1c7, type: 3}
+  - Id: WesternHeroes.Christmas.Pauldrons.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: d24a24e35dc8198499ac20be4c798c9b, type: 3}
+  - Id: WesternHeroes.Christmas.Pauldrons.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Pauldrons/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: 8c7df44f4664380428ce61996b6b0c8d, type: 3}
+  - Id: WesternHeroes.Christmas.Vest.Santa1
+    Name: Santa1
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Christmas/Santa1.png
+    Sprite: {fileID: 21300000, guid: 06ad045c619bbcf4b85e8f157dcc0738, type: 3}
+  - Id: WesternHeroes.Christmas.Vest.Santa2
+    Name: Santa2
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Christmas/Santa2.png
+    Sprite: {fileID: 21300000, guid: c9c8b4bec0c9af14791f6f80101185e2, type: 3}
+  - Id: WesternHeroes.Christmas.Vest.SantaHelper
+    Name: SantaHelper
+    Collection: Christmas
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Vest/Christmas/SantaHelper.png
+    Sprite: {fileID: 21300000, guid: 22e5f841178dc6d49be44f99b0dd18d5, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.=3=
+    Name: =3=
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/=3=.png
+    Sprite: {fileID: 21300000, guid: ba782ecc143e4acf8eee675cfd2835f8, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Annoyed
+    Name: Annoyed
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Annoyed.png
+    Sprite: {fileID: 21300000, guid: 680e4355177d4ae9b6b0d23111acc3c3, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Crying
+    Name: Crying
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Crying.png
+    Sprite: {fileID: 21300000, guid: b24abe4f94cc4d41a9417ec8fc6827f8, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Dizzy
+    Name: Dizzy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Dizzy.png
+    Sprite: {fileID: 21300000, guid: 154cb000b3d445f0858838cd754c89d8, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Eh
+    Name: Eh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Eh.png
+    Sprite: {fileID: 21300000, guid: 790e5b021c6d485e804098119985f231, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Enrage
+    Name: Enrage
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Enrage.png
+    Sprite: {fileID: 21300000, guid: c373078323904eb0b53a7066d916b55a, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Greedy
+    Name: Greedy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Greedy.png
+    Sprite: {fileID: 21300000, guid: 4210e25b9e0045aa828b50be2738664e, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Happy
+    Name: Happy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Happy.png
+    Sprite: {fileID: 21300000, guid: 8170d759b77d4e429f05933481eba3b7, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Injured
+    Name: Injured
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Injured.png
+    Sprite: {fileID: 21300000, guid: 8a480abf97df4c9fb051827ef4bd0921, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.InLove
+    Name: InLove
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/InLove.png
+    Sprite: {fileID: 21300000, guid: 0e4126b1f4704283b598e3007744ea44, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.OMG
+    Name: OMG
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/OMG.png
+    Sprite: {fileID: 21300000, guid: 762cfedaa5954e81a439b5709878205e, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Perverted
+    Name: Perverted
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Perverted.png
+    Sprite: {fileID: 21300000, guid: bf6dd497bdf34018837564d544cb76ad, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Sad
+    Name: Sad
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Sad.png
+    Sprite: {fileID: 21300000, guid: cf6a66b020234029b251fe83e307f9d6, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Sick
+    Name: Sick
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Sick.png
+    Sprite: {fileID: 21300000, guid: 3919078b4da14807bac446108fb20e46, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.Sigh
+    Name: Sigh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/Sigh.png
+    Sprite: {fileID: 21300000, guid: dfd532071db54d63a306096acfa4c3cc, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.SweatDrop
+    Name: SweatDrop
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/SweatDrop.png
+    Sprite: {fileID: 21300000, guid: 27ffd0a3603f437caeba36eed536f65e, type: 3}
+  - Id: WesternHeroes.Emoji.Eyebrows.WTF
+    Name: WTF
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Emoji/WTF.png
+    Sprite: {fileID: 21300000, guid: 544f10ada21e4da1ac08c57ceb135412, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.=3=
+    Name: =3=
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/=3=.png
+    Sprite: {fileID: 21300000, guid: 87afd0345e9445b8bd4e85a90a76d4be, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.83
+    Name: 83
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/83.png
+    Sprite: {fileID: 21300000, guid: da0f0b57001f4f3d969fc2181a8fe774, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Annoyed
+    Name: Annoyed
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Annoyed.png
+    Sprite: {fileID: 21300000, guid: 048d8769d85f495ab0617136fac2bb6a, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Blank
+    Name: Blank
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Blank.png
+    Sprite: {fileID: 21300000, guid: 6d2b8297067a4a0580d6967f5dc74246, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.BunnyFace
+    Name: BunnyFace
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/BunnyFace.png
+    Sprite: {fileID: 21300000, guid: 5ab6f97b7815437ebf6ea74b1c4ad54b, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Confused
+    Name: Confused
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Confused.png
+    Sprite: {fileID: 21300000, guid: e3642e5abe394e5aaa0e8fa91c55ec2f, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Crying
+    Name: Crying
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Crying.png
+    Sprite: {fileID: 21300000, guid: d74d62474afe4fc7833d058ae10dd412, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Dead
+    Name: Dead
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Dead.png
+    Sprite: {fileID: 21300000, guid: 20f5dc1798fc40e389d1c7cab48346ea, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Dizzy
+    Name: Dizzy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Dizzy.png
+    Sprite: {fileID: 21300000, guid: 4c91248bae1442f1b731929e7fe53f57, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Drooling
+    Name: Drooling
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Drooling.png
+    Sprite: {fileID: 21300000, guid: 305634a7e688431e9c27badbc7cfa10d, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Eh
+    Name: Eh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Eh.png
+    Sprite: {fileID: 21300000, guid: 1ac9cd55abd24d3b8b4825a6f348ed7e, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Enrage
+    Name: Enrage
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Enrage.png
+    Sprite: {fileID: 21300000, guid: 77a2cd803199489189de83d5c07ec88a, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Fishy
+    Name: Fishy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Fishy.png
+    Sprite: {fileID: 21300000, guid: 173c6e1d01324ec1b0786d8332fea5a5, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Greedy
+    Name: Greedy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Greedy.png
+    Sprite: {fileID: 21300000, guid: 70e358e3782f43899060039c7c30b192, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Happy
+    Name: Happy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Happy.png
+    Sprite: {fileID: 21300000, guid: f527d15f1a43486eb5969c7224b4d704, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Injured
+    Name: Injured
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Injured.png
+    Sprite: {fileID: 21300000, guid: 2cff90741d964bba9295f8ab3805d4aa, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.InLove
+    Name: InLove
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/InLove.png
+    Sprite: {fileID: 21300000, guid: 14f7c424e2504f879849252f9863a5ed, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Kitty
+    Name: Kitty
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Kitty.png
+    Sprite: {fileID: 21300000, guid: f034d82e62b2411ba3f5c5ad66d6f030, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.OMG
+    Name: OMG
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/OMG.png
+    Sprite: {fileID: 21300000, guid: a5ff69e64fef49a899c2999bfacc13b4, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Orly
+    Name: Orly
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Orly.png
+    Sprite: {fileID: 21300000, guid: acc83c2dc370452a9de6b88e41967684, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Perverted
+    Name: Perverted
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Perverted.png
+    Sprite: {fileID: 21300000, guid: 25a02d2d73a24e469b1340d901d8d045, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Sad
+    Name: Sad
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Sad.png
+    Sprite: {fileID: 21300000, guid: 148fa0af706a460c879e10ffdca2f7e1, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Sick
+    Name: Sick
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Sick.png
+    Sprite: {fileID: 21300000, guid: 771ce78ef0324be693828a031e3ed389, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Sigh
+    Name: Sigh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Sigh.png
+    Sprite: {fileID: 21300000, guid: 43a836df32af4a79aed65785927ca765, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.SweatDrop
+    Name: SweatDrop
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/SweatDrop.png
+    Sprite: {fileID: 21300000, guid: a6b4f578ff6241e1aaf64a417631d1ec, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.Wanting
+    Name: Wanting
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/Wanting.png
+    Sprite: {fileID: 21300000, guid: b25afc82819d4ecea09791f2b79ba93e, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.WTF
+    Name: WTF
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/WTF.png
+    Sprite: {fileID: 21300000, guid: 21e0d60f26f543d0a36f02d45838cb7a, type: 3}
+  - Id: WesternHeroes.Emoji.Eyes.XD
+    Name: XD
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Emoji/XD.png
+    Sprite: {fileID: 21300000, guid: 92b5e8c57f5d40d2a5320f86c4d17b47, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.=3=
+    Name: =3=
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/=3=.png
+    Sprite: {fileID: 21300000, guid: 865a182f3a574b2ea9cf2b2aa70e8908, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.83
+    Name: 83
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/83.png
+    Sprite: {fileID: 21300000, guid: f46428937ef74885bcd2eb8b3aff3ca1, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Annoyed
+    Name: Annoyed
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Annoyed.png
+    Sprite: {fileID: 21300000, guid: 5e92ccfbdb4a4ddda8205740f0449880, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Blank
+    Name: Blank
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Blank.png
+    Sprite: {fileID: 21300000, guid: 1711364b31664d5e936c10ae1ce2fcf0, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.BunnyFace
+    Name: BunnyFace
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/BunnyFace.png
+    Sprite: {fileID: 21300000, guid: 56b543d06c9049098861927dad49a80d, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Confused
+    Name: Confused
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Confused.png
+    Sprite: {fileID: 21300000, guid: 2588ccfdc19c4731a6a292c1eec93a56, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Crying
+    Name: Crying
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Crying.png
+    Sprite: {fileID: 21300000, guid: 9076044a776643ac8b4d37edb0f4b07b, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Dead
+    Name: Dead
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Dead.png
+    Sprite: {fileID: 21300000, guid: 04d80e42bb374c1f8e1b51056b0a579c, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Dizzy
+    Name: Dizzy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Dizzy.png
+    Sprite: {fileID: 21300000, guid: 565be0d0db9e42b4b4b5083599f4162b, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Drooling
+    Name: Drooling
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Drooling.png
+    Sprite: {fileID: 21300000, guid: e9698fda86454fb788a8e86cd6696826, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Eh
+    Name: Eh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Eh.png
+    Sprite: {fileID: 21300000, guid: c2bc66a51f0e45e39bfc500e9eeed6b0, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Enrage
+    Name: Enrage
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Enrage.png
+    Sprite: {fileID: 21300000, guid: ebd717709b464d849d04e7ad35d9242a, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Fishy
+    Name: Fishy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Fishy.png
+    Sprite: {fileID: 21300000, guid: b2332dde91ed45e891f7d6d1e10cf078, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Greedy
+    Name: Greedy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Greedy.png
+    Sprite: {fileID: 21300000, guid: 05a0f958e2a1499a9d5e0b300cdb39a7, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Happy
+    Name: Happy
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Happy.png
+    Sprite: {fileID: 21300000, guid: a8056a5e8095485e981262b6ce4af707, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Injured
+    Name: Injured
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Injured.png
+    Sprite: {fileID: 21300000, guid: 09a6a4ac72b642189696ca5ac09440ec, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.InLove
+    Name: InLove
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/InLove.png
+    Sprite: {fileID: 21300000, guid: d7e533b70df04ebda0fc5230be7e5293, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Kitty
+    Name: Kitty
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Kitty.png
+    Sprite: {fileID: 21300000, guid: 7cba66ba944848828ef60492cfc9d38d, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.OMG
+    Name: OMG
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/OMG.png
+    Sprite: {fileID: 21300000, guid: 11c73e146f5a49148ae07990eaa574ab, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Orly
+    Name: Orly
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Orly.png
+    Sprite: {fileID: 21300000, guid: 73d4ebd74be349bf86a2c49c2fc66c73, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Perverted
+    Name: Perverted
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Perverted.png
+    Sprite: {fileID: 21300000, guid: b33f381e1a454d68bcb660e6a7c56441, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Sad
+    Name: Sad
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Sad.png
+    Sprite: {fileID: 21300000, guid: 34c5c5afb5714514ad7c8687b41773cf, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Sick
+    Name: Sick
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Sick.png
+    Sprite: {fileID: 21300000, guid: 7e557596de1348fcb31e116d620593b0, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Sigh
+    Name: Sigh
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Sigh.png
+    Sprite: {fileID: 21300000, guid: 38709f5f501849ab90061f8d92ff669a, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.SweatDrop
+    Name: SweatDrop
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/SweatDrop.png
+    Sprite: {fileID: 21300000, guid: fece3e873a2c42c2a10480cc55365f60, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.Wanting
+    Name: Wanting
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/Wanting.png
+    Sprite: {fileID: 21300000, guid: 2331aeeda292463f9b38a6bb3c8d6ade, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.WTF
+    Name: WTF
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/WTF.png
+    Sprite: {fileID: 21300000, guid: 6d2903af23654f3a9740ea7d47c20a60, type: 3}
+  - Id: WesternHeroes.Emoji.Mouth.XD
+    Name: XD
+    Collection: Emoji
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Emoji/XD.png
+    Sprite: {fileID: 21300000, guid: 3414d22c061045029470d23f92c51c41, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Angry
+    Name: Angry
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Angry.png
+    Sprite: {fileID: 21300000, guid: e409049f174a40f5b6a5bfb83272dd2a, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.AngryConfused
+    Name: AngryConfused
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/AngryConfused.png
+    Sprite: {fileID: 21300000, guid: e656bc0face24650ada75c09d8d8e41d, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.AngryNormal
+    Name: AngryNormal
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/AngryNormal.png
+    Sprite: {fileID: 21300000, guid: d5b9ce2ec2884a8ab14888382c6f2096, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Bored
+    Name: Bored
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Bored.png
+    Sprite: {fileID: 21300000, guid: bcc2d842091a4890ba0c248d1e74731f, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.BoredSurpried
+    Name: BoredSurpried
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/BoredSurpried.png
+    Sprite: {fileID: 21300000, guid: 4f0a927cb6c64f36b45a60076b982f74, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.ConfusedAngry
+    Name: ConfusedAngry
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/ConfusedAngry.png
+    Sprite: {fileID: 21300000, guid: 417a82df2dca440fba7d30592a6d8b8a, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Happy
+    Name: Happy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Happy.png
+    Sprite: {fileID: 21300000, guid: 6924fa21aa874bceabd168d9b0790717, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.NormalAngry
+    Name: NormalAngry
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/NormalAngry.png
+    Sprite: {fileID: 21300000, guid: 1dae3a4cf2a4421db63c9e75270975ce, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Sad
+    Name: Sad
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Sad.png
+    Sprite: {fileID: 21300000, guid: 57445faf77bf4470900d146fc278c164, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Shy
+    Name: Shy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Shy.png
+    Sprite: {fileID: 21300000, guid: 926dea7faec64bf8aad728e447acff38, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.Surprised
+    Name: Surprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/Surprised.png
+    Sprite: {fileID: 21300000, guid: 829b09f50b364db2bcf3bb57ca7d9583, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.SurprisedBored
+    Name: SurprisedBored
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/SurprisedBored.png
+    Sprite: {fileID: 21300000, guid: 36e475a27dce4cd88958f30ea152291e, type: 3}
+  - Id: WesternHeroes.Expressions.Eyebrows.VerySurprised
+    Name: VerySurprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyebrows/Expressions/VerySurprised.png
+    Sprite: {fileID: 21300000, guid: 4d3c3cb38e3c4ababfc78bb59b4db3e5, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Angry
+    Name: Angry
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Angry.png
+    Sprite: {fileID: 21300000, guid: bd38d75971b746f3abafb92dc51d5249, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Bored
+    Name: Bored
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Bored.png
+    Sprite: {fileID: 21300000, guid: a9ed488ccbe243e48c6e3efd50ece1f6, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Happy
+    Name: Happy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Happy.png
+    Sprite: {fileID: 21300000, guid: 4fabe84d3b30431c9086e9f5c707eb05, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Normal
+    Name: Normal
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Normal.png
+    Sprite: {fileID: 21300000, guid: e2137539aad0400a87710ab71b760057, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Sad
+    Name: Sad
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Sad.png
+    Sprite: {fileID: 21300000, guid: d1523eff9706473f97c83a7425e30de8, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Shy
+    Name: Shy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Shy.png
+    Sprite: {fileID: 21300000, guid: d9f53e945a984f06b379b226888e569d, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.Surprised
+    Name: Surprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/Surprised.png
+    Sprite: {fileID: 21300000, guid: 280f0568410d427f970ec15301600e15, type: 3}
+  - Id: WesternHeroes.Expressions.Eyes.VerySurprised
+    Name: VerySurprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Eyes/Expressions/VerySurprised.png
+    Sprite: {fileID: 21300000, guid: 48481326ee274c979dbac8cc0a794956, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Angry
+    Name: Angry
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Angry.png
+    Sprite: {fileID: 21300000, guid: 43ccd078938f426896bf82265d2ef28e, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Bored
+    Name: Bored
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Bored.png
+    Sprite: {fileID: 21300000, guid: 0264cbbf786e496280e533a920f358f1, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Happy
+    Name: Happy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Happy.png
+    Sprite: {fileID: 21300000, guid: a1b69ebbc9ce4006a3fd9a58d968207d, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Normal
+    Name: Normal
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Normal.png
+    Sprite: {fileID: 21300000, guid: 2c3619af83e64afcb3bcca5e6b66f7b6, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Sad
+    Name: Sad
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Sad.png
+    Sprite: {fileID: 21300000, guid: 70c769083b0944c38d1a0b4e8fe958e0, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Shy
+    Name: Shy
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Shy.png
+    Sprite: {fileID: 21300000, guid: 2a98e8c93f3743e586db62489809a6dc, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.Surprised
+    Name: Surprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/Surprised.png
+    Sprite: {fileID: 21300000, guid: 0d261c12aaf54c469adb7be8ce31b748, type: 3}
+  - Id: WesternHeroes.Expressions.Mouth.VerySurprised
+    Name: VerySurprised
+    Collection: Expressions
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Mouth/Expressions/VerySurprised.png
+    Sprite: {fileID: 21300000, guid: c7c1e3d8d95341f191b2bf2e65e12279, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns1 [Paint] [FullHair]
+    Name: Horns1 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns1 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: edbeb9830c224cfcb71e4448a505ee4c, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns10 [Paint] [FullHair]
+    Name: Horns10 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns10 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 2462fb406fd244578914be1967604bc9, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns11 [Paint] [FullHair]
+    Name: Horns11 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns11 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 0cc82762a5e34f13a2e3c8f60b649944, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns12 [Paint] [FullHair]
+    Name: Horns12 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns12 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 62d396c469354f1a98bd47137019dafe, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns13 [Paint] [FullHair]
+    Name: Horns13 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns13 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: a04a0bc42e4a4b28ab219513c9c0198d, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns14 [Paint] [FullHair]
+    Name: Horns14 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns14 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 0ad70ef19d4e49bb8e8e70724016187e, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns15[Paint] [FullHair]
+    Name: Horns15[Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns15[Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 7b14affacbef40a9a4e2a771cadc9378, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns2 [Paint] [FullHair]
+    Name: Horns2 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns2 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: fe0627db4cb64c10800091e5acfbf314, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns3 [Paint] [FullHair]
+    Name: Horns3 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns3 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: cf4845166ea74587a7f56b927b1e5235, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns4 [Paint] [FullHair]
+    Name: Horns4 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns4 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: af95ca8539534a5491b8c84bf0997dd5, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns5 [Paint] [FullHair]
+    Name: Horns5 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns5 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: de955116926e434fb978f5cb393129b8, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns6 [Paint] [FullHair]
+    Name: Horns6 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns6 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 848408bee81848b19132f465e2306780, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns7 [Paint] [FullHair]
+    Name: Horns7 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns7 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: bfa76294c28546a8992238096b4b9ed4, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns8 [Paint] [FullHair]
+    Name: Horns8 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns8 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 98687d0e12914bd2a32c7f90bb135172, type: 3}
+  - Id: WesternHeroes.Horns (Style).Helmet.Horns9 [Paint] [FullHair]
+    Name: Horns9 [Paint] [FullHair]
+    Collection: Horns (Style)
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Horns
+      (Style)/Horns9 [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 878ca5b405f44fab80b9cb7568950fe4, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Ariel
+    Name: Ariel
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Ariel.png
+    Sprite: {fileID: 21300000, guid: 09653dc72c2543baa1d500c5c24421e0, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Blade
+    Name: Blade
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Blade.png
+    Sprite: {fileID: 21300000, guid: bac1c85327ce426fab4df84e4fe4241a, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Blossom [HideEars]
+    Name: Blossom [HideEars]
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Blossom [HideEars].png
+    Sprite: {fileID: 21300000, guid: 61393979e6424753a9dcefa480ad6c33, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Bubble
+    Name: Bubble
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Bubble.png
+    Sprite: {fileID: 21300000, guid: 06a07bde2a7b4298b2542fbc5803b7dc, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Cheeky
+    Name: Cheeky
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Cheeky.png
+    Sprite: {fileID: 21300000, guid: e0a03e1d7984418ca79967a1b80d5e85, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Cleo [HideEars]
+    Name: Cleo [HideEars]
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Cleo [HideEars].png
+    Sprite: {fileID: 21300000, guid: 0dc3e37f0abe4f31a5611bfd63b4cd96, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Cutie
+    Name: Cutie
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Cutie.png
+    Sprite: {fileID: 21300000, guid: 37282c3fc35143798d87afc06ce774b4, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.DoubleTrouble
+    Name: DoubleTrouble
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/DoubleTrouble.png
+    Sprite: {fileID: 21300000, guid: 0e99d51685344ed0bdb3a63d71e2fa68, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Emma [HideEars]
+    Name: Emma [HideEars]
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Emma [HideEars].png
+    Sprite: {fileID: 21300000, guid: 2d68188f196b489bb91ab764ddc70257, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Fluffy
+    Name: Fluffy
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Fluffy.png
+    Sprite: {fileID: 21300000, guid: 90357e675b724c3a81e7f9e68ba20061, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Lea [HideEars]
+    Name: Lea [HideEars]
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Lea [HideEars].png
+    Sprite: {fileID: 21300000, guid: 33a65051a60b4c80a05949e682196a82, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Princess
+    Name: Princess
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Princess.png
+    Sprite: {fileID: 21300000, guid: 96f04edab41d4a478ab19bd5e6a08e6b, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Rocky
+    Name: Rocky
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Rocky.png
+    Sprite: {fileID: 21300000, guid: 666143531e874f0fafdb7d3c49559c71, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Spiky
+    Name: Spiky
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Spiky.png
+    Sprite: {fileID: 21300000, guid: e79f8867c61e465184d39080269af77f, type: 3}
+  - Id: WesternHeroes.MoonStyle [NoPaint].Hair.Wavy
+    Name: Wavy
+    Collection: MoonStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/MoonStyle
+      [NoPaint]/Wavy.png
+    Sprite: {fileID: 21300000, guid: 05d6789997c042af8c4b2ff32f0fb9b6, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Ariel
+    Name: Ariel
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Ariel.png
+    Sprite: {fileID: 21300000, guid: 07000925bd034c1bb705630c78413995, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Blade
+    Name: Blade
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Blade.png
+    Sprite: {fileID: 21300000, guid: 6be54b14af664ad29587ff5a750f571b, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Blossom [HideEars]
+    Name: Blossom [HideEars]
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Blossom [HideEars].png
+    Sprite: {fileID: 21300000, guid: 53b7124f6a0544148bc7fc6271d3d197, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Bubble
+    Name: Bubble
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Bubble.png
+    Sprite: {fileID: 21300000, guid: b684894b71c344b89a8518e0686330fe, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Cheeky
+    Name: Cheeky
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Cheeky.png
+    Sprite: {fileID: 21300000, guid: 590d73bb52184ef9a50bd0c922788c10, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Cleo [HideEars]
+    Name: Cleo [HideEars]
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Cleo [HideEars].png
+    Sprite: {fileID: 21300000, guid: 77664e9125a548ca87e9519c32246f5b, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Cutie
+    Name: Cutie
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Cutie.png
+    Sprite: {fileID: 21300000, guid: a061f38f529c476f970072eb7559c748, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.DoubleTrouble
+    Name: DoubleTrouble
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/DoubleTrouble.png
+    Sprite: {fileID: 21300000, guid: 46537b1b0f484bf994a93f5d660cf9ae, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Emma [HideEars]
+    Name: Emma [HideEars]
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Emma [HideEars].png
+    Sprite: {fileID: 21300000, guid: c4fb82fc541146d286860ab203da05dc, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Fluffy
+    Name: Fluffy
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Fluffy.png
+    Sprite: {fileID: 21300000, guid: 7f5e43747fb74911b6e3e4b11dc9c40d, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Lea [HideEars]
+    Name: Lea [HideEars]
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Lea [HideEars].png
+    Sprite: {fileID: 21300000, guid: 7d10047f5364407f962e55d2d89071ab, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Princess
+    Name: Princess
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Princess.png
+    Sprite: {fileID: 21300000, guid: e0c84b8fcbcc437c8a4f6d776ed9610b, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Rocky
+    Name: Rocky
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Rocky.png
+    Sprite: {fileID: 21300000, guid: c6018630baef4bda9261a4898190cfa4, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Spiky
+    Name: Spiky
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Spiky.png
+    Sprite: {fileID: 21300000, guid: 7697dbe62f944172af972a3cf3ac064a, type: 3}
+  - Id: WesternHeroes.SkyStyle [NoPaint].Hair.Wavy
+    Name: Wavy
+    Collection: SkyStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SkyStyle
+      [NoPaint]/Wavy.png
+    Sprite: {fileID: 21300000, guid: 6dfd2b516c494d2ea170c7fad97f4266, type: 3}
+  - Id: WesternHeroes.Style [Preview] [NoPaint].Hair.Blade
+    Name: Blade
+    Collection: Style [Preview] [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style
+      [Preview] [NoPaint]/Blade.png
+    Sprite: {fileID: 21300000, guid: 36e54dec8f9b43f892764c69ce1efd4f, type: 3}
+  - Id: WesternHeroes.Style [Preview] [NoPaint].Hair.Rocky
+    Name: Rocky
+    Collection: Style [Preview] [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style
+      [Preview] [NoPaint]/Rocky.png
+    Sprite: {fileID: 21300000, guid: d5de2d6aa39b4318aa9f228d640a22de, type: 3}
+  - Id: WesternHeroes.Style [Preview] [NoPaint].Hair.Wavy
+    Name: Wavy
+    Collection: Style [Preview] [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style
+      [Preview] [NoPaint]/Wavy.png
+    Sprite: {fileID: 21300000, guid: ab566ace2a0544d6b4c0bcf4216ad912, type: 3}
+  - Id: WesternHeroes.Style.Hair.Ariel
+    Name: Ariel
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Ariel.png
+    Sprite: {fileID: 21300000, guid: 6042022b9d3341e591090e8a5165d2c3, type: 3}
+  - Id: WesternHeroes.Style.Hair.Blade
+    Name: Blade
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Blade.png
+    Sprite: {fileID: 21300000, guid: 0b3df65d835a4a6a9cc5639d555025de, type: 3}
+  - Id: WesternHeroes.Style.Hair.Blossom [HideEars]
+    Name: Blossom [HideEars]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Blossom
+      [HideEars].png
+    Sprite: {fileID: 21300000, guid: 6f494c48a73244ababcaf4b32113cb83, type: 3}
+  - Id: WesternHeroes.Style.Hair.Bubble
+    Name: Bubble
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Bubble.png
+    Sprite: {fileID: 21300000, guid: bbaf72113a0e4e779cddec12d18d77a5, type: 3}
+  - Id: WesternHeroes.Style.Hair.Cheeky
+    Name: Cheeky
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Cheeky.png
+    Sprite: {fileID: 21300000, guid: d35ec9c6b4e34e0b91e0fbbdf5d84da0, type: 3}
+  - Id: WesternHeroes.Style.Hair.Cleo [HideEars]
+    Name: Cleo [HideEars]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Cleo
+      [HideEars].png
+    Sprite: {fileID: 21300000, guid: e4b82bb439274f97a39955e747cc7758, type: 3}
+  - Id: WesternHeroes.Style.Hair.Cutie
+    Name: Cutie
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Cutie.png
+    Sprite: {fileID: 21300000, guid: 69bdd1ef41bd4e52ac925dac5dab7c6a, type: 3}
+  - Id: WesternHeroes.Style.Hair.DoubleTrouble
+    Name: DoubleTrouble
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/DoubleTrouble.png
+    Sprite: {fileID: 21300000, guid: 288c1bce0edd48e0832b772d8aabe046, type: 3}
+  - Id: WesternHeroes.Style.Hair.Emma [HideEars]
+    Name: Emma [HideEars]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Emma
+      [HideEars].png
+    Sprite: {fileID: 21300000, guid: d5242c86dc4e4ba1887b9cb13b726401, type: 3}
+  - Id: WesternHeroes.Style.Hair.Fluffy
+    Name: Fluffy
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Fluffy.png
+    Sprite: {fileID: 21300000, guid: 9956b5915c324276bc92021e02f43d32, type: 3}
+  - Id: WesternHeroes.Style.Hair.Lea [HideEars]
+    Name: Lea [HideEars]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Lea
+      [HideEars].png
+    Sprite: {fileID: 21300000, guid: f449ff8f133a49e38858619d63a55898, type: 3}
+  - Id: WesternHeroes.Style.Hair.Princess [HideEars]
+    Name: Princess [HideEars]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Princess
+      [HideEars].png
+    Sprite: {fileID: 21300000, guid: 73dc2e6cc1284d5eb76493ad58938364, type: 3}
+  - Id: WesternHeroes.Style.Hair.Rocky
+    Name: Rocky
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Rocky.png
+    Sprite: {fileID: 21300000, guid: 6408d40981fd4b9db80d77139f93d2fc, type: 3}
+  - Id: WesternHeroes.Style.Hair.Spiky
+    Name: Spiky
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Spiky.png
+    Sprite: {fileID: 21300000, guid: fe8db5f112684f06b43d726ce6a7d3ab, type: 3}
+  - Id: WesternHeroes.Style.Hair.Wavy
+    Name: Wavy
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/Style/Wavy.png
+    Sprite: {fileID: 21300000, guid: d7d45d14ced34b0db8b3a78299aade1e, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Blossom [Paint] [FullHair]
+    Name: Blossom [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Blossom
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: f13f7b341e774dd2ad6bafbc3987f6ab, type: 3}
+  - Id: WesternHeroes.Style.Helmet.BunnyEars [FullHair]
+    Name: BunnyEars [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/BunnyEars
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: 7cef43c2c7024287995982c566057f06, type: 3}
+  - Id: WesternHeroes.Style.Helmet.BunnyEars1 [Paint] [FullHair]
+    Name: BunnyEars1 [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/BunnyEars1
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 3466df56e8db4c3aaf12b47c6aad6e54, type: 3}
+  - Id: WesternHeroes.Style.Helmet.BunnyEars2 [FullHair]
+    Name: BunnyEars2 [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/BunnyEars2
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: ffa3800375e642e486e33cdbc475bc45, type: 3}
+  - Id: WesternHeroes.Style.Helmet.BunnyEars2 [Paint] [FullHair]
+    Name: BunnyEars2 [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/BunnyEars2
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 752ab80cc6c8475e876a247747210941, type: 3}
+  - Id: WesternHeroes.Style.Helmet.BunnyPin [FullHair]
+    Name: BunnyPin [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/BunnyPin
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: b1d29c25ea73489fb92e668bd2b79029, type: 3}
+  - Id: WesternHeroes.Style.Helmet.CatEars [Paint] [FullHair]
+    Name: CatEars [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/CatEars
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: acbd5dbbd9b24c009996ce71e309c3a7, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Crown [FullHair]
+    Name: Crown [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Crown
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: 69031e5726c4454c8f6c749c1f8c779c, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Diadem [FullHair]
+    Name: Diadem [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Diadem
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: f6a618a837634797a814f4cbfce9c7d5, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Ribbon1 [FullHair]
+    Name: Ribbon1 [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Ribbon1
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: c553fe101db246e5b665638587cfbd37, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Ribbon1 [Paint] [FullHair]
+    Name: Ribbon1 [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Ribbon1
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 62b1d875f588473f9931a0b4f5bb0348, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Ribbon2 [FullHair]
+    Name: Ribbon2 [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Ribbon2
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: dc92bba7f80341c8bb5468b544134d19, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Ribbon2 [Paint] [FullHair]
+    Name: Ribbon2 [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Ribbon2
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 3e7371a8a6ec46c28af0eeece52e3671, type: 3}
+  - Id: WesternHeroes.Style.Helmet.Rocky [Paint] [FullHair]
+    Name: Rocky [Paint] [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/Rocky
+      [Paint] [FullHair].png
+    Sprite: {fileID: 21300000, guid: 7aa2485d13c64c899a3e976e1c36091d, type: 3}
+  - Id: WesternHeroes.Style.Helmet.SkullPin [FullHair]
+    Name: SkullPin [FullHair]
+    Collection: Style
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/Equipment/Helmet/Style/SkullPin
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: 5972b126ab9c4edeb3e13738746e4ab0, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Ariel
+    Name: Ariel
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Ariel.png
+    Sprite: {fileID: 21300000, guid: 4ba8a1ed8e17420686d62ded087ea7c1, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Blade
+    Name: Blade
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Blade.png
+    Sprite: {fileID: 21300000, guid: 01c2712d2f0746fea9f0483d760638aa, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Blossom [HideEars]
+    Name: Blossom [HideEars]
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Blossom [HideEars].png
+    Sprite: {fileID: 21300000, guid: e8d11f1c1572438a8b6ba4feb346513c, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Bubble
+    Name: Bubble
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Bubble.png
+    Sprite: {fileID: 21300000, guid: 8a0d3a946b88483eb574f56e23cdece7, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Cheeky
+    Name: Cheeky
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Cheeky.png
+    Sprite: {fileID: 21300000, guid: 43c6b3aed3f74ccb97c19c3731f1d4b5, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Cleo [HideEars]
+    Name: Cleo [HideEars]
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Cleo [HideEars].png
+    Sprite: {fileID: 21300000, guid: c2615b7bf1b34047a1d4e1d62768f811, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Cutie
+    Name: Cutie
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Cutie.png
+    Sprite: {fileID: 21300000, guid: 33317e88c31a45e1bd90dd0becb1c7c2, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.DoubleTrouble
+    Name: DoubleTrouble
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/DoubleTrouble.png
+    Sprite: {fileID: 21300000, guid: 84465746810d4bf384e0a59ee016ed83, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Emma [HideEars]
+    Name: Emma [HideEars]
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Emma [HideEars].png
+    Sprite: {fileID: 21300000, guid: 6ff3067ce7a84cf4af8b520ff2f1a25e, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Fluffy
+    Name: Fluffy
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Fluffy.png
+    Sprite: {fileID: 21300000, guid: 8b0934b77d894e8a99c893a0e1c43353, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Lea [HideEars]
+    Name: Lea [HideEars]
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Lea [HideEars].png
+    Sprite: {fileID: 21300000, guid: 28216cf9ecb14a6b99ae465bf77f9a73, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Princess
+    Name: Princess
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Princess.png
+    Sprite: {fileID: 21300000, guid: 653acf3898634fcf8c107ee2c59299a3, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Rocky
+    Name: Rocky
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Rocky.png
+    Sprite: {fileID: 21300000, guid: 0ac6accf94084627aaba850fd9f832b7, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Spiky
+    Name: Spiky
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Spiky.png
+    Sprite: {fileID: 21300000, guid: b20d26f396a4495bb350356f92dfd706, type: 3}
+  - Id: WesternHeroes.SunStyle [NoPaint].Hair.Wavy
+    Name: Wavy
+    Collection: SunStyle [NoPaint]
+    Path: Assets/HeroEditor/WesternHeroes/Icons/WithoutBackground/BodyParts/Hair/SunStyle
+      [NoPaint]/Wavy.png
+    Sprite: {fileID: 21300000, guid: c8d3454a72a74740a063bc7e6b8f36b5, type: 3}
+  DefaultItemIcon: {fileID: 21300000, guid: ae011a2b76094d3d988dc7d5ab9b778d, type: 3}

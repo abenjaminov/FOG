@@ -10,10 +10,11 @@ namespace State.States.EnemyStates
         private Vector2 _rightBounds;
         private Vector2 _leftBounds;
         
-        public EnemyWalkState(EnemyMovement characterMovement, 
+        public EnemyWalkState(Assets.HeroEditor.Common.CharacterScripts.Character character,
+            EnemyMovement characterMovement, 
             Animator animator, 
             float speed) : 
-            base(characterMovement, animator, speed)
+            base(character, characterMovement, animator, speed)
         {
             _movement = characterMovement;
         }

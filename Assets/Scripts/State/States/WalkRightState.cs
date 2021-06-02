@@ -7,8 +7,9 @@ namespace State.States
 {
     public class WalkRightState : WalkState
     {
-        public WalkRightState(ICharacterMovement characterMovement, Animator animator, float speed) : 
-            base(characterMovement, animator, speed)
+        public WalkRightState(Assets.HeroEditor.Common.CharacterScripts.Character character,
+            ICharacterMovement characterMovement, Animator animator, float speed) : 
+            base(character, characterMovement, animator, speed)
         {
         }
 

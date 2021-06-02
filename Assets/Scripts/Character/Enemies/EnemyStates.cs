@@ -23,6 +23,8 @@ namespace Character.Enemies
 
         private Enemy _enemy;
 
+        [SerializeField] private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        
         private void Awake()
         {
             _stateMachine = new StateMachine(false);
@@ -31,9 +33,9 @@ namespace Character.Enemies
             var animator = GetComponent<Animator>();
             _enemy = GetComponent<Enemy>();
             
-            var idle = new IdleState(enemyMovement);
-            var walk = new EnemyWalkState(enemyMovement, animator, _walkingSpeed);
-            var dead = new EnemyDieState(enemyMovement,animator,_combatChannel, _enemy);
+            var idle = new IdleState(enemyMovement, _character);
+            var walk = new EnemyWalkState(_character, enemyMovement, animator, _walkingSpeed);
+            var dead = new EnemyDieState(_character, enemyMovement,animator,_combatChannel, _enemy);
             var vanishState = new EmptyState();
 
             var ShouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
@@ -61,7 +63,7 @@ namespace Character.Enemies
 
         private void OnEnable()
         {
-            _stateMachine.SetState(_defaultState);
+            //_stateMachine.SetState(_defaultState);
         }
 
         private void Start()
