@@ -5,7 +5,7 @@ namespace Character.Player
 {
     public class PlayerInventory
     {
-        [SerializeField] Player _player;
+        [SerializeField] Entity.Player.Player _player;
         [SerializeField] private InventoryMap _inventoryMap;
 
         public void EquipWeapon()

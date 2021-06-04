@@ -1,17 +1,17 @@
 ﻿using Game;
-using UI;
+using State;
 using UnityEngine;
 
-namespace Character.Enemies
+namespace Entity.Enemies
 {
-    public abstract class Enemy : CharacterWrapper
+    public abstract class Enemy : WorldEntity
     {
         private Dropper _dropper;
 
         protected override void Awake()
         {
             base.Awake();
-
+            
             _dropper = GetComponentInParent<Dropper>();
         }
 
@@ -37,7 +37,7 @@ namespace Character.Enemies
         protected override void Die()
         {
             _collider.enabled = false;
-            this.IsDead = true;
+            IsDead = true;
             _dropper.Drop();
         }
     }

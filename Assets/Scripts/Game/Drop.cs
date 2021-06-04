@@ -1,4 +1,5 @@
 ﻿using System;
+using Entity;
 using Helpers;
 using Player;
 using ScriptableObjects;

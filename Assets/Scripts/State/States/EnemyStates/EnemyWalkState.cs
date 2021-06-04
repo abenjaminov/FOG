@@ -1,5 +1,7 @@
-﻿using Character;
+﻿using Animations;
+using Character;
 using Character.Enemies;
+using Entity.Enemies;
 using UnityEngine;
 
 namespace State.States.EnemyStates
@@ -10,11 +12,11 @@ namespace State.States.EnemyStates
         private Vector2 _rightBounds;
         private Vector2 _leftBounds;
         
-        public EnemyWalkState(Assets.HeroEditor.Common.CharacterScripts.Character character,
+        public EnemyWalkState(Enemy enemy,
             EnemyMovement characterMovement, 
             Animator animator, 
             float speed) : 
-            base(character, characterMovement, animator, speed)
+            base(enemy, characterMovement, animator, speed)
         {
             _movement = characterMovement;
         }
@@ -29,8 +31,14 @@ namespace State.States.EnemyStates
             var random = Random.Range(_movement.LeftBounds.x, _movement.RightBounds.x);
             var target = new Vector2(random, _movement.transform.position.y);
             _movement.SetTarget(target);
-            
+         
+            _animator.SetBool(CachedAnimatorPropertyNames.IsWalking, true);
             base.OnEnter();
+        }
+        
+        public override void OnExit()
+        {
+            _animator.SetBool(CachedAnimatorPropertyNames.IsWalking, false);
         }
     }
 }

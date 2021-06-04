@@ -1,5 +1,6 @@
 ﻿using Assets.HeroEditor.Common.CharacterScripts;
 using Character;
+using Entity;
 using Player;
 using UnityEngine;
 
@@ -7,14 +8,14 @@ namespace State.States
 {
     public class IdleState : IState
     {
-        private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        private WorldEntity _worldEntity;
         private ICharacterMovement _characterMovement;
         public float IdleTime;
         
-        public IdleState(ICharacterMovement characterMovement, Assets.HeroEditor.Common.CharacterScripts.Character character)
+        public IdleState(WorldEntity worldEntity, ICharacterMovement characterMovement)
         {
             _characterMovement = characterMovement;
-            _character = character;
+            _worldEntity = worldEntity;
         }
 
         public void Tick()
@@ -22,10 +23,9 @@ namespace State.States
             IdleTime += Time.deltaTime;
         }
 
-        public void OnEnter()
+        public virtual void OnEnter()
         {
             IdleTime = 0;
-            _character.SetState(CharacterState.Idle);
             _characterMovement.SetVelocity(Vector2.zero);
         }
 

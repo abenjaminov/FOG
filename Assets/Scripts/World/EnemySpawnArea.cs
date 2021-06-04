@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Character.Enemies;
+using Entity.Enemies;
 using UnityEngine;
 
 namespace World

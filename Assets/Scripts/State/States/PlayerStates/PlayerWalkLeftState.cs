@@ -1,13 +1,13 @@
-﻿using Animations;
+﻿using Assets.HeroEditor.Common.CharacterScripts;
 using Character;
-using Player;
+using Entity;
 using UnityEngine;
 
-namespace State.States
+namespace State.States.PlayerStates
 {
-    public class WalkLeftState : WalkState
+    public class PlayerWalkLeftState : PlayerWalkState
     {
-        public WalkLeftState(Assets.HeroEditor.Common.CharacterScripts.Character character,
+        public PlayerWalkLeftState(CharacterWrapper character,
             ICharacterMovement characterMovement, Animator animator, float speed) : 
             base(character, characterMovement, animator, -speed)
         {

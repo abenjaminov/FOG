@@ -5,14 +5,14 @@ using Platformer;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
-namespace Character.Player.ArcherCharacter
+namespace Entity.Player.ArcherCharacter
 {
-    public class Archer : Player
+    public class Archer : Entity.Player.Player
     {
+        [Header("Archer Specific")]
         [SerializeField] private GameObject _arrowPrefab;
-        [SerializeField] private Transform _arrowSpawnPosition;
-        public Vector2 WorldMovementDirection;
-        public Transform FireTransform;
+
+        [HideInInspector] public Vector2 WorldMovementDirection;
 
         protected override void Awake()
         {
@@ -30,20 +30,11 @@ namespace Character.Player.ArcherCharacter
             arrow.Range = TraitsCalculator.CalculateAttackRange(Traits);
             
             var sr = arrow.GetComponent<SpriteRenderer>();
-            var rb = arrow.GetComponent<Rigidbody>();
-            const float speed = 18.75f; // TODO: Change this!
-			
+
             arrow.transform.localPosition = Vector3.zero;
             arrow.transform.localRotation = Quaternion.identity;
             arrow.transform.SetParent(null);
             sr.sprite = _character.Bow.Single(j => j.name == "Arrow");
-
-            var characterCollider = _character.GetComponent<Collider>();
-
-            if (characterCollider != null)
-            {
-                Physics.IgnoreCollision(arrow.GetComponent<Collider>(), characterCollider);
-            }
         }
 
         protected override void Die()

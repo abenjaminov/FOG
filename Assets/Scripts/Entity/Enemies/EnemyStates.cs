@@ -1,4 +1,5 @@
 ﻿using System;
+using Entity.Enemies;
 using ScriptableObjects.Channels;
 using State;
 using State.States;
@@ -33,9 +34,9 @@ namespace Character.Enemies
             var animator = GetComponent<Animator>();
             _enemy = GetComponent<Enemy>();
             
-            var idle = new IdleState(enemyMovement, _character);
-            var walk = new EnemyWalkState(_character, enemyMovement, animator, _walkingSpeed);
-            var dead = new EnemyDieState(_character, enemyMovement,animator,_combatChannel, _enemy);
+            var idle = new IdleState(_enemy, enemyMovement);
+            var walk = new EnemyWalkState(_enemy, enemyMovement, animator, _walkingSpeed);
+            var dead = new EnemyDieState(enemyMovement,animator,_combatChannel, _enemy);
             var vanishState = new EmptyState();
 
             var ShouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
@@ -46,7 +47,7 @@ namespace Character.Enemies
             
             _stateMachine.AddTransition(idle, ShouldStand, walk, () =>
             {
-                this._idleTimeBetweenTargets = Random.Range(_minIdleTimeBetweenTargets, _maxIdleTimeBetweenTargets);
+                _idleTimeBetweenTargets = Random.Range(_minIdleTimeBetweenTargets, _maxIdleTimeBetweenTargets);
             });
             _stateMachine.AddTransition(walk, ShouldWalk, idle);
             
@@ -63,7 +64,7 @@ namespace Character.Enemies
 
         private void OnEnable()
         {
-            //_stateMachine.SetState(_defaultState);
+            _stateMachine.SetState(_defaultState);
         }
 
         private void Start()

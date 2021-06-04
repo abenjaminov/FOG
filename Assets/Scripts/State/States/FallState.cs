@@ -7,20 +7,16 @@ namespace State.States
 {
     public class PlayerFallState : IState
     {
-        private Rigidbody2D _rigidBody2D;
         private PlayerMovement _playerMovement;
-        private Animator _animator;
         private float _jumpHeight;
         private Collider2D _collider;
-        private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        private Entity.Player.Player _player;
         private CharacterState _previousState;
         
-        public PlayerFallState(Collider2D collider, Animator playerAnimator, Rigidbody2D rigidBody2D, Assets.HeroEditor.Common.CharacterScripts.Character character)
+        public PlayerFallState(Entity.Player.Player player, Collider2D collider)
         {
             _collider = collider;
-            _animator = playerAnimator;
-            _rigidBody2D = rigidBody2D;
-            _character = character;
+            _player = player;
         }
 
         public void Tick()
@@ -29,17 +25,15 @@ namespace State.States
 
         public void OnEnter()
         {
-            _animator.SetBool(CachedAnimatorPropertyNames.IsFalling, true);
             _collider.enabled = false;
-            _previousState = _character.GetState();
-            _character.SetState(CharacterState.Jump);
+            _previousState = _player.GetCharacter().GetState();
+            _player.GetCharacter().SetState(CharacterState.Jump);
         }
 
         public void OnExit()
         {
             _collider.enabled = true;
-            _animator.SetBool(CachedAnimatorPropertyNames.IsFalling, false);
-            _character.SetState(_previousState);
+            _player.GetCharacter().SetState(_previousState);
         }
     }
 }

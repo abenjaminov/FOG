@@ -1,9 +1,7 @@
-using System;
-using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Player
+namespace Entity
 {
     public class GroundCheck : MonoBehaviour
     {

@@ -1,13 +1,14 @@
 ﻿using Animations;
 using Character;
-using Character.Player.ArcherCharacter;
+using Entity;
+using Entity.Player.ArcherCharacter;
 using UnityEngine;
 
 namespace State.States.ArcherStates
 {
     public class ArcherShootArrowState : PlayerAttackState
     {
-        private Character.Player.ArcherCharacter.Archer _archer;
+        private Archer _archer;
         
         public ArcherShootArrowState(CharacterWrapper character,
             Animator animator, Rigidbody2D rigidBody) : base(animator, rigidBody, character)

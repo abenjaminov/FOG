@@ -13,7 +13,7 @@ namespace Player.Archer
         
         private ArcherShootArrowState _shootArrow;
 
-        private Character.Player.ArcherCharacter.Archer _archer;
+        private Entity.Player.ArcherCharacter.Archer _archer;
         private AnimationEvents _animationEvents;
         
         protected override void Awake()
@@ -23,7 +23,7 @@ namespace Player.Archer
             _animationEvents = GetComponentInChildren<AnimationEvents>();
             _animationEvents.BowChargeEndEvent += BowChargeEndEvent;
             
-            _archer = GetComponent<Character.Player.ArcherCharacter.Archer>();
+            _archer = GetComponent<Entity.Player.ArcherCharacter.Archer>();
             
 
             var ShouldAttack = new Func<bool>(() => _isLeftControlDown && !_isShootAnimationActive);

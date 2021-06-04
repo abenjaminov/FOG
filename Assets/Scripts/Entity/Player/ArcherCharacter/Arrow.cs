@@ -1,3 +1,5 @@
+using Entity;
+using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEngine;
@@ -31,9 +33,9 @@ namespace Character.Player.Archer
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(typeof(CharacterWrapper), out var character))
+            if (other.TryGetComponent(typeof(WorldEntity), out var character))
             {
-                _combatChannel.OnCharacterHit(ParentCharacter, (CharacterWrapper)character);
+                _combatChannel.OnEntityHit(ParentCharacter, (WorldEntity)character);
                 Destroy(gameObject);
             }
         }

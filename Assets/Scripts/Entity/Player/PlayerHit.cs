@@ -1,4 +1,6 @@
 using System;
+using Entity;
+using Entity.Enemies;
 using ScriptableObjects.Channels;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
@@ -19,9 +21,9 @@ namespace Character.Player
         {
             if (_player.IsDead) return;
             
-            if (other.TryGetComponent(typeof(CharacterWrapper), out var character))
+            if (other.TryGetComponent(typeof(Enemy), out var character))
             {
-                _combatChannel.OnCharacterHit((CharacterWrapper)character, _player);
+                _combatChannel.OnEntityHit((WorldEntity)character, _player);
             }
         }
     }

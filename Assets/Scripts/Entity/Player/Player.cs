@@ -1,17 +1,20 @@
 ﻿using System.Linq;
 using Assets.HeroEditor.FantasyInventory.Scripts.Data;
-using Character.Enemies;
+using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
-namespace Character.Player
+namespace Entity.Player
 {
     public abstract class Player : CharacterWrapper
     {
         private PlayerTraits _playerTraits;
+        
+        [Header("Player Specific")]
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
+        public Transform FireTransform;
 
         protected override void Awake()
         {

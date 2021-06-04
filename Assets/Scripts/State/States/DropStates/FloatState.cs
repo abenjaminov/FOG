@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using Entity;
+using Game;
 using Player;
 using UnityEngine;
 

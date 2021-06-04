@@ -7,22 +7,20 @@ namespace State.States
 {
     public class PlayerJumpingState : IState
     {
-        private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        private Entity.Player.Player _player;
         private Rigidbody2D _rigidBody2D;
         private PlayerMovement _playerMovement;
-        private Animator _playerAnimator;
         private float _jumpHeight;
         private Collider2D _collider;
         private CharacterState _previousState;
 
-        public PlayerJumpingState(Collider2D collider, Animator playerAnimator, PlayerMovement playerMovement, float jumpHeight, Rigidbody2D rigidBody2D, Assets.HeroEditor.Common.CharacterScripts.Character character)
+        public PlayerJumpingState(Entity.Player.Player player, Collider2D collider,PlayerMovement playerMovement, float jumpHeight, Rigidbody2D rigidBody2D)
         {
             _collider = collider;
-            _playerAnimator = playerAnimator;
             _playerMovement = playerMovement;
             _jumpHeight = jumpHeight;
             _rigidBody2D = rigidBody2D;
-            _character = character;
+            _player = player;
         }
 
         public void Tick()
@@ -33,17 +31,17 @@ namespace State.States
         public void OnEnter()
         {
             var jumpVelocity = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, jumpVelocity);
+            _playerMovement.SetVelocity(new Vector2(_rigidBody2D.velocity.x, jumpVelocity));
             _collider.enabled = false;
-            _previousState = _character.GetState();
-            _character.SetState(CharacterState.Jump);
+            _previousState = _player.GetCharacter().GetState();
+            _player.GetCharacter().SetState(CharacterState.Jump);
         }
 
         public void OnExit()
         {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, 0);
             _collider.enabled = true;
-            _character.SetState(_previousState);
+            _player.GetCharacter().SetState(_previousState);
         }
     }
 }

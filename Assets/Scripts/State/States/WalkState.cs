@@ -1,6 +1,7 @@
 ﻿using Animations;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Character;
+using Entity;
 using Player;
 using UnityEngine;
 
@@ -8,20 +9,20 @@ namespace State.States
 {
     public class WalkState : IState
     {
-        protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        protected WorldEntity _worldEntity;
         protected ICharacterMovement _characterMovement;
         protected  Animator _animator;
         protected  float _speed;
 
-        private CharacterState _previousState;
         
-        public WalkState(Assets.HeroEditor.Common.CharacterScripts.Character character,
+        
+        public WalkState(WorldEntity worldEntity,
             ICharacterMovement characterMovement, Animator animator, float speed)
         {
             _characterMovement = characterMovement;
             _animator = animator;
             _speed = speed;
-            _character = character;
+            _worldEntity = worldEntity;
         }
 
         public virtual void Tick()
@@ -32,15 +33,11 @@ namespace State.States
         public virtual void OnEnter()
         {
             _characterMovement.SetHorizontalVelocity(_speed);
-            //_animator.SetBool(CachedAnimatorPropertyNames.IsWalking, true);
-            _previousState = _character.GetState();
-            _character.SetState(CharacterState.Walk);
         }
 
         public virtual void OnExit()
         {
-            //_animator.SetBool(CachedAnimatorPropertyNames.IsWalking, false);
-            _character.SetState(_previousState);
+            
         }
     }
 }

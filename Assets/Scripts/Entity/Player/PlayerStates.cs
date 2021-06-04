@@ -1,4 +1,5 @@
 ﻿using System;
+using Entity;
 using ScriptableObjects.Channels;
 using State;
 using State.States;
@@ -23,32 +24,31 @@ namespace Player
         protected Rigidbody2D _rigidBody;
 
         protected IdleState _idle;
-        protected WalkLeftState _walkLeft;
-        protected WalkRightState _walkRight;
+        protected PlayerWalkLeftState _walkLeft;
+        protected PlayerWalkRightState _walkRight;
         protected PlayerJumpingState _jump;
         protected PlayerFallState _fall;
         protected DieState _dead;
 
-        [SerializeField] protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        [SerializeField] protected Entity.Player.Player _player;
         
         protected virtual void Awake()
         {
             _stateMachine = new StateMachine(false);
-
-            _character = GetComponentInChildren<Assets.HeroEditor.Common.CharacterScripts.Character>();
+            
             var playerMovement = GetComponent<PlayerMovement>();
             _rigidBody = GetComponent<Rigidbody2D>();
             var playerGroundCheck = GetComponentInChildren<GroundCheck>();
             var collider2D = GetComponent<Collider2D>();
             _animator = GetComponentInChildren<Animator>();
-            var _player = GetComponent<Character.Player.Player>();
+            _player = GetComponent<Entity.Player.Player>();
             
-            _idle = new IdleState(playerMovement, _character);
-            _walkLeft = new WalkLeftState(_character, playerMovement, _animator, _walkingSpeed);
-            _walkRight = new WalkRightState(_character, playerMovement, _animator, _walkingSpeed);
-            _jump = new PlayerJumpingState(collider2D, _animator, playerMovement, _jumpingHeight,_rigidBody, _character);
-            _fall = new PlayerFallState(collider2D, _animator, _rigidBody, _character);
-            _dead = new PlayerDieState(_character, playerMovement, _animator);
+            _idle = new PlayerIdleState(_player, playerMovement);
+            _walkLeft = new PlayerWalkLeftState(_player, playerMovement, _animator, _walkingSpeed);
+            _walkRight = new PlayerWalkRightState(_player, playerMovement, _animator, _walkingSpeed);
+            _jump = new PlayerJumpingState(_player, collider2D, playerMovement, _jumpingHeight,_rigidBody);
+            _fall = new PlayerFallState(_player,collider2D) ;
+            _dead = new PlayerDieState(_player, playerMovement, _animator);
             
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0);

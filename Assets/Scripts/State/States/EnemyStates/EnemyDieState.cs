@@ -1,4 +1,6 @@
-﻿using Character.Enemies;
+﻿using Animations;
+using Character.Enemies;
+using Entity.Enemies;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
@@ -8,10 +10,12 @@ namespace State.States.EnemyStates
     {
         private CombatChannel _combatChannel;
         private Enemy _enemy;
+        protected Animator _animator;
         
-        public EnemyDieState(Assets.HeroEditor.Common.CharacterScripts.Character character,EnemyMovement movement,Animator animator, CombatChannel combatChannel, Enemy enemy) 
-            : base(character, movement, animator)
+        public EnemyDieState(EnemyMovement movement,Animator animator, CombatChannel combatChannel, Enemy enemy) 
+            : base(enemy, movement, animator)
         {
+            _animator = animator;
             _combatChannel = combatChannel;
             _enemy = enemy;
         }
@@ -20,6 +24,7 @@ namespace State.States.EnemyStates
         {
             base.OnEnter();
             _combatChannel.OnEnemyDied(_enemy);
+            _animator.SetTrigger(CachedAnimatorPropertyNames.Dead);
         }
     }
 }

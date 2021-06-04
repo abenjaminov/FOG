@@ -1,6 +1,7 @@
 ﻿using Animations;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Character;
+using Entity;
 using UnityEngine;
 
 namespace State.States
