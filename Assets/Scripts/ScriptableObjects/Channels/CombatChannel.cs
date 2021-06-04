@@ -1,4 +1,5 @@
-﻿using Character.Enemies;
+﻿using Character;
+using Character.Enemies;
 using Platformer;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ namespace ScriptableObjects.Channels
     {
         public UnityAction<Enemy> EnemyDiedEvent;
         
-        public void OnCharacterHit(Character.Character attacker, Character.Character receiver)
+        public void OnCharacterHit(CharacterWrapper attacker, CharacterWrapper receiver)
         {
             var damage = TraitsCalculator.CalculateDamage(attacker.Traits, receiver.Traits);
             receiver.ReceiveDamage(damage);

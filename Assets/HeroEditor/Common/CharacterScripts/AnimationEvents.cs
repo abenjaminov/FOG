@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.HeroEditor.Common.CharacterScripts
 {
@@ -13,6 +14,8 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		/// Subscribe it to get animation callback.
 		/// </summary>
 		public event Action<string> OnCustomEvent = s => { };
+
+		public UnityAction BowChargeEndEvent;
 
 		/// <summary>
 		/// Set bool param, usage example: Idle=false
@@ -56,6 +59,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 	    public void ResetAnimation()
 	    {
 			transform.parent.GetComponent<Character>().UpdateAnimation();
+	    }
+
+	    public void OnBowChargeEnd()
+	    {
+		    BowChargeEndEvent?.Invoke();
 	    }
 	}
 }

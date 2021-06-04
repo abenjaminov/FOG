@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Assets.HeroEditor.FantasyInventory.Scripts.Data;
 using Character.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Character.Player
 {
-    public class Player : Character
+    public abstract class Player : CharacterWrapper
     {
         private PlayerTraits _playerTraits;
         [SerializeField] private CombatChannel _combatChannel;
@@ -62,5 +63,7 @@ namespace Character.Player
         {
             _playerTraits.ExperienceGained += ((EnemyTraits) DeadEnemy.Traits).Experience;
         }
+
+        protected abstract void EquipWeapon(Item weaponEntry);
     }
 }

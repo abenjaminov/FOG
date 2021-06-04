@@ -29,13 +29,13 @@ namespace Player
         protected PlayerFallState _fall;
         protected DieState _dead;
 
-        [SerializeField] private Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        [SerializeField] protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
         
         protected virtual void Awake()
         {
             _stateMachine = new StateMachine(false);
 
-            _character = GetComponent<Assets.HeroEditor.Common.CharacterScripts.Character>();
+            _character = GetComponentInChildren<Assets.HeroEditor.Common.CharacterScripts.Character>();
             var playerMovement = GetComponent<PlayerMovement>();
             _rigidBody = GetComponent<Rigidbody2D>();
             var playerGroundCheck = GetComponentInChildren<GroundCheck>();

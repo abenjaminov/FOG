@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Character.Enemies
 {
-    public abstract class Enemy : Character
+    public abstract class Enemy : CharacterWrapper
     {
         private Dropper _dropper;
 

@@ -1,22 +1,28 @@
-﻿using UnityEngine;
+﻿using Animations;
+using Character;
+using Character.Player.ArcherCharacter;
+using UnityEngine;
 
 namespace State.States.ArcherStates
 {
     public class ArcherShootArrowState : PlayerAttackState
     {
-        private Character.Player.ArcherCharacter.Archer _archerCombat;
+        private Character.Player.ArcherCharacter.Archer _archer;
         
-        public ArcherShootArrowState(Animator animator, Rigidbody2D rigidBody, Character.Player.ArcherCharacter.Archer archerCombat) : base(animator, rigidBody)
+        public ArcherShootArrowState(CharacterWrapper character,
+            Animator animator, Rigidbody2D rigidBody) : base(animator, rigidBody, character)
         {
-            _archerCombat = archerCombat;
+            _archer = character as Archer;
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
             
-            _archerCombat.WorldMovementDirection =
-                (int)_archerCombat.transform.rotation.y != 0 ? Vector2.left : Vector2.right;
+            _character.GetCharacter().Animator.SetInteger(CachedAnimatorPropertyNames.Charge, 1);
+            
+            _archer.WorldMovementDirection =
+                (int)_archer.transform.rotation.y != 0 ? Vector2.left : Vector2.right;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Character.Player.Archer
 {
     public class Arrow : MonoBehaviour
     {
-        [HideInInspector] public Character ParentCharacter;
+        [HideInInspector] public CharacterWrapper ParentCharacter;
         [SerializeField] private float _speed; 
         [HideInInspector] public Vector2 WorldMovementDirection;
         [HideInInspector] public Traits _traits;
@@ -31,9 +31,9 @@ namespace Character.Player.Archer
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(typeof(Character), out var character))
+            if (other.TryGetComponent(typeof(CharacterWrapper), out var character))
             {
-                _combatChannel.OnCharacterHit(ParentCharacter, (Character)character);
+                _combatChannel.OnCharacterHit(ParentCharacter, (CharacterWrapper)character);
                 Destroy(gameObject);
             }
         }

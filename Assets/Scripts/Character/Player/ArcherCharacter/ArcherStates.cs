@@ -1,4 +1,6 @@
 ﻿using System;
+using Animations;
+using Assets.HeroEditor.Common.CharacterScripts;
 using State.States.ArcherStates;
 using UnityEngine;
 
@@ -7,19 +9,26 @@ namespace Player.Archer
     public class ArcherStates : PlayerStates
     {
         private bool _isLeftControlDown;
-        private bool _isShootAnimationActive;
+        private bool _isShootAnimationActive = false;
         
         private ArcherShootArrowState _shootArrow;
+
+        private Character.Player.ArcherCharacter.Archer _archer;
+        private AnimationEvents _animationEvents;
         
         protected override void Awake()
         {
             base.Awake();
 
-            var archer = GetComponent<Character.Player.ArcherCharacter.Archer>();
+            _animationEvents = GetComponentInChildren<AnimationEvents>();
+            _animationEvents.BowChargeEndEvent += BowChargeEndEvent;
             
+            _archer = GetComponent<Character.Player.ArcherCharacter.Archer>();
+            
+
             var ShouldAttack = new Func<bool>(() => _isLeftControlDown && !_isShootAnimationActive);
 
-            _shootArrow = new ArcherShootArrowState(_animator,_rigidBody, archer);
+            _shootArrow = new ArcherShootArrowState(_archer, _animator,_rigidBody);
 
             var noHorizontalInput = new Func<bool>(() => _horizontalAxisRaw == 0 && !_isShootAnimationActive);
             var walkLeft = new Func<bool>(() => _horizontalAxisRaw < 0 && 
@@ -40,16 +49,17 @@ namespace Player.Archer
             _stateMachine.AddTransition(_shootArrow, ShouldAttack, _shootArrow, setShootAnimationActive,"Walk Right -> Transition To Shoot");
         }
 
+        private void BowChargeEndEvent()
+        {
+            _archer.GetCharacter().Animator.SetInteger(CachedAnimatorPropertyNames.Charge, 2);
+            _isShootAnimationActive = false;
+        }
+
         protected override void Update()
         {
             _isLeftControlDown = Input.GetKey(KeyCode.LeftControl);
             
             base.Update();
-        }
-
-        public void ShootAnimationEnded()
-        {
-            _isShootAnimationActive = false;
         }
     }
 }

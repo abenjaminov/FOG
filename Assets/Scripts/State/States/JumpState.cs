@@ -35,7 +35,6 @@ namespace State.States
             var jumpVelocity = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, jumpVelocity);
             _collider.enabled = false;
-            //_playerAnimator.SetBool(CachedAnimatorPropertyNames.IsJumping, true);
             _previousState = _character.GetState();
             _character.SetState(CharacterState.Jump);
         }
@@ -44,7 +43,6 @@ namespace State.States
         {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, 0);
             _collider.enabled = true;
-            //_playerAnimator.SetBool(CachedAnimatorPropertyNames.IsJumping, false);
             _character.SetState(_previousState);
         }
     }

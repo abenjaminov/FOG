@@ -9,5 +9,7 @@ namespace Animations
         public static readonly int Attack1 = Animator.StringToHash("Attack1");
         public static readonly int IsFalling = Animator.StringToHash("IsFalling");
         public static readonly int Dead = Animator.StringToHash("Dead");
+        
+        public static readonly int Charge = Animator.StringToHash("Charge");
     }
 }
