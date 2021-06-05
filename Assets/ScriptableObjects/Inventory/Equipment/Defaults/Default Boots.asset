@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fffb49ac8c4464bbb6d5d27284fccf, type: 3}
+  m_Name: Default Boots
+  m_EditorClassIdentifier: 
+  Name: 
+  ItemSprite: {fileID: 0}
+  InventoryItemSprite: {fileID: 0}
+  IsCurrency: 0
+  Item:
+    Name: 
+    Collection: 
+    Id: 
+    Path: 
+    Sprite: {fileID: 0}
+    Sprites: []
+    Multiple: 0
+    Hash: 
+    Meta: 
+    Tags: []
