@@ -77,9 +77,9 @@ namespace Game
             _stateMachine.Tick();
         }
 
-        public void OnPickedUp(Transform playerTransform)
+        public void OnPickedUp(Transform pickupTransform)
         {
-            _pickedUpState.SetPlayerTransform(playerTransform);
+            _pickedUpState.SetPickupTransform(pickupTransform);
             _isPickedUp = true;
         }
     }

@@ -1,5 +1,4 @@
 ﻿using Character;
-using Character.Enemies;
 using Entity;
 using Entity.Enemies;
 using Platformer;

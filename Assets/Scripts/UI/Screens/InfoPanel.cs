@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Character.Enemies;
 using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;

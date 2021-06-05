@@ -22,6 +22,8 @@ namespace Entity.Player
             
             _playerTraits = Traits as PlayerTraits;;
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
+            
+            // ReSharper disable once PossibleNullReferenceException
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
         }
 
@@ -48,8 +50,8 @@ namespace Entity.Player
             if (IsDead) return;
             
             DisplayDamage(damage);
-            
-            _playerTraits.ChangeCurrentHealth(-damage);
+
+            ChangeHealth(-damage);
 
             if (_playerTraits.GetCurrentHealth() <= 0)
             {
@@ -57,14 +59,15 @@ namespace Entity.Player
             }
         }
 
-        protected override void Die()
+        public override void ChangeHealth(float delta)
         {
-            this.IsDead = true;
+            _health = Mathf.Max(0, Mathf.Min(Traits.MaxHealth, _health + delta));
+            _playerTraits.ChangeCurrentHealth(delta);
         }
 
-        private void EnemyDiedEvent(Enemy DeadEnemy)
+        private void EnemyDiedEvent(Enemy deadEnemy)
         {
-            _playerTraits.ExperienceGained += ((EnemyTraits) DeadEnemy.Traits).Experience;
+            _playerTraits.ExperienceGained += ((EnemyTraits) deadEnemy.Traits).Experience;
         }
 
         protected abstract void EquipWeapon(Item weaponEntry);

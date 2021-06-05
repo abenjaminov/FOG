@@ -31,7 +31,7 @@ namespace Platformer
 
         private static int CalculateAttackerDamage(Traits attacker, float rangeValue)
         {
-            var damage = Mathf.Ceil(attacker.Strength * ((float) attacker.Level / LevelConfiguration.MAX_LEVEL));
+            var damage = Mathf.Ceil(attacker.Strength * ((float) attacker.Level / LevelConfiguration.MAXLevel));
             damage += rangeValue;
 
             return (int) Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));

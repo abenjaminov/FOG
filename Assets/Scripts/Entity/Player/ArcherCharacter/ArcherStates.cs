@@ -1,10 +1,11 @@
 ﻿using System;
 using Animations;
 using Assets.HeroEditor.Common.CharacterScripts;
+using Player;
 using State.States.ArcherStates;
 using UnityEngine;
 
-namespace Player.Archer
+namespace Entity.Player.ArcherCharacter
 {
     public class ArcherStates : PlayerStates
     {
@@ -26,7 +27,7 @@ namespace Player.Archer
             _archer = GetComponent<Entity.Player.ArcherCharacter.Archer>();
             
 
-            var ShouldAttack = new Func<bool>(() => _isLeftControlDown && !_isShootAnimationActive);
+            var shouldAttack = new Func<bool>(() => _isLeftControlDown && !_isShootAnimationActive);
 
             _shootArrow = new ArcherShootArrowState(_archer, _animator,_rigidBody);
 
@@ -43,10 +44,10 @@ namespace Player.Archer
             _stateMachine.AddTransition(_walkLeft, walkLeft, _shootArrow, null,"Shoot Arrow -> Walk Left");
             _stateMachine.AddTransition(_walkRight, walkRight, _shootArrow, null,"Shoot Arrow -> Walk Right");
             
-            _stateMachine.AddTransition(_shootArrow, ShouldAttack, _idle, setShootAnimationActive,"Idle -> Transition To Shoot");
-            _stateMachine.AddTransition(_shootArrow, ShouldAttack, _walkLeft, setShootAnimationActive,"Walk Left -> Transition To Shoot");
-            _stateMachine.AddTransition(_shootArrow, ShouldAttack, _walkRight, setShootAnimationActive,"Walk Right -> Transition To Shoot");
-            _stateMachine.AddTransition(_shootArrow, ShouldAttack, _shootArrow, setShootAnimationActive,"Walk Right -> Transition To Shoot");
+            _stateMachine.AddTransition(_shootArrow, shouldAttack, _idle, setShootAnimationActive,"Idle -> Transition To Shoot");
+            _stateMachine.AddTransition(_shootArrow, shouldAttack, _walkLeft, setShootAnimationActive,"Walk Left -> Transition To Shoot");
+            _stateMachine.AddTransition(_shootArrow, shouldAttack, _walkRight, setShootAnimationActive,"Walk Right -> Transition To Shoot");
+            _stateMachine.AddTransition(_shootArrow, shouldAttack, _shootArrow, setShootAnimationActive,"Walk Right -> Transition To Shoot");
         }
 
         private void BowChargeEndEvent()

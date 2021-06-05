@@ -1,5 +1,4 @@
 ﻿using System;
-using Entity.Enemies;
 using ScriptableObjects.Channels;
 using State;
 using State.States;
@@ -7,7 +6,7 @@ using State.States.EnemyStates;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Character.Enemies
+namespace Entity.Enemies
 {
     public class EnemyStates : MonoBehaviour
     {
@@ -21,14 +20,11 @@ namespace Character.Enemies
         [SerializeField] private float _deadDelayTime;
         
         private IState _defaultState;
-
         private Enemy _enemy;
 
-        [SerializeField] private Assets.HeroEditor.Common.CharacterScripts.Character _character;
-        
         private void Awake()
         {
-            _stateMachine = new StateMachine(false);
+            _stateMachine = new StateMachine();
             
             var enemyMovement = GetComponentInParent<EnemyMovement>();
             var animator = GetComponent<Animator>();
@@ -39,22 +35,22 @@ namespace Character.Enemies
             var dead = new EnemyDieState(enemyMovement,animator,_combatChannel, _enemy);
             var vanishState = new EmptyState();
 
-            var ShouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
+            var shouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
                                                    Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .1f);
-            var ShouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets);
-            var ShouldDie = new Func<bool>(() => _enemy.IsDead);
-            var ShouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime);
+            var shouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets);
+            var shouldDie = new Func<bool>(() => _enemy.IsDead);
+            var shouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime);
             
-            _stateMachine.AddTransition(idle, ShouldStand, walk, () =>
+            _stateMachine.AddTransition(idle, shouldStand, walk, () =>
             {
                 _idleTimeBetweenTargets = Random.Range(_minIdleTimeBetweenTargets, _maxIdleTimeBetweenTargets);
             });
-            _stateMachine.AddTransition(walk, ShouldWalk, idle);
+            _stateMachine.AddTransition(walk, shouldWalk, idle);
             
-            _stateMachine.AddTransition(dead, ShouldDie, idle);
-            _stateMachine.AddTransition(dead, ShouldDie, walk);
+            _stateMachine.AddTransition(dead, shouldDie, idle);
+            _stateMachine.AddTransition(dead, shouldDie, walk);
             
-            _stateMachine.AddTransition(vanishState,ShouldVanish,null, () =>
+            _stateMachine.AddTransition(vanishState,shouldVanish,null, () =>
             {
                 enemyMovement.gameObject.SetActive(false);
             });

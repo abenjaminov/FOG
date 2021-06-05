@@ -8,13 +8,12 @@ namespace Character.Player.Archer
 {
     public class Arrow : MonoBehaviour
     {
+        [SerializeField] private CombatChannel _combatChannel;
         [HideInInspector] public CharacterWrapper ParentCharacter;
         [SerializeField] private float _speed; 
         [HideInInspector] public Vector2 WorldMovementDirection;
-        [HideInInspector] public Traits _traits;
         public float Range;
         private Vector2 _spawnPosition;
-        [SerializeField] private CombatChannel _combatChannel;
 
         private void Awake()
         {

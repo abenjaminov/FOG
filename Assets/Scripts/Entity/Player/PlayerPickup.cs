@@ -11,6 +11,7 @@ namespace Character.Player
     {
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private Inventory _playerInventory;
+        [SerializeField] private Transform _pickupTransform;
         private List<Drop> _dropsInRange;
 
         private void Awake()
@@ -27,7 +28,7 @@ namespace Character.Player
             var itemToPickup = _dropsInRange[0];
             _dropsInRange.RemoveAt(0);
 
-            itemToPickup.OnPickedUp(transform);
+            itemToPickup.OnPickedUp(_pickupTransform);
 
             _playerInventory.AddItem(itemToPickup.InventoryItemMeta, itemToPickup.Amount);
         }

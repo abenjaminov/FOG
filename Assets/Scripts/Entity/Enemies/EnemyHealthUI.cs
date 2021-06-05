@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Enemies
+namespace Entity.Enemies
 {
     public class EnemyHealthUI : MonoBehaviour, IHealthUI
     {

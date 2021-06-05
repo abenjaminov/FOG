@@ -31,15 +31,12 @@ namespace Entity.Player.ArcherCharacter
             
             var sr = arrow.GetComponent<SpriteRenderer>();
 
-            arrow.transform.localPosition = Vector3.zero;
-            arrow.transform.localRotation = Quaternion.identity;
-            arrow.transform.SetParent(null);
-            sr.sprite = _character.Bow.Single(j => j.name == "Arrow");
-        }
-
-        protected override void Die()
-        {
+            var arrowTransform = arrow.transform;
             
+            arrowTransform.localPosition = Vector3.zero;
+            arrowTransform.localRotation = Quaternion.identity;
+            arrow.transform.SetParent(null);
+            sr.sprite = GetArrowSprite();
         }
 
         protected override void EquipWeapon(Item weaponItem)
@@ -48,6 +45,11 @@ namespace Entity.Player.ArcherCharacter
             if (!weaponItem.IsBow) return;
             
             //_character.Equip();
+        }
+
+        private Sprite GetArrowSprite()
+        {
+            return _character.Bow.Single(j => j.name == "Arrow");
         }
     }
 }

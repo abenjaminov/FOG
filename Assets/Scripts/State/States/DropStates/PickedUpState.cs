@@ -10,8 +10,6 @@ namespace State.States.DropStates
         private Transform _playerTransform;
         private Transform _dropTransform;
 
-        public bool PickupDone;
-
         public PickedUpState(FloatUpDown floatComponent, 
                              FadeoutToPoint fadeoutToPoint,
                              Transform dropTransform)
@@ -21,7 +19,7 @@ namespace State.States.DropStates
             _dropTransform = dropTransform;
         }
 
-        public void SetPlayerTransform(Transform playerTransform)
+        public void SetPickupTransform(Transform playerTransform)
         {
             _playerTransform = playerTransform;
         }
@@ -30,7 +28,6 @@ namespace State.States.DropStates
         {
             if (Vector3.Distance(_playerTransform.position, _dropTransform.position) <= 0.1f)
             {
-                PickupDone = true;
                 Object.Destroy(_dropTransform.gameObject);
             }
         }

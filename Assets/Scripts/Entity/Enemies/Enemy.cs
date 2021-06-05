@@ -1,5 +1,4 @@
 ﻿using Game;
-using State;
 using UnityEngine;
 
 namespace Entity.Enemies
@@ -18,9 +17,7 @@ namespace Entity.Enemies
         public override void ReceiveDamage(float damage)
         {
             DisplayDamage(damage);
-
-            _health = Mathf.Max(0,_health - damage);
-            _healthUI?.SetHealth(_health / Traits.MaxHealth);
+            ChangeHealth(-damage);
             
             if (_health <= 0)
             {
@@ -28,16 +25,23 @@ namespace Entity.Enemies
             }
         }
 
+        public override void ChangeHealth(float delta)
+        {
+            _health = Mathf.Max(0,_health + delta);
+            _healthUI?.SetHealth(_health / Traits.MaxHealth);
+        }
+
         public override void ComeAlive()
         {
             base.ComeAlive();
             _health = Traits.MaxHealth;
+            _healthUI.SetHealth(1);
         }
 
         protected override void Die()
         {
-            _collider.enabled = false;
-            IsDead = true;
+            base.Die();
+
             _dropper.Drop();
         }
     }

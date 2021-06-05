@@ -9,7 +9,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "Level Config", menuName = "Game Stats/Level Config", order = 0)]
     public class LevelConfiguration : ScriptableObject
     {
-        public const int MAX_LEVEL = 100;
+        public const int MAXLevel = 100;
         
         public List<Level> Levels;
 

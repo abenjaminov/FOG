@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Character;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
-namespace Character.Enemies
+namespace Entity.Enemies
 {
     public class EnemyMovement : MonoBehaviour, ICharacterMovement
     {
@@ -32,7 +32,7 @@ namespace Character.Enemies
                 SetYRotation(0);
             }
 
-            this.Target = target;
+            Target = target;
         }
         
         public void SetHorizontalVelocity(float horizontalVelocity)

@@ -8,8 +8,6 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour, ICharacterMovement
     {
-        [SerializeField] private float _jumpHeight;
-
         private bool _isOnGround;
         
         private Rigidbody2D _rigidbody2D;
@@ -19,11 +17,6 @@ namespace Player
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
-        void Update()
-        {
-            
         }
 
         public void SetHorizontalVelocity(float horizontalVelocity)

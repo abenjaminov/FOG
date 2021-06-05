@@ -1,5 +1,4 @@
 ﻿using Animations;
-using Character.Enemies;
 using Entity.Enemies;
 using ScriptableObjects.Channels;
 using UnityEngine;
@@ -23,6 +22,7 @@ namespace State.States.EnemyStates
         public override void OnEnter()
         {
             base.OnEnter();
+            
             _combatChannel.OnEnemyDied(_enemy);
             _animator.SetTrigger(CachedAnimatorPropertyNames.Dead);
         }

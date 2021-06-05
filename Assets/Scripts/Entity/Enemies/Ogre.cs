@@ -1,6 +1,4 @@
-using Entity.Enemies;
-
-namespace Character.Enemies
+namespace Entity.Enemies
 {
     public class Ogre : Enemy
     {

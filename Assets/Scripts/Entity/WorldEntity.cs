@@ -29,7 +29,6 @@ namespace Entity
         public virtual void ComeAlive()
         {
             IsDead = false;
-            _healthUI?.SetHealth(1);
             _collider.enabled = true;
         }
         
@@ -43,6 +42,14 @@ namespace Entity
         
         public abstract void ReceiveDamage(float damage);
 
-        protected abstract void Die();
+        protected virtual void Die()
+        {
+            IsDead = true;
+            _collider.enabled = false;
+        }
+
+        public virtual void ChangeHealth(float delta)
+        {
+        }
     }
 }

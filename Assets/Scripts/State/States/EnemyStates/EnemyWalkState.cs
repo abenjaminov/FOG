@@ -1,6 +1,5 @@
 ﻿using Animations;
 using Character;
-using Character.Enemies;
 using Entity.Enemies;
 using UnityEngine;
 
@@ -33,6 +32,7 @@ namespace State.States.EnemyStates
             _movement.SetTarget(target);
          
             _animator.SetBool(CachedAnimatorPropertyNames.IsWalking, true);
+            
             base.OnEnter();
         }
         
