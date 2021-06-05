@@ -393,9 +393,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2074931095}
+  - {fileID: 1692978204}
   - {fileID: 1481537546}
   - {fileID: 1380841232}
-  - {fileID: 1692978204}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3179,6 +3179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1495618714}
+  _isPlayerInvincible: 1
 --- !u!1 &875702361
 GameObject:
   m_ObjectHideFlags: 0
@@ -4317,7 +4318,7 @@ RectTransform:
   - {fileID: 875702362}
   - {fileID: 1258718095}
   m_Father: {fileID: 144317614}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4551,7 +4552,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 144317614}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6083,7 +6084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537328, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537329, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_Pivot.x
@@ -6151,11 +6152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537329, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -495
+      value: -272.9
       objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537329, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 67
+      value: 57.8
       objectReference: {fileID: 0}
     - target: {fileID: 6314414926766537329, guid: 70cf5af6c24cdcb48a6216af39081e2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6182,6 +6183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 7087715536965670699, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6192,7 +6197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7087715536965670700, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
       propertyPath: m_AnchorMax.x

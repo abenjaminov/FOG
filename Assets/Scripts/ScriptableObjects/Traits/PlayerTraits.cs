@@ -33,7 +33,7 @@ namespace ScriptableObjects
         
         public void ChangeCurrentHealth(float healthDelta)
         {
-            CurrentHealth = Mathf.Max(0, CurrentHealth + healthDelta);
+            CurrentHealth = Mathf.Max(0, Mathf.Min(MaxHealth, CurrentHealth + healthDelta));
             HealthChangedEvent?.Invoke();
         }
 

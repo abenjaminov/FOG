@@ -13,6 +13,7 @@ namespace UI.Screens
             _inputChannel.RegisterKeyDown(GetActivationKey(), ToggleView);
             this.ToggleView();
             UpdateUI();
+            this.ToggleView();
         }
 
         private void ToggleView()
