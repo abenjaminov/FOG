@@ -24,7 +24,7 @@ namespace UI.Screens
 
         private int previousExp = -1;
 
-        protected override KeyCode GetActivationKey()
+        public override KeyCode GetActivationKey()
         {
             return KeyCode.T;
         }

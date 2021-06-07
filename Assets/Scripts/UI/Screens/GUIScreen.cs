@@ -10,18 +10,15 @@ namespace UI.Screens
         
         protected virtual void Awake()
         {
-            _inputChannel.RegisterKeyDown(GetActivationKey(), ToggleView);
-            this.ToggleView();
             UpdateUI();
-            this.ToggleView();
         }
 
-        private void ToggleView()
+        public void ToggleView()
         {
             this.gameObject.SetActive(!this.gameObject.activeSelf);
         }
 
-        protected abstract KeyCode GetActivationKey();
+        public abstract KeyCode GetActivationKey();
         protected abstract void UpdateUI();
     }
 }

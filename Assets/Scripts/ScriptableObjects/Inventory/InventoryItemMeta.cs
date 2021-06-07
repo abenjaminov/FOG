@@ -2,12 +2,12 @@
 
 namespace ScriptableObjects.Inventory
 {
-    [CreateAssetMenu(fileName = "Inventory Item Meta", menuName = "Inventory/Item", order = 1)]
-    public class InventoryItemMeta : ScriptableObject
+    public abstract class InventoryItemMeta : ScriptableObject
     {
         public string Name;
         public Sprite ItemSprite;
         public Sprite InventoryItemSprite;
-        public bool IsCurrency;
+
+        public abstract void Use(Entity.Player.Player player);
     }
 }

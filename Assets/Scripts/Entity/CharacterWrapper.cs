@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.HeroEditor.Common.CharacterScripts;
+using HeroEditor.Common;
 using Platformer;
 using ScriptableObjects;
+using ScriptableObjects.Inventory;
 using State;
 using UI;
 using UnityEngine;
@@ -35,6 +37,11 @@ namespace Entity
         public void GetReady()
         {
             _character.GetReady();
+        }
+
+        public void EquipItem(EquipmentItemMeta meta)
+        {
+            _character.Equip(meta.Item, meta.Part);
         }
     }
 }

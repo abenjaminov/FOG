@@ -16,6 +16,8 @@ namespace Entity.Player
         [SerializeField] private LevelConfiguration _levelConfiguration;
         public Transform FireTransform;
 
+        [HideInInspector] public PlayerTraits PlayerTraits;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -25,6 +27,8 @@ namespace Entity.Player
             
             // ReSharper disable once PossibleNullReferenceException
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
+            
+            PlayerTraits = Traits as PlayerTraits;
         }
 
         private void GainedExperienceEvent()

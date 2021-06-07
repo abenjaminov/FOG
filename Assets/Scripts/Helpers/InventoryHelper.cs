@@ -9,7 +9,7 @@ namespace Helpers
     { 
         public static int GetDropAmount(InventoryItemMeta metaData, Traits dropperTraits)
         {
-            if (!metaData.IsCurrency)
+            if (!(metaData is CurrencyItemMeta))
             {
                 return 1;
             }

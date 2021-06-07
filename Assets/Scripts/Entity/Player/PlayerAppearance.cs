@@ -16,12 +16,12 @@ namespace Entity.Player
         protected virtual void Awake()
         {
             _character = _player.GetCharacter();
-            _character.Equip(_playerEquipment.Armour.Item, EquipmentPart.Armor);
-            _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
-            _character.Equip(_playerEquipment.Helmet.Item, EquipmentPart.Helmet);
-            _character.Equip(_playerEquipment.Belt.Item, EquipmentPart.Belt);
-            _character.Equip(_playerEquipment.Cape.Item, EquipmentPart.Cape);
-            _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
+            // _character.Equip(_playerEquipment.Armour.Item, EquipmentPart.Armor);
+            // _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
+            // _character.Equip(_playerEquipment.Helmet.Item, EquipmentPart.Helmet);
+            // _character.Equip(_playerEquipment.Belt.Item, EquipmentPart.Belt);
+            // _character.Equip(_playerEquipment.Cape.Item, EquipmentPart.Cape);
+            // _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
         }
     }
 }

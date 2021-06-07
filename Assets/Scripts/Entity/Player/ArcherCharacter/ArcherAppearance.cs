@@ -8,7 +8,7 @@ namespace Entity.Player.ArcherCharacter
         {
             base.Awake();
             
-            _character.Equip(_playerEquipment.PrimaryWeapon.Item, EquipmentPart.Bow);
+            //_character.Equip(_playerEquipment.PrimaryWeapon.Item, EquipmentPart.Bow);
         }
     }
 }

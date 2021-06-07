@@ -22,7 +22,7 @@ namespace ScriptableObjects.Inventory
                 Amount = amount
             };
 
-            if (itemMetaData.IsCurrency)
+            if (itemMetaData is CurrencyItemMeta)
             {
                 AddCurrency(newItem, amount);
                 return;
@@ -37,6 +37,7 @@ namespace ScriptableObjects.Inventory
             else
             {
                 OwnedItems.Add(newItem);
+                item = newItem;
             }
 
             _inventoryChannel.OnItemAdded(newItem, item);
@@ -49,26 +50,23 @@ namespace ScriptableObjects.Inventory
             _inventoryChannel.OnItemAdded(currencyAddition, CurrencyItem);
         }
 
-        public void RemoveItem(InventoryItemMeta itemMetaData, int amount)
+        public void RemoveItem(InventoryItem item)
         {
-            var item = OwnedItems.FirstOrDefault(x => x.ItemMeta.Name == itemMetaData.Name);
+            var itemToRemove = OwnedItems.FirstOrDefault(x => x == item);
             
-            if (item != null)
+            if (itemToRemove != null)
             {
-                item.Amount = Mathf.Max(0,item.Amount - amount);
-
-                if (item.Amount == 0 )
-                {
-                    // TODO : Delete from inv / Drop
-                }
+                OwnedItems.Remove(itemToRemove);
             }
         }
-    }
 
-    [Serializable]
-    public class InventoryItem
-    {
-        public InventoryItemMeta ItemMeta;
-        public int Amount;
+        public void UseItem(Entity.Player.Player player, InventoryItem item)
+        {
+            item.Use(player, 1);
+            if (item.Amount == 0)
+            {
+                RemoveItem(item);
+            }
+        }
     }
 }

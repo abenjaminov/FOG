@@ -12,11 +12,10 @@ namespace UI.Screens
 {
     public class InventoryScreen : GUIScreen
     {
-        [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private Entity.Player.Player _player;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private InventoryChannel _invChannel;
-        [SerializeField] private Transform _firstItemTransform;
-        
+
         [SerializeField] private TextMeshProUGUI _coinText;
         [SerializeField] private List<InventoryItemView> _itemViews = new List<InventoryItemView>();
 
@@ -26,12 +25,7 @@ namespace UI.Screens
             _invChannel.ItemAddedEvent += ItemAddedEvent;
         }
 
-        private void ToggleView()
-        {
-            this.gameObject.SetActive(!this.gameObject.activeSelf);
-        }
-
-        protected override KeyCode GetActivationKey()
+        public override KeyCode GetActivationKey()
         {
             return KeyCode.I;
         }
@@ -86,6 +80,12 @@ namespace UI.Screens
             result = result.TrimStart(',', '0');
             
             return result;
+        }
+
+        public void OnItemDoubleClicked(int itemIndex)
+        {
+            _inventory.UseItem(_player, _inventory.OwnedItems[itemIndex]);
+            UpdateUI();
         }
     }
 
