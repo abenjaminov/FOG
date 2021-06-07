@@ -17,6 +17,7 @@ namespace Entity.Player
         public Transform FireTransform;
 
         [HideInInspector] public PlayerTraits PlayerTraits;
+        [HideInInspector] public PlayerAppearance Apearence;
         
         protected override void Awake()
         {
@@ -29,6 +30,7 @@ namespace Entity.Player
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
             
             PlayerTraits = Traits as PlayerTraits;
+            Apearence = GetComponent<PlayerAppearance>();
         }
 
         private void GainedExperienceEvent()
@@ -73,7 +75,5 @@ namespace Entity.Player
         {
             _playerTraits.ExperienceGained += ((EnemyTraits) deadEnemy.Traits).Experience;
         }
-
-        protected abstract void EquipWeapon(Item weaponEntry);
     }
 }

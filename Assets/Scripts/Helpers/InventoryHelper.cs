@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using Random = UnityEngine.Random;
 
 namespace Helpers

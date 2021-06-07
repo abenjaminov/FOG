@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
 
 namespace ScriptableObjects.Inventory

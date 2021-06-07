@@ -4,6 +4,7 @@ using Helpers;
 using Player;
 using ScriptableObjects;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using State;
 using State.States.DropStates;
 using UnityEngine;

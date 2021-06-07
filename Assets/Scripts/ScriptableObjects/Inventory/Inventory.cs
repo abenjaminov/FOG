@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -50,7 +51,7 @@ namespace ScriptableObjects.Inventory
             _inventoryChannel.OnItemAdded(currencyAddition, CurrencyItem);
         }
 
-        public void RemoveItem(InventoryItem item)
+        private void RemoveItem(InventoryItem item)
         {
             var itemToRemove = OwnedItems.FirstOrDefault(x => x == item);
             
@@ -63,6 +64,7 @@ namespace ScriptableObjects.Inventory
         public void UseItem(Entity.Player.Player player, InventoryItem item)
         {
             item.Use(player, 1);
+            
             if (item.Amount == 0)
             {
                 RemoveItem(item);

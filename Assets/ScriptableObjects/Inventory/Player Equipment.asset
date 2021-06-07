@@ -12,36 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce666781a5054266b5737b22b2288656, type: 3}
   m_Name: Player Equipment
   m_EditorClassIdentifier: 
-  Helmet:
-    Name: 
-    Collection: 
-    Id: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Multiple: 0
-    Hash: 
-    Meta: 
-    Tags: []
-  Armour:
-    Name: 
-    Collection: 
-    Id: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Multiple: 0
-    Hash: 
-    Meta: 
-    Tags: []
-  Boots:
-    Name: 
-    Collection: 
-    Id: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Multiple: 0
-    Hash: 
-    Meta: 
-    Tags: []
+  Helmet: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
+  Torso: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  Boots: {fileID: 11400000, guid: 81fec4a177a236b4ba132343e087e523, type: 2}
+  Pelvis: {fileID: 11400000, guid: 8d019253eaa4af44f97346b8bfd585be, type: 2}
+  Cape: {fileID: 0}
+  Gloves: {fileID: 0}
+  PrimaryWeapon: {fileID: 0}
+  SecondaryWeapon: {fileID: 0}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ScriptableObjects;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;

@@ -1,4 +1,5 @@
 ﻿using HeroEditor.Common;
+using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
 
 namespace ScriptableObjects.Inventory
@@ -7,9 +8,9 @@ namespace ScriptableObjects.Inventory
     public class PlayerEquipment : ScriptableObject
     {
         public EquipmentItemMeta Helmet;
-        public EquipmentItemMeta Armour;
+        public EquipmentItemMeta Torso;
         public EquipmentItemMeta Boots;
-        public EquipmentItemMeta Belt;
+        public EquipmentItemMeta Pelvis;
         public EquipmentItemMeta Cape;
         public EquipmentItemMeta Gloves;
         public EquipmentItemMeta PrimaryWeapon;

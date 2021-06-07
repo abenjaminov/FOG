@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScriptableObjects.Inventory
+namespace ScriptableObjects.Inventory.ItemMetas
 {
     public abstract class InventoryItemMeta : ScriptableObject
     {

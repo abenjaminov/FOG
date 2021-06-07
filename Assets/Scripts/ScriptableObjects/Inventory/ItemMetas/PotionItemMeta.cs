@@ -1,9 +1,9 @@
 ﻿using Platformer.ScriptableObjects.Enums;
 using UnityEngine;
 
-namespace ScriptableObjects.Inventory
+namespace ScriptableObjects.Inventory.ItemMetas
 {
-    [CreateAssetMenu(fileName = "Potion Item Meta", menuName = "Inventory/Potion", order = 4)]
+    [CreateAssetMenu(fileName = "Potion Item Meta", menuName = "Inventory/Potion", order = 3)]
     public class PotionItemMeta : InventoryItemMeta
     {
         public PotionType PotionType;

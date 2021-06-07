@@ -39,14 +39,6 @@ namespace Entity.Player.ArcherCharacter
             sr.sprite = GetArrowSprite();
         }
 
-        protected override void EquipWeapon(Item weaponItem)
-        {
-            if (!weaponItem.IsWeapon) return;
-            if (!weaponItem.IsBow) return;
-            
-            //_character.Equip();
-        }
-
         private Sprite GetArrowSprite()
         {
             return _character.Bow.Single(j => j.name == "Arrow");
