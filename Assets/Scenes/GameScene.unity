@@ -3593,7 +3593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1495618714}
-  _isPlayerInvincible: 1
+  _isPlayerInvincible: 0
 --- !u!1 &815359012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4081907510100586435, guid: 80a22ca544a8dea45a547ec3859c039b, type: 3}
@@ -5441,6 +5441,7 @@ MonoBehaviour:
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
   FireTransform: {fileID: 603544972}
   PlayerTraits: {fileID: 0}
+  Apearence: {fileID: 0}
   _arrowPrefab: {fileID: 3779008949166194602, guid: 5ef3e6c719cc13d4ba515c305610495f, type: 3}
   WorldMovementDirection: {x: 0, y: 0}
 --- !u!61 &1495618715
@@ -5535,6 +5536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerEquipment: {fileID: 11400000, guid: 06bd8eaaf681f5642a1f977f5977172d, type: 2}
+  _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
   _player: {fileID: 1495618714}
 --- !u!4 &1514278634 stripped
 Transform:

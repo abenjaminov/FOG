@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28fffb49ac8c4464bbb6d5d27284fccf, type: 3}
-  m_Name: Armour 1 - Boots
+  m_Name: Casual - Boots
   m_EditorClassIdentifier: 
   Name: Casual Boots
   ItemSprite: {fileID: 21300014, guid: 81d5394ccf164420b10188c2ed2bbe5e, type: 3}
   InventoryItemSprite: {fileID: 21300014, guid: 81d5394ccf164420b10188c2ed2bbe5e, type: 3}
-  IsCurrency: 0
   Item:
     Name: Adventurer
     Collection: Casual

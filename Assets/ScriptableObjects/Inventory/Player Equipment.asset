@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Equipment
   m_EditorClassIdentifier: 
   Helmet: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
-  Torso: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  Torso: {fileID: 11400000, guid: c0f2e562b7deb7a4b8635878a9dd586f, type: 2}
   Boots: {fileID: 11400000, guid: 81fec4a177a236b4ba132343e087e523, type: 2}
   Pelvis: {fileID: 11400000, guid: 8d019253eaa4af44f97346b8bfd585be, type: 2}
   Cape: {fileID: 0}

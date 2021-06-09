@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HeroEditor.Common;
 using HeroEditor.Common.Enums;
 using ScriptableObjects.Inventory;
@@ -10,6 +11,7 @@ namespace Entity.Player
     public abstract class PlayerAppearance : MonoBehaviour
     {
         [SerializeField] protected PlayerEquipment _playerEquipment;
+        [SerializeField] protected Inventory _playerInventory;
         [SerializeField] protected Player _player;
 
         private Assets.HeroEditor.Common.CharacterScripts.Character _character;
@@ -17,8 +19,9 @@ namespace Entity.Player
         protected virtual void Awake()
         {
             _character = _player.GetCharacter();
+
             if(_playerEquipment.Torso != null)
-                _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Vest);
+                _character.Equip(_playerEquipment.Torso.Item, EquipmentPart.Vest);
             
             if(_playerEquipment.Boots != null)
                 _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
@@ -38,7 +41,21 @@ namespace Entity.Player
 
         public void EquipItem(EquipmentItemMeta meta)
         {
+            RemoveItem(meta.Part);
             _character.Equip(meta.Item, meta.Part);
+            _playerEquipment.SetMetaItem(meta);
+        }
+
+        public void RemoveItem(EquipmentPart part)
+        {
+            EquipmentItemMeta oldEquipment = _playerEquipment.MetaByType[part];
+
+            if (oldEquipment != null)
+            {
+                _playerInventory.AddItem(oldEquipment, 1);
+            }
+            
+            _character.UnEquip(part);
         }
     }
 }
