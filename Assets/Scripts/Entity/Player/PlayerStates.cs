@@ -90,11 +90,16 @@ namespace Player
 
             _defaultState = _idle;
             
-            RegisterKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
-            RegisterKey(KeyCode.Z,(isKeyDown) => { _isPickupButtonDown = isKeyDown; });
+            RegisterBooleanToKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
+            RegisterBooleanToKey(KeyCode.Z,(isKeyDown) => { _isPickupButtonDown = isKeyDown; });
+
+            _inputChannel.RegisterKeyDown(KeyCode.RightArrow, () => _horizontalAxisRaw = 1);
+            _inputChannel.RegisterKeyUp(KeyCode.RightArrow, () => _horizontalAxisRaw = 0);
+            _inputChannel.RegisterKeyDown(KeyCode.LeftArrow, () => _horizontalAxisRaw = -1);
+            _inputChannel.RegisterKeyUp(KeyCode.LeftArrow, () => _horizontalAxisRaw = 0);
         }
 
-        private void RegisterKey(KeyCode keyCode, Action<bool> setValue)
+        private void RegisterBooleanToKey(KeyCode keyCode, Action<bool> setValue)
         {
             _inputChannel.RegisterKeyDown(keyCode, () => setValue(true));
             _inputChannel.RegisterKeyUp(keyCode, () => setValue(false));
@@ -107,8 +112,6 @@ namespace Player
 
         protected virtual void Update()
         {
-            _horizontalAxisRaw = (int) Input.GetAxisRaw("Horizontal");
-
             _stateMachine.Tick();
         }
     }
