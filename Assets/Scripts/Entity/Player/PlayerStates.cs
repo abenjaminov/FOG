@@ -40,7 +40,7 @@ namespace Player
         // Transition Logic
         protected Action _attackTransitionLogic;
         
-        protected float _timeUntillNextAttack;
+        protected float _timeUntillNextAttack = 0;
         
         protected virtual void Start()
         {
@@ -70,7 +70,7 @@ namespace Player
             var idleAfterJump = new Func<bool>(() => playerGroundCheck.IsOnGround && _horizontalAxisRaw == 0 && _rigidBody.velocity.y < 0);
             var shouldDie = new Func<bool>(() => _player.IsDead);
 
-            _shouldAttack = new Func<bool>(() => _isLeftControlDown && !_isAttackAnimationActivated);
+            _shouldAttack = new Func<bool>(() => _isLeftControlDown && !_isAttackAnimationActivated && _timeUntillNextAttack <= 0);
             _attackTransitionLogic = () =>
             {
                 _timeUntillNextAttack = _player.Traits.DelayBetweenAttacks;

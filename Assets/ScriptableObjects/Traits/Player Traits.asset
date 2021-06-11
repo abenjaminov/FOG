@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 3
   JumpHeight: 1.1
+  DelayBetweenAttacks: 0.8
   MaxHealth: 100
   Defense: 5
   Level: 1
   Strength: 5
   Dexterity: 5
-  CurrentHealth: 100
+  CurrentHealth: 79
   PointsLeft: 5
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
-  _experienceGained: 0
+  _experienceGained: 2
