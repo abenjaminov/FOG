@@ -1,7 +1,7 @@
 ﻿using Animations;
 using Character;
 using Entity;
-using Entity.Player.ArcherCharacter;
+using Entity.Player.ArcherClass;
 using UnityEngine;
 
 namespace State.States.ArcherStates
@@ -10,8 +10,7 @@ namespace State.States.ArcherStates
     {
         private Archer _archer;
         
-        public ArcherShootArrowState(CharacterWrapper character,
-            Animator animator, Rigidbody2D rigidBody) : base(animator, rigidBody, character)
+        public ArcherShootArrowState(CharacterWrapper character) : base(character)
         {
             _archer = character as Archer;
         }

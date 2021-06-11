@@ -1,5 +1,6 @@
 ﻿using Platformer;
 using ScriptableObjects;
+using ScriptableObjects.Traits;
 using State;
 using UI;
 using UnityEngine;

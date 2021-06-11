@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Assets.HeroEditor.FantasyInventory.Scripts.Data;
 using Entity.Enemies;
 using ScriptableObjects;
@@ -10,11 +11,13 @@ namespace Entity.Player
     public abstract class Player : CharacterWrapper
     {
         private PlayerTraits _playerTraits;
+
+        [Header("Visuals")] [SerializeField] private GameObject _charachterVisuals;
         
         [Header("Player Specific")]
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
-        public Transform FireTransform;
+        
 
         [HideInInspector] public PlayerTraits PlayerTraits;
         [HideInInspector] public PlayerAppearance Apearence;
@@ -23,6 +26,9 @@ namespace Entity.Player
         {
             base.Awake();
             
+            var visuals = Instantiate(_charachterVisuals, Vector3.zero, Quaternion.identity, this.transform);
+            visuals.transform.localPosition = Vector3.zero;
+            
             _playerTraits = Traits as PlayerTraits;;
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
             
@@ -30,6 +36,12 @@ namespace Entity.Player
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
             
             PlayerTraits = Traits as PlayerTraits;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            
             Apearence = GetComponent<PlayerAppearance>();
         }
 
@@ -45,10 +57,6 @@ namespace Entity.Player
         private void LevelUp()
         {
             _playerTraits.LevelUp();
-            var level = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level);
-            if (level == null) return;
-            
-            _playerTraits.PointsLeft += level.Points;
         }
         
         public override void ReceiveDamage(float damage)

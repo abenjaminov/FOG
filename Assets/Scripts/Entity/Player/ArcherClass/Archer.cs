@@ -1,29 +1,29 @@
 using System.Linq;
-using Assets.HeroEditor.FantasyInventory.Scripts.Data;
-using Character.Player.Archer;
 using Platformer;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 
-namespace Entity.Player.ArcherCharacter
+namespace Entity.Player.ArcherClass
 {
-    public class Archer : Entity.Player.Player
+    public class Archer : Player
     {
         [Header("Archer Specific")]
         [SerializeField] private GameObject _arrowPrefab;
+        [SerializeField] protected Transform _fireTransform;
 
         [HideInInspector] public Vector2 WorldMovementDirection;
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
 
             _animationEvents.BowChargeEndEvent += OnShootArrow;
         }
 
         public void OnShootArrow()
         {
-            var arrow = Instantiate(_arrowPrefab, FireTransform).GetComponent<Arrow>();
+            var arrow = Instantiate(_arrowPrefab, _fireTransform).GetComponent<Arrow>();
             
             arrow.WorldMovementDirection = WorldMovementDirection;
             arrow.ParentCharacter = this;

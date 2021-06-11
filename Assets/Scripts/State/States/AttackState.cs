@@ -13,10 +13,10 @@ namespace State.States
         private Rigidbody2D _rigidbody2D;
         private float _previousHorizontalVelocity;
 
-        protected PlayerAttackState(Animator animator, Rigidbody2D rigidbody2D, CharacterWrapper character)
+        protected PlayerAttackState(CharacterWrapper character)
         {
-            _animator = animator;
-            _rigidbody2D = rigidbody2D;
+            _animator = character.GetComponent<Animator>();
+            _rigidbody2D = character.GetComponent<Rigidbody2D>();
             _character = character;
         }
 

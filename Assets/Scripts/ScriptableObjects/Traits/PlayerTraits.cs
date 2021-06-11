@@ -5,16 +5,17 @@ using UnityEngine.Events;
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Player Traits", menuName = "Game Stats/Player Traits", order = 0)]
-    public class PlayerTraits : Traits
+    public class PlayerTraits : Traits.Traits
     {
+        
         public UnityAction GainedExperienceEvent;
         
-        public float CurrentHealth;
-        public int PointsLeft;
+        [HideInInspector] public float CurrentHealth;
+        [HideInInspector] public int PointsLeft;
 
-        [SerializeField] private int _experienceGained;
         [SerializeField] private LevelConfiguration _levelConfiguration;
-
+        [SerializeField] private int _experienceGained;
+        
         public int ExperienceGained
         {
             get => _experienceGained;
@@ -25,12 +26,6 @@ namespace ScriptableObjects
             }
         }
 
-        public void SetCurrentHealth(float health)
-        {
-            CurrentHealth = Mathf.Max(0, health);;
-            HealthChangedEvent?.Invoke();
-        }
-        
         public void ChangeCurrentHealth(float healthDelta)
         {
             CurrentHealth = Mathf.Max(0, Mathf.Min(MaxHealth, CurrentHealth + healthDelta));

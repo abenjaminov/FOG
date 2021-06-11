@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Entity.Player
 {
-    public abstract class PlayerAppearance : MonoBehaviour
+    public class PlayerAppearance : MonoBehaviour
     {
         [SerializeField] protected PlayerEquipment _playerEquipment;
         [SerializeField] protected Inventory _playerInventory;
@@ -16,7 +16,7 @@ namespace Entity.Player
 
         private Assets.HeroEditor.Common.CharacterScripts.Character _character;
         
-        protected virtual void Awake()
+        protected virtual void Start()
         {
             _character = _player.GetCharacter();
 

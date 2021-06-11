@@ -15,6 +15,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		/// </summary>
 		public event Action<string> OnCustomEvent = s => { };
 
+		// Asaf Added
 		public UnityAction BowChargeEndEvent;
 
 		/// <summary>
