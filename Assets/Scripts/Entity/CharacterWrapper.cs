@@ -19,19 +19,23 @@ namespace Entity
     {
         protected AnimationEvents _animationEvents;
 
-        [Header("Character Pack")]
-        [SerializeField] protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
-        [SerializeField] private Transform ArmL;
-        [SerializeField] private Transform ArmR;
-
-        protected virtual void Awake()
+        protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        
+        protected virtual void Start()
         {
             base.Awake();
             _animationEvents = GetComponentInChildren<AnimationEvents>();
+
+            _character = GetComponentInChildren<Assets.HeroEditor.Common.CharacterScripts.Character>();
         }
         
         public Assets.HeroEditor.Common.CharacterScripts.Character GetCharacter()
         {
+            if (_character == null)
+            {
+                _character = GetComponentInChildren<Assets.HeroEditor.Common.CharacterScripts.Character>();
+            }
+
             return _character;
         }
         

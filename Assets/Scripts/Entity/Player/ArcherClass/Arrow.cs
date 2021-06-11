@@ -1,10 +1,7 @@
-using Entity;
-using Entity.Enemies;
-using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
-namespace Character.Player.Archer
+namespace Entity.Player.ArcherClass
 {
     public class Arrow : MonoBehaviour
     {
