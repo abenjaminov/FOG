@@ -7,6 +7,7 @@ namespace UI.Screens
     {
         [SerializeField] protected InputChannel _inputChannel;
         protected KeyCode activationKey;
+        public bool IsOpen;
         
         protected virtual void Awake()
         {
@@ -15,7 +16,8 @@ namespace UI.Screens
 
         public void ToggleView()
         {
-            this.gameObject.SetActive(!this.gameObject.activeSelf);
+            gameObject.SetActive(!gameObject.activeSelf);
+            IsOpen = gameObject.activeSelf;
         }
 
         public abstract KeyCode GetActivationKey();
