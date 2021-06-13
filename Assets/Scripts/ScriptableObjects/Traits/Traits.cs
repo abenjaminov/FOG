@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects.Traits
 {
@@ -12,7 +14,8 @@ namespace ScriptableObjects.Traits
         public float WalkSpeed;
         public float JumpHeight;
 
-        public float DelayBetweenAttacks;
+        public float BaseDelayBetweenAttacks;
+        [HideInInspector] public float DelayBetweenAttacks;
         
         public float MaxHealth;
         public int Defense;
@@ -21,5 +24,10 @@ namespace ScriptableObjects.Traits
         [Range(1,10)] public int Level;
         public int Strength;
         public int Dexterity;
+
+        private void OnEnable()
+        {
+            DelayBetweenAttacks = BaseDelayBetweenAttacks;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Character;
+﻿using Abilities;
 using Entity;
 using Entity.Enemies;
 using Platformer;
@@ -12,10 +12,11 @@ namespace ScriptableObjects.Channels
     {
         public UnityAction<Enemy> EnemyDiedEvent;
         
-        public void OnEntityHit(WorldEntity attacker, WorldEntity receiver)
+        public void OnEntityHit(WorldEntity attacker, WorldEntity receiver, Ability ability = null)
         {
             var damage = TraitsCalculator.CalculateDamage(attacker.Traits, receiver.Traits);
-            receiver.ReceiveDamage(damage);
+            var damageWithAbilityFactor = Mathf.Ceil(damage * (ability?.DamagePercentage ?? 1));
+            receiver.ReceiveDamage(damageWithAbilityFactor);
         }
 
         public void OnEnemyDied(Enemy enemy)

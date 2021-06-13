@@ -46,22 +46,21 @@ namespace ScriptableObjects.Inventory
                     Torso = meta;
                     break;
                 case EquipmentPart.Boots:
-                    Torso = meta;
+                    Boots = meta;
                     break;
                 case EquipmentPart.Helmet:
-                    Torso = meta;
+                    Helmet = meta;
                     break;
                 case EquipmentPart.Belt:
-                    Torso = meta;
+                    Pelvis = meta;
                     break;
                 case EquipmentPart.Cape:
-                    Torso = meta;
+                    Cape = meta;
                     break;
                 case EquipmentPart.Gloves:
-                    Torso = meta;
+                    Gloves = meta;
                     break;
                 default:
-                    Torso = meta;
                     break;
             }
         }

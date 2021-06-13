@@ -69,7 +69,7 @@ MonoBehaviour:
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.2
   - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
-    Percentage: 0
+    Percentage: 0.3
   _dropPosition: {fileID: 3772371485917577999}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
   _dropperTraits: {fileID: 11400000, guid: 5dd637b84c33ec44188f26fdd1371634, type: 2}

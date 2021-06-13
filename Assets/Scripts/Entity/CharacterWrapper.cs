@@ -17,14 +17,12 @@ namespace Entity
 {
     public abstract class CharacterWrapper : WorldEntity
     {
-        protected AnimationEvents _animationEvents;
-
         protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
+        public AnimationEvents AnimationEvents;
         
         protected virtual void Start()
         {
-            base.Awake();
-            _animationEvents = GetComponentInChildren<AnimationEvents>();
+            AnimationEvents = GetComponentInChildren<AnimationEvents>();
 
             _character = GetComponentInChildren<Assets.HeroEditor.Common.CharacterScripts.Character>();
         }

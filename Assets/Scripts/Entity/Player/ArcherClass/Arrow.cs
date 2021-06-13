@@ -1,3 +1,4 @@
+using Abilities;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ namespace Entity.Player.ArcherClass
     {
         [SerializeField] private CombatChannel _combatChannel;
         [HideInInspector] public CharacterWrapper ParentCharacter;
+        [HideInInspector] public Ability ParentAbility;
         [SerializeField] private float _speed; 
         [HideInInspector] public Vector2 WorldMovementDirection;
+        
         public float Range;
         private Vector2 _spawnPosition;
 
@@ -31,7 +34,7 @@ namespace Entity.Player.ArcherClass
         {
             if (other.TryGetComponent(typeof(WorldEntity), out var character))
             {
-                _combatChannel.OnEntityHit(ParentCharacter, (WorldEntity)character);
+                _combatChannel.OnEntityHit(ParentCharacter, (WorldEntity)character, ParentAbility);
                 Destroy(gameObject);
             }
         }

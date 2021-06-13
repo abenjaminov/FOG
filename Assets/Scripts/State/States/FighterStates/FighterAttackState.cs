@@ -1,16 +1,19 @@
-﻿using Animations;
+﻿using Abilities;
+using Abilities.Archer;
+using Animations;
+using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player.FighterClass;
 using UnityEngine;
 
 namespace State.States.FighterStates
 {
-    public class FighterAttackState : PlayerAttackState
+    public class FighterAbilityState : PlayerAbilityState<ShootBasicArrowAbility>
     {
         private Fighter _fighter;
         
-        public FighterAttackState(CharacterWrapper character) : 
-            base(character)
+        public FighterAbilityState(CharacterWrapper character, ShootBasicArrowAbility ability) : 
+            base(character,ability)
         {
             _fighter = character as Fighter;
         }
