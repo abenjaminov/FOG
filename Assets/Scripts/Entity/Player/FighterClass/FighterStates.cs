@@ -15,7 +15,7 @@ namespace Entity.Player.FighterClass
         {
             _fighter = GetComponent<Fighter>();
             
-            _basicAttackState = new FighterAbilityState(_fighter, new ShootBasicArrowAbility(_fighter,KeyCode.LeftControl, null, null));
+            _basicAttackState = new FighterAbilityState(_fighter, new ShootBasicArrowAbility(_fighter,KeyCode.LeftControl,1, null, null));
             
             base.Start();
         }

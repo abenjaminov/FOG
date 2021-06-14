@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Abilities.Archer
 {
-    public class ShootBasicArrowAbility : Ability
+    public class ShootBasicArrowAbility : Attack
     {
         private CharacterWrapper _hostWrapper;
         [SerializeField] private GameObject _arrowPrefab;
@@ -17,7 +17,7 @@ namespace Abilities.Archer
         
         public Vector2 WorldMovementDirection;
         
-        public ShootBasicArrowAbility(WorldEntity host,KeyCode hotKey,  GameObject arrowPrefab, Transform fireTransform) : base(host, hotKey)
+        public ShootBasicArrowAbility(WorldEntity host,KeyCode hotKey,  int numberEnemies, GameObject arrowPrefab, Transform fireTransform) : base(host, hotKey,numberEnemies)
         {
             _arrowPrefab = arrowPrefab;
             _fireTransform = fireTransform;
@@ -33,7 +33,7 @@ namespace Abilities.Archer
             arrow.WorldMovementDirection = WorldMovementDirection;
             arrow.ParentCharacter = _hostWrapper;
             arrow.Range = TraitsCalculator.CalculateAttackRange(_host.Traits);
-            arrow.ParentAbility = this;
+            arrow.SetParentAbility(this);
             
             var sr = arrow.GetComponent<SpriteRenderer>();
 

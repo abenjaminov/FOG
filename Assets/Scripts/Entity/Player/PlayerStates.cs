@@ -85,7 +85,7 @@ namespace Player
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
             var walkRightAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw > 0 && _rigidBody.velocity.y < 0);
             var idleAfterJump = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw == 0 && _rigidBody.velocity.y < 0);
-            var shouldDie = new Func<bool>(() => _player.IsDead);
+            
 
             _shouldAbility = () => !_isAbilityAnimationActivated && _timeUntillNextAttack <= 0;
             _attackTransitionLogic = () =>
@@ -121,11 +121,7 @@ namespace Player
             _stateMachine.AddTransition(_fall, shouldFall,_walkLeft);
             _stateMachine.AddTransition(_fall, shouldFall,_walkRight);
             
-            _stateMachine.AddTransition(_dead, shouldDie,_fall);
-            _stateMachine.AddTransition(_dead, shouldDie,_jump);
-            _stateMachine.AddTransition(_dead, shouldDie,_walkRight);
-            _stateMachine.AddTransition(_dead, shouldDie,_walkLeft);
-            _stateMachine.AddTransition(_dead, shouldDie,_idle);
+            ConfigureDeadState();
 
             AddAbilityState(_basicAttackState, _shouldAbility, _attackTransitionLogic);
 
@@ -140,6 +136,16 @@ namespace Player
             _inputChannel.RegisterKeyUp(KeyCode.LeftArrow, () => _horizontalAxisRaw = 0);
 
             _stateMachine.SetState(_defaultState);
+        }
+
+        private void ConfigureDeadState()
+        {
+            var shouldDie = new Func<bool>(() => _player.IsDead);
+            _stateMachine.AddTransition(_dead, shouldDie, _fall);
+            _stateMachine.AddTransition(_dead, shouldDie, _jump);
+            _stateMachine.AddTransition(_dead, shouldDie, _walkRight);
+            _stateMachine.AddTransition(_dead, shouldDie, _walkLeft);
+            _stateMachine.AddTransition(_dead, shouldDie, _idle);
         }
 
         protected virtual void Update()

@@ -30,7 +30,8 @@ namespace Entity.Player.ArcherClass
         {
             _archer = GetComponent<Archer>();
             _basicAttackState = new ArcherShootArrowAbilityState(_archer, new ShootBasicArrowAbility(_archer, 
-                KeyCode.LeftControl, 
+                KeyCode.LeftControl,
+                1,
                 _arrowPrefab, 
                 _fireTransform));
             
@@ -39,7 +40,7 @@ namespace Entity.Player.ArcherClass
             _animationEvents.BowChargeEndEvent += BowChargeEndEvent;
             
             var strongArrowState = new ArcherShootArrowAbilityState(_archer,
-                new FireArrowAbility(_archer, KeyCode.X, _fireArrowPrefab, _fireTransform));
+                new FireArrowAbility(_archer, KeyCode.X,2, _fireArrowPrefab, _fireTransform));
             
             AddAbilityState(strongArrowState, _shouldAbility, _attackTransitionLogic);
 
