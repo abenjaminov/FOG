@@ -3,6 +3,8 @@ using Entity;
 using Entity.Player.ArcherClass;
 using Platformer;
 using ScriptableObjects.Traits;
+using State;
+using State.States.ArcherStates;
 using UnityEngine;
 
 namespace Abilities.Archer
@@ -10,8 +12,8 @@ namespace Abilities.Archer
     public class ShootBasicArrowAbility : Ability
     {
         private CharacterWrapper _hostWrapper;
-        private GameObject _arrowPrefab;
-        private Transform _fireTransform;
+        [SerializeField] private GameObject _arrowPrefab;
+        [SerializeField] private Transform _fireTransform;
         
         public Vector2 WorldMovementDirection;
         
@@ -42,7 +44,7 @@ namespace Abilities.Archer
             arrow.transform.SetParent(null);
             sr.sprite = GetArrowSprite();
         }
-        
+
         private Sprite GetArrowSprite()
         {
             return _hostWrapper.GetCharacter().Bow.Single(j => j.name == "Arrow");

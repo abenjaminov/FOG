@@ -41,12 +41,12 @@ namespace Entity.Player.ArcherClass
             var strongArrowState = new ArcherShootArrowAbilityState(_archer,
                 new FireArrowAbility(_archer, KeyCode.X, _fireArrowPrefab, _fireTransform));
             
-            AddAbilityState(strongArrowState, _shouldBasicAttack, _attackTransitionLogic);
+            AddAbilityState(strongArrowState, _shouldAbility, _attackTransitionLogic);
 
             var fastAttackBuffState =
                 new ArcherApplyFastAttackBuffState(_archer, new FastAttackBuff(_archer, KeyCode.C, _fastAttackBuffTime, _fastAttackBuffSprite, _fastAttackFactor));
             
-            AddAbilityState(fastAttackBuffState, _shouldBasicAttack, _buffTransitionLogic,() => fastAttackBuffState.IsBuffApplied);
+            AddAbilityState(fastAttackBuffState, _shouldAbility, _buffTransitionLogic,() => fastAttackBuffState.IsBuffApplied);
         }
 
         private void BowChargeEndEvent()

@@ -41,7 +41,7 @@ namespace Player
         protected IAbilityState _basicAttackState;
 
         // Transition conditions
-        protected Func<bool> _shouldBasicAttack;
+        protected Func<bool> _shouldAbility;
         protected Func<bool> _walkLeftTransitionCondition;
         protected Func<bool> _walkRightTransitionCondition;
         protected Func<bool> _noHorizontalInput;
@@ -87,7 +87,7 @@ namespace Player
             var idleAfterJump = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw == 0 && _rigidBody.velocity.y < 0);
             var shouldDie = new Func<bool>(() => _player.IsDead);
 
-            _shouldBasicAttack = () => !_isAbilityAnimationActivated && _timeUntillNextAttack <= 0;
+            _shouldAbility = () => !_isAbilityAnimationActivated && _timeUntillNextAttack <= 0;
             _attackTransitionLogic = () =>
             {
                 _timeUntillNextAttack = _player.Traits.DelayBetweenAttacks;
@@ -127,7 +127,7 @@ namespace Player
             _stateMachine.AddTransition(_dead, shouldDie,_walkLeft);
             _stateMachine.AddTransition(_dead, shouldDie,_idle);
 
-            AddAbilityState(_basicAttackState, _shouldBasicAttack, _attackTransitionLogic);
+            AddAbilityState(_basicAttackState, _shouldAbility, _attackTransitionLogic);
 
             _defaultState = _idle;
             

@@ -1,5 +1,7 @@
 ﻿using Entity;
 using ScriptableObjects.Traits;
+using State;
+using State.States.ArcherStates;
 using UnityEngine;
 
 namespace Abilities.Archer
