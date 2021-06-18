@@ -1,6 +1,7 @@
 ﻿using Abilities;
 using Entity;
 using Entity.Enemies;
+using Helpers;
 using Platformer;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +15,7 @@ namespace ScriptableObjects.Channels
         
         public void OnEntityHit(WorldEntity attacker, WorldEntity receiver, Ability ability = null)
         {
-            var damage = TraitsCalculator.CalculateDamage(attacker.Traits, receiver.Traits);
+            var damage = TraitsHelper.CalculateDamage(attacker.Traits, receiver.Traits);
             var damageWithAbilityFactor = Mathf.Ceil(damage * (ability?.DamagePercentage ?? 1));
             receiver.ReceiveDamage(damageWithAbilityFactor);
         }

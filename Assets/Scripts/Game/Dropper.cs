@@ -21,16 +21,16 @@ namespace Game
         public void Drop()
         {
             int numberOfInstantiated = 0;
-            
+
             foreach (var dropItem in _dropItems)
             {
                 var randomNumber = Random.Range(0f, 1f);
                 if (randomNumber <= dropItem.Percentage)
                 {
                     var offsetValue = (numberOfInstantiated + 1) / 2;
-                    float offset = numberOfInstantiated % 2 == 0 ? offsetValue : -offsetValue; 
+                    float offset = numberOfInstantiated % 2 == 0 ? offsetValue : -offsetValue;
                     InstantiateDrop(dropItem, offset * multiDropOffset);
-                    
+
                     numberOfInstantiated++;
                 }
             }
@@ -42,12 +42,5 @@ namespace Game
             var drop = Instantiate(_dropPrefab, position, Quaternion.identity).GetComponent<Drop>();
             drop.SetInventoryItemMeta(item.ItemMetaData, _dropperTraits);
         }
-    }
-
-    [Serializable]
-    public class DropItem
-    {
-        public InventoryItemMeta ItemMetaData;
-        public float Percentage;
     }
 }

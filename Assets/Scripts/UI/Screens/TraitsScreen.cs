@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Helpers;
 using Platformer;
 using ScriptableObjects;
 using TMPro;
@@ -34,7 +35,7 @@ namespace UI.Screens
             _dexText.SetText(_playerTraits.Dexterity.ToString());
             _strText.SetText(_playerTraits.Strength.ToString());
             _defText.SetText(_playerTraits.Defense.ToString());
-            _damageText.SetText(TraitsCalculator.GetMinDamage(_playerTraits) + " - " + TraitsCalculator.GetMaxDamage(_playerTraits));
+            _damageText.SetText(TraitsHelper.GetMinDamage(_playerTraits) + " - " + TraitsHelper.GetMaxDamage(_playerTraits));
         
             SetExp();
 

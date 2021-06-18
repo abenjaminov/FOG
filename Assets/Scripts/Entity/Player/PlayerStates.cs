@@ -1,4 +1,5 @@
 ﻿using System;
+using Abilities;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using ScriptableObjects.Channels;
@@ -18,6 +19,8 @@ namespace Player
         
         [SerializeField] private InputChannel _inputChannel;
 
+        [SerializeField] protected Ability _basicAttackAbility;
+        
         protected AnimationEvents _animationEvents;
         
         private IState _defaultState;
@@ -131,9 +134,17 @@ namespace Player
             
 
             _inputChannel.RegisterKeyDown(KeyCode.RightArrow, () => _horizontalAxisRaw = 1);
-            _inputChannel.RegisterKeyUp(KeyCode.RightArrow, () => _horizontalAxisRaw = 0);
             _inputChannel.RegisterKeyDown(KeyCode.LeftArrow, () => _horizontalAxisRaw = -1);
-            _inputChannel.RegisterKeyUp(KeyCode.LeftArrow, () => _horizontalAxisRaw = 0);
+            _inputChannel.RegisterKeyUp(KeyCode.RightArrow, () =>
+            {
+                if(_horizontalAxisRaw == 1)
+                    _horizontalAxisRaw = 0;
+            });
+            _inputChannel.RegisterKeyUp(KeyCode.LeftArrow, () =>
+            {
+                if(_horizontalAxisRaw == -1)
+                    _horizontalAxisRaw = 0;
+            });
 
             _stateMachine.SetState(_defaultState);
         }

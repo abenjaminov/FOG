@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace State.States.ArcherStates
 {
-    public class ArcherShootArrowAbilityState : PlayerAbilityState<ShootBasicArrowAbility>
+    public class ArcherShootArrowAbilityState : PlayerAbilityState<ShootArrowAbility>
     {
         private Archer _archer;
 
-        public ArcherShootArrowAbilityState(CharacterWrapper character, ShootBasicArrowAbility ability) : base(character, ability)
+        public ArcherShootArrowAbilityState(CharacterWrapper character, ShootArrowAbility ability) : base(character, ability)
         {
             _archer = character as Archer;
             _animationEvents.BowChargeEndEvent += BowChargeEndEvent;

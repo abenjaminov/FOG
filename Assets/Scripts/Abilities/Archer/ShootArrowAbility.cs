@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Entity;
 using Entity.Player.ArcherClass;
+using Helpers;
 using Platformer;
 using ScriptableObjects.Traits;
 using State;
@@ -9,21 +10,20 @@ using UnityEngine;
 
 namespace Abilities.Archer
 {
-    public class ShootBasicArrowAbility : Attack
+    public class ShootArrowAbility : Attack
     {
         private CharacterWrapper _hostWrapper;
         [SerializeField] private GameObject _arrowPrefab;
         [SerializeField] private Transform _fireTransform;
         
-        public Vector2 WorldMovementDirection;
-        
-        public ShootBasicArrowAbility(WorldEntity host,KeyCode hotKey,  int numberEnemies, GameObject arrowPrefab, Transform fireTransform) : base(host, hotKey,numberEnemies)
-        {
-            _arrowPrefab = arrowPrefab;
-            _fireTransform = fireTransform;
-            _hostWrapper = host as CharacterWrapper;
+        [HideInInspector] public Vector2 WorldMovementDirection;
 
-            DamagePercentage = 1.0f;
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            _hostWrapper = _host as CharacterWrapper;
+            
         }
 
         public override void Use()
@@ -32,7 +32,7 @@ namespace Abilities.Archer
             
             arrow.WorldMovementDirection = WorldMovementDirection;
             arrow.ParentCharacter = _hostWrapper;
-            arrow.Range = TraitsCalculator.CalculateAttackRange(_host.Traits);
+            arrow.Range = TraitsHelper.CalculateAttackRange(_host.Traits);
             arrow.SetParentAbility(this);
             
             var sr = arrow.GetComponent<SpriteRenderer>();

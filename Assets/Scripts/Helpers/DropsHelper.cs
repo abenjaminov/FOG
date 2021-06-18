@@ -1,13 +1,10 @@
-﻿using System;
-using ScriptableObjects;
-using ScriptableObjects.Inventory;
-using ScriptableObjects.Inventory.ItemMetas;
+﻿using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Traits;
 using Random = UnityEngine.Random;
 
 namespace Helpers
 {
-    public static class InventoryHelper
+    public static class DropsHelper
     { 
         public static int GetDropAmount(InventoryItemMeta metaData, Traits dropperTraits)
         {

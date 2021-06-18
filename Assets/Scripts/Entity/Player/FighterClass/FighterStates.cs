@@ -1,9 +1,4 @@
-﻿using System;
-using Abilities.Archer;
-using Assets.HeroEditor.Common.CharacterScripts;
-using Player;
-using State.States.FighterStates;
-using UnityEngine;
+﻿using Player;
 
 namespace Entity.Player.FighterClass
 {
@@ -15,7 +10,7 @@ namespace Entity.Player.FighterClass
         {
             _fighter = GetComponent<Fighter>();
             
-            _basicAttackState = new FighterAbilityState(_fighter, new ShootBasicArrowAbility(_fighter,KeyCode.LeftControl,1, null, null));
+            //_basicAttackState = new FighterAbilityState(_fighter, new ShootArrowAbility(_fighter,KeyCode.LeftControl,1, null, null));
             
             base.Start();
         }

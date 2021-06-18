@@ -1,12 +1,11 @@
-﻿using System;
-using ScriptableObjects;
+﻿using ScriptableObjects;
 using ScriptableObjects.Traits;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Platformer
+namespace Helpers
 {
-    public static class TraitsCalculator
+    public static class TraitsHelper
     {
         public static int CalculateDamage(Traits attacker, Traits receiver)
         {

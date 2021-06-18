@@ -6,14 +6,8 @@ namespace Abilities
     public abstract class Buff : Ability
     {
         public float BuffTime;
-        public float TimeUntillBuffEnds;
+        [HideInInspector] public float TimeUntillBuffEnds;
         public Sprite BuffSprite;
-        
-        public Buff(WorldEntity host, KeyCode hotKey, float buffTime, Sprite buffSprite) : base(host, hotKey)
-        {
-            BuffTime = buffTime;
-            BuffSprite = buffSprite;
-        }
 
         public override void Use()
         {

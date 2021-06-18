@@ -12,40 +12,28 @@ namespace Entity.Player.ArcherClass
     public class ArcherStates : PlayerStates
     {
         private Archer _archer;
-        
-        [Header("Shoot Arrow Ability")]
-        [SerializeField] private GameObject _arrowPrefab;
-        [SerializeField] protected Transform _fireTransform;
-        
+
         [Header("Shoot Fire Arrow Ability")]
-        [SerializeField] private GameObject _fireArrowPrefab;
+        [SerializeField] private ShootArrowAbility _fireArrowAbility;
 
+        [Header("Fast Attack Buff")]
+        [SerializeField] private FastAttackBuff _fastAttackBuff;
 
-        [Header("Fast Attack Buff")] 
-        [SerializeField] private float _fastAttackFactor;
-        [SerializeField] private float _fastAttackBuffTime;
-        [SerializeField] private Sprite _fastAttackBuffSprite;
-        
         protected override void Start()
         {
             _archer = GetComponent<Archer>();
-            _basicAttackState = new ArcherShootArrowAbilityState(_archer, new ShootBasicArrowAbility(_archer, 
-                KeyCode.LeftControl,
-                1,
-                _arrowPrefab, 
-                _fireTransform));
+            _basicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
             
             base.Start();
 
             _animationEvents.BowChargeEndEvent += BowChargeEndEvent;
             
-            var strongArrowState = new ArcherShootArrowAbilityState(_archer,
-                new FireArrowAbility(_archer, KeyCode.X,2, _fireArrowPrefab, _fireTransform));
+            var strongArrowState = new ArcherShootArrowAbilityState(_archer,_fireArrowAbility);
             
             AddAbilityState(strongArrowState, _shouldAbility, _attackTransitionLogic);
 
             var fastAttackBuffState =
-                new ArcherApplyFastAttackBuffState(_archer, new FastAttackBuff(_archer, KeyCode.C, _fastAttackBuffTime, _fastAttackBuffSprite, _fastAttackFactor));
+                new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
             
             AddAbilityState(fastAttackBuffState, _shouldAbility, _buffTransitionLogic,() => fastAttackBuffState.IsBuffApplied);
         }

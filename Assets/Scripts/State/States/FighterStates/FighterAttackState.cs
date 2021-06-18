@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace State.States.FighterStates
 {
-    public class FighterAbilityState : PlayerAbilityState<ShootBasicArrowAbility>
+    public class FighterAbilityState : PlayerAbilityState<ShootArrowAbility>
     {
         private Fighter _fighter;
         
-        public FighterAbilityState(CharacterWrapper character, ShootBasicArrowAbility ability) : 
+        public FighterAbilityState(CharacterWrapper character, ShootArrowAbility ability) : 
             base(character,ability)
         {
             _fighter = character as Fighter;

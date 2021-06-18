@@ -1,20 +1,20 @@
-﻿using Entity;
+﻿using System;
+using Entity;
 using State;
 using UnityEngine;
 
 namespace Abilities
 {
-    public abstract class Ability
+    public abstract class Ability : MonoBehaviour
     {
         protected WorldEntity _host;
         public KeyCode HotKey;
-        public bool IsHotKeyDown;
+        [HideInInspector] public bool IsHotKeyDown;
         public float DamagePercentage;
-        
-        protected Ability(WorldEntity host, KeyCode hotKey)
+
+        protected virtual void Awake()
         {
-            _host = host;
-            HotKey = hotKey;
+            _host = GetComponent<WorldEntity>();
         }
 
         public abstract void Use();

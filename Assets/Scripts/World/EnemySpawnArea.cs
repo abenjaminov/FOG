@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Entity.Enemies;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace World
 {
     public class EnemySpawnArea : MonoBehaviour
     {
-        [SerializeField] private List<EnemySpawnType> _enemySpawnType;
+        [SerializeField] private List<EnemySpawn> _enemySpawns;
         [SerializeField] private Transform _rightBounds;
         [SerializeField] private Transform _leftBounds;
         [SerializeField] private float _spawnInterval;
@@ -21,7 +22,7 @@ namespace World
         {
             _liveEnemies = new List<SpawnedEnemy>();
             
-            foreach (var enemySpawnType in _enemySpawnType)
+            foreach (var enemySpawnType in _enemySpawns)
             {
                 var enemy = Instantiate(enemySpawnType.EnemyPrefab,
                     enemySpawnType.SpawnPosition.position,
@@ -72,7 +73,7 @@ namespace World
     }
 
     [Serializable]
-    public class EnemySpawnType
+    public class EnemySpawn
     {
         public GameObject EnemyPrefab;
         public Transform SpawnPosition;

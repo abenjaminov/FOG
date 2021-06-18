@@ -27,6 +27,7 @@ namespace Game
         private bool _isPickedUp;
 
         private StateMachine _stateMachine;
+        
         private PickedUpState _pickedUpState;
         private DroppedState _droppedState;
         private FloatState _floatState;
@@ -47,9 +48,10 @@ namespace Game
             
             _stateMachine = new StateMachine();
 
-            _droppedState = new DroppedState(_floatComponent, transform, _dropHeight, _fadeoutComponent);
-            _floatState = new FloatState(_floatComponent, _groundCheck, _collider, transform);
-            _pickedUpState = new PickedUpState(_floatComponent, _fadeoutComponent, transform);
+            var dropTransform = transform;
+            _droppedState = new DroppedState(_floatComponent, dropTransform, _dropHeight, _fadeoutComponent);
+            _floatState = new FloatState(_floatComponent, _groundCheck, _collider, dropTransform);
+            _pickedUpState = new PickedUpState(_floatComponent, _fadeoutComponent, dropTransform);
 
             var shouldFloat = new Func<bool>(() => _groundCheck.IsOnGround);
             var shouldBePickedUp = new Func<bool>(() => _isPickedUp);
@@ -64,7 +66,7 @@ namespace Game
         {
             InventoryItemMeta = invItemMeta;
             _renderer.sprite = invItemMeta.ItemSprite;
-            this.Amount = InventoryHelper.GetDropAmount(invItemMeta, dropperTraits);
+            Amount = DropsHelper.GetDropAmount(invItemMeta, dropperTraits);
         }
 
         private void Update()

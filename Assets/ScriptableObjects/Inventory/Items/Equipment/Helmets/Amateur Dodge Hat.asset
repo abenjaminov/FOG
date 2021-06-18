@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fffb49ac8c4464bbb6d5d27284fccf, type: 3}
+  m_Name: Amateur Dodge Hat
+  m_EditorClassIdentifier: 
+  Name: Amateur Dodge Hat
+  ItemSprite: {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
+  Item:
+    Name: AmateurDodgeHat
+    Collection: Basic
+    Id: FantasyHeroes.Basic.Helmet.AmateurDodgeHat
+    Path: Assets/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/AmateurDodgeHat.png
+    Sprite: {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
+    Multiple: 1
+    Hash: dfe2f70dd032bae3deeca74de357acb4
+    Meta: 
+    Tags: []
+  Part: 1

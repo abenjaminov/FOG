@@ -18,7 +18,10 @@ namespace Platformer
                 {
                     _inputChannel.OnKeyDown(keyMapped);
                 }
-                
+            }
+            
+            foreach (var keyMapped in _inputChannel.MappedKeyUpActions.Keys)
+            {
                 if (Input.GetKeyUp(keyMapped))
                 {
                     _inputChannel.OnKeyUp(keyMapped);
