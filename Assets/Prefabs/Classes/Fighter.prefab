@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2125970881507683143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1111294693788023726}
+  m_Layer: 3
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1111294693788023726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125970881507683143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.77, y: 0.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6083157874378456181}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6083157873235641874
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6083157873235641873}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DamageVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +71,7 @@ GameObject:
   - component: {fileID: 6083157873742390523}
   - component: {fileID: 6083157873742390521}
   - component: {fileID: 6083157873742390522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +143,7 @@ GameObject:
   - component: {fileID: 6083157874280662788}
   - component: {fileID: 6083157874280662810}
   - component: {fileID: 6083157874280662811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +219,8 @@ GameObject:
   - component: {fileID: 6083157874378456189}
   - component: {fileID: 6083157874378456190}
   - component: {fileID: 6083157874378456191}
-  m_Layer: 0
+  - component: {fileID: 1210283407}
+  m_Layer: 3
   m_Name: Fighter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -211,6 +242,7 @@ Transform:
   - {fileID: 6083157874723466116}
   - {fileID: 6083157874280662788}
   - {fileID: 6083157873235641873}
+  - {fileID: 1111294693788023726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -304,6 +336,7 @@ MonoBehaviour:
   _damageSpawnPosition: {fileID: 6083157873235641873}
   _damagePrefab: {fileID: 3791861468820911312, guid: f6c8a5e199c4b9b4d86ef053d1a5c678, type: 3}
   IsDead: 0
+  AnimationEvents: {fileID: 0}
   _charachterVisuals: {fileID: 1109987028385428, guid: cf39e80c371d7dc43a6f4592de5ddea0, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
@@ -322,8 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
-  _walkingSpeed: 3
-  _jumpingHeight: 1.1
+  _basicAttackAbility: {fileID: 1210283407}
 --- !u!114 &6083157874378456191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +371,25 @@ MonoBehaviour:
   _playerEquipment: {fileID: 11400000, guid: 06bd8eaaf681f5642a1f977f5977172d, type: 2}
   _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
   _player: {fileID: 6083157874378456189}
+--- !u!114 &1210283407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083157874378456188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c459e0307042fa894769c80239888e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HotKey: 306
+  IsHotKeyDown: 0
+  DamagePercentage: 1
+  NumberOfEnemies: 1
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+  _meleeRange: 3
+  _hitRayOrigin: {fileID: 1111294693788023726}
 --- !u!1 &6083157874723466117
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6083157874723466116}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickupTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

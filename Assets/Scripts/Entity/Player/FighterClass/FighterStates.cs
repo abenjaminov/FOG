@@ -1,4 +1,6 @@
-﻿using Player;
+﻿using Abilities.Fighter;
+using Player;
+using State.States.FighterStates;
 
 namespace Entity.Player.FighterClass
 {
@@ -10,9 +12,16 @@ namespace Entity.Player.FighterClass
         {
             _fighter = GetComponent<Fighter>();
             
-            //_basicAttackState = new FighterAbilityState(_fighter, new ShootArrowAbility(_fighter,KeyCode.LeftControl,1, null, null));
+            _basicAttackState = new FighterSlashState(_fighter, _basicAttackAbility as SlashAbility);
             
             base.Start();
+            
+            _animationEvents.SlashEndEvent += SlashEndEvent;
+        }
+
+        private void SlashEndEvent()
+        {
+            _isAbilityAnimationActivated = false;
         }
     }
 }

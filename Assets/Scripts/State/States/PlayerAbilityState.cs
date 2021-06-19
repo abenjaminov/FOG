@@ -39,7 +39,6 @@ namespace State.States
 
         public virtual void OnExit()
         {
-            Ability.Use();
             _rigidbody2D.velocity = new Vector2(_previousHorizontalVelocity, _rigidbody2D.velocity.y);
             _character.GetCharacter().Relax();
         }

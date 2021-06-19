@@ -52,5 +52,10 @@ namespace Entity
         public virtual void ChangeHealth(float delta)
         {
         }
+
+        public Vector2 GetWorldMovementDirection()
+        {
+            return transform.rotation.y != 0 ? Vector2.left : Vector2.right;
+        }
     }
 }

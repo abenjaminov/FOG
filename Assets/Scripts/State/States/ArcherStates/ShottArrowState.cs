@@ -25,12 +25,15 @@ namespace State.States.ArcherStates
 
         public override void OnEnter()
         {
-            base.OnEnter();
-            
             _character.GetCharacter().Animator.SetInteger(CachedAnimatorPropertyNames.Charge, 1);
             
-            Ability.WorldMovementDirection =
-                (int)_archer.transform.rotation.y != 0 ? Vector2.left : Vector2.right;
+            base.OnEnter();
+        }
+
+        public override void OnExit()
+        {
+            Ability.Use();
+            base.OnExit();
         }
     }
 }

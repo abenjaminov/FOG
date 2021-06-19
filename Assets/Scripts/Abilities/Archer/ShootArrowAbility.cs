@@ -12,25 +12,14 @@ namespace Abilities.Archer
 {
     public class ShootArrowAbility : Attack
     {
-        private CharacterWrapper _hostWrapper;
         [SerializeField] private GameObject _arrowPrefab;
         [SerializeField] private Transform _fireTransform;
-        
-        [HideInInspector] public Vector2 WorldMovementDirection;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            
-            _hostWrapper = _host as CharacterWrapper;
-            
-        }
 
         public override void Use()
         {
             var arrow = Object.Instantiate(_arrowPrefab, _fireTransform).GetComponent<Arrow>();
             
-            arrow.WorldMovementDirection = WorldMovementDirection;
+            arrow.WorldMovementDirection = _host.GetWorldMovementDirection();
             arrow.ParentCharacter = _hostWrapper;
             arrow.Range = TraitsHelper.CalculateAttackRange(_host.Traits);
             arrow.SetParentAbility(this);

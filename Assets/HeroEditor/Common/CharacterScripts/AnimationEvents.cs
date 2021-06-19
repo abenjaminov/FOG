@@ -17,6 +17,8 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
 		// Asaf Added
 		public UnityAction BowChargeEndEvent;
+		public UnityAction SlashEndEvent;
+		public UnityAction MeleeStrikeEvent;
 
 		/// <summary>
 		/// Set bool param, usage example: Idle=false
@@ -65,6 +67,16 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 	    public void OnBowChargeEnd()
 	    {
 		    BowChargeEndEvent?.Invoke();
+	    }
+
+	    public void OnSlashEnd()
+	    {
+		    SlashEndEvent?.Invoke();
+	    }
+
+	    public void OnMeleeStrike()
+	    {
+		    MeleeStrikeEvent?.Invoke();
 	    }
 	}
 }

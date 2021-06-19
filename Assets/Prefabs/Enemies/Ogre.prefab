@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3772371485738664865}
   - component: {fileID: 3772371485738664866}
   - component: {fileID: 6157105254937784339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ogre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3772371485917577999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3772371486615379393}
   - component: {fileID: 3772371486615379399}
   - component: {fileID: 3772371486615379392}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 3772371486625076622}
   - component: {fileID: 3772371486625076623}
   - component: {fileID: 3772371486625076616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 3772371487099271974}
   - component: {fileID: 3772371487099271972}
   - component: {fileID: 3772371487099271973}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 3772371487213269753}
   - component: {fileID: 3772371487213269754}
   - component: {fileID: 3772371487213269755}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
