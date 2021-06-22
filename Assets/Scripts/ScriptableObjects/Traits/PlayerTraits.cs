@@ -15,6 +15,8 @@ namespace ScriptableObjects
 
         [SerializeField] private LevelConfiguration _levelConfiguration;
         [SerializeField] private int _experienceGained;
+
+        public float ReceiveDamageCooldown;
         
         public int ExperienceGained
         {

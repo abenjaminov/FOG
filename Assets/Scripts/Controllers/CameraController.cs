@@ -5,7 +5,7 @@ namespace Controllers
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private BoxCollider2D _boundsCollider;
-        [SerializeField] private Transform _player;
+        private Transform _player;
         private UnityEngine.Camera _camera;
         
         private float _rightBound;
@@ -16,6 +16,7 @@ namespace Controllers
         private void Awake()
         {
             _camera = GetComponent<Camera>();
+            _player = FindObjectOfType<Entity.Player.Player>().transform;
         }
 
         private void Start()

@@ -12,6 +12,8 @@ namespace ScriptableObjects.Channels
     public class CombatChannel : ScriptableObject
     {
         public UnityAction<Enemy> EnemyDiedEvent;
+        public UnityAction<Buff> BuffAppliedEvent;
+        public UnityAction<Buff> BuffExpiredEvent;
         
         public void OnEntityHit(WorldEntity attacker, WorldEntity receiver, Ability ability = null)
         {
@@ -23,6 +25,16 @@ namespace ScriptableObjects.Channels
         public void OnEnemyDied(Enemy enemy)
         {
             EnemyDiedEvent?.Invoke(enemy);
+        }
+
+        public void OnBuffApplied(Buff buff)
+        {
+            BuffAppliedEvent?.Invoke(buff);
+        }
+
+        public void OnBuffExpired(Buff buff)
+        {
+            BuffExpiredEvent?.Invoke(buff);
         }
     }
 }

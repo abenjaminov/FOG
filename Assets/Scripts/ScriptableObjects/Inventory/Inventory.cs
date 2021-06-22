@@ -22,12 +22,25 @@ namespace ScriptableObjects.Inventory
                 ItemMeta = itemMetaData,
                 Amount = amount
             };
-
+            
             if (itemMetaData is CurrencyItemMeta)
             {
                 AddCurrency(newItem, amount);
                 return;
             }
+
+            var item = AddItemNoInfo(itemMetaData, amount);
+
+            _inventoryChannel.OnItemAdded(newItem, item);
+        }
+
+        public InventoryItem AddItemNoInfo(InventoryItemMeta itemMetaData, int amount)
+        {
+            var newItem = new InventoryItem()
+            {
+                ItemMeta = itemMetaData,
+                Amount = amount
+            };
             
             var item = OwnedItems.FirstOrDefault(x => x.ItemMeta.Name == itemMetaData.Name);
             
@@ -41,7 +54,7 @@ namespace ScriptableObjects.Inventory
                 item = newItem;
             }
 
-            _inventoryChannel.OnItemAdded(newItem, item);
+            return item;
         }
 
         private void AddCurrency(InventoryItem currencyAddition, int amount)

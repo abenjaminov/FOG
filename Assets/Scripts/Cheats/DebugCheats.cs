@@ -6,15 +6,12 @@ namespace Cheats
 {
     public class DebugCheats : MonoBehaviour
     {
-        [SerializeField] private Entity.Player.Player _player;
+        private Entity.Player.Player _player;
         [SerializeField] private bool _isPlayerInvincible;
 
         private void Awake()
         {
-            if (_player == null)
-            {
-                Debug.Log("Player is not assigned for cheats");
-            }
+            _player = FindObjectOfType<Entity.Player.Player>();
         }
 
         private void Update()

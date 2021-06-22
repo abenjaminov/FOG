@@ -37,6 +37,9 @@ namespace Entity.Player
             
             if(_playerEquipment.Gloves != null)
                 _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
+
+            if(_playerEquipment.PrimaryWeapon != null)
+                _character.Equip(_playerEquipment.PrimaryWeapon.Item, _playerEquipment.PrimaryWeapon.Part);
         }
 
         public void EquipItem(EquipmentItemMeta meta)
@@ -52,7 +55,7 @@ namespace Entity.Player
 
             if (oldEquipment != null)
             {
-                _playerInventory.AddItem(oldEquipment, 1);
+                _playerInventory.AddItemNoInfo(oldEquipment, 1);
             }
             
             _character.UnEquip(part);

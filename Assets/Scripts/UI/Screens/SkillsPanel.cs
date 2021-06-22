@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Abilities;
+using ScriptableObjects.Channels;
 using UI.Elements;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,29 +11,56 @@ namespace UI.Screens
 {
     public class SkillsPanel : MonoBehaviour
     {
-        [SerializeField] private GameObject _skillIconPrefab;
+        [SerializeField] private SkillIcon _skillIconPrefab;
+        [SerializeField] private CombatChannel _combatChannel;
 
-        private List<GameObject> _visibleSkillIcons = new List<GameObject>();
+        private readonly List<SkillIcon> _visibleSkillIcons = new List<SkillIcon>();
 
-        public void SetBuffs(List<Buff> activeBuffs)
+        private void Awake()
         {
-            foreach (var skillIcon in _visibleSkillIcons)
-            {
-                Destroy(skillIcon.gameObject);
-            }
-            _visibleSkillIcons.Clear();
+            _combatChannel.BuffAppliedEvent += BuffAppliedEvent;
+            _combatChannel.BuffExpiredEvent += BuffExpiredEvent;
+        }
 
-            for (int i = 0; i < activeBuffs.Count; i++)
+        private void BuffExpiredEvent(Buff buff)
+        {
+            var existingBuff = _visibleSkillIcons.FirstOrDefault(x => x.Buff == buff);
+
+            if (existingBuff != null)
             {
-                var buff = activeBuffs[i];
-                var newSkillIcon = Instantiate(_skillIconPrefab, Vector3.zero, Quaternion.identity, this.transform);
-                var skillIcon = newSkillIcon.GetComponent<SkillIcon>();
-                skillIcon.SkillTime = buff.BuffTime;
-                var image = newSkillIcon.GetComponent<Image>();
-                image.rectTransform.localPosition = new Vector3(-50 * i, 0, 0);
-                image.sprite = activeBuffs[i].BuffSprite;
-                _visibleSkillIcons.Add(newSkillIcon);
+                Destroy(existingBuff.gameObject);
             }
+
+            _visibleSkillIcons.Remove(existingBuff);
+        }
+
+        private void BuffAppliedEvent(Buff buff)
+        {
+            var existingBuff = _visibleSkillIcons.FirstOrDefault(x => x.Buff == buff);
+            
+            if (existingBuff == null)
+            {
+                ShowNewBuff(buff, -50 * _visibleSkillIcons.Count);
+            }
+
+            ResetOffsets();
+        }
+
+        private void ResetOffsets()
+        {
+            for (int i = 0; i < _visibleSkillIcons.Count; i++)
+            {
+                _visibleSkillIcons[i].SetOffset(-50 * i);
+            }
+        }
+        
+        private void ShowNewBuff(Buff buff, float offset)
+        {
+            var skillIcon = Instantiate<SkillIcon>(_skillIconPrefab, Vector3.zero, Quaternion.identity, this.transform);
+
+            skillIcon.SetBuff(buff);
+            skillIcon.SetOffset(offset);
+            _visibleSkillIcons.Add(skillIcon);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Abilities;
+using ScriptableObjects.Channels;
 using UI.Screens;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Entity.Player
     public class WorldEntitiyBuffs : MonoBehaviour
     {
         private List<Buff> ActiveBuffs = new List<Buff>();
-        [SerializeField] private SkillsPanel _skillsPanel;
+        [SerializeField] private CombatChannel _combatChannel;
 
         public void ApplyBuff(Buff buffToApply)
         {
@@ -24,14 +25,13 @@ namespace Entity.Player
             
             buffToApply.TimeUntillBuffEnds = buffToApply.BuffTime;
             
-            _skillsPanel.SetBuffs(ActiveBuffs);
+            _combatChannel.OnBuffApplied(buffToApply);
         }
 
         private void Update()
         {
             if (ActiveBuffs.Count == 0) return;
-            var currentBuffCount = ActiveBuffs.Count;
-            
+
             for (int i = 0; i < ActiveBuffs.Count; i++)
             {
                 ActiveBuffs[i].TimeUntillBuffEnds -= Time.deltaTime;
@@ -39,13 +39,11 @@ namespace Entity.Player
                 if (ActiveBuffs[i].TimeUntillBuffEnds <= 0)
                 {
                     ActiveBuffs[i].End();
+                    _combatChannel.OnBuffExpired(ActiveBuffs[i]);
                     ActiveBuffs.RemoveAt(i);
                     i--;
                 }
             }
-            
-            if(currentBuffCount != ActiveBuffs.Count)
-                _skillsPanel.SetBuffs(ActiveBuffs);
         }
     }
 }

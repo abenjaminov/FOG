@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Assets.HeroEditor.FantasyInventory.Scripts.Data;
+using Assets.HeroEditor.Common.CommonScripts;
 using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
@@ -17,9 +17,11 @@ namespace Entity.Player
         [Header("Player Specific")]
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
+        [SerializeField] private Collider2D _hitbox;
+        private float _receiveDamageColldown;
+        private float _timeUntillVulnerable;
         
-
-        [HideInInspector] public PlayerTraits PlayerTraits;
+        [HideInInspector] public PlayerTraits PlayerTraits => _playerTraits;
         [HideInInspector] public PlayerAppearance Apearence;
         
         protected override void Awake()
@@ -33,9 +35,9 @@ namespace Entity.Player
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
             
             // ReSharper disable once PossibleNullReferenceException
-            _playerTraits.GainedExperienceEvent += GainedExperienceEvent; 
-            
-            PlayerTraits = Traits as PlayerTraits;
+            _playerTraits.GainedExperienceEvent += GainedExperienceEvent;
+
+            _receiveDamageColldown = _playerTraits.ReceiveDamageCooldown;
         }
 
         protected override void Start()
@@ -43,6 +45,16 @@ namespace Entity.Player
             base.Start();
             
             Apearence = GetComponent<PlayerAppearance>();
+        }
+
+        private void Update()
+        {
+            if (_timeUntillVulnerable <= 0) return;
+            
+            _timeUntillVulnerable -= Time.deltaTime;
+            
+            if(_timeUntillVulnerable <= 0)
+                _hitbox.SetActive(true);
         }
 
         private void GainedExperienceEvent()
@@ -61,7 +73,7 @@ namespace Entity.Player
         
         public override void ReceiveDamage(float damage)
         {
-            if (IsDead) return;
+            if (IsDead || _timeUntillVulnerable > 0) return;
             
             DisplayDamage(damage);
 
@@ -71,6 +83,9 @@ namespace Entity.Player
             {
                 IsDead = true;
             }
+
+            _timeUntillVulnerable = _receiveDamageColldown;
+            _hitbox.SetActive(false);
         }
 
         public override void ChangeHealth(float delta)

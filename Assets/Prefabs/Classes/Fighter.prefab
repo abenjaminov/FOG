@@ -220,13 +220,14 @@ GameObject:
   - component: {fileID: 6083157874378456190}
   - component: {fileID: 6083157874378456191}
   - component: {fileID: 1210283407}
+  - component: {fileID: 9135433889194465017}
   m_Layer: 3
   m_Name: Fighter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6083157874378456181
 Transform:
   m_ObjectHideFlags: 0
@@ -388,8 +389,22 @@ MonoBehaviour:
   DamagePercentage: 1
   NumberOfEnemies: 1
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-  _meleeRange: 3
+  _meleeRange: 1.2
   _hitRayOrigin: {fileID: 1111294693788023726}
+--- !u!114 &9135433889194465017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083157874378456188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df2d7fc5004299be936f7f9d118e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillsPanel: {fileID: 0}
+  _combatChannel: {fileID: 0}
 --- !u!1 &6083157874723466117
 GameObject:
   m_ObjectHideFlags: 0

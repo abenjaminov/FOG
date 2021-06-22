@@ -12,7 +12,7 @@ namespace UI.Screens
 {
     public class InventoryScreen : GUIScreen
     {
-        [SerializeField] private Entity.Player.Player _player;
+        private Entity.Player.Player _player;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private InventoryChannel _invChannel;
 
@@ -22,6 +22,7 @@ namespace UI.Screens
         // Start is called before the first frame update
         void Start()
         {
+            _player = FindObjectOfType<Entity.Player.Player>();
             _invChannel.ItemAddedEvent += ItemAddedEvent;
         }
 
