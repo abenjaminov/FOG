@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Chat;
 using TMPro;
 using UI.Screens;
 using UnityEngine;
@@ -11,8 +13,11 @@ namespace Platformer.UI
     public class ScreensManager : MonoBehaviour
     {
         [SerializeField] private InputChannel _inputChannel;
+        [SerializeField] private NpcChannel _NpcChannel;
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
+        
+        [SerializeField] private ChatScreen _chatScreen;
 
         private Stack<GUIScreen> _openScreens;
 
@@ -23,6 +28,18 @@ namespace Platformer.UI
             _inputChannel.RegisterKeyDown(_inventory.GetActivationKey(), () =>  ToggleScreen(_inventory));
             
             _inputChannel.RegisterKeyDown(KeyCode.Escape, ClosePrevScreen);
+            
+            _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
+        }
+
+        private void RequestChatStartEvent(ChatSession arg0)
+        {
+            if (!_chatScreen.isActiveAndEnabled)
+            {
+                _chatScreen.CurrentChatSession = arg0;
+                _chatScreen.SetActive(true);
+                _chatScreen.StartChat();
+            }
         }
 
         private void ToggleScreen(GUIScreen screenToToggle)
