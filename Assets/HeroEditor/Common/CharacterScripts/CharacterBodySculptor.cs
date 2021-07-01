@@ -97,7 +97,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             }
         }
 
-		public void OnCharacterLoaded(CharacterScripts.Character character)
+		public void OnCharacterLoaded(Character character)
 		{
 			OnCharacterLoaded(character.BodyScale);
 		}

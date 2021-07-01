@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Assets.HeroEditor.Common.CharacterScripts.Firearms;
 using Assets.HeroEditor.Common.CommonScripts;
 using Assets.HeroEditor.Common.Data;
+using Assets.HeroEditor.Common.ExampleScripts;
 using Assets.HeroEditor.FantasyInventory.Scripts.Data;
 using Assets.HeroEditor.FantasyInventory.Scripts.Interface.Elements;
 using Assets.HeroEditor4D.SimpleColorPicker.Scripts;
@@ -28,6 +30,8 @@ namespace Assets.HeroEditor.Common.EditorScripts
         public Text ItemName;
 
         [Header("Other")]
+        public List<Toggle> EditionToggles;
+        public string EditionFilter;
         public List<string> PaintParts;
         public Button PaintButton;
         public ColorPicker ColorPicker;
@@ -38,7 +42,7 @@ namespace Assets.HeroEditor.Common.EditorScripts
         public static string CharacterJson;
 
         private Toggle ActiveTab => Tabs.GetComponentsInChildren<Toggle>().Single(i => i.isOn);
-
+        
         /// <summary>
         /// Called automatically on app start.
         /// </summary>
@@ -307,6 +311,16 @@ namespace Assets.HeroEditor.Common.EditorScripts
 
             var equipped = items.Count > equippedIndex + 1 ? items[equippedIndex + 1] : null;
 
+            if (EditionFilter != "")
+            {
+                items.RemoveAll(i => i.Id != "Empty" && dict[i.Id].Edition != "Common" && dict[i.Id].Edition != EditionFilter);
+
+                if (equipped != null && !dict.ContainsKey(equipped.Id))
+                {
+                    equipped = null;
+                }
+            }
+
             Inventory.Initialize(ref items, equipped, reset: true);
             Inventory.ScrollRect.verticalNormalizedPosition = 1;
             SetPaintButton(tab.name, equipped);
@@ -337,6 +351,30 @@ namespace Assets.HeroEditor.Common.EditorScripts
             OnSelectTab(true);
         }
 
+        /// <summary>
+	    /// Save character to json.
+	    /// </summary>
+	    public void SaveToJson()
+	    {
+            StartCoroutine(StandaloneFilePicker.SaveFile("Save as JSON", "", "New character", "json", Encoding.Default.GetBytes(Character.ToJson()), (success, path) => { Debug.Log(success ? $"Saved as {path}" : "Error saving."); }));
+		}
+
+		/// <summary>
+		/// Load character from json.
+		/// </summary>
+		public void LoadFromJson()
+	    {
+            StartCoroutine(StandaloneFilePicker.OpenFile("Open as JSON", "", "json", (success, path, bytes) =>
+            {
+                if (success)
+                {
+                    var json = System.IO.File.ReadAllText(path);
+
+                    Character.FromJson(json);
+                }
+            }));
+	    }
+
         #if UNITY_EDITOR
 
         /// <summary>
@@ -344,7 +382,7 @@ namespace Assets.HeroEditor.Common.EditorScripts
         /// </summary>
         public void Save()
         {
-            PrefabFolder = UnityEditor.EditorUtility.SaveFilePanel("Save character prefab", PrefabFolder, "New character", "prefab");
+            PrefabFolder = UnityEditor.EditorUtility.SaveFilePanel("Save character prefab (should be inside Assets folder)", PrefabFolder, "New character", "prefab");
 
 	        if (PrefabFolder.Length > 0)
 	        {
@@ -363,44 +401,9 @@ namespace Assets.HeroEditor.Common.EditorScripts
             {
                 Load("Assets" + PrefabFolder.Replace(Application.dataPath, null));
             }
-
-			//FeatureTip();
 		}
 
-	    /// <summary>
-	    /// Save character to json.
-	    /// </summary>
-	    public void SaveToJson()
-	    {
-		    PrefabFolder = UnityEditor.EditorUtility.SaveFilePanel("Save character to json", PrefabFolder, "New character", "json");
-
-		    if (PrefabFolder.Length > 0)
-		    {
-			    var path = "Assets" + PrefabFolder.Replace(Application.dataPath, null);
-			    var json = Character.ToJson();
-
-			    System.IO.File.WriteAllText(path, json);
-			    Debug.LogFormat("Json saved to {0}: {1}", path, json);
-		    }
-		}
-
-		/// <summary>
-		/// Load character from json.
-		/// </summary>
-		public void LoadFromJson()
-	    {
-		    PrefabFolder = UnityEditor.EditorUtility.OpenFilePanel("Load character from json", PrefabFolder, "json");
-
-		    if (PrefabFolder.Length > 0)
-		    {
-				var path = "Assets" + PrefabFolder.Replace(Application.dataPath, null);
-			    var json = System.IO.File.ReadAllText(path);
-
-				Character.FromJson(json);
-			}
-	    }
-
-		public override void Save(string path)
+	    public override void Save(string path)
 		{
 			Character.transform.localScale = Vector3.one;
 
@@ -459,6 +462,10 @@ namespace Assets.HeroEditor.Common.EditorScripts
             {
                 QuickStart.ReturnSceneName = SceneManager.GetActiveScene().name;
             }
+            else if (sceneName.StartsWith("TestRoom"))
+            {
+                TestRoom.ReturnSceneName = SceneManager.GetActiveScene().name;
+            }
 
             CharacterJson = Character.ToJson();
             SceneManager.LoadScene(sceneName);
@@ -512,6 +519,23 @@ namespace Assets.HeroEditor.Common.EditorScripts
                 part.color = color;
                 part.sharedMaterial = color == Color.white ? DefaultMaterial : ActiveTab.name == "Eyes" ? EyesPaintMaterial : EquipmentPaintMaterial;
             }
+
+            if (ActiveTab.name == "Eyes")
+            {
+                Character.Expressions[0].EyesColor = Character.Expressions[1].EyesColor = color;
+            }
+        }
+
+        public void OnEditionChanged(bool value)
+        {
+            if (!value) return;
+
+            foreach (var toggle in EditionToggles)
+            {
+                if (toggle.isOn) EditionFilter = toggle.name;
+            }
+
+            Refresh();
         }
 
         private void RestoreTempCharacter()

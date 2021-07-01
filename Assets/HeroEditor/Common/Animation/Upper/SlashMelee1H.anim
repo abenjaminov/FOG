@@ -1793,13 +1793,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.3
-    functionName: OnMeleeStrike
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.31666666
     functionName: CustomEvent
     data: Hit
@@ -1810,13 +1803,6 @@ AnimationClip:
   - time: 0.5
     functionName: SetExpression
     data: Default
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: OnSlashEnd
-    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

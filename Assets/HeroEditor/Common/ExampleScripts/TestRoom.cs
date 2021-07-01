@@ -10,7 +10,7 @@ namespace Assets.HeroEditor.Common.ExampleScripts
     public class TestRoom : MonoBehaviour
     {
         public CharacterScripts.Character Character;
-        public string ReturnSceneName;
+        public static string ReturnSceneName;
 
         public void Awake()
         {

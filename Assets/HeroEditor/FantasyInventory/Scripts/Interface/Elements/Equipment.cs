@@ -43,7 +43,7 @@ namespace Assets.HeroEditor.FantasyInventory.Scripts.Interface.Elements
 
             //if (Character == null)
             //{
-            //    Character = FindObjectOfType<CharacterScripts.Character>();
+            //    Character = FindObjectOfType<Character>();
             //}
         }
 

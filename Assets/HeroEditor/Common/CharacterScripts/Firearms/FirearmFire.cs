@@ -11,7 +11,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts.Firearms
     /// </summary>
     public class FirearmFire : MonoBehaviour
     {
-        public CharacterScripts.Character Character;
+        public Character Character;
         public Firearm Firearm;
         public FingerTrigger Finger;
         public Transform Slide;
@@ -57,7 +57,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts.Firearms
 		    Slide.GetComponent<SpriteRenderer>().color = color;
 		}
 
-        private IEnumerator Fire()
+        public IEnumerator Fire()
         {
             if (_fire || Time.time - _fireTime < 60f / Firearm.Params.FireRateInMinute || Firearm.Reload.Reloading) yield break;
 

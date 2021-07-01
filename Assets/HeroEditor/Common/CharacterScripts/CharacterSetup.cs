@@ -69,6 +69,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             Expression = expression;
             EyebrowsRenderer.sprite = e.Eyebrows;
             EyesRenderer.sprite = e.Eyes;
+            EyesRenderer.color = e.EyesColor;
             MouthRenderer.sprite = e.Mouth;
 
             if (EyebrowsRenderer.sprite == null) EyebrowsRenderer.sprite = Expressions[0].Eyebrows;

@@ -22967,14 +22967,17 @@ MonoBehaviour:
   - Name: Default
     Eyebrows: {fileID: 0}
     Eyes: {fileID: 21300000, guid: 93653395f30d42a6b1085fec5f843bef, type: 3}
+    EyesColor: {r: 0, g: 0.78431374, b: 1, a: 1}
     Mouth: {fileID: 0}
   - Name: Angry
     Eyebrows: {fileID: 0}
     Eyes: {fileID: 0}
+    EyesColor: {r: 0, g: 0.78431374, b: 1, a: 1}
     Mouth: {fileID: 0}
   - Name: Dead
     Eyebrows: {fileID: 0}
     Eyes: {fileID: 21300000, guid: ceb3d8633d8244e583f0c12196beb32c, type: 3}
+    EyesColor: {r: 0, g: 0.78431374, b: 1, a: 1}
     Mouth: {fileID: 0}
   Helmet: {fileID: 21300000, guid: 28029bfa245148fd80b37005b465c40e, type: 3}
   Earrings: {fileID: 0}
