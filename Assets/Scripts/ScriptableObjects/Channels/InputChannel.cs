@@ -24,6 +24,11 @@ namespace ScriptableObjects.Channels
             action?.Invoke();
         }
 
+        public void UnregisterKeyDown(KeyCode keyCode, UnityAction action)
+        {
+            MappedKeyDownActions[keyCode] -= action;
+        }
+        
         public void RegisterKeyDown(KeyCode keyCode, UnityAction action)
         {
             if (!MappedKeyDownActions.ContainsKey(keyCode))

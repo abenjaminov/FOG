@@ -9,8 +9,6 @@ namespace UI.Screens
 {
     public class ChatScreen : MonoBehaviour
     {
-        private OpenClose OpenCloseBhaviour;
-
         [SerializeField] private float _timeBetweenCharacters;
 
         [SerializeField] private TextMeshProUGUI _textArea;
@@ -29,17 +27,8 @@ namespace UI.Screens
 
         private void Awake()
         {
-            OpenCloseBhaviour = GetComponent<OpenClose>();
-            
-            OpenCloseBhaviour.TransitionEndEvent += TransitionEndEvent;
-
             _buttonRightText = _buttonRight.GetComponentInChildren<Text>();
             _buttonLeftText = _buttonLeft.GetComponentInChildren<Text>();
-        }
-
-        private void TransitionEndEvent()
-        {
-            
         }
 
         public void StartChat()

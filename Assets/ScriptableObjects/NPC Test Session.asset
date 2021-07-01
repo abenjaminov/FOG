@@ -25,6 +25,12 @@ MonoBehaviour:
       Action: 1
   - Text: See you next time!
     Options:
+    - Text: Next
+      Action: 0
+    - Text: Back
+      Action: 1
+  - Text: See you next time! 2
+    Options:
     - Text: Bye
       Action: 3
     - Text: Back
