@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,7 +26,7 @@ namespace Assets.HeroEditor.Common.CommonScripts
         }
 
         public string Id;
-        public List<Object> IconFolders;
+        public List<Object> ScanFolders;
         public List<ItemIcon> Icons;
         public Sprite DefaultItemIcon;
 
@@ -61,22 +60,18 @@ namespace Assets.HeroEditor.Common.CommonScripts
         {
             Icons.Clear();
 
-            foreach (var folder in IconFolders)
+            foreach (var folder in ScanFolders)
             {
-                if (folder == null) continue;
-
                 var root = AssetDatabase.GetAssetPath(folder);
                 var files = Directory.GetFiles(root, "*.png", SearchOption.AllDirectories).ToList();
 
                 foreach (var path in files.Select(i => i.Replace("\\", "/")))
                 {
-                    var match = Regex.Match(path, @"Assets\/HeroEditor\/(?<Edition>\w+)\/(.+?\/)*Icons\/WithoutBackground\/\w+\/(?<Type>\w+)\/(?<Collection>.+?)\/(.+\/)*(?<Name>.+?)\.png");
-
                     var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-                    var edition = match.Groups["Edition"].Value;
-                    var collection = match.Groups["Collection"].Value;
-                    var type = match.Groups["Type"].Value;
-                    var iconName = match.Groups["Name"].Value;
+                    var edition = path.Split('/')[2];
+                    var collection = path.Split('/')[7];
+                    var type = path.Split('/')[6];
+                    var iconName = Path.GetFileNameWithoutExtension(path);
                     var icon = new ItemIcon(edition, collection, type, iconName, path, sprite);
 
                     if (Icons.Any(i => i.Path == icon.Path))

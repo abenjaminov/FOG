@@ -26,7 +26,7 @@ SpriteAtlas:
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
-      m_TextureCompression: 2
+      m_TextureCompression: 1
       m_CompressionQuality: 50
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
@@ -40,10 +40,14 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 0d305fd21d904dfdb4ddc6bc46569347, type: 3}
+    totalSpriteSurfaceArea: 56025504
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300016, guid: e805b3103ca34d9cb0dcd18421d94771, type: 3}
@@ -1609,5 +1613,6 @@ SpriteAtlas:
   - BrokenSwordTypeA
   - BattleguardHelm
   - BulletHammerTypeA
+  m_RenderDataMap: {}
   m_Tag: Sprites
   m_IsVariant: 0

@@ -64,7 +64,6 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 			{
 				description.Add($"Expression.{expression.Name}.Eyebrows", SpriteToString(SpriteCollection.Eyebrows, expression.Eyebrows, EyebrowsRenderer.color));
 				description.Add($"Expression.{expression.Name}.Eyes", SpriteToString(SpriteCollection.Eyes, expression.Eyes, EyesRenderer.color));
-                description.Add($"Expression.{expression.Name}.EyesColor", "#" + ColorUtility.ToHtmlStringRGBA(expression.EyesColor));
 				description.Add($"Expression.{expression.Name}.Mouth", SpriteToString(SpriteCollection.Mouth, expression.Mouth, MouthRenderer.color));
 			}
 
@@ -156,11 +155,6 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 							break;
 						case "Eyes":
 							RestoreFromString(ref expression.Eyes, EyesRenderer, SpriteCollection.Eyes, description[key]);
-							break;
-                        case "EyesColor":
-							ColorUtility.TryParseHtmlString(description[key], out var color);
-							//if (Mathf.Approximately(color.a, 0)) color = expressionName == "Dead" ? new Color32(255, 255, 255, 255) : new Color32(0, 200, 255, 255);
-							expression.EyesColor = color;
 							break;
 						case "Mouth":
 							RestoreFromString(ref expression.Mouth, MouthRenderer, SpriteCollection.Mouth, description[key]);

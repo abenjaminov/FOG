@@ -10,7 +10,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts.Firearms
     /// </summary>
     public class FirearmReload : MonoBehaviour
     {
-        public Character Character;
+        public CharacterScripts.Character Character;
         public Firearm Firearm;
         public AudioSource AudioSource;
 

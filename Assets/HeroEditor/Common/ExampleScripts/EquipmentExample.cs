@@ -10,8 +10,7 @@ namespace Assets.HeroEditor.Common.ExampleScripts
     /// </summary>
     public class EquipmentExample : MonoBehaviour
     {
-        public 
-            CharacterScripts.Character Character;
+        public CharacterScripts.Character Character;
 
         public void EquipRandomArmor()
         {
