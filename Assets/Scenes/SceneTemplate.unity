@@ -3344,8 +3344,9 @@ GameObject:
   - component: {fileID: 577737914}
   - component: {fileID: 577737916}
   - component: {fileID: 577737917}
+  - component: {fileID: 577737918}
   m_Layer: 0
-  m_Name: InputManager
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3404,6 +3405,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doubleClickTime: 0.5
+--- !u!114 &577737918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577737913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd11730e5dc41e08036db1841409619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
 --- !u!1001 &703523670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7428,8 +7442,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3240926575904996803, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: m_Name
-      value: Teleport
+      value: Teleport T
       objectReference: {fileID: 0}
+    - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
+      propertyPath: Source
+      value: 
+      objectReference: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
+      propertyPath: Destination
+      value: 
+      objectReference: {fileID: 102900000, guid: d797e5ad953dbfe4c88aa99db774596e, type: 3}
     - target: {fileID: 3240926575904996814, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: m_RootOrder
       value: 11

@@ -12,15 +12,19 @@ namespace Platformer
         
         private void Update()
         {
-            foreach (var keyMapped in _inputChannel.MappedKeyDownActions.Keys)
+            var keysDown = _inputChannel.MappedKeyDownActions.Keys.ToList();
+            
+            foreach (var keyMapped in keysDown)
             {
                 if (Input.GetKeyDown(keyMapped))
                 {
                     _inputChannel.OnKeyDown(keyMapped);
                 }
-            }
+            }    
             
-            foreach (var keyMapped in _inputChannel.MappedKeyUpActions.Keys)
+            var keysUp = _inputChannel.MappedKeyUpActions.Keys.ToList();
+            
+            foreach (var keyMapped in keysUp)
             {
                 if (Input.GetKeyUp(keyMapped))
                 {

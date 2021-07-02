@@ -13,7 +13,7 @@ namespace Game
         private void Awake()
         {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
-        }
+        } 
 
         private void ChangeLocationEvent(SceneAsset destination, SceneAsset source)
         {
@@ -23,7 +23,7 @@ namespace Game
             {
                 _locationsChannel.OnChangeLocationComplete();
 
-                var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == destination);
+                var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
 
                 if (teleport != null)
                 {

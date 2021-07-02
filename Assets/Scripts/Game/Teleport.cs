@@ -15,6 +15,8 @@ namespace Game
         
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (playerReference != null) return;
+            
             var player = other.GetComponent<Entity.Player.Player>();
 
             if (player != null)
@@ -26,12 +28,14 @@ namespace Game
 
         private void OnTeleport()
         {
+            _inputChannel.UnregisterKeyDown(KeyCode.UpArrow, OnTeleport);
             _locationsChannel.OnChangeLocation(Destination, Source);
-            Debug.Log("Teleport!!");
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (playerReference == null) return;
+            
             var player = other.GetComponent<Entity.Player.Player>();
 
             if (player != null)
