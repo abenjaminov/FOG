@@ -23,8 +23,13 @@ namespace Game
             {
                 _locationsChannel.OnChangeLocationComplete();
 
-                var teleports = FindObjectsOfType<Teleport>().Where(x => x.Destination == destination);
-                
+                var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == destination);
+
+                if (teleport != null)
+                {
+                    var player = FindObjectOfType<Entity.Player.Player>();
+                    player.transform.position = teleport.CenterTransform.position;
+                }
             };
         }
     }
