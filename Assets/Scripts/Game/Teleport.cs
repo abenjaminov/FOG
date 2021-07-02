@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Channels;
+﻿using System;
+using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ namespace Game
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private InputChannel _inputChannel;
         public Transform CenterTransform;
+
+        private KeySubscription keyUpSub;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -22,14 +25,20 @@ namespace Game
             if (player != null)
             {
                 playerReference = player;
-                _inputChannel.RegisterKeyDown(KeyCode.UpArrow, OnTeleport);
+                
+                keyUpSub?.Unsubscribe();
+                keyUpSub = _inputChannel.SubscribeKeyDown(KeyCode.UpArrow, OnTeleport);
             }
         }
 
         private void OnTeleport()
         {
-            _inputChannel.UnregisterKeyDown(KeyCode.UpArrow, OnTeleport);
             _locationsChannel.OnChangeLocation(Destination, Source);
+        }
+
+        private void OnDestroy()
+        {
+            keyUpSub?.Unsubscribe();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -41,7 +50,8 @@ namespace Game
             if (player != null)
             {
                 playerReference = null;
-                _inputChannel.UnregisterKeyDown(KeyCode.UpArrow, OnTeleport);
+                keyUpSub?.Unsubscribe();
+                keyUpSub = null;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -31,6 +32,11 @@ namespace Game
                     player.transform.position = teleport.CenterTransform.position;
                 }
             };
+        }
+
+        private void OnDestroy()
+        {
+            _locationsChannel.ChangeLocationEvent -= ChangeLocationEvent;
         }
     }
 }

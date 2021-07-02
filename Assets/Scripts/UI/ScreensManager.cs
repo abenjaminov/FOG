@@ -24,10 +24,10 @@ namespace Platformer.UI
         private void Awake()
         {
             _openScreens = new Stack<GUIScreen>();
-            _inputChannel.RegisterKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
-            _inputChannel.RegisterKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
+            _inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
+            _inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
             
-            _inputChannel.RegisterKeyDown(KeyCode.Escape, ClosePrevScreen);
+            _inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen);
             
             _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
         }
@@ -44,9 +44,9 @@ namespace Platformer.UI
         
         private void OnDestroy()
         {
-            _inputChannel.UnregisterKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
-            _inputChannel.UnregisterKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
-            _inputChannel.UnregisterKeyDown(KeyCode.Escape, ClosePrevScreen);
+            //_inputChannel.UnRegisterKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
+            //_inputChannel.UnRegisterKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
+            //_inputChannel.UnRegisterKeyDown(KeyCode.Escape, ClosePrevScreen);
         }
 
         private void RequestChatStartEvent(ChatSession arg0)

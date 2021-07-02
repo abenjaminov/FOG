@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Abilities;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
@@ -7,6 +8,7 @@ using State;
 using State.States;
 using State.States.PlayerStates;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -54,8 +56,8 @@ namespace Player
         protected Action _buffTransitionLogic;
         
         protected float _timeUntillNextAttack = 0;
-        
 
+        private List<KeySubscription> _allKeySubscription = new List<KeySubscription>();
 
         protected virtual void Awake()
         {
@@ -72,7 +74,7 @@ namespace Player
             _stateMachine = new StateMachine(false);
             
             _animationEvents = GetComponentInChildren<AnimationEvents>();
-            
+
             _idle = new PlayerIdleState(_player, _playerMovement);
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
@@ -131,21 +133,25 @@ namespace Player
             _defaultState = _idle;
             
             RegisterBooleanToKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
+
+            var newSubs = new List<KeySubscription>()
+            {
+                _inputChannel.SubscribeKeyDown(KeyCode.RightArrow, () => _horizontalAxisRaw = 1),
+                _inputChannel.SubscribeKeyDown(KeyCode.LeftArrow, () => _horizontalAxisRaw = -1),
+                _inputChannel.SubscribeKeyUp(KeyCode.RightArrow, () =>
+                {
+                    if (_horizontalAxisRaw == 1)
+                        _horizontalAxisRaw = 0;
+                }),
+                _inputChannel.SubscribeKeyUp(KeyCode.LeftArrow, () =>
+                {
+                    if (_horizontalAxisRaw == -1)
+                        _horizontalAxisRaw = 0;
+                })
+            };
             
-
-            _inputChannel.RegisterKeyDown(KeyCode.RightArrow, () => _horizontalAxisRaw = 1);
-            _inputChannel.RegisterKeyDown(KeyCode.LeftArrow, () => _horizontalAxisRaw = -1);
-            _inputChannel.RegisterKeyUp(KeyCode.RightArrow, () =>
-            {
-                if(_horizontalAxisRaw == 1)
-                    _horizontalAxisRaw = 0;
-            });
-            _inputChannel.RegisterKeyUp(KeyCode.LeftArrow, () =>
-            {
-                if(_horizontalAxisRaw == -1)
-                    _horizontalAxisRaw = 0;
-            });
-
+            _allKeySubscription.AddRange(newSubs);
+            
             _stateMachine.SetState(_defaultState);
         }
 
@@ -197,10 +203,21 @@ namespace Player
 
         private void RegisterBooleanToKey(KeyCode keyCode, Action<bool> setValue)
         {
-            _inputChannel.RegisterKeyDown(keyCode, () => setValue(true));
-            _inputChannel.RegisterKeyUp(keyCode, () => setValue(false));
+            var keyDownSub = _inputChannel.SubscribeKeyDown(keyCode, () => setValue(true));
+            _allKeySubscription.Add(keyDownSub);
+            
+            var keyUpSub =_inputChannel.SubscribeKeyUp(keyCode, () => setValue(false));
+            _allKeySubscription.Add(keyUpSub);
         }
 
-        
+        private void OnDestroy()
+        {
+            foreach (var keySubscription in _allKeySubscription)
+            {
+                keySubscription.Unsubscribe();
+            }
+            
+            _allKeySubscription.Clear();
+        }
     }
 }

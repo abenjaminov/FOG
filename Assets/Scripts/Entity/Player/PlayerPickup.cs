@@ -18,7 +18,12 @@ namespace Character.Player
         {
             _dropsInRange = new List<Drop>();
             
-            _inputChannel.RegisterKeyDown(KeyCode.Z, Pickup);
+            _inputChannel.SubscribeKeyDown(KeyCode.Z, Pickup);
+        }
+
+        private void OnDestroy()
+        {
+            //_inputChannel.UnRegisterKeyDown(KeyCode.Z, Pickup);
         }
 
         private void Pickup()

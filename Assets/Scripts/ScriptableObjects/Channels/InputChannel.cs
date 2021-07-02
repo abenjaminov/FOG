@@ -20,29 +20,83 @@ namespace ScriptableObjects.Channels
         
         public void OnKeyUp(KeyCode keyCode)
         {
-            MappedKeyUpActions.TryGetValue(keyCode, out var action);
+            var action = MappedKeyUpActions[keyCode];
             action?.Invoke();
         }
 
-        public void UnregisterKeyDown(KeyCode keyCode, UnityAction action)
+        public void ok(KeyCode k, UnityAction a)
         {
-            MappedKeyDownActions[keyCode] -= action;
+            MappedKeyDownActions[k] -= a;
         }
         
-        public void RegisterKeyDown(KeyCode keyCode, UnityAction action)
+        public KeySubscription SubscribeKeyDown(KeyCode keyCode, UnityAction action)
         {
-            if (!MappedKeyDownActions.ContainsKey(keyCode))
-                MappedKeyDownActions[keyCode] = action;
-            else
+            if (MappedKeyDownActions.TryGetValue(keyCode, out var keyEvent))
+            {
                 MappedKeyDownActions[keyCode] += action;
+            }
+            else
+            {
+                keyEvent += action;
+                MappedKeyDownActions.Add(keyCode, keyEvent);
+            }
+
+            return new KeyDownSubscription(this, keyCode, action);
         }
         
-        public void RegisterKeyUp(KeyCode keyCode, UnityAction action)
+        public KeySubscription SubscribeKeyUp(KeyCode keyCode, UnityAction action)
         {
-            if (!MappedKeyUpActions.ContainsKey(keyCode))
-                MappedKeyUpActions[keyCode] = action;
-            else
+            if (MappedKeyUpActions.TryGetValue(keyCode, out var keyEvent))
+            {
                 MappedKeyUpActions[keyCode] += action;
+            }
+            else
+            {
+                keyEvent += action;
+                MappedKeyUpActions.Add(keyCode, keyEvent);
+            }
+
+            return new KeyUpSubscription(this, keyCode, action);
+        }
+    }
+
+    public abstract class KeySubscription
+    {
+        protected KeyCode Key;
+        protected UnityAction _action;
+        protected InputChannel _channel;
+
+        internal KeySubscription(InputChannel channel, KeyCode code, UnityAction action)
+        {
+            Key = code;
+            _action = action;
+            _channel = channel;
+        }
+
+        public abstract void Unsubscribe();
+    }
+
+    public class KeyDownSubscription : KeySubscription
+    {
+        public KeyDownSubscription(InputChannel channel, KeyCode code, UnityAction action) : base(channel, code, action)
+        {
+        }
+
+        public override void Unsubscribe()
+        {
+            _channel.MappedKeyDownActions[Key] -= _action;
+        }
+    }
+    
+    public class KeyUpSubscription : KeySubscription
+    {
+        public KeyUpSubscription(InputChannel channel, KeyCode code, UnityAction action) : base(channel, code, action)
+        {
+        }
+
+        public override void Unsubscribe()
+        {
+            _channel.MappedKeyUpActions[Key] -= _action;
         }
     }
 }
