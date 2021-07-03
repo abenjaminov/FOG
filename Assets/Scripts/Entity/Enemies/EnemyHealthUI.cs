@@ -1,4 +1,5 @@
-﻿using Platformer;
+﻿using Assets.HeroEditor.Common.CommonScripts;
+using Platformer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ namespace Entity.Enemies
     public class EnemyHealthUI : MonoBehaviour, IHealthUI
     {
         [SerializeField] private Image _healthValueImage;
+        [SerializeField] private Canvas _UI;
 
         private float _fullWidth;
 
@@ -20,6 +22,11 @@ namespace Entity.Enemies
             var newWidth = _fullWidth * percentage;
             _healthValueImage.rectTransform.sizeDelta =
                 new Vector2(newWidth, _healthValueImage.rectTransform.rect.height);
+        }
+
+        public void ToggleUI(bool isActive)
+        {
+            this._UI.SetActive(isActive);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Game;
+﻿using System;
+using Assets.HeroEditor.Common.CommonScripts;
+using Game;
 using UnityEngine;
 
 namespace Entity.Enemies
@@ -6,16 +8,37 @@ namespace Entity.Enemies
     public abstract class Enemy : WorldEntity
     {
         private Dropper _dropper;
+        private bool _isAgressive;
+
+        private EnemyHealthUI _healthUI;
+        [SerializeField] private float _timeAgressive;
+        private float _activeAgressiveTime;
 
         protected override void Awake()
         {
             base.Awake();
             
             _dropper = GetComponentInParent<Dropper>();
+            _healthUI = GetComponent<EnemyHealthUI>();
+        }
+
+        private void Update()
+        {
+            if (_isAgressive)
+            {
+                _activeAgressiveTime += Time.deltaTime;
+
+                if (_activeAgressiveTime >= _timeAgressive)
+                {
+                    SetAgressive(false);
+                }
+            }
         }
 
         public override void ReceiveDamage(float damage)
         {
+            SetAgressive(true);
+            
             DisplayDamage(damage);
             ChangeHealth(-damage);
             
@@ -25,6 +48,13 @@ namespace Entity.Enemies
             }
         }
 
+        private void SetAgressive(bool isAgresive)
+        {
+            _activeAgressiveTime = isAgresive ? 0 : Mathf.Infinity;
+            _isAgressive = isAgresive;
+            _healthUI.ToggleUI(isAgresive);
+        }
+        
         public override void ChangeHealth(float delta)
         {
             _health = Mathf.Max(0,_health + delta);
@@ -36,6 +66,7 @@ namespace Entity.Enemies
             base.ComeAlive();
             _health = Traits.MaxHealth;
             _healthUI.SetHealth(1);
+            _healthUI.ToggleUI(false);
         }
 
         protected override void Die()

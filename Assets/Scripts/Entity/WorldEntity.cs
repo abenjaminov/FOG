@@ -10,7 +10,6 @@ namespace Entity
     public abstract class WorldEntity : MonoBehaviour
     {
         protected Collider2D _collider;
-        protected IHealthUI _healthUI;
         protected float _health;
         
         [Header("Game")]
@@ -24,7 +23,6 @@ namespace Entity
         protected virtual void Awake()
         {
             _collider = GetComponent<Collider2D>();
-            _healthUI = GetComponent<IHealthUI>();
         }
         
         public virtual void ComeAlive()
