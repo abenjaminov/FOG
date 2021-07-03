@@ -26,6 +26,11 @@ namespace UI.Screens
             _invChannel.ItemAddedEvent += ItemAddedEvent;
         }
 
+        private void OnDestroy()
+        {
+            _invChannel.ItemAddedEvent -= ItemAddedEvent;
+        }
+
         public override KeyCode GetActivationKey()
         {
             return KeyCode.I;

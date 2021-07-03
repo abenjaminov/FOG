@@ -89,6 +89,12 @@ namespace UI
             infoText.gameObject.SetActive(true);
             _nextInfoIndex = (_nextInfoIndex + 1) % _maxInfos;
         }
+
+        private void OnDestroy()
+        {
+            _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
+            _inventoryChannel.ItemAddedEvent -= ItemAddedEvent; 
+        }
     }
 
     public class FadingInfoText

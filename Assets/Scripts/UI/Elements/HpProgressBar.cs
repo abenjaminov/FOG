@@ -23,5 +23,10 @@ namespace UI
             CurrentValue = _playerTraits.GetCurrentHealth();
             UpdateUI();
         }
+
+        private void OnDestroy()
+        {
+            _playerTraits.HealthChangedEvent -= HealthChangedEvent;
+        }
     }
 }

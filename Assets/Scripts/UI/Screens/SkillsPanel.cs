@@ -22,6 +22,12 @@ namespace UI.Screens
             _combatChannel.BuffExpiredEvent += BuffExpiredEvent;
         }
 
+        private void OnDestroy()
+        {
+            _combatChannel.BuffAppliedEvent -= BuffAppliedEvent;
+            _combatChannel.BuffExpiredEvent -= BuffExpiredEvent;
+        }
+
         private void BuffExpiredEvent(Buff buff)
         {
             var existingBuff = _visibleSkillIcons.FirstOrDefault(x => x.Buff == buff);

@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
@@ -21,5 +22,10 @@ public class GameStatsPanel : MonoBehaviour
     private void LevelUpEvent()
     {
         UpdateLevelText();
+    }
+
+    private void OnDestroy()
+    {
+        _playerTraits.LevelUpEvent -= LevelUpEvent;
     }
 }
