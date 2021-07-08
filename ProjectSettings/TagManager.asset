@@ -46,6 +46,12 @@ TagManager:
   - name: Background
     uniqueID: 2946151879
     locked: 0
+  - name: Buildings
+    uniqueID: 3515482577
+    locked: 0
+  - name: Props
+    uniqueID: 3927299527
+    locked: 0
   - name: Ground
     uniqueID: 3561613695
     locked: 0

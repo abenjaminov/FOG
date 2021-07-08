@@ -287,7 +287,7 @@ MonoBehaviour:
   _charachterVisuals: {fileID: 1109987028385428, guid: daf8f89b446f78441accd3d333cd0e18, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
-  PlayerTraits: {fileID: 0}
+  _hitbox: {fileID: 4408631893609734751}
   Apearence: {fileID: 0}
   WorldMovementDirection: {x: 0, y: 0}
 --- !u!114 &4408631893608421687
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69df2d7fc5004299be936f7f9d118e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillsPanel: {fileID: 0}
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
 --- !u!114 &4408631892649807281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
   HotKey: 99
   IsHotKeyDown: 0
   DamagePercentage: 1
-  BuffTime: 30
+  BuffTime: 5
   TimeUntillBuffEnds: 0
   BuffSprite: {fileID: 21300000, guid: 376de46c36fbb774b9461d67bda344d3, type: 3}
   _fastAttackFactor: 1.2
