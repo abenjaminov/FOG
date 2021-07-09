@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: image material
+  m_Name: Karf Title Material
   m_Shader: {fileID: -6465566751694194690, guid: 1ff01aa39057fcf448aa98577a2197e1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -88,6 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Opacity: 0
     - Vector1_b99d772652e44660a9f15f924130dee4: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -99,6 +100,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Opacity: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

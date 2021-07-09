@@ -14,22 +14,29 @@ namespace UI
 
         [Range(0,1)]
         public float slider;
+
+        private Material _material;
         
         private void Awake()
         {
+            _actualAppearenceTime = 0;
             _image = GetComponent<Image>();
-            var myMaterial = Instantiate(_image.material);
-            _image.material = myMaterial;
+            _material = Instantiate(_image.material);
+            _image.material = _material;
         }
 
         private void Update()
         {
             if (_actualAppearenceTime >= _appearenceTime) return;
             
-            //_image.material.SetFloat(Opacity, _actualAppearenceTime / _appearenceTime);
-            _image.material.SetFloat("_Opacity", slider);
+            _material.SetFloat("_Opacity", _actualAppearenceTime / _appearenceTime);
             
             _actualAppearenceTime += Time.deltaTime;
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(_material);
         }
     }
 }

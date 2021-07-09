@@ -807,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearenceTime: 0
+  slider: 0
 --- !u!224 &153634135 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7415396939594168665, guid: 9ba82468c02bc9044971460d33580712, type: 3}
@@ -8897,7 +8898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f0b799b5f24656a9494f6b742021eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _appearenceTime: 5
+  _appearenceTime: 2
+  slider: 0
 --- !u!114 &2141896968
 MonoBehaviour:
   m_ObjectHideFlags: 0
