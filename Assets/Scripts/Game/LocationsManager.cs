@@ -22,7 +22,7 @@ namespace Game
             
             operation.completed += asyncOperation =>
             {
-                _locationsChannel.OnChangeLocationComplete();
+                _locationsChannel.OnChangeLocationComplete(destination, source);
 
                 var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
 

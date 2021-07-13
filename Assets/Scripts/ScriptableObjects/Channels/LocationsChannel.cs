@@ -8,16 +8,16 @@ namespace ScriptableObjects.Channels
     public class LocationsChannel : ScriptableObject
     {
         public UnityAction<SceneAsset, SceneAsset> ChangeLocationEvent;
-        public UnityAction ChangeLocationCompleteEvent;
+        public UnityAction<SceneAsset, SceneAsset> ChangeLocationCompleteEvent;
 
         public void OnChangeLocation(SceneAsset destination, SceneAsset source)
         {
             ChangeLocationEvent?.Invoke(destination, source);
         }
 
-        public void OnChangeLocationComplete()
+        public void OnChangeLocationComplete(SceneAsset destination, SceneAsset source)
         {
-            ChangeLocationCompleteEvent?.Invoke();
+            ChangeLocationCompleteEvent?.Invoke(destination, source);
         }
     }
 }

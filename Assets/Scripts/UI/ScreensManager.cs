@@ -16,18 +16,22 @@ namespace Platformer.UI
         [SerializeField] private NpcChannel _NpcChannel;
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
+        [SerializeField] private GUIScreen _map;
         
         [SerializeField] private ChatScreen _chatScreen;
 
+        private List<KeySubscription> _subscriptions = new List<KeySubscription>();
+        
         private Stack<GUIScreen> _openScreens;
 
         private void Awake()
         {
             _openScreens = new Stack<GUIScreen>();
-            _inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
-            _inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen));
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen));
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_map.GetActivationKey(), ToggleMapScreen));
             
-            _inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen);
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen));
             
             _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
         }
@@ -42,11 +46,19 @@ namespace Platformer.UI
             ToggleScreen(_inventory);
         }
         
+        private void ToggleMapScreen()
+        {
+            ToggleScreen(_map);
+        }
+        
         private void OnDestroy()
         {
-            //_inputChannel.UnRegisterKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen);
-            //_inputChannel.UnRegisterKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen);
-            //_inputChannel.UnRegisterKeyDown(KeyCode.Escape, ClosePrevScreen);
+            foreach (var subscription in _subscriptions)
+            {
+                subscription.Unsubscribe();
+            }
+            
+            _subscriptions.Clear();
         }
 
         private void RequestChatStartEvent(ChatSession arg0)

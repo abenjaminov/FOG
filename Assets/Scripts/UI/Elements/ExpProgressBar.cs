@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace UI
@@ -18,6 +19,12 @@ namespace UI
             _playerTraits.LevelUpEvent += LevelUpEvent;
             
             UpdateUI();
+        }
+
+        private void OnDestroy()
+        {
+            _playerTraits.GainedExperienceEvent -= GainedExperienceEvent;
+            _playerTraits.LevelUpEvent -= LevelUpEvent;
         }
 
         private void LevelUpEvent()

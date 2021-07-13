@@ -1,0 +1,22 @@
+Map 1 - Gnoll 1
+Map 2 - Gnall 1 & Gnoll 2
+Map 3 - Gnoll 2
+Map 4 (Above 3) Gnoll 3
+Map5 (Right of 3) - Orc 1
+Map6 (Crossroad) - Orc 2 & 3
+Map7 (Before Ateyn) - Orc 2
+Map 8 (Before Bridge) - Orc 3
+Map 9 (Bridge) - Regular Skeletons 1 & 2 & 3 + Boss Giant Skeleton
+Map 10 (Desert Entrance) - Goblins 1 & Goblins 2 & Skills
+Map 11 - Ruined City Entrance - Wraith
+Map 12 (Right of corssroads) - Golems 1
+Map 13 (After 12) - Golems 2
+Map 14 (Right from 13) - Golems 3
+Map 15 (After 14) - BOSS Cyclops & Golems 3
+Map 16 (Feros Tent) - ?
+Map 17 - Gold Miner 1 & 2
+Map 18 - Gold Miner 2 & 3
+Map 19 - Gold Miner 3
+Map 20 - Dwarf 1 & 2
+Map 21 - Dwarf 2 & 3
+Map 22 (The first Tower) - Satyr 2 & 3 & BOSS Minotaur
