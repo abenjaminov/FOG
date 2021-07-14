@@ -18,6 +18,8 @@ namespace Entity.Enemies
         [SerializeField] private float _minIdleTimeBetweenTargets;
         private float _idleTimeBetweenTargets;
         [SerializeField] private float _deadDelayTime;
+
+        [SerializeField] private bool isAlwaysIdle;
         
         private IState _defaultState;
         private Enemy _enemy;
@@ -37,9 +39,9 @@ namespace Entity.Enemies
 
             var shouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
                                                    Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .1f);
-            var shouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets);
-            var shouldDie = new Func<bool>(() => _enemy.IsDead);
-            var shouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime);
+            var shouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets && !isAlwaysIdle);
+            var shouldDie = new Func<bool>(() => _enemy.IsDead && !isAlwaysIdle);
+            var shouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime && !isAlwaysIdle);
             
             _stateMachine.AddTransition(idle, shouldStand, walk, () =>
             {
