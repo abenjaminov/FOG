@@ -13,10 +13,10 @@ Map 12 (Right of corssroads) - Golems 1
 Map 13 (After 12) - Golems 2
 Map 14 (Right from 13) - Golems 3
 Map 15 (After 14) - BOSS Cyclops & Golems 3
-Map 16 (Feros Tent) - ?
+Map 16 (Effors Tent) - ?
 Map 17 - Gold Miner 1 & 2
 Map 18 - Gold Miner 2 & 3
 Map 19 - Gold Miner 3
 Map 20 - Dwarf 1 & 2
 Map 21 - Dwarf 2 & 3
-Map 22 (The first Tower) - Satyr 2 & 3 & BOSS Minotaur
+Map 22 (The lone Tower) - Satyr 2 & 3 & BOSS Minotaur

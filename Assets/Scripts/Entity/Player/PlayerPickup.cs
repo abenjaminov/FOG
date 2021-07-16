@@ -14,16 +14,18 @@ namespace Character.Player
         [SerializeField] private Transform _pickupTransform;
         private List<Drop> _dropsInRange;
 
+        private KeySubscription _pickupSubscription;
+        
         private void Awake()
         {
             _dropsInRange = new List<Drop>();
             
-            _inputChannel.SubscribeKeyDown(KeyCode.Z, Pickup);
+            _pickupSubscription = _inputChannel.SubscribeKeyDown(KeyCode.Z, Pickup);
         }
 
         private void OnDestroy()
         {
-            //_inputChannel.UnRegisterKeyDown(KeyCode.Z, Pickup);
+            _pickupSubscription.Unsubscribe();
         }
 
         private void Pickup()

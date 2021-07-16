@@ -9,6 +9,8 @@ namespace ScriptableObjects
     {
         
         public UnityAction GainedExperienceEvent;
+
+        public float ClimbSpeed;
         
         [HideInInspector] public float CurrentHealth;
         [HideInInspector] public int PointsLeft;

@@ -21,6 +21,7 @@ MonoBehaviour:
   Level: 6
   Strength: 25
   Dexterity: 5
+  ClimbSpeed: 3
   CurrentHealth: 100
   PointsLeft: 10
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}

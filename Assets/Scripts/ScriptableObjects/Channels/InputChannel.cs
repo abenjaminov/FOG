@@ -24,11 +24,6 @@ namespace ScriptableObjects.Channels
             action?.Invoke();
         }
 
-        public void ok(KeyCode k, UnityAction a)
-        {
-            MappedKeyDownActions[k] -= a;
-        }
-        
         public KeySubscription SubscribeKeyDown(KeyCode keyCode, UnityAction action)
         {
             if (MappedKeyDownActions.TryGetValue(keyCode, out var keyEvent))

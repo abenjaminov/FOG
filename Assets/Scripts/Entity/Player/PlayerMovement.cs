@@ -23,6 +23,11 @@ namespace Player
         {
             _rigidbody2D.velocity = new Vector2(horizontalVelocity, _rigidbody2D.velocity.y);
         }
+        
+        public void SetVerticalVelocity(float verticalVelocity)
+        {
+            _rigidbody2D.velocity = new Vector2( _rigidbody2D.velocity.x,verticalVelocity);
+        }
 
         public void SetVelocity(Vector2 velocity)
         {

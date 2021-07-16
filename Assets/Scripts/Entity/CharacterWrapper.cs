@@ -41,5 +41,10 @@ namespace Entity
         {
             _character.GetReady();
         }
+
+        public void Climb()
+        {
+            _character.SetState(CharacterState.Climb);
+        }
     }
 }

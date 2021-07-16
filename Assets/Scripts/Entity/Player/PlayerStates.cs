@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Abilities;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
+using Entity.Player;
+using Game;
 using ScriptableObjects.Channels;
 using State;
 using State.States;
@@ -28,11 +30,14 @@ namespace Player
         private IState _defaultState;
         protected int _horizontalAxisRaw;
         private bool _isJumpButtonDown;
+        private bool _isClimUpButtonDown;
+        private bool _isClimbDownButtonDown;
 
         protected Animator _animator;
         protected Rigidbody2D _rigidBody;
         protected Entity.Player.Player _player;
         protected PlayerMovement _playerMovement;
+        protected PlayerClimb _playerClimb;
         protected GroundCheck _playerGroundCheck;
         protected Collider2D _collider2D;
         
@@ -44,6 +49,7 @@ namespace Player
         protected PlayerFallState _fall;
         protected DieState _dead;
         protected IAbilityState _basicAttackState;
+        protected PlayerClimbState _climb;
 
         // Transition conditions
         protected Func<bool> _shouldAbility;
@@ -67,6 +73,7 @@ namespace Player
             _collider2D = GetComponent<Collider2D>();
             _animator = GetComponentInChildren<Animator>();
             _player = GetComponent<Entity.Player.Player>();
+            _playerClimb = GetComponentInChildren<PlayerClimb>();
         }
         
         protected virtual void Start()
@@ -79,8 +86,9 @@ namespace Player
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _jump = new PlayerJumpingState(_player, _collider2D, _playerMovement, _player.Traits.JumpHeight,_rigidBody);
-            _fall = new PlayerFallState(_player,_collider2D) ;
+            _fall = new PlayerFallState(_player,_collider2D);
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
+            _climb = new PlayerClimbState(_player, _playerClimb,_playerMovement,_rigidBody,_collider2D, _inputChannel, _player.PlayerTraits.ClimbSpeed);
             
             _noHorizontalInput = () => _horizontalAxisRaw == 0 && !_isAbilityAnimationActivated;
             _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !_isAbilityAnimationActivated;
@@ -90,7 +98,11 @@ namespace Player
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
             var walkRightAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw > 0 && _rigidBody.velocity.y < 0);
             var idleAfterJump = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw == 0 && _rigidBody.velocity.y < 0);
-            
+            var shouldClimb = new Func<bool>(() => ((_isClimbDownButtonDown && _playerClimb.CanClimbDown) || (_isClimUpButtonDown && _playerClimb.CanClimbUp)));
+
+            var idleAfterClimb = new Func<bool>(() => (_playerClimb.IsOnEdge) && 
+                                                      ((_playerClimb.CurrentEdge.Type == EdgeType.Upper && _isClimUpButtonDown) || 
+                                                       (_playerClimb.CurrentEdge.Type == EdgeType.Lower && _isClimbDownButtonDown)));
 
             _shouldAbility = () => !_isAbilityAnimationActivated && _timeUntillNextAttack <= 0;
             _attackTransitionLogic = () =>
@@ -108,6 +120,7 @@ namespace Player
             _stateMachine.AddTransition(_idle, _noHorizontalInput, _walkRight);
             _stateMachine.AddTransition(_idle, idleAfterJump, _jump);
             _stateMachine.AddTransition(_idle, idleAfterJump, _fall);
+            _stateMachine.AddTransition(_idle, idleAfterClimb, _climb);
 
             _stateMachine.AddTransition(_walkLeft, _walkLeftTransitionCondition, _idle);
             _stateMachine.AddTransition(_walkLeft, _walkLeftTransitionCondition, _walkRight);
@@ -126,6 +139,11 @@ namespace Player
             _stateMachine.AddTransition(_fall, shouldFall,_walkLeft);
             _stateMachine.AddTransition(_fall, shouldFall,_walkRight);
             
+            _stateMachine.AddTransition(_climb, shouldClimb, _idle);
+            _stateMachine.AddTransition(_climb, shouldClimb, _walkLeft);
+            _stateMachine.AddTransition(_climb, shouldClimb, _walkRight);
+            _stateMachine.AddTransition(_climb, shouldClimb, _jump);
+            
             ConfigureDeadState();
 
             AddAbilityState(_basicAttackState, _shouldAbility, _attackTransitionLogic);
@@ -133,6 +151,8 @@ namespace Player
             _defaultState = _idle;
             
             RegisterBooleanToKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
+            RegisterBooleanToKey(KeyCode.UpArrow,(isKeyDown) => { _isClimUpButtonDown = isKeyDown; });
+            RegisterBooleanToKey(KeyCode.DownArrow,(isKeyDown) => { _isClimbDownButtonDown = isKeyDown; });
 
             var newSubs = new List<KeySubscription>()
             {
