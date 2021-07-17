@@ -6,19 +6,18 @@ namespace Entity.Player
 {
     public class PlayerClimb: MonoBehaviour
     {
-        [HideInInspector] public bool CanClimb;
+        
         [HideInInspector] public bool IsOnEdge;
         [HideInInspector] public Ladder CurrentLadder;
         [HideInInspector] public LadderEdge CurrentEdge;
         
         [HideInInspector] public bool CanClimbUp;
         [HideInInspector] public bool CanClimbDown;
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent<Ladder>(out var ladder))
             {
-                CanClimb = true;
                 CurrentLadder = ladder;
 
                 CanClimbUp = CurrentLadder.Center.position.y > transform.position.y;
@@ -39,7 +38,6 @@ namespace Entity.Player
         {
             if (other.TryGetComponent<Ladder>(out var ladder))
             {
-                CanClimb = false;
                 CurrentLadder = null;
                 CanClimbDown = false;
                 CanClimbUp = false;
