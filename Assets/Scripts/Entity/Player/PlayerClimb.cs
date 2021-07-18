@@ -20,8 +20,8 @@ namespace Entity.Player
             {
                 CurrentLadder = ladder;
 
-                CanClimbUp = CurrentLadder.Center.position.y > transform.position.y;
-                CanClimbDown = CurrentLadder.Center.position.y < transform.position.y; 
+                CanClimbUp = CurrentLadder.Center.y > transform.position.y;
+                CanClimbDown = CurrentLadder.Center.y < transform.position.y; 
             }
             
             if (other.TryGetComponent<LadderEdge>(out var ladderEdge))
@@ -29,8 +29,8 @@ namespace Entity.Player
                 CurrentEdge = ladderEdge;
                 IsOnEdge = true;
                 
-                CanClimbUp = CurrentLadder.Center.position.y > ladderEdge.transform.position.y;
-                CanClimbDown = CurrentLadder.Center.position.y < ladderEdge.transform.position.y; 
+                CanClimbUp = CurrentLadder.Center.y > ladderEdge.transform.position.y;
+                CanClimbDown = CurrentLadder.Center.y < ladderEdge.transform.position.y; 
             }
         }
 

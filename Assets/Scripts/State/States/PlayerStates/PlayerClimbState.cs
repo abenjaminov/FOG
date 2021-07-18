@@ -52,7 +52,7 @@ namespace State.States.PlayerStates
             var playerTransform = _playerMovement.transform;
             var playerPosition = playerTransform.position;
             
-            playerPosition = new Vector3(_playerClimb.CurrentLadder.Center.position.x,
+            playerPosition = new Vector3(_playerClimb.CurrentLadder.Center.x,
                 playerPosition.y, playerPosition.z);
             
             playerTransform.position = playerPosition;
@@ -62,7 +62,7 @@ namespace State.States.PlayerStates
             _subscriptions.Add(_inputChannel.SubscribeKeyUp(KeyCode.UpArrow, Stop));
             _subscriptions.Add(_inputChannel.SubscribeKeyUp(KeyCode.DownArrow, Stop));
 
-            if (_playerClimb.CurrentLadder.Center.position.y > _player.transform.position.y)
+            if (_playerClimb.CurrentLadder.Center.y > _player.transform.position.y)
             {
                 ClimbUp();
             }
