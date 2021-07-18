@@ -238,6 +238,7 @@ namespace Player
             }
             
             _allKeySubscription.Clear();
+            _stateMachine.Close();
         }
     }
 }

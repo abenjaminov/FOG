@@ -24,7 +24,7 @@ namespace Entity.Player
                 CanClimbDown = CurrentLadder.Center.y < transform.position.y; 
             }
             
-            if (other.TryGetComponent<LadderEdge>(out var ladderEdge))
+            if (CurrentLadder != null && other.TryGetComponent<LadderEdge>(out var ladderEdge))
             {
                 CurrentEdge = ladderEdge;
                 IsOnEdge = true;

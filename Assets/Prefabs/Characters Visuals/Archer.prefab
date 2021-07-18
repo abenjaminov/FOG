@@ -351,12 +351,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 240
-  m_Sprite: {fileID: 21300000, guid: 34c4cbf6a3374fda8cb2d8c91e7d2b2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 255f325c74484beb9f6f70e94275d904, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -433,7 +433,7 @@ MonoBehaviour:
   - Name: Default
     Eyebrows: {fileID: 21300000, guid: 2cbb874f14d74b03bccda307d7ace60a, type: 3}
     Eyes: {fileID: 21300000, guid: 9830a5e93d174dec89a098759997b4ad, type: 3}
-    Mouth: {fileID: 21300000, guid: 34c4cbf6a3374fda8cb2d8c91e7d2b2d, type: 3}
+    Mouth: {fileID: 21300000, guid: 255f325c74484beb9f6f70e94275d904, type: 3}
   - Name: Angry
     Eyebrows: {fileID: 21300000, guid: 54a7303746524cc8bbcd3c819bc99961, type: 3}
     Eyes: {fileID: 0}
@@ -3615,7 +3615,7 @@ SortingGroup:
   m_GameObject: {fileID: 1549338164171444}
   m_Enabled: 1
   m_SortingLayerID: -430345217
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 200
 --- !u!1 &1561873368260788
 GameObject:

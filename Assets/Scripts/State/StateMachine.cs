@@ -97,5 +97,10 @@ namespace State
 
             return null;
         }
+
+        public void Close()
+        {
+            _currentState.OnExit();
+        }
     }
 }
