@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
   _player: {fileID: 232835599}
-  _firstScene: {fileID: 102900000, guid: 1b09c92b6f185cd4e82c148338fc160f, type: 3}
+  _firstScene: {fileID: 102900000, guid: 0136c8fa946338946821bce224f79859, type: 3}
 --- !u!1 &2840444360503644841
 GameObject:
   m_ObjectHideFlags: 0

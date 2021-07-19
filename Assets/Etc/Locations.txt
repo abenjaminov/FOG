@@ -2,7 +2,7 @@ Map 1 - Gnoll 1
 Map 2 - Gnall 1 & Gnoll 2
 Map 3 - Gnoll 2
 Map 4 (Above 3) Gnoll 3
-Map5 (Right of 3) - Orc 1
+Map5 (Right of 3) - Orc 1 & Orc 2
 Map6 (Crossroad) - Orc 2 & 3
 Map7 (Before Ateyn) - Orc 2
 Map 8 (Before Bridge) - Orc 3
