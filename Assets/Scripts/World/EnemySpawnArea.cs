@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entity.Enemies;
+using ScriptableObjects.Channels;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -13,7 +15,9 @@ namespace World
         [SerializeField] private List<EnemySpawn> _enemySpawns;
         [SerializeField] private Transform _rightBounds;
         [SerializeField] private Transform _leftBounds;
+        [SerializeField] private float _firstSpawnDelay;
         [SerializeField] private float _spawnInterval;
+        [SerializeField] private LocationsChannel _locationsChannel;
 
         private bool _isSpawning = true;
 
@@ -21,13 +25,22 @@ namespace World
 
         private void Awake()
         {
+            _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
             _liveEnemies = new List<SpawnedEnemy>();
-            
+        }
+
+        private void OnDestroy()
+        {
+            _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
+        }
+
+        private void ChangeLocationCompleteEvent(SceneAsset arg0, SceneAsset arg1)
+        {
             foreach (var enemySpawnType in _enemySpawns)
             {
                 var enemy = Instantiate(enemySpawnType.EnemyPrefab,
                     enemySpawnType.SpawnPosition.position,
-                    Quaternion.identity);
+                    Quaternion.identity, transform);
                 
                 _liveEnemies.Add(new SpawnedEnemy()
                 {
@@ -40,23 +53,24 @@ namespace World
                 movement.LeftBounds = _leftBounds.position;
                 movement.RightBounds = _rightBounds.position;
             }
-        }
-
-        private void Start()
-        {
+            
             StartCoroutine(SpawnInterval());
         }
-
+        
         private IEnumerator SpawnInterval()
         {
+            yield return new WaitForSeconds(_firstSpawnDelay);
+            
+            Spawn();
+            
             while (_isSpawning)
             {
                 yield return new WaitForSeconds(_spawnInterval);
-                
+                    
                 Spawn();
             }
 
-            yield return null;
+            yield break;
         }
 
         private void Spawn()
