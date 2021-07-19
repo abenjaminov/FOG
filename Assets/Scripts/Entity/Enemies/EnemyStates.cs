@@ -38,7 +38,9 @@ namespace Entity.Enemies
             var vanishState = new EmptyState();
 
             var shouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
-                                                   Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .1f);
+                                                   (Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .2f ||
+                                                   enemyMovement.transform.position.x <= enemyMovement.LeftBounds.x ||
+                                                   enemyMovement.transform.position.x >= enemyMovement.RightBounds.x));
             var shouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets && !isAlwaysIdle);
             var shouldDie = new Func<bool>(() => _enemy.IsDead && !isAlwaysIdle);
             var shouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime && !isAlwaysIdle);
