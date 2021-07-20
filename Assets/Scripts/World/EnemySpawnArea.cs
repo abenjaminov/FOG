@@ -36,6 +36,7 @@ namespace World
 
         private void ChangeLocationCompleteEvent(SceneAsset arg0, SceneAsset arg1)
         {
+            var sortingOrder = 0;
             foreach (var enemySpawnType in _enemySpawns)
             {
                 var enemy = Instantiate(enemySpawnType.EnemyPrefab,
@@ -52,6 +53,10 @@ namespace World
                 var movement = enemy.GetComponent<EnemyMovement>();
                 movement.LeftBounds = _leftBounds.position;
                 movement.RightBounds = _rightBounds.position;
+
+                var renderer = enemy.GetComponentInChildren<Renderer>();
+                renderer.sortingOrder = sortingOrder;
+                sortingOrder++;
             }
             
             StartCoroutine(SpawnInterval());
