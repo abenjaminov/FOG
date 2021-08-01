@@ -4,7 +4,7 @@ Map 3 - Gnoll 2
 Map 4 (Above 3) Gnoll 3
 Map5 (Right of 3) - Orc 1 & Orc 2
 Map6 (Crossroad) - Orc 2 & 3
-Map7 (Before Ateyn) - Orc 2
+Map7 (Before Ateyn) - Orc 2 & Fire Elemental
 Map 8 (Before Bridge) - Orc 3
 Map 9 (Bridge) - Regular Skeletons 1 & 2 & 3 + Boss Giant Skeleton
 Map 10 (Desert Entrance) - Goblins 1 & Goblins 2 & Skulls 1
