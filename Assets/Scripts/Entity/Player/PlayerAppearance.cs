@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HeroEditor.Common;
 using HeroEditor.Common.Enums;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Entity.Player
 {
     public class PlayerAppearance : MonoBehaviour
     {
+        [SerializeField] protected PlayerChannel _playerChannel;
         [SerializeField] protected PlayerEquipment _playerEquipment;
         [SerializeField] protected Inventory _playerInventory;
         [SerializeField] protected Player _player;
@@ -21,31 +23,34 @@ namespace Entity.Player
             _character = _player.GetCharacter();
 
             if(_playerEquipment.Torso != null)
-                EquipItem(_playerEquipment.Torso);
+                _character.Equip(_playerEquipment.Torso.Item, EquipmentPart.Vest);
             
             if(_playerEquipment.Boots != null)
-                EquipItem(_playerEquipment.Boots);
+                _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
             
             if(_playerEquipment.Helmet != null)
-                EquipItem(_playerEquipment.Helmet);
+                _character.Equip(_playerEquipment.Helmet.Item, EquipmentPart.Helmet);
             
             if(_playerEquipment.Pelvis != null)
-                EquipItem(_playerEquipment.Pelvis);
+                _character.Equip(_playerEquipment.Pelvis.Item, EquipmentPart.Belt);
             
             if(_playerEquipment.Cape != null)
-                EquipItem(_playerEquipment.Cape);
+                _character.Equip(_playerEquipment.Cape.Item, EquipmentPart.Cape);
             
             if(_playerEquipment.Gloves != null)
-                EquipItem(_playerEquipment.Gloves);
+                _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
 
             if(_playerEquipment.PrimaryWeapon != null)
-                this.EquipItem(_playerEquipment.PrimaryWeapon);
+            {
+                _character.Equip(_playerEquipment.PrimaryWeapon.Item, _playerEquipment.PrimaryWeapon.Part);
+                _playerChannel.OnWeaponChanged(_playerEquipment.PrimaryWeapon);
+            }
         }
 
         public void EquipItem(EquipmentItemMeta meta)
         {
             RemoveItem(meta.Part);
-            _character.Equip(meta.Item, meta.Part);
+            _character.Equip(meta.Item, meta.Part); 
             _playerEquipment.SetMetaItem(meta);
         }
 

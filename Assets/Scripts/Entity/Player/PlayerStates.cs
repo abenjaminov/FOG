@@ -5,6 +5,7 @@ using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player;
 using Entity.Player.ArcherClass;
+using Entity.Player.FighterClass;
 using Game;
 using ScriptableObjects.Channels;
 using State;
@@ -25,8 +26,9 @@ namespace Player
 
         internal AnimationEvents AnimationEvents;
 
+        [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
-        //private OneHMeleeStates _bowStates;
+        [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
         
         private IState _defaultState;
         protected int _horizontalAxisRaw;
@@ -148,8 +150,10 @@ namespace Player
             ConfigureDeadState();
 
             _bowStates.LinkToStates(this);
+            _oneHandedMeleeStates.LinkToStates(this);
             
             AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
+            AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogic, null,() => _oneHandedMeleeStates.IsEnabled);
 
             _defaultState = _idle;
             
