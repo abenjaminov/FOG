@@ -51,14 +51,13 @@ namespace Entity.Player
 
         public void RemoveItem(EquipmentPart part)
         {
-            EquipmentItemMeta oldEquipment = _playerEquipment.MetaByType[part];
+            EquipmentItemMeta oldEquipment = _playerEquipment.GetItemMetaByPartType(part);
 
             if (oldEquipment != null)
             {
                 _playerInventory.AddItemNoInfo(oldEquipment, 1);
+                _character.UnEquip(oldEquipment.Part);
             }
-            
-            _character.UnEquip(part);
         }
     }
 }

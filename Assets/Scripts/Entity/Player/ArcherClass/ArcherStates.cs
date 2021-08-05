@@ -11,7 +11,7 @@ namespace Entity.Player.ArcherClass
 {
     public class ArcherStates : PlayerStates
     {
-        private Archer _archer;
+        private Entity.Player.Player _archer;
 
         [Header("Shoot Fire Arrow Ability")]
         [SerializeField] private ShootArrowAbility _fireArrowAbility;
@@ -21,7 +21,7 @@ namespace Entity.Player.ArcherClass
 
         protected override void Start()
         {
-            _archer = GetComponent<Archer>();
+            _archer = GetComponent<Entity.Player.Player>();
             _basicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
             
             base.Start();
@@ -36,6 +36,11 @@ namespace Entity.Player.ArcherClass
                 new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
             
             AddAbilityState(fastAttackBuffState, _shouldAbility, _buffTransitionLogic,() => fastAttackBuffState.IsBuffApplied);
+        }
+
+        private void OnEnable()
+        {
+            
         }
 
         private void BowChargeEndEvent()

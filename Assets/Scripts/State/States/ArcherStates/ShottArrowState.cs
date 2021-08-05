@@ -10,11 +10,11 @@ namespace State.States.ArcherStates
 {
     public class ArcherShootArrowAbilityState : PlayerAbilityState<ShootArrowAbility>
     {
-        private Archer _archer;
+        private Entity.Player.Player _archer;
 
         public ArcherShootArrowAbilityState(CharacterWrapper character, ShootArrowAbility ability) : base(character, ability)
         {
-            _archer = character as Archer;
+            _archer = character as Entity.Player.Player;
             _animationEvents.BowChargeEndEvent += BowChargeEndEvent;
         }
 

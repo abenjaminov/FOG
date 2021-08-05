@@ -19,26 +19,33 @@ namespace ScriptableObjects.Inventory
         public EquipmentItemMeta PrimaryWeapon;
         public EquipmentItemMeta SecondaryWeapon;
 
-        public Dictionary<EquipmentPart, EquipmentItemMeta> MetaByType;
+        private Dictionary<EquipmentPart, Func<EquipmentItemMeta>> MetaByType;
         
         private void OnEnable()
         {
-            this.MetaByType = new Dictionary<EquipmentPart, EquipmentItemMeta>()
+            MetaByType = new Dictionary<EquipmentPart, Func<EquipmentItemMeta>>()
             {
-                {EquipmentPart.Helmet, this.Helmet},
-                {EquipmentPart.Vest, this.Torso},
-                {EquipmentPart.Boots, this.Boots},
-                {EquipmentPart.Belt, this.Pelvis},
-                {EquipmentPart.Cape, this.Cape},
-                {EquipmentPart.Gloves, this.Gloves},
+                {EquipmentPart.Helmet, () => Helmet},
+                {EquipmentPart.Vest, () => Torso},
+                {EquipmentPart.Boots, () => Boots},
+                {EquipmentPart.Belt, () => Pelvis},
+                {EquipmentPart.Cape, () => Cape},
+                {EquipmentPart.Gloves, () => Gloves},
+                {EquipmentPart.MeleeWeapon1H, () => PrimaryWeapon},
+                {EquipmentPart.Bow, () => PrimaryWeapon},
             };
         }
 
+        public EquipmentItemMeta GetItemMetaByPartType(EquipmentPart partType)
+        {
+            return MetaByType[partType]();
+        }
+        
         public void SetMetaItem(EquipmentItemMeta meta)
         {
             if (meta == null) return;
             
-            MetaByType[meta.Part] = meta;
+            //MetaByType[meta.Part] = meta;
 
             switch (meta.Part)
             {
@@ -59,6 +66,12 @@ namespace ScriptableObjects.Inventory
                     break;
                 case EquipmentPart.Gloves:
                     Gloves = meta;
+                    break;
+                case EquipmentPart.MeleeWeapon1H:
+                    PrimaryWeapon = meta;
+                    break;
+                case EquipmentPart.Bow:
+                    PrimaryWeapon = meta;
                     break;
                 default:
                     break;

@@ -6,11 +6,11 @@ namespace Entity.Player.FighterClass
 {
     public class FighterStates : PlayerStates
     {
-        private Fighter _fighter;
+        private Entity.Player.Player _fighter;
 
         protected override void Start()
         {
-            _fighter = GetComponent<Fighter>();
+            _fighter = GetComponent<Entity.Player.Player>();
             
             _basicAttackState = new FighterSlashState(_fighter, _basicAttackAbility as SlashAbility);
             

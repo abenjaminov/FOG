@@ -18,7 +18,7 @@ namespace Entity
     public abstract class CharacterWrapper : WorldEntity
     {
         protected Assets.HeroEditor.Common.CharacterScripts.Character _character;
-        public AnimationEvents AnimationEvents;
+        [HideInInspector] public AnimationEvents AnimationEvents;
         
         protected virtual void Start()
         {

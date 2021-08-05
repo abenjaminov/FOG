@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Entity.Player
 {
-    public abstract class Player : CharacterWrapper
+    public class Player : CharacterWrapper
     {
         private PlayerTraits _playerTraits;
 
@@ -18,6 +18,7 @@ namespace Entity.Player
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
         [SerializeField] private Collider2D _hitbox;
+        [HideInInspector] public Vector2 WorldMovementDirection;
         private float _receiveDamageColldown;
         private float _timeUntillVulnerable;
         
