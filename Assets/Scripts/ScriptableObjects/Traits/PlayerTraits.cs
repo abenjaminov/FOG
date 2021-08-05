@@ -22,6 +22,11 @@ namespace ScriptableObjects
 
         public float ReceiveDamageCooldown;
         
+        public int Strength;
+        public int Dexterity;
+        public int Inteligence;
+        public int Constitution;
+        
         public int ExperienceGained
         {
             get => _experienceGained;

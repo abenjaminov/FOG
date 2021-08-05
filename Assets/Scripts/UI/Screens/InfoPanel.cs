@@ -70,7 +70,7 @@ namespace UI
         
         private void EnemyDiedEvent(Enemy enemy)
         {
-            AddInfoItem(((EnemyTraits) enemy.Traits).Experience + " Exp Gained");
+            AddInfoItem(((EnemyTraits) enemy.Traits).ResistancePoints + " Exp Gained");
         }
 
         private void AddInfoItem(string itemText)

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   OwnedItems:
-  - ItemMeta: {fileID: 11400000, guid: 684dcf8cd5d44674290f9168fb9f1862, type: 2}
+  - ItemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
     Amount: 1
   CurrencyItem:
     ItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 1772
+    Amount: 1784

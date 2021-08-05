@@ -1,4 +1,7 @@
-﻿using ScriptableObjects;
+﻿using System;
+using HeroEditor.Common.Enums;
+using ScriptableObjects;
+using ScriptableObjects.Inventory;
 using ScriptableObjects.Traits;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,19 +10,77 @@ namespace Helpers
 {
     public static class TraitsHelper
     {
+        private static float MainStatMultiplier = 1/75f;
+        private static float SecondaryStatMultiplier = 1/150f;
+        
+        private static int GetMaxBaseDamage(int level)
+        {
+            var minBase = GetMinBaseDmg(level);
+            return (minBase + (2*minBase/level));
+        }
+        private static int GetMinBaseDmg(int level)
+        {
+            return (int) (1 + Mathf.Pow(level, 2) * Mathf.Log10(level));
+        }
+
+        public static int CalculatePlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
+        {
+            int minTraitsDmg = 0;
+            var maxTraitsDmg = 0;
+
+            if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
+            {
+                minTraitsDmg = GetMeleeMin(traits);
+                maxTraitsDmg = GetMeleeMax(traits);
+            }
+
+            var weaponAddition = equipment.PrimaryWeapon.MonsterResistance * traits.Level;
+
+            var minFinal = minTraitsDmg + weaponAddition;
+            var maxFinal = maxTraitsDmg + weaponAddition;
+            
+            return Random.Range(minFinal, maxFinal);
+        }
+
+        #region Melee
+
+        private static int GetMeleeMin(PlayerTraits traits)
+        {
+            var minBase = GetMinBaseDmg(traits.Level);
+
+            return MeleeFormula(minBase, traits);
+        }
+        
+        private static int GetMeleeMax(PlayerTraits traits)
+        {
+            var maxBase = GetMaxBaseDamage(traits.Level);
+
+            return MeleeFormula(maxBase, traits);
+        }
+
+        private static int MeleeFormula(int baseFactor, PlayerTraits traits)
+        {
+            return (int) Mathf.Ceil(baseFactor +
+                                    (traits.Strength * MainStatMultiplier * baseFactor) +
+                                    (traits.Dexterity * SecondaryStatMultiplier * baseFactor));
+        }
+
+        #endregion
+        
         public static int CalculateDamage(Traits attacker, Traits receiver)
         {
-            var rangeDiff = GetRangeDiff(attacker);
-
-            return CalculateDamage(attacker, receiver, rangeDiff);
+            // var rangeDiff = GetRangeDiff(attacker);
+            //
+            // return CalculateDamage(attacker, receiver, rangeDiff);
+            return 0;
         }
 
         private static float GetRangeDiff(Traits attacker)
         {
-            var rangeDiff = Mathf.Exp(Mathf.Ceil((float) attacker.Level / attacker.Dexterity));
-
-            return rangeDiff;
-
+            // var rangeDiff = Mathf.Exp(Mathf.Ceil((float) attacker.Level / attacker.Dexterity));
+            //
+            // return rangeDiff;
+            return 0;
         }
 
         private static int CalculateDamage(Traits attacker, Traits receiver,float rangeDiff)
@@ -31,10 +92,12 @@ namespace Helpers
 
         private static int CalculateAttackerDamage(Traits attacker, float rangeValue)
         {
-            var damage = Mathf.Ceil(attacker.Strength * ((float) attacker.Level / LevelConfiguration.MAXLevel));
-            damage += rangeValue;
-
-            return (int) Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));
+            // var damage = Mathf.Ceil(attacker.Strength * ((float) attacker.Level / LevelConfiguration.MAXLevel));
+            // damage += rangeValue;
+            //
+            // return
+            // (int) Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));
+            return 0;
         }
 
         public static int GetMaxDamage(Traits attacker)
@@ -53,8 +116,9 @@ namespace Helpers
         
         public static float CalculateAttackRange(Traits attacker)
         {
-            var range = (attacker.Strength + (attacker.Dexterity*1.5f)) / (float)attacker.Level;
-            return range;
+            // var range = (attacker.Strength + (attacker.Dexterity*1.5f)) / (float)attacker.Level;
+            // return range;
+            return 15;
         }
     }
 }

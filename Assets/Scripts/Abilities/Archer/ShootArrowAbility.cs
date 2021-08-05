@@ -20,7 +20,7 @@ namespace Abilities.Archer
             var arrow = Object.Instantiate(_arrowPrefab, _fireTransform).GetComponent<Arrow>();
             
             arrow.WorldMovementDirection = _host.GetWorldMovementDirection();
-            arrow.ParentCharacter = _hostWrapper;
+            arrow.ParentCharacter = (Entity.Player.Player) _hostWrapper;
             arrow.Range = TraitsHelper.CalculateAttackRange(_host.Traits);
             arrow.SetParentAbility(this);
             

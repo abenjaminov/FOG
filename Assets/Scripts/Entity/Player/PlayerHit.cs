@@ -23,7 +23,7 @@ namespace Character.Player
             
             if (other.TryGetComponent(typeof(Enemy), out var character))
             {
-                _combatChannel.OnEntityHit((WorldEntity)character, _player);
+                _combatChannel.OnPlayerHit((Entity.Player.Player)_player, (Enemy)character);
             }
         }
     }

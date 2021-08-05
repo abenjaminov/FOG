@@ -4,6 +4,7 @@ using Assets.HeroEditor.Common.CommonScripts;
 using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Inventory;
 using UnityEngine;
 
 namespace Entity.Player
@@ -24,6 +25,7 @@ namespace Entity.Player
         
         [HideInInspector] public PlayerTraits PlayerTraits => _playerTraits;
         [HideInInspector] public PlayerAppearance Apearence;
+        public PlayerEquipment Equipment;
         
         protected override void Awake()
         {
@@ -97,7 +99,7 @@ namespace Entity.Player
 
         private void EnemyDiedEvent(Enemy deadEnemy)
         {
-            _playerTraits.ExperienceGained += ((EnemyTraits) deadEnemy.Traits).Experience;
+            _playerTraits.ExperienceGained += ((EnemyTraits) deadEnemy.Traits).ResistancePoints;
         }
     }
 }

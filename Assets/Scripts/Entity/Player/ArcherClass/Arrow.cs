@@ -1,4 +1,5 @@
 using Abilities;
+using Entity.Enemies;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Entity.Player.ArcherClass
     public class Arrow : MonoBehaviour
     {
         [SerializeField] private CombatChannel _combatChannel;
-        [HideInInspector] public CharacterWrapper ParentCharacter;
+        [HideInInspector] public Player ParentCharacter;
         [HideInInspector] private Ability _parentAbility;
         [SerializeField] private float _speed; 
         [HideInInspector] public Vector2 WorldMovementDirection;
@@ -39,9 +40,9 @@ namespace Entity.Player.ArcherClass
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(typeof(WorldEntity), out var character))
+            if (other.TryGetComponent(typeof(Enemy), out var character))
             {
-                _combatChannel.OnEntityHit(ParentCharacter, (WorldEntity)character, _parentAbility);
+                _combatChannel.OnEnemyHit(ParentCharacter, (Enemy)character, _parentAbility);
                 numberOfEnemiesLeft--;
 
                 if (numberOfEnemiesLeft <= 0)

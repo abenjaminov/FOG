@@ -15,11 +15,16 @@ namespace ScriptableObjects.Channels
         public UnityAction<Buff> BuffAppliedEvent;
         public UnityAction<Buff> BuffExpiredEvent;
         
-        public void OnEntityHit(WorldEntity attacker, WorldEntity receiver, Ability ability = null)
+        public void OnEnemyHit(Entity.Player.Player player, Enemy enemy, Ability ability = null)
         {
-            var damage = TraitsHelper.CalculateDamage(attacker.Traits, receiver.Traits);
+            var damage = TraitsHelper.CalculatePlayerDamage(player.PlayerTraits, player.Equipment);
             var damageWithAbilityFactor = Mathf.Ceil(damage * (ability?.DamagePercentage ?? 1));
-            receiver.ReceiveDamage(damageWithAbilityFactor);
+            enemy.ReceiveDamage(damageWithAbilityFactor);
+        }
+
+        public void OnPlayerHit(Entity.Player.Player player, Enemy enemy)
+        {
+            player.ReceiveDamage(1);
         }
 
         public void OnEnemyDied(Enemy enemy)

@@ -27,7 +27,7 @@ namespace Abilities
             if (enemyColliders.Count > 0)
             {
                 var closestEnemy = enemyColliders[0];
-                _combatChannel.OnEntityHit(_host, closestEnemy.entity, this);    
+                _combatChannel.OnEnemyHit((Entity.Player.Player)_host, closestEnemy.entity, this);    
             }
         }
         

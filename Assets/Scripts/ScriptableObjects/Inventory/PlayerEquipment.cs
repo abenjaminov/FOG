@@ -21,8 +21,8 @@ namespace ScriptableObjects.Inventory
         public EquipmentItemMeta Pelvis;
         public EquipmentItemMeta Cape;
         public EquipmentItemMeta Gloves;
-        public EquipmentItemMeta PrimaryWeapon;
-        public EquipmentItemMeta SecondaryWeapon;
+        public WeaponItemMeta PrimaryWeapon;
+        public WeaponItemMeta SecondaryWeapon;
 
         private Dictionary<EquipmentPart, Func<EquipmentItemMeta>> MetaByType;
         
@@ -71,17 +71,17 @@ namespace ScriptableObjects.Inventory
                     Gloves = meta;
                     break;
                 case EquipmentPart.MeleeWeapon1H:
-                    ChangePrimaryWeapon(meta);
+                    ChangePrimaryWeapon(meta as WeaponItemMeta);
                     break;
                 case EquipmentPart.Bow:
-                    ChangePrimaryWeapon(meta);
+                    ChangePrimaryWeapon(meta as WeaponItemMeta);
                     break;
                 default:
                     break;
             }
         }
 
-        private void ChangePrimaryWeapon(EquipmentItemMeta meta)
+        private void ChangePrimaryWeapon(WeaponItemMeta meta)
         {
             _playerChannel.OnWeaponChanged(meta);
             PrimaryWeapon = meta;
