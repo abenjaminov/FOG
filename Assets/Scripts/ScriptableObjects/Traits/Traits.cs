@@ -21,9 +21,11 @@ namespace ScriptableObjects.Traits
         public int Defense;
         
         [Header("Game Progress")]
-        [Range(1,10)] public int Level;
+        [Range(1,25)] public int Level;
         public int Strength;
         public int Dexterity;
+        public int Inteligence;
+        public int Constitution;
 
         private void OnEnable()
         {
