@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce666781a5054266b5737b22b2288656, type: 3}
-  m_Name: Archer Equipment
+  m_Name: Player Equipment
   m_EditorClassIdentifier: 
+  _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   Helmet: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
   Torso: {fileID: 11400000, guid: c0f2e562b7deb7a4b8635878a9dd586f, type: 2}
   Boots: {fileID: 11400000, guid: 81fec4a177a236b4ba132343e087e523, type: 2}

@@ -21,25 +21,25 @@ namespace Entity.Player
             _character = _player.GetCharacter();
 
             if(_playerEquipment.Torso != null)
-                _character.Equip(_playerEquipment.Torso.Item, EquipmentPart.Vest);
+                EquipItem(_playerEquipment.Torso);
             
             if(_playerEquipment.Boots != null)
-                _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
+                EquipItem(_playerEquipment.Boots);
             
             if(_playerEquipment.Helmet != null)
-                _character.Equip(_playerEquipment.Helmet.Item, EquipmentPart.Helmet);
+                EquipItem(_playerEquipment.Helmet);
             
             if(_playerEquipment.Pelvis != null)
-                _character.Equip(_playerEquipment.Pelvis.Item, EquipmentPart.Belt);
+                EquipItem(_playerEquipment.Pelvis);
             
             if(_playerEquipment.Cape != null)
-                _character.Equip(_playerEquipment.Cape.Item, EquipmentPart.Cape);
+                EquipItem(_playerEquipment.Cape);
             
             if(_playerEquipment.Gloves != null)
-                _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
+                EquipItem(_playerEquipment.Gloves);
 
             if(_playerEquipment.PrimaryWeapon != null)
-                _character.Equip(_playerEquipment.PrimaryWeapon.Item, _playerEquipment.PrimaryWeapon.Part);
+                this.EquipItem(_playerEquipment.PrimaryWeapon);
         }
 
         public void EquipItem(EquipmentItemMeta meta)

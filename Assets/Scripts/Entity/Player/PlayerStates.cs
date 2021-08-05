@@ -4,28 +4,29 @@ using Abilities;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player;
+using Entity.Player.ArcherClass;
 using Game;
 using ScriptableObjects.Channels;
 using State;
 using State.States;
 using State.States.PlayerStates;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Player
 {
     public class PlayerStates : MonoBehaviour
     {
         private bool _isBasicAttackKeyDown;
-        protected bool _isAbilityAnimationActivated = false;
+        internal bool IsAbilityAnimationActivated = false;
         
         protected StateMachine _stateMachine;
         
         [SerializeField] private InputChannel _inputChannel;
 
-        [SerializeField] protected Ability _basicAttackAbility;
-        
-        protected AnimationEvents _animationEvents;
+        internal AnimationEvents AnimationEvents;
+
+        [SerializeField] private BowStates _bowStates;
+        //private OneHMeleeStates _bowStates;
         
         private IState _defaultState;
         protected int _horizontalAxisRaw;
@@ -80,7 +81,7 @@ namespace Player
         {
             _stateMachine = new StateMachine(false);
             
-            _animationEvents = GetComponentInChildren<AnimationEvents>();
+            AnimationEvents = GetComponentInChildren<AnimationEvents>();
 
             _idle = new PlayerIdleState(_player, _playerMovement);
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
@@ -90,9 +91,9 @@ namespace Player
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
             _climb = new PlayerClimbState(_player, _playerClimb,_playerMovement,_rigidBody,_collider2D, _inputChannel, _player.PlayerTraits.ClimbSpeed);
             
-            _noHorizontalInput = () => _horizontalAxisRaw == 0 && !_isAbilityAnimationActivated;
-            _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !_isAbilityAnimationActivated;
-            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !_isAbilityAnimationActivated;
+            _noHorizontalInput = () => _horizontalAxisRaw == 0 && !IsAbilityAnimationActivated;
+            _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
+            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
             var shouldJump = new Func<bool>(() =>  _isJumpButtonDown && _playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var shouldFall = new Func<bool>(() =>  !_playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
@@ -104,11 +105,11 @@ namespace Player
                                                       ((_playerClimb.CurrentEdge.Type == EdgeType.Upper && _isClimUpButtonDown) || 
                                                        (_playerClimb.CurrentEdge.Type == EdgeType.Lower && _isClimbDownButtonDown)));
 
-            _shouldAbility = () => !_isAbilityAnimationActivated && _timeUntillNextAttack <= 0;
+            _shouldAbility = () => !IsAbilityAnimationActivated && _timeUntillNextAttack <= 0;
             _attackTransitionLogic = () =>
             {
                 _timeUntillNextAttack = _player.Traits.DelayBetweenAttacks;
-                _isAbilityAnimationActivated = true;
+                IsAbilityAnimationActivated = true;
             };
             
             _buffTransitionLogic = () =>
@@ -146,7 +147,9 @@ namespace Player
             
             ConfigureDeadState();
 
-            AddAbilityState(_basicAttackState, _shouldAbility, _attackTransitionLogic);
+            _bowStates.LinkToStates(this);
+            
+            AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
 
             _defaultState = _idle;
             
@@ -194,11 +197,21 @@ namespace Player
 
             _stateMachine.Tick();
         }
+
+        internal void AddAttackState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
+        {
+            AddAbilityState(abilityState, _attackTransitionLogic, shouldTransitionFrom);
+        }
         
-        protected void AddAbilityState(IAbilityState abilityState, 
-                                       Func<bool> shouldTransitionTo, 
-                                       Action transitionLogic = null,
-                                       Func<bool> shouldTransitionFrom = null)
+        internal void AddBuffState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
+        {
+            AddAbilityState(abilityState, _buffTransitionLogic, shouldTransitionFrom);
+        }
+        
+        private void AddAbilityState(IAbilityState abilityState,
+                                      Action transitionLogic = null,
+                                      Func<bool> shouldTransitionFrom = null,
+                                      Func<bool> shouldTransitionTo = null)
         {
             var shouldTransitionFromInternal =
                 new Func<bool>(() => shouldTransitionFrom?.Invoke() ?? true);
@@ -207,7 +220,7 @@ namespace Player
             _stateMachine.AddTransition(_walkLeft, () => _walkLeftTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Shoot Arrow -> Walk Left");
             _stateMachine.AddTransition(_walkRight, () => _walkRightTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Shoot Arrow -> Walk Right");
 
-            var shouldTransitionToInternal = new Func<bool>(() => shouldTransitionTo() && abilityState.IsHotKeyDown());
+            var shouldTransitionToInternal = new Func<bool>(() => _shouldAbility() && abilityState.IsHotKeyDown() && (shouldTransitionTo?.Invoke() ?? true));
             
             _stateMachine.AddTransition(abilityState, shouldTransitionToInternal, _idle, transitionLogic,
                 "Idle -> Transition To Attack");

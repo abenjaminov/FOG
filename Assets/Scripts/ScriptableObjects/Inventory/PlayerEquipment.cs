@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using HeroEditor.Common;
 using HeroEditor.Common.Enums;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects.Inventory
 {
     [CreateAssetMenu(fileName = "Player Equipment", menuName = "Inventory/Player Equipment", order = 2)]
     public class PlayerEquipment : ScriptableObject
     {
+        [SerializeField] private PlayerChannel _playerChannel;
+        
+        [Header("Equipment")]
         public EquipmentItemMeta Helmet;
         public EquipmentItemMeta Torso;
         public EquipmentItemMeta Boots;
@@ -44,8 +49,6 @@ namespace ScriptableObjects.Inventory
         public void SetMetaItem(EquipmentItemMeta meta)
         {
             if (meta == null) return;
-            
-            //MetaByType[meta.Part] = meta;
 
             switch (meta.Part)
             {
@@ -68,14 +71,20 @@ namespace ScriptableObjects.Inventory
                     Gloves = meta;
                     break;
                 case EquipmentPart.MeleeWeapon1H:
-                    PrimaryWeapon = meta;
+                    ChangePrimaryWeapon(meta);
                     break;
                 case EquipmentPart.Bow:
-                    PrimaryWeapon = meta;
+                    ChangePrimaryWeapon(meta);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void ChangePrimaryWeapon(EquipmentItemMeta meta)
+        {
+            _playerChannel.OnWeaponChanged(meta);
+            PrimaryWeapon = meta;
         }
     }
 }
