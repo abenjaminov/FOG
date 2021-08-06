@@ -5,13 +5,14 @@ using UnityEngine;
 
 namespace Entity.Enemies
 {
-    public abstract class Enemy : WorldEntity
+    public class Enemy : WorldEntity
     {
         private Dropper _dropper;
         private bool _isAgressive;
 
         private EnemyHealthUI _healthUI;
         [SerializeField] private float _timeAgressive;
+        [SerializeField] private bool isInvulnerable;
         private float _activeAgressiveTime;
 
         protected override void Awake()
@@ -40,6 +41,9 @@ namespace Entity.Enemies
             SetAgressive(true);
             
             DisplayDamage(damage);
+            
+            if (isInvulnerable) return;
+            
             ChangeHealth(-damage);
             
             if (_health <= 0)

@@ -6,10 +6,5 @@ namespace ScriptableObjects.Inventory.ItemMetas
     public class WeaponItemMeta : EquipmentItemMeta
     {
         public int MonsterResistance;
-        
-        public override void Use(Entity.Player.Player player)
-        {
-            // TODO : Equip
-        }
     }
 }

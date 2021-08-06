@@ -19,6 +19,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		public UnityAction BowChargeEndEvent;
 		public UnityAction SlashEndEvent;
 		public UnityAction MeleeStrikeEvent;
+		public UnityAction ShootEndEvent;
 
 		/// <summary>
 		/// Set bool param, usage example: Idle=false

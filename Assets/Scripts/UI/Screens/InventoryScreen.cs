@@ -90,6 +90,8 @@ namespace UI.Screens
 
         public void OnItemDoubleClicked(int itemIndex)
         {
+            if (itemIndex >= _inventory.OwnedItems.Count) return;
+            
             _inventory.UseItem(_player, _inventory.OwnedItems[itemIndex]);
             UpdateUI();
         }

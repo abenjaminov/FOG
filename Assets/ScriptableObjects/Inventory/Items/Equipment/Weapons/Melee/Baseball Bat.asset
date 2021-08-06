@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
+  m_Name: Baseball Bat
+  m_EditorClassIdentifier: 
+  Name: Bat
+  ItemSprite: {fileID: 21300000, guid: d9069619552640fead3767e06263cbda, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: d9069619552640fead3767e06263cbda, type: 3}
+  Item:
+    Name: BaseballBat
+    Collection: Basic
+    Id: MilitaryHeroes.Basic.MeleeWeapon1H.BaseballBat
+    Path: Assets/HeroEditor/MilitaryHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Baton/BaseballBat.png
+    Sprite: {fileID: 21300000, guid: d9069619552640fead3767e06263cbda, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d9069619552640fead3767e06263cbda, type: 3}
+    Multiple: 1
+    Hash: dd0a21cf85af4e240cb121831f97daa2
+    Meta: 
+    Tags: []
+  Part: 7
+  RequiredLevel: 1
+  MonsterResistance: 3

@@ -5,7 +5,8 @@ using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player;
 using Entity.Player.ArcherClass;
-using Entity.Player.FighterClass;
+using Entity.Player.Gun;
+using Entity.Player.Melee;
 using Game;
 using ScriptableObjects.Channels;
 using State;
@@ -29,6 +30,7 @@ namespace Player
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
         [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
+        [SerializeField] private TwoHandedGunStates _twoHandedGunStates;
         
         private IState _defaultState;
         protected int _horizontalAxisRaw;
@@ -151,9 +153,11 @@ namespace Player
 
             _bowStates.LinkToStates(this);
             _oneHandedMeleeStates.LinkToStates(this);
+            _twoHandedGunStates.LinkToStates(this);
             
             AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
             AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogic, null,() => _oneHandedMeleeStates.IsEnabled);
+            AddAbilityState(_twoHandedGunStates.BasicAttackState, _attackTransitionLogic, null,() => _twoHandedGunStates.IsEnabled);
 
             _defaultState = _idle;
             

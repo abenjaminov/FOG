@@ -7873,6 +7873,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7295133353948501348, guid: f4f087aab9546794796b76da1959d813, type: 3}
+      propertyPath: isInvulnerable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7295133353948501350, guid: f4f087aab9546794796b76da1959d813, type: 3}
       propertyPath: isAlwaysIdle
       value: 1
@@ -9963,6 +9967,17 @@ Transform:
   m_Father: {fileID: 1410946479}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1498660945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8792172990880172696, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+  m_PrefabInstance: {fileID: 3614734984936265480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4679a10df8594f92abd6abcff4686a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1505744171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12093,22 +12108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3614734985040064251, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-      propertyPath: _combatChannel
+    - target: {fileID: 3614734985180281815, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _twoHandedGunStates
       value: 
-      objectReference: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-    - target: {fileID: 3614734985040064252, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-      propertyPath: _combatChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-    - target: {fileID: 3614734985040064254, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-      propertyPath: _playerChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
-    - target: {fileID: 3614734985180281810, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-      propertyPath: Equipment
-      value: 
-      objectReference: {fileID: 11400000, guid: 03623857bbd37d34bb4a31d44f4b6b2e, type: 2}
+      objectReference: {fileID: 1498660945}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
 --- !u!1001 &6197455740389872408

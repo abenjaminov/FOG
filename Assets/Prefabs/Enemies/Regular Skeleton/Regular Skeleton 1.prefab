@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 2782285954201718299}
   - component: {fileID: 2782285954201718292}
   - component: {fileID: 2782285954201718293}
-  - component: {fileID: 2782285954201718294}
   - component: {fileID: 2782285954201718295}
   - component: {fileID: 2782285954201718288}
+  - component: {fileID: 6560903157032201004}
   m_Layer: 3
   m_Name: Enemy Visuals
   m_TagString: Untagged
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1076383267
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9adeebf371b7640448a1829c2f7a261a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,23 +184,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2782285954201718294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2782285954201718289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc905b2e167445b68d7f2c49fcd29364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
-  _damageSpawnPosition: {fileID: 2782285954193494908}
-  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
-  IsDead: 0
-  _timeAgressive: 2
 --- !u!114 &2782285954201718295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +216,24 @@ MonoBehaviour:
   _minIdleTimeBetweenTargets: 0.8
   _deadDelayTime: 1
   isAlwaysIdle: 0
+--- !u!114 &6560903157032201004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782285954201718289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fc8a9314b34205be64ca46b3be3ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Traits: {fileID: 11400000, guid: 96424753f79b0804aa31a1f8bd95f188, type: 2}
+  _damageSpawnPosition: {fileID: 2782285954193494908}
+  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
+  IsDead: 0
+  _timeAgressive: 2
+  isInvulnerable: 0
 --- !u!1 &2782285954558367488
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +456,7 @@ MonoBehaviour:
     Percentage: 0.03
   _dropPosition: {fileID: 2782285954193494908}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
-  _dropperTraits: {fileID: 11400000, guid: 5dd637b84c33ec44188f26fdd1371634, type: 2}
+  _dropperTraits: {fileID: 11400000, guid: 96424753f79b0804aa31a1f8bd95f188, type: 2}
   multiDropOffset: 0.5
 --- !u!1 &2782285956077119258
 GameObject:

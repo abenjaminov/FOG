@@ -1,4 +1,4 @@
-﻿using Abilities.Archer;
+﻿using Abilities.Bow;
 using Animations;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Character;

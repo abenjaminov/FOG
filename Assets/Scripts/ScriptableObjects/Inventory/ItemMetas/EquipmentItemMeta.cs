@@ -11,9 +11,13 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public EquipmentPart Part;
         public int RequiredLevel;
         
-        public override void Use(Entity.Player.Player player)
+        public override bool Use(Entity.Player.Player player)
         {
+            if (player.Traits.Level < RequiredLevel) return false;
+            
             player.Apearence.EquipItem(this);
+
+            return true;
         }
     }
 }

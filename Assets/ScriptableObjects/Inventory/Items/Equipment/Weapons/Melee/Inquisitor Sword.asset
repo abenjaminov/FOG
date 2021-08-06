@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
+  m_Name: Inquisitor Sword
+  m_EditorClassIdentifier: 
+  Name: Inquisitor Sword
+  ItemSprite: {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
+  Item:
+    Name: InquisitorSword2 [Paint]
+    Collection: Basic
+    Id: FantasyHeroes.Basic.MeleeWeapon1H.InquisitorSword2 [Paint]
+    Path: Assets/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/InquisitorSword2
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
+    Multiple: 1
+    Hash: 996fd43195ca1d2e6b54cde1b7f4a581
+    Meta: 
+    Tags:
+    - Paint
+  Part: 7
+  RequiredLevel: 25
+  MonsterResistance: 0

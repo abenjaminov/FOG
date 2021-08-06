@@ -19,5 +19,5 @@ MonoBehaviour:
   Pelvis: {fileID: 11400000, guid: 8d019253eaa4af44f97346b8bfd585be, type: 2}
   Cape: {fileID: 0}
   Gloves: {fileID: 0}
-  PrimaryWeapon: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
+  PrimaryWeapon: {fileID: 11400000, guid: 11f3cca8aa8500c45b40eadda3b62187, type: 2}
   SecondaryWeapon: {fileID: 0}

@@ -1,4 +1,4 @@
-﻿using Abilities.Archer;
+﻿using Abilities.Bow;
 using Entity;
 using Entity.Player;
 using UnityEngine;

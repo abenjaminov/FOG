@@ -8,6 +8,6 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public Sprite ItemSprite;
         public Sprite InventoryItemSprite;
 
-        public abstract void Use(Entity.Player.Player player);
+        public abstract bool Use(Entity.Player.Player player);
     }
 }

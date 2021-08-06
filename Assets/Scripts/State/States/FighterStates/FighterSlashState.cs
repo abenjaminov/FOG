@@ -1,17 +1,16 @@
-﻿using Abilities.Fighter;
+﻿using Abilities.Melee;
 using Entity;
-using Entity.Player.FighterClass;
 
 namespace State.States.FighterStates
 {
     public class FighterSlashState : PlayerAbilityState<SlashAbility>
     {
-        private Entity.Player.Player _fighter;
+        private Entity.Player.Player _player;
         
         public FighterSlashState(CharacterWrapper character, SlashAbility ability) : 
             base(character,ability)
         {
-            _fighter = character as Entity.Player.Player;
+            _player = character as Entity.Player.Player;
         }
 
         public override void OnEnter()

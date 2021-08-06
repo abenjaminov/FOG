@@ -147,7 +147,7 @@ MonoBehaviour:
     Percentage: 0.03
   _dropPosition: {fileID: 7295133354446026764}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
-  _dropperTraits: {fileID: 11400000, guid: 5dd637b84c33ec44188f26fdd1371634, type: 2}
+  _dropperTraits: {fileID: 11400000, guid: 83531ecb7e50c4b46b754db9feb8be62, type: 2}
   multiDropOffset: 0.5
 --- !u!1 &7295133353352376682
 GameObject:
@@ -338,9 +338,9 @@ GameObject:
   - component: {fileID: 7295133353948501347}
   - component: {fileID: 7295133353948501346}
   - component: {fileID: 7295133353948501349}
-  - component: {fileID: 7295133353948501348}
   - component: {fileID: 7295133353948501351}
   - component: {fileID: 7295133353948501350}
+  - component: {fileID: 6016444606775308171}
   m_Layer: 3
   m_Name: Enemy Visuals
   m_TagString: Untagged
@@ -479,23 +479,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7295133353948501348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295133353948501353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc905b2e167445b68d7f2c49fcd29364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
-  _damageSpawnPosition: {fileID: 7295133354446026764}
-  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
-  IsDead: 0
-  _timeAgressive: 2
 --- !u!114 &7295133353948501351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +511,24 @@ MonoBehaviour:
   _minIdleTimeBetweenTargets: 0.8
   _deadDelayTime: 1
   isAlwaysIdle: 0
+--- !u!114 &6016444606775308171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295133353948501353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fc8a9314b34205be64ca46b3be3ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Traits: {fileID: 11400000, guid: 83531ecb7e50c4b46b754db9feb8be62, type: 2}
+  _damageSpawnPosition: {fileID: 7295133354446026764}
+  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
+  IsDead: 0
+  _timeAgressive: 2
+  isInvulnerable: 1
 --- !u!1 &7295133354446026767
 GameObject:
   m_ObjectHideFlags: 0

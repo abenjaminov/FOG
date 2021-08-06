@@ -12,8 +12,10 @@ namespace ScriptableObjects.Inventory
 
         public void Use(Entity.Player.Player player, int amount)
         {
-            Amount = Mathf.Max(0, Amount - amount);
-            ItemMeta.Use(player);
+            if (ItemMeta.Use(player))
+            {
+                Amount = Mathf.Max(0, Amount - amount);
+            }
         }
     }
 }

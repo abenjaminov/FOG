@@ -33,13 +33,19 @@ namespace Helpers
                 minTraitsDmg = GetMeleeMin(traits);
                 maxTraitsDmg = GetMeleeMax(traits);
             }
+            else if (equipment.PrimaryWeapon.Part == EquipmentPart.Bow)
+            {
+                minTraitsDmg = GetBowMin(traits);
+                maxTraitsDmg = GetBowMax(traits);
+            }
 
             var weaponAddition = equipment.PrimaryWeapon.MonsterResistance * traits.Level;
 
             var minFinal = minTraitsDmg + weaponAddition;
             var maxFinal = maxTraitsDmg + weaponAddition;
             
-            return Random.Range(minFinal, maxFinal);
+            // + 1 because max is Exclusive
+            return Random.Range(minFinal, maxFinal + 1);
         }
 
         #region Melee
@@ -63,6 +69,31 @@ namespace Helpers
             return (int) Mathf.Ceil(baseFactor +
                                     (traits.Strength * MainStatMultiplier * baseFactor) +
                                     (traits.Dexterity * SecondaryStatMultiplier * baseFactor));
+        }
+
+        #endregion
+        
+        #region Bow
+
+        private static int GetBowMin(PlayerTraits traits)
+        {
+            var minBase = GetMinBaseDmg(traits.Level);
+
+            return BowFormula(minBase, traits);
+        }
+        
+        private static int GetBowMax(PlayerTraits traits)
+        {
+            var maxBase = GetMaxBaseDamage(traits.Level);
+
+            return MeleeFormula(maxBase, traits);
+        }
+
+        private static int BowFormula(int baseFactor, PlayerTraits traits)
+        {
+            return (int) Mathf.Ceil(baseFactor +
+                                    (traits.Dexterity * MainStatMultiplier * baseFactor) +
+                                    (traits.Strength * SecondaryStatMultiplier * baseFactor));
         }
 
         #endregion

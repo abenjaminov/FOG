@@ -20,7 +20,7 @@ namespace Entity.Enemies
         [SerializeField] private float _deadDelayTime;
 
         [SerializeField] private bool isAlwaysIdle;
-        
+
         private IState _defaultState;
         private Enemy _enemy;
 

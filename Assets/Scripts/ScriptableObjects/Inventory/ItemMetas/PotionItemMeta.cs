@@ -9,12 +9,15 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public PotionType PotionType;
         public int GainAmount;
 
-        public override void Use(Entity.Player.Player player)
+        public override bool Use(Entity.Player.Player player)
         {
             if (PotionType == PotionType.Hp)
             {
-                player.PlayerTraits.ChangeCurrentHealth(GainAmount);    
+                player.PlayerTraits.ChangeCurrentHealth(GainAmount);
+                return true;
             }
+
+            return false;
         }
     }
 }
