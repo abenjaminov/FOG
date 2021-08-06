@@ -66,7 +66,7 @@ namespace UI.Screens
         
             var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
             var expText = nextLevel != null
-                ? _playerTraits.ExperienceGained.ToString() + " / " + (nextLevel.FromExp)
+                ? _playerTraits.ExperienceGained.ToString() + " / " + (nextLevel.ExpForNextLevel)
                 : "Max Level Reached";
 
             _expText.SetText(expText);

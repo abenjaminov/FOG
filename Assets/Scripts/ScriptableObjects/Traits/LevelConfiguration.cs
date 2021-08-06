@@ -23,7 +23,7 @@ namespace ScriptableObjects
     public class Level
     {
         public int Order;
-        public int FromExp;
+        public int ExpForNextLevel;
         public int Points;
     }
 }

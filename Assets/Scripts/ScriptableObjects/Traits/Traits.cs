@@ -23,13 +23,12 @@ namespace ScriptableObjects.Traits
         [Header("Game Progress")]
         [Range(1,100)] public int Level;
         
-
         private void OnEnable()
         {
             DelayBetweenAttacks = BaseDelayBetweenAttacks;
         }
 
-        private void Reset()
+        protected virtual void Reset()
         {
             WalkSpeed = 3;
             Level = 1;

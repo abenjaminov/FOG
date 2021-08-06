@@ -14,32 +14,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Order: 1
-    FromExp: 0
+    ExpForNextLevel: 170
     Points: 5
   - Order: 2
-    FromExp: 16
+    ExpForNextLevel: 425
     Points: 5
   - Order: 3
-    FromExp: 35
+    ExpForNextLevel: 935
     Points: 5
   - Order: 4
-    FromExp: 58
+    ExpForNextLevel: 1870
     Points: 5
   - Order: 5
-    FromExp: 93
+    ExpForNextLevel: 3366
     Points: 5
   - Order: 6
-    FromExp: 136
+    ExpForNextLevel: 5386
     Points: 5
   - Order: 7
-    FromExp: 373
+    ExpForNextLevel: 8079
     Points: 5
   - Order: 8
-    FromExp: 561
+    ExpForNextLevel: 12119
     Points: 5
   - Order: 9
-    FromExp: 841
+    ExpForNextLevel: 18179
     Points: 5
   - Order: 10
-    FromExp: 1243
+    ExpForNextLevel: 27269
+    Points: 5
+  - Order: 11
+    ExpForNextLevel: 36814
+    Points: 5
+  - Order: 12
+    ExpForNextLevel: 49699
+    Points: 5
+  - Order: 13
+    ExpForNextLevel: 67094
+    Points: 5
+  - Order: 13
+    ExpForNextLevel: 90577
+    Points: 5
+  - Order: 14
+    ExpForNextLevel: 122279
+    Points: 5
+  - Order: 15
+    ExpForNextLevel: 144290
+    Points: 5
+  - Order: 16
+    ExpForNextLevel: 170263
+    Points: 5
+  - Order: 17
+    ExpForNextLevel: 200911
+    Points: 5
+  - Order: 18
+    ExpForNextLevel: 237075
+    Points: 5
+  - Order: 19
+    ExpForNextLevel: 279749
+    Points: 5
+  - Order: 20
+    ExpForNextLevel: 302129
+    Points: 5
+  - Order: 21
+    ExpForNextLevel: 326300
+    Points: 5
+  - Order: 22
+    ExpForNextLevel: 352404
+    Points: 5
+  - Order: 23
+    ExpForNextLevel: 380597
+    Points: 5
+  - Order: 24
+    ExpForNextLevel: 380597
+    Points: 5
+  - Order: 25
+    ExpForNextLevel: 411045
     Points: 5

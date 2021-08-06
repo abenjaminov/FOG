@@ -63,7 +63,7 @@ namespace Entity.Player
         private void GainedExperienceEvent()
         {
             var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
-            if (nextLevel != null && _playerTraits.ExperienceGained >= nextLevel.FromExp - 1)
+            if (nextLevel != null && _playerTraits.ExperienceGained >= nextLevel.ExpForNextLevel)
             {
                 LevelUp();
             }

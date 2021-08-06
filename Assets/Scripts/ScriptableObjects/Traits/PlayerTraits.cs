@@ -27,6 +27,7 @@ namespace ScriptableObjects
         public int Inteligence;
         public int Constitution;
         
+        
         public int ExperienceGained
         {
             get => _experienceGained;
@@ -55,8 +56,23 @@ namespace ScriptableObjects
             if (level == null) return;
             
             PointsLeft += level.Points;
+            _experienceGained = 0;
             
             LevelUpEvent?.Invoke();
+        }
+
+        protected override void Reset()
+        {
+            base.Reset();
+
+            _experienceGained = 0;
+            Strength = 5;
+            Dexterity = 5;
+            Constitution = 5;
+            Inteligence = 5;
+            PointsLeft = 0;
+            CurrentHealth = MaxHealth;
+            MonsterStateResistance = 1;
         }
     }
 }

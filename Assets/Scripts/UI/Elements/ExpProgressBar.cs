@@ -38,11 +38,11 @@ namespace UI
             var userLevel = _playerTraits.Level;
             if (userLevel >= _levelConfiguration.Levels.Count)
             {
-                MaxValue = _levelConfiguration.Levels[_levelConfiguration.Levels.Count - 1].FromExp;
+                MaxValue = _levelConfiguration.Levels[_levelConfiguration.Levels.Count - 1].ExpForNextLevel;
             }
             else
             {
-                MaxValue = _levelConfiguration.GetLevelByOrder(userLevel + 1).FromExp;
+                MaxValue = _levelConfiguration.GetLevelByOrder(userLevel + 1).ExpForNextLevel;
             }
         }
 
@@ -57,12 +57,9 @@ namespace UI
             var currentLevel = _playerTraits.Level;
             var previousLevel = _playerTraits.Level - 1;
 
-            var expForCurrentLevel = (float)(previousLevel <= 0
-                ? _levelConfiguration.GetLevelByOrder(currentLevel + 1).FromExp
-                : _levelConfiguration.GetLevelByOrder(currentLevel + 1).FromExp -
-                  _levelConfiguration.GetLevelByOrder(currentLevel).FromExp);
+            var expForCurrentLevel = _levelConfiguration.GetLevelByOrder(currentLevel).ExpForNextLevel;
 
-            var expInCurrentLevel = (float)(_playerTraits.ExperienceGained - _levelConfiguration.GetLevelByOrder(currentLevel).FromExp);
+            var expInCurrentLevel = (float)_playerTraits.ExperienceGained;
             
             var actualPercentage = expInCurrentLevel / expForCurrentLevel;
 
