@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ae56be1be6412ca17b86f386276c7f, type: 3}
+  m_Name: 2 - Quest - Kill 5 Gnolls
+  m_EditorClassIdentifier: 
+  Name: Kill those Gnolls
+  RPReward:
+    ApplyReward: 0
+    _playerTraits: {fileID: 0}
+    ResistancePointsReward: 0
+  NextQuests:
+  - {fileID: 11400000, guid: 98d603b6cb0126747bd3d37145682332, type: 2}
+  State: 0
+  RequiredLevel: 1
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+  NumberOfEnemiesToKill: 3

@@ -8,6 +8,7 @@ namespace ScriptableObjects.Chat
         Continue,
         Back,
         AssignQuest,
+        CompleteQuest,
         Close
     }
 }

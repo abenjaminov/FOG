@@ -13,7 +13,7 @@ namespace UI
         {
             UpdateMaxValue();
 
-            CurrentValue = _playerTraits.ExperienceGained;
+            CurrentValue = _playerTraits.ResistancePointsGained;
             
             _playerTraits.GainedExperienceEvent += GainedExperienceEvent;
             _playerTraits.LevelUpEvent += LevelUpEvent;
@@ -48,7 +48,7 @@ namespace UI
 
         private void GainedExperienceEvent()
         {
-            CurrentValue = _playerTraits.ExperienceGained;
+            CurrentValue = _playerTraits.ResistancePointsGained;
             UpdateUI();
         }
 
@@ -59,7 +59,7 @@ namespace UI
 
             var expForCurrentLevel = _levelConfiguration.GetLevelByOrder(currentLevel).ExpForNextLevel;
 
-            var expInCurrentLevel = (float)_playerTraits.ExperienceGained;
+            var expInCurrentLevel = (float)_playerTraits.ResistancePointsGained;
             
             var actualPercentage = expInCurrentLevel / expForCurrentLevel;
 

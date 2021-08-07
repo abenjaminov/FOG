@@ -39,7 +39,7 @@ namespace UI.Screens
         
             SetExp();
 
-            previousExp = _playerTraits.ExperienceGained;
+            previousExp = _playerTraits.ResistancePointsGained;
         
             if (_playerTraits.PointsLeft == 0)
             {
@@ -62,11 +62,11 @@ namespace UI.Screens
             _levelText.SetText(_playerTraits.Level.ToString());
             _pointsText.SetText(_playerTraits.PointsLeft.ToString());
         
-            if (previousExp == _playerTraits.ExperienceGained) return;
+            if (previousExp == _playerTraits.ResistancePointsGained) return;
         
             var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
             var expText = nextLevel != null
-                ? _playerTraits.ExperienceGained.ToString() + " / " + (nextLevel.ExpForNextLevel)
+                ? _playerTraits.ResistancePointsGained.ToString() + " / " + (nextLevel.ExpForNextLevel)
                 : "Max Level Reached";
 
             _expText.SetText(expText);

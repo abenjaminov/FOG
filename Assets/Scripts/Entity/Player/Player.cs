@@ -63,7 +63,7 @@ namespace Entity.Player
         private void GainedExperienceEvent()
         {
             var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
-            if (nextLevel != null && _playerTraits.ExperienceGained >= nextLevel.ExpForNextLevel)
+            if (nextLevel != null && _playerTraits.ResistancePointsGained >= nextLevel.ExpForNextLevel)
             {
                 LevelUp();
             }
@@ -99,7 +99,7 @@ namespace Entity.Player
 
         private void EnemyDiedEvent(Enemy deadEnemy)
         {
-            _playerTraits.ExperienceGained += ((EnemyTraits) deadEnemy.Traits).ResistancePoints;
+            _playerTraits.ResistancePointsGained += ((EnemyTraits) deadEnemy.Traits).ResistancePoints;
         }
     }
 }

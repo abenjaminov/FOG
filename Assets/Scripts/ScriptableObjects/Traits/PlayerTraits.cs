@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
@@ -18,7 +19,7 @@ namespace ScriptableObjects
         [HideInInspector] public int PointsLeft;
 
         [SerializeField] private LevelConfiguration _levelConfiguration;
-        [SerializeField] private int _experienceGained;
+        [FormerlySerializedAs("resistancePointsGained")] [FormerlySerializedAs("_experienceGained")] [SerializeField] private int _resistancePointsGained;
 
         public float ReceiveDamageCooldown;
         
@@ -28,12 +29,12 @@ namespace ScriptableObjects
         public int Constitution;
         
         
-        public int ExperienceGained
+        public int ResistancePointsGained
         {
-            get => _experienceGained;
+            get => _resistancePointsGained;
             set
             {
-                _experienceGained = value;
+                _resistancePointsGained = value;
                 GainedExperienceEvent?.Invoke();
             }
         }
@@ -56,7 +57,7 @@ namespace ScriptableObjects
             if (level == null) return;
             
             PointsLeft += level.Points;
-            _experienceGained = 0;
+            _resistancePointsGained = 0;
             
             LevelUpEvent?.Invoke();
         }
@@ -65,7 +66,7 @@ namespace ScriptableObjects
         {
             base.Reset();
 
-            _experienceGained = 0;
+            _resistancePointsGained = 0;
             Strength = 5;
             Dexterity = 5;
             Constitution = 5;

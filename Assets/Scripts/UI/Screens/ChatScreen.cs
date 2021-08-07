@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.HeroEditor.Common.CommonScripts;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace UI.Screens
         [SerializeField] private TextMeshProUGUI _textArea;
         [SerializeField] private Button _buttonRight;
         [SerializeField] private Button _buttonLeft;
+        [SerializeField] private QuestsChannel _questsChannel;
         private Text _buttonRightText;
         private Text _buttonLeftText;
         
@@ -107,19 +109,34 @@ namespace UI.Screens
 
         private void OnButtonAction(int buttonIndex)
         {
-            var action = _currentChatItem.Options[buttonIndex].Action; 
-            if (action == ChatDialogOptionAction.Continue)
+            var option = _currentChatItem.Options[buttonIndex];
+            if (option.Action == ChatDialogOptionAction.Continue)
             {
                 NextChatItem();
             } 
-            else if (action == ChatDialogOptionAction.Close)
+            else if (option.Action == ChatDialogOptionAction.Close)
             {
-                this.SetActive(false);
+                CloseScreen();
             }
-            else if (action == ChatDialogOptionAction.Back)
+            else if (option.Action == ChatDialogOptionAction.Back)
             {
                 PreviousChatItem();   
             }
+            else if (option.Action == ChatDialogOptionAction.AssignQuest)
+            {
+                _questsChannel.AssignQuest(CurrentChatSession.AssociatedQuest);
+                CloseScreen();
+            }
+            else if (option.Action == ChatDialogOptionAction.CompleteQuest)
+            {
+                CurrentChatSession.AssociatedQuest.GiveRewards();
+                CloseScreen();
+            }
+        }
+
+        private void CloseScreen()
+        {
+            this.SetActive(false);
         }
     }
 }

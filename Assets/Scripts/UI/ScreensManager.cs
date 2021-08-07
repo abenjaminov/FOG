@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
+using Entity.NPCs;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
+using ScriptableObjects.Quests;
 using TMPro;
 using UI.Screens;
 using UnityEngine;
@@ -61,11 +63,20 @@ namespace Platformer.UI
             _subscriptions.Clear();
         }
 
-        private void RequestChatStartEvent(ChatSession arg0)
+        private void RequestChatStartEvent(ChatNpc chatNpc)
         {
             if (!_chatScreen.isActiveAndEnabled)
             {
-                _chatScreen.CurrentChatSession = arg0;
+                // TODO : Show multiple available sessions
+                var availableSessions = chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
+                                                                        (x.SessionType == ChatSessionType.AssignQuest &&
+                                                                         x.AssociatedQuest.State == QuestState.Pending) ||
+                                                                        (x.SessionType == ChatSessionType.CompleteQuest &&
+                                                                         x.AssociatedQuest.State == QuestState.Completed)).ToList();
+
+                if (availableSessions.Count <= 0) return;
+                
+                _chatScreen.CurrentChatSession = availableSessions[0];
                 _chatScreen.SetActive(true);
                 _chatScreen.StartChat();
             }

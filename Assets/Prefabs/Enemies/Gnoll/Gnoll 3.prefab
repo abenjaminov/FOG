@@ -483,6 +483,7 @@ MonoBehaviour:
   _damageSpawnPosition: {fileID: 3215571652681396085}
   _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
   IsDead: 0
+  EnemyID: 4f8672e5-be3b-493b-91b1-a2724a6bbc52
   _timeAgressive: 2
   isInvulnerable: 0
 --- !u!1 &3215571654241298141

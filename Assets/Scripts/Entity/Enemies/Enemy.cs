@@ -1,6 +1,4 @@
-﻿using System;
-using Assets.HeroEditor.Common.CommonScripts;
-using Game;
+﻿using Game;
 using UnityEngine;
 
 namespace Entity.Enemies
@@ -11,6 +9,7 @@ namespace Entity.Enemies
         private bool _isAgressive;
 
         private EnemyHealthUI _healthUI;
+        [SerializeField] public string EnemyID;
         [SerializeField] private float _timeAgressive;
         [SerializeField] private bool isInvulnerable;
         private float _activeAgressiveTime;

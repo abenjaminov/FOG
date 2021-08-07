@@ -12935,6 +12935,7 @@ MonoBehaviour:
   _textArea: {fileID: 9100358907116826420}
   _buttonRight: {fileID: 9100358907638979749}
   _buttonLeft: {fileID: 9100358906261239041}
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   CurrentChatSession: {fileID: 11400000, guid: db0d9466da2def840b7f909b3ec682f8, type: 2}
 --- !u!1 &9100358907592707056
 GameObject:

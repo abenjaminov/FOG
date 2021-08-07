@@ -1,4 +1,6 @@
 ﻿using System;
+using ScriptableObjects.Quests;
+using UnityEngine;
 
 namespace ScriptableObjects.Chat
 {
@@ -7,6 +9,5 @@ namespace ScriptableObjects.Chat
     {
         public string Text;
         public ChatDialogOptionAction Action;
-        // TODO 
     }
 }

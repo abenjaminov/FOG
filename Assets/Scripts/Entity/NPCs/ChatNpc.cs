@@ -14,8 +14,9 @@ namespace Entity.NPCs
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private string _name;
         
+        public string NpcId;
         [SerializeField] private NpcChannel _npcChannel;
-        [SerializeField] private List<ChatSession> ChatSessions;
+        [SerializeField] public List<ChatSession> ChatSessions;
 
         private void Awake()
         {
@@ -26,7 +27,7 @@ namespace Entity.NPCs
         
         public void HandleDoubleClick()
         {
-            _npcChannel.OnRequestChatStart(ChatSessions[0]);
+            _npcChannel.OnRequestChatStart(this);
         }
     }
 }

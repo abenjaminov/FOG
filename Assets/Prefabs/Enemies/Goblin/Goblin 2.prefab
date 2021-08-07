@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5163225268204768480}
   - component: {fileID: 5163225268204768481}
   - component: {fileID: 5163225268204768486}
-  - component: {fileID: 5163225268204768487}
   - component: {fileID: 5163225268204768484}
   - component: {fileID: 5163225268204768485}
   - component: {fileID: 7013968661518038792}
@@ -155,24 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5163225268204768487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5163225268204768490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc905b2e167445b68d7f2c49fcd29364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
-  _damageSpawnPosition: {fileID: 5163225269275316177}
-  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
-  IsDead: 0
-  _timeAgressive: 2
-  isInvulnerable: 0
 --- !u!114 &5163225268204768484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +202,7 @@ MonoBehaviour:
   _damageSpawnPosition: {fileID: 5163225269275316177}
   _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
   IsDead: 0
+  EnemyID: 78120680-7858-401c-9af9-3ec475e9f8a1
   _timeAgressive: 2
   isInvulnerable: 0
 --- !u!1 &5163225268577027621

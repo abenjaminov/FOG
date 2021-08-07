@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Chat;
+﻿using Entity.NPCs;
+using ScriptableObjects.Chat;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,11 +8,11 @@ namespace ScriptableObjects.Channels
     [CreateAssetMenu(fileName = "Npc Channel", menuName = "Channels/Npc Channel", order = 4)]
     public class NpcChannel : ScriptableObject
     {
-        public UnityAction<ChatSession> RequestChatStartEvent;
+        public UnityAction<ChatNpc> RequestChatStartEvent;
 
-        public void OnRequestChatStart(ChatSession chatSession)
+        public void OnRequestChatStart(ChatNpc chatNpc)
         {
-            RequestChatStartEvent?.Invoke(chatSession);
+            RequestChatStartEvent?.Invoke(chatNpc);
         }
     }
 }

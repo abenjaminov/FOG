@@ -263,7 +263,6 @@ GameObject:
   - component: {fileID: 5408849806231276540}
   - component: {fileID: 5408849806231276541}
   - component: {fileID: 5408849806231276538}
-  - component: {fileID: 5408849806231276539}
   - component: {fileID: 5408849806231276536}
   - component: {fileID: 5408849806231276537}
   m_Layer: 3
@@ -325,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1076383267
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a2791dfc8205a7d4ab0c168ff2d9e0ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -404,23 +403,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5408849806231276539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5408849806231276534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc905b2e167445b68d7f2c49fcd29364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
-  _damageSpawnPosition: {fileID: 5408849806706910867}
-  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
-  IsDead: 0
-  _timeAgressive: 2
 --- !u!114 &5408849806231276536
 MonoBehaviour:
   m_ObjectHideFlags: 0
