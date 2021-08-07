@@ -9802,7 +9802,6 @@ GameObject:
   - component: {fileID: 9100358907154112597}
   - component: {fileID: 9100358907154112596}
   - component: {fileID: 9100358907154112595}
-  - component: {fileID: 9100358907154112594}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -9869,7 +9868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
@@ -9915,19 +9914,6 @@ MonoBehaviour:
   _inventory: {fileID: 9100358906503451944}
   _map: {fileID: 9100358906770605535}
   _chatScreen: {fileID: 9100358907563232701}
---- !u!114 &9100358907154112594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9100358907154112593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfac87c8c91c9a4995c5db0e9890f57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _object: 2
 --- !u!1 &9100358907216229385
 GameObject:
   m_ObjectHideFlags: 0

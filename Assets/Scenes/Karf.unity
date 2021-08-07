@@ -3462,19 +3462,32 @@ Transform:
   m_Father: {fileID: 1767444744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1430702012
-BoxCollider:
+--- !u!61 &1430702012
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430702010}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.09197974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 10.102509, z: 1}
-  m_Center: {x: 0, y: 0.042141676, z: 0}
+  m_Size: {x: 1, y: 10.381941}
+  m_EdgeRadius: 0
 --- !u!1 &1447084671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,19 +3519,32 @@ Transform:
   m_Father: {fileID: 1767444744}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1447084673
-BoxCollider:
+--- !u!61 &1447084673
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447084671}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 10.102509, z: 1}
-  m_Center: {x: 0, y: 0.042141676, z: 0}
+  m_Size: {x: 1, y: 10.473922}
+  m_EdgeRadius: 0
 --- !u!1 &1448519785
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,7 +8545,7 @@ GameObject:
   - component: {fileID: 1767444743}
   m_Layer: 2
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: LevelBounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 6154071945627183296}
   - component: {fileID: 6154071945627183311}
   - component: {fileID: 6154071945627183309}
-  - component: {fileID: 8699583165832789688}
   - component: {fileID: 6154071945627183308}
   - component: {fileID: 6154071945627183307}
   - component: {fileID: 6173505194550347541}
@@ -406,24 +405,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8699583165832789688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6154071945627183305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc905b2e167445b68d7f2c49fcd29364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
-  _damageSpawnPosition: {fileID: 6154071946120773196}
-  _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
-  IsDead: 0
-  _timeAgressive: 2
-  isInvulnerable: 0
 --- !u!114 &6154071945627183308
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,4 +19,4 @@ MonoBehaviour:
   MaxHealth: 24
   Defense: 0
   Level: 2
-  ResistancePoints: 0
+  ResistancePoints: 4

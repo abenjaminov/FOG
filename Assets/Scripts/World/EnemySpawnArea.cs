@@ -37,8 +37,16 @@ namespace World
         private void ChangeLocationCompleteEvent(SceneAsset arg0, SceneAsset arg1)
         {
             var sortingOrder = 0;
-            foreach (var enemySpawnType in _enemySpawns)
+            for (int i = 0; i < _enemySpawns.Count; i++)
             {
+                var enemySpawnType = _enemySpawns[i];
+            
+                if (enemySpawnType.SpawnPosition == null)
+                {
+                    Debug.Log("No Assigned Spawn Position for Enemy Spawn Number " + (i + 1));
+                    continue;
+                }
+
                 var enemy = Instantiate(enemySpawnType.EnemyPrefab,
                     enemySpawnType.SpawnPosition.position,
                     Quaternion.identity, transform);

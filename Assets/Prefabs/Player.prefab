@@ -297,6 +297,7 @@ MonoBehaviour:
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
   _bowStates: {fileID: 3614734985180281814}
   _oneHandedMeleeStates: {fileID: 3614734985180281824}
+  _twoHandedGunStates: {fileID: 8792172990880172696}
 --- !u!114 &3614734985180281833
 MonoBehaviour:
   m_ObjectHideFlags: 0
