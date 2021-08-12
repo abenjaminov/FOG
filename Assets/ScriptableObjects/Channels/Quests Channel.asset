@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5fb5198ed94c4d8394a4b70051a0b2, type: 3}
   m_Name: Quests Channel
   m_EditorClassIdentifier: 
+  _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}

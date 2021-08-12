@@ -23,7 +23,7 @@ namespace ScriptableObjects.Traits
         [Header("Game Progress")]
         [Range(1,100)] public int Level;
         
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             DelayBetweenAttacks = BaseDelayBetweenAttacks;
         }

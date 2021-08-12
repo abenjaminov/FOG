@@ -10,7 +10,7 @@ namespace ScriptableObjects.Quests.QuestRewards
         [SerializeField] private int ResistancePointsReward;
         
         
-        public override bool Give()
+        public override bool Reward()
         {
             _playerTraits.ResistancePointsGained += ResistancePointsReward;
             return true;

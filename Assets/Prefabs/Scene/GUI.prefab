@@ -9942,7 +9942,7 @@ RectTransform:
   m_GameObject: {fileID: 9100358907216229385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 9100358907154112599}
   m_RootOrder: 2
@@ -12868,7 +12868,7 @@ RectTransform:
   m_GameObject: {fileID: 9100358907563232700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 9100358907056424867}
   - {fileID: 9100358907116826418}
@@ -12931,12 +12931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea2b31aa5ac450d883dc537f0ffa202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
   _timeBetweenCharacters: 0.03
   _textArea: {fileID: 9100358907116826420}
   _buttonRight: {fileID: 9100358907638979749}
   _buttonLeft: {fileID: 9100358906261239041}
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
-  CurrentChatSession: {fileID: 11400000, guid: db0d9466da2def840b7f909b3ec682f8, type: 2}
 --- !u!1 &9100358907592707056
 GameObject:
   m_ObjectHideFlags: 0

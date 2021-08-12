@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using Entity.Enemies;
+using ScriptableObjects.Channels;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -9,6 +11,8 @@ namespace ScriptableObjects
     public class PlayerTraits : Traits.Traits
     {
         public UnityAction GainedExperienceEvent;
+        [SerializeField] private QuestsChannel _questsChannel;
+        [SerializeField] private CombatChannel _combatChannel;
 
         public float ClimbSpeed;
 

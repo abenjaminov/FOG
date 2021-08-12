@@ -7,8 +7,7 @@ namespace ScriptableObjects.Chat
     {
         Continue,
         Back,
-        AssignQuest,
-        CompleteQuest,
+        Accept,
         Close
     }
 }

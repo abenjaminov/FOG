@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 4 - Chat - Get your rewards
   m_EditorClassIdentifier: 
   SessionType: 1
-  AssociatedQuest: {fileID: 11400000, guid: 98d603b6cb0126747bd3d37145682332, type: 2}
+  AssociatedQuest: {fileID: 11400000, guid: 2da13c14553e65642a71b724aa2555a0, type: 2}
   ChatItems:
   - Text: Nice Job!
     Options:
     - Text: Thanks!
-      Action: 3
+      Action: 2

@@ -6,6 +6,6 @@ namespace ScriptableObjects.Quests.QuestRewards
     public abstract class QuestReward
     {
         public bool ApplyReward;
-        public abstract bool Give();
+        public abstract bool Reward();
     }
 }

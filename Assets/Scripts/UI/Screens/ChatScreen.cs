@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.HeroEditor.Common.CommonScripts;
+using Entity.NPCs;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using TMPro;
@@ -10,6 +11,7 @@ namespace UI.Screens
 {
     public class ChatScreen : MonoBehaviour
     {
+        [SerializeField] private NpcChannel _npcChannel;
         [SerializeField] private float _timeBetweenCharacters;
 
         [SerializeField] private TextMeshProUGUI _textArea;
@@ -22,7 +24,8 @@ namespace UI.Screens
         private float _currentTimeBetweenCharacters;
         private int _currentCharacterIndex;
         
-        public ChatSession CurrentChatSession;
+        private ChatNpc _currentChatNpc; 
+        private ChatSession _currentChatSession;
         private ChatItem _currentChatItem;
         private int _currentChatItemIndex;
         private bool _isChatWriting;
@@ -33,19 +36,24 @@ namespace UI.Screens
             _buttonLeftText = _buttonLeft.GetComponentInChildren<Text>();
         }
 
-        public void StartChat()
+        public void StartChat(ChatNpc chatNpc, ChatSession chatSession)
         {
+            _currentChatNpc = chatNpc;
+            _currentChatSession = chatSession;
+            
             _textArea.text = "";
             _currentChatItemIndex = 0;
             
             SetCurrentChatItem();
             
             _isChatWriting = true;
+            
+            _npcChannel.OnChatStarted(_currentChatNpc, _currentChatSession);
         }
 
         private void SetCurrentChatItem()
         {
-            _currentChatItem = CurrentChatSession.ChatItems[_currentChatItemIndex];
+            _currentChatItem = _currentChatSession.ChatItems[_currentChatItemIndex];
             _currentCharacterIndex = 0;
             _currentTimeBetweenCharacters = _timeBetweenCharacters;
             
@@ -114,28 +122,19 @@ namespace UI.Screens
             {
                 NextChatItem();
             } 
-            else if (option.Action == ChatDialogOptionAction.Close)
+            else if (option.Action == ChatDialogOptionAction.Close || option.Action == ChatDialogOptionAction.Accept)
             {
-                CloseScreen();
+                CloseScreen(option.Action);
             }
             else if (option.Action == ChatDialogOptionAction.Back)
             {
                 PreviousChatItem();   
             }
-            else if (option.Action == ChatDialogOptionAction.AssignQuest)
-            {
-                _questsChannel.AssignQuest(CurrentChatSession.AssociatedQuest);
-                CloseScreen();
-            }
-            else if (option.Action == ChatDialogOptionAction.CompleteQuest)
-            {
-                CurrentChatSession.AssociatedQuest.GiveRewards();
-                CloseScreen();
-            }
         }
 
-        private void CloseScreen()
+        private void CloseScreen(ChatDialogOptionAction reason)
         {
+            _npcChannel.OnChatEnded(_currentChatNpc, _currentChatSession, reason);
             this.SetActive(false);
         }
     }

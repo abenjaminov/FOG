@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ae56be1be6412ca17b86f386276c7f, type: 3}
   m_Name: 2 - Quest - Kill 5 Gnolls
   m_EditorClassIdentifier: 
+  Id: 7c29b95e-ed85-4f28-b5c2-b149f852d0c1
   Name: Kill those Gnolls
   RPReward:
-    ApplyReward: 0
-    _playerTraits: {fileID: 0}
-    ResistancePointsReward: 0
-  NextQuests:
-  - {fileID: 11400000, guid: 98d603b6cb0126747bd3d37145682332, type: 2}
-  State: 0
+    ApplyReward: 1
+    _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    ResistancePointsReward: 150
+  NextQuests: []
+  State: 3
   RequiredLevel: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _completeOnSpot: 0
   EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 3

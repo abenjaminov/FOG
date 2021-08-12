@@ -70,15 +70,14 @@ namespace Platformer.UI
                 // TODO : Show multiple available sessions
                 var availableSessions = chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
                                                                         (x.SessionType == ChatSessionType.AssignQuest &&
-                                                                         x.AssociatedQuest.State == QuestState.Pending) ||
+                                                                         x.AssociatedQuest.State == QuestState.PendingActive) ||
                                                                         (x.SessionType == ChatSessionType.CompleteQuest &&
-                                                                         x.AssociatedQuest.State == QuestState.Completed)).ToList();
+                                                                         x.AssociatedQuest.State == QuestState.PendingComplete)).ToList();
 
                 if (availableSessions.Count <= 0) return;
                 
-                _chatScreen.CurrentChatSession = availableSessions[0];
                 _chatScreen.SetActive(true);
-                _chatScreen.StartChat();
+                _chatScreen.StartChat(chatNpc, availableSessions[0]);
             }
         }
 

@@ -9,19 +9,20 @@ namespace ScriptableObjects.Quests
     public abstract class Quest : ScriptableObject
     {
         [Header("General Quest")] 
+        public string Id;
         public string Name;
         public ResistancePointsQuestReward RPReward;
         
         public List<Quest> NextQuests;
         public QuestState State;
         public int RequiredLevel;
-        public List<QuestReward> QuestRewards;
         [SerializeField] protected QuestsChannel _questsChannel;
+        [SerializeField] protected bool _completeOnSpot;
 
         protected virtual void OnEnable()
         {
-            _questsChannel.QuestActiveEvent += QuestActiveEvent;
-            _questsChannel.QuestCompletedEvent += QuestCompletedEvent;
+            _questsChannel.QuestActivatedEvent += QuestActiveEvent;
+            _questsChannel.QuestCompleteEvent += QuestCompletedEvent;
 
             if (State == QuestState.Active)
             {
@@ -31,14 +32,14 @@ namespace ScriptableObjects.Quests
 
         private void OnDisable()
         {
-            _questsChannel.QuestActiveEvent -= QuestActiveEvent;
-            _questsChannel.QuestCompletedEvent -= QuestCompletedEvent;
+            _questsChannel.QuestActivatedEvent -= QuestActiveEvent;
+            _questsChannel.QuestCompleteEvent -= QuestCompletedEvent;
         }
 
-        public void GiveRewards()
+        public void ApplyRewards()
         {
             if(RPReward.ApplyReward)
-                RPReward.Give();
+                RPReward.Reward();
         }
         
         private void QuestCompletedEvent(Quest completedQuest)
@@ -64,23 +65,33 @@ namespace ScriptableObjects.Quests
 
         protected void Complete()
         {
-            _questsChannel.OnQuestCompleted(this);
-
-            Debug.Log(Name + " Completed");
-            
-            if (NextQuests.Count <= 0) return;
-            
-            foreach (var quest in NextQuests)
+            if (!_completeOnSpot && State == QuestState.Active)
             {
-                _questsChannel.AssignQuest(quest);    
+                State = QuestState.PendingComplete;
+            }
+            else if(_completeOnSpot || State == QuestState.PendingComplete)
+            {
+                _questsChannel.CompleteQuest(this);
+
+                Debug.Log(Name + " Completed");
+            
+                this.ApplyRewards();
+            
+                if (NextQuests.Count <= 0) return;
+            
+                foreach (var quest in NextQuests)
+                {
+                    _questsChannel.AssignQuest(quest);    
+                }
             }
         }
     }
 
     public enum QuestState
     {
-        Pending,
+        PendingActive,
         Active,
+        PendingComplete,
         Completed
     }
 }
