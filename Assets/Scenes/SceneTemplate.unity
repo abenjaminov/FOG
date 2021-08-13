@@ -11010,6 +11010,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5460381427318642600, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460381427318642600, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_Color.a
+      value: 0.53333336
+      objectReference: {fileID: 0}
     - target: {fileID: 9100358907154112593, guid: 9ba82468c02bc9044971460d33580712, type: 3}
       propertyPath: m_Name
       value: GUI

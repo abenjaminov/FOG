@@ -19,10 +19,12 @@ MonoBehaviour:
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
     ResistancePointsReward: 150
   NextQuests: []
-  State: 3
+  State: 0
   RequiredLevel: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _completeOnSpot: 0
+  MaxValue: 3
+  CurrentValue: 0
   EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 3

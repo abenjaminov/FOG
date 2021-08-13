@@ -23,7 +23,7 @@ namespace ScriptableObjects.Quests
         {
             _questsChannel.QuestActivatedEvent += QuestActiveEvent;
             _questsChannel.QuestCompleteEvent += QuestCompletedEvent;
-
+            
             if (State == QuestState.Active)
             {
                 QuestActive();
@@ -57,7 +57,6 @@ namespace ScriptableObjects.Quests
             if (activeQuest != this) return;
             
             State = QuestState.Active;
-            Debug.Log(Name + " Assigned");
             QuestActive();
         }
         

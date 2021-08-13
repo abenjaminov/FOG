@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjects.Quests
 {
     [CreateAssetMenu(fileName = "Kill Enemies Quest", menuName = "Quest/Kill Enemies Quest")]
-    public class KillEnemiesQuest : Quest
+    public class KillEnemiesQuest : ProgressQuest
     {
         [Header("Kill enemies quest")]
         public GameObject EnemyPrefab;
@@ -21,8 +21,12 @@ namespace ScriptableObjects.Quests
         protected override void OnEnable()
         {
             base.OnEnable();
-            _actualEnemiesKilled = 0;
             _questEnemy = EnemyPrefab.GetComponentInChildren<Enemy>();
+            MaxValue = NumberOfEnemiesToKill;
+            
+            // TODO : Remove for production
+            _actualEnemiesKilled = 0;
+            ProgressMade(_actualEnemiesKilled);
         }
 
         protected override void QuestActive()
@@ -37,10 +41,12 @@ namespace ScriptableObjects.Quests
         
         private void EnemyDiedEvent(Enemy killedEnemy)
         {
+            if (State == QuestState.PendingComplete) return;
+            
             if (killedEnemy.EnemyID == _questEnemy.EnemyID)
             {
                 _actualEnemiesKilled++;
-                Debug.Log(_actualEnemiesKilled + " out of " + NumberOfEnemiesToKill);
+                ProgressMade(_actualEnemiesKilled);
             }
 
             if (_actualEnemiesKilled == NumberOfEnemiesToKill)

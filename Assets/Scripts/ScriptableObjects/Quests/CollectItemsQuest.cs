@@ -6,15 +6,24 @@ using UnityEngine;
 
 namespace ScriptableObjects.Quests
 {
-    public class CollectItemsQuest : Quest
+    public class CollectItemsQuest : ProgressQuest
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private InventoryItemMeta _inventoryItemMeta;
         [SerializeField] private int _amountToCollect;
         [SerializeField] private Inventory.Inventory _playerInventory;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            MaxValue = _amountToCollect;
+        }
+
         protected override void QuestCompleted()
         {
-            _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);   
+            _inventoryChannel.ItemAddedEvent -= ItemAddedEvent;
+            _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);
         }
 
         protected override void QuestActive()
@@ -36,6 +45,8 @@ namespace ScriptableObjects.Quests
 
         private void TryComplete(InventoryItem itemInInventory)
         {
+            ProgressMade(itemInInventory?.Amount ?? 0);
+            
             if (itemInInventory != null && itemInInventory.Amount >= _amountToCollect)
             {
                 Complete();
