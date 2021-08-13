@@ -28,7 +28,7 @@ namespace UI.Screens
 
             if (questInfo != null)
             {
-                Destroy((MonoBehaviour) questInfo);
+                Destroy(((MonoBehaviour) questInfo).gameObject);
                 _questInfos.Remove(questInfo);
             }
         }
