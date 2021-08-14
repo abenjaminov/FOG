@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Helpers;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI.Screens
 {
@@ -17,18 +17,40 @@ namespace UI.Screens
         [SerializeField] private InventoryChannel _invChannel;
 
         [SerializeField] private TextMeshProUGUI _coinText;
-        [SerializeField] private List<InventoryItemView> _itemViews = new List<InventoryItemView>();
+        private List<InventoryItemView> _itemViews = new List<InventoryItemView>();
 
-        // Start is called before the first frame update
+        protected override void Awake()
+        {
+            _itemViews = GetComponentsInChildren<InventoryItemView>().ToList();
+            
+            foreach (var itemView in _itemViews)
+            {
+                itemView.ItemViewDoubleClicked += ItemViewDoubleClicked;
+            }
+            
+            base.Awake();
+        }
+
         void Start()
         {
             _player = FindObjectOfType<Entity.Player.Player>();
             _invChannel.ItemAddedEvent += ItemAddedEvent;
+
+            
+        }
+
+        private void ItemViewDoubleClicked(InventoryItemView item)
+        {
+            OnItemDoubleClicked(_itemViews.IndexOf(item));
         }
 
         private void OnDestroy()
         {
             _invChannel.ItemAddedEvent -= ItemAddedEvent;
+            foreach (var itemView in _itemViews)
+            {
+                itemView.ItemViewDoubleClicked -= ItemViewDoubleClicked;
+            }
         }
 
         public override KeyCode GetActivationKey()
@@ -88,19 +110,12 @@ namespace UI.Screens
             return result;
         }
 
-        public void OnItemDoubleClicked(int itemIndex)
+        private void OnItemDoubleClicked(int itemIndex)
         {
             if (itemIndex >= _inventory.OwnedItems.Count) return;
             
             _inventory.UseItem(_player, _inventory.OwnedItems[itemIndex]);
             UpdateUI();
         }
-    }
-
-    [Serializable]
-    class InventoryItemView
-    {
-        public Image ItemSprite;
-        public TextMeshProUGUI AmountText;
     }
 }

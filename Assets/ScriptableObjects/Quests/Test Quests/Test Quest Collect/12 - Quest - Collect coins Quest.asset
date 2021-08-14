@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17a51a170c4495c8ae6f22c3b6c3a3b, type: 3}
+  m_Name: 12 - Quest - Collect coins Quest
+  m_EditorClassIdentifier: 
+  Id: 3b41938f-9516-4851-8ffc-f692b1b95050
+  Name: Collect coins
+  RPReward:
+    ApplyReward: 1
+    _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    ResistancePointsReward: 290
+  NextQuests: []
+  State: 3
+  RequiredLevel: 1
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _completeOnSpot: 0
+  MaxValue: 1
+  CurrentValue: 99989
+  _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
+  _inventoryItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
+  _amountToCollect: 1
+  _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}

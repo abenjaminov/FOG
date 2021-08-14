@@ -37,6 +37,7 @@ namespace ScriptableObjects.Quests
         protected override void QuestCompleted()
         {
             _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
+            this.Complete();
         }
         
         private void EnemyDiedEvent(Enemy killedEnemy)

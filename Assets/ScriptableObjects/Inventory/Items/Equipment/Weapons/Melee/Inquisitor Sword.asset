@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Inquisitor Sword
   m_EditorClassIdentifier: 
+  Id: 
   Name: Inquisitor Sword
   ItemSprite: {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: bbfc46cf2bd64a3189262bc3145f173f, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 082a683734da479eb2a49b770da016c3, type: 3}
   Item:
     Name: InquisitorSword2 [Paint]
     Collection: Basic

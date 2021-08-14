@@ -46,8 +46,8 @@ namespace ScriptableObjects.Quests
         {
             if (completedQuest != this) return;
             
-            State = QuestState.Completed;
             QuestCompleted();
+            State = QuestState.Completed;
         }
 
         protected abstract void QuestCompleted();
@@ -64,16 +64,17 @@ namespace ScriptableObjects.Quests
 
         protected void Complete()
         {
-            if (!_completeOnSpot && State == QuestState.Active)
+            if (!_completeOnSpot && (State == QuestState.Active || State == QuestState.PendingActive))
             {
                 State = QuestState.PendingComplete;
             }
             else if(_completeOnSpot || State == QuestState.PendingComplete)
             {
-                _questsChannel.CompleteQuest(this);
+                State = QuestState.Completed;
+                
+                if(_completeOnSpot)
+                    _questsChannel.CompleteQuest(this);
 
-                Debug.Log(Name + " Completed");
-            
                 this.ApplyRewards();
             
                 if (NextQuests.Count <= 0) return;

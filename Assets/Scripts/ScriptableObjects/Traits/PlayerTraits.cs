@@ -11,8 +11,6 @@ namespace ScriptableObjects
     public class PlayerTraits : Traits.Traits
     {
         public UnityAction GainedExperienceEvent;
-        [SerializeField] private QuestsChannel _questsChannel;
-        [SerializeField] private CombatChannel _combatChannel;
 
         public float ClimbSpeed;
 
@@ -56,12 +54,13 @@ namespace ScriptableObjects
         
         public void LevelUp()
         {
+            var prevLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == Level);
             Level++;
             var level = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == Level);
-            if (level == null) return;
+            if (level == null || prevLevel == null) return;
             
             PointsLeft += level.Points;
-            _resistancePointsGained = 0;
+            _resistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
             
             LevelUpEvent?.Invoke();
         }

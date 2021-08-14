@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Quests
 {
+    [CreateAssetMenu(fileName = "Collect Items Quest", menuName = "Quest/Collect Items Quest")]
     public class CollectItemsQuest : ProgressQuest
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
@@ -24,20 +25,31 @@ namespace ScriptableObjects.Quests
         {
             _inventoryChannel.ItemAddedEvent -= ItemAddedEvent;
             _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);
+            Complete();
         }
 
         protected override void QuestActive()
         {
             _inventoryChannel.ItemAddedEvent += ItemAddedEvent;
             
-            var itemInInventory =
-                _playerInventory.OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == _inventoryItemMeta.Id);
+            InventoryItem itemInInventory;
+            
+            if (_inventoryItemMeta is CurrencyItemMeta)
+            {
+                itemInInventory = _playerInventory.CurrencyItem;
+            }
+            else
+            {
+                itemInInventory = 
+                    _playerInventory.OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == _inventoryItemMeta.Id);    
+            }
 
             TryComplete(itemInInventory);
         }
 
         private void ItemAddedEvent(InventoryItem itemAddition, InventoryItem item)
         {
+            if (State == QuestState.PendingComplete) return;
             if (item.ItemMeta.Id != _inventoryItemMeta.Id) return;
 
             TryComplete(item);

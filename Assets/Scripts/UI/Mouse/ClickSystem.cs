@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -24,7 +25,8 @@ namespace UI.Mouse
             if (Input.GetMouseButtonUp(0))
             {
                 _numberOfClicks++;
-                RaycastHit2D[] hit = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                List<RaycastHit2D> hit = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero).ToList();
+                hit.AddRange(Physics2D.RaycastAll(Input.mousePosition, Vector2.zero));
 
                 if (_timeBetweenClicks < _doubleClickTime && _numberOfClicks == 2)
                 {

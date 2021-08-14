@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Balanced Sword
   m_EditorClassIdentifier: 
+  Id: 
   Name: Balanced Sword
   ItemSprite: {fileID: 21300000, guid: d5d8ac770f724d9596951f76e0ad2d33, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: d5d8ac770f724d9596951f76e0ad2d33, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
   Item:
     Name: BalancedSword [Paint]
     Collection: Knights

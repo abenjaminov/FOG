@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Fire Warrior Sword
   m_EditorClassIdentifier: 
+  Id: 
   Name: Fire Warrior Sword
   ItemSprite: {fileID: 21300000, guid: 53611850c26d46139312c12acc720f61, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: 53611850c26d46139312c12acc720f61, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 637c5f33f41a480fb696713864f30c1d, type: 3}
   Item:
     Name: FireWarriorSword1
     Collection: Basic

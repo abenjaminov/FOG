@@ -305,6 +305,7 @@ MonoBehaviour:
   _foreground: {fileID: 4525903071645657300}
   _progressText: {fileID: 6814773452141187592}
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _questName: {fileID: 6743237275248330146}
 --- !u!1 &7632254183039706593
 GameObject:
   m_ObjectHideFlags: 0

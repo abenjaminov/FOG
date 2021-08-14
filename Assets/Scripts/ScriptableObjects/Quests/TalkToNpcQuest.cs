@@ -13,6 +13,12 @@ namespace ScriptableObjects.Quests
         public ChatNpc NpcPrefab;
         [SerializeField] private NpcChannel _npcChannel;
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _completeOnSpot = true;
+        }
+
         protected override void QuestCompleted()
         {
             _npcChannel.ChatStartedEvent -= ChatStartedEvent;

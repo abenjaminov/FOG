@@ -42,7 +42,7 @@ namespace UI
             }
             else
             {
-                MaxValue = _levelConfiguration.GetLevelByOrder(userLevel + 1).ExpForNextLevel;
+                MaxValue = _levelConfiguration.GetLevelByOrder(userLevel).ExpForNextLevel;
             }
         }
 
@@ -55,7 +55,6 @@ namespace UI
         protected override void UpdateUI()
         {
             var currentLevel = _playerTraits.Level;
-            var previousLevel = _playerTraits.Level - 1;
 
             var expForCurrentLevel = _levelConfiguration.GetLevelByOrder(currentLevel).ExpForNextLevel;
 

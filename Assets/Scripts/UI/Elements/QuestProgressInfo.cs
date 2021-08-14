@@ -1,6 +1,8 @@
 ﻿using System;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
+using TMPro;
+using UI.Elements.Quests;
 using UI.Screens;
 using UnityEngine;
 
@@ -8,43 +10,57 @@ namespace UI.Elements
 {
     public class QuestProgressInfo : ProgressBar, IQuestInfoItem
     {
-        private ProgressQuest _quest;
         [SerializeField] private QuestsChannel _questsChannel;
+        private RectTransform _rectTransform;
 
+        private QuestInfoLogic<ProgressQuest> _questInfoLogic;
+        [SerializeField] private TextMeshProUGUI _questName;
+        
         private void Awake()
         {
             _questsChannel.QuestCompleteEvent += QuestCompleteEvent;
+
+            _questInfoLogic = new QuestInfoLogic<ProgressQuest>(this.gameObject, _questName);
         }
 
         private void QuestCompleteEvent(Quest arg0)
         {
-            _quest.ProgressMadeEvent -= ProgressMadeEvent;
+            _questInfoLogic.Quest.ProgressMadeEvent -= ProgressMadeEvent;
         }
 
         public void SetQuest(Quest quest)
         {
-            if (!(quest is ProgressQuest)) return;
-            
-            _quest = (ProgressQuest) quest;
-            _quest.ProgressMadeEvent += ProgressMadeEvent;
-            MaxValue = _quest.MaxValue;
+            var progressQuest = quest as ProgressQuest;
+            _questInfoLogic.SetQuest(progressQuest);
+            _questInfoLogic.Quest.ProgressMadeEvent += ProgressMadeEvent;
+            MaxValue = _questInfoLogic.Quest.MaxValue;
             ProgressMadeEvent();
         }
 
         public string GetQuestId()
         {
-            return _quest != null ? _quest.Id : "";
+            return _questInfoLogic.GetQuestId();
+        }
+
+        public Vector2 GetSize()
+        {
+            return _questInfoLogic.GetSize();
+        }
+
+        public void SetLocalPosition(Vector3 position)
+        {
+            _questInfoLogic.SetLocalPosition(position);
         }
 
         private void ProgressMadeEvent()
         {
-            CurrentValue = _quest.CurrentValue;
+            CurrentValue = _questInfoLogic.Quest.CurrentValue;
             UpdateUI();
         }
 
         private void OnDestroy()
         {
-            _quest.ProgressMadeEvent -= ProgressMadeEvent;
+            _questInfoLogic.Quest.ProgressMadeEvent -= ProgressMadeEvent;
             _questsChannel.QuestCompleteEvent -= QuestCompleteEvent;
         }
     }

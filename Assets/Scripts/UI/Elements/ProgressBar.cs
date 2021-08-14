@@ -17,7 +17,7 @@ namespace UI
         {
             var actualPercentage = CurrentValue / MaxValue;
 
-            var foregroundWidth = _background.rect.width * actualPercentage;
+            var foregroundWidth = _background.rect.width * Mathf.Min(actualPercentage,1f);
             _foreground.sizeDelta = new Vector2(foregroundWidth, _foreground.rect.height);
             
             _progressText.SetText(CurrentValue + " / " + MaxValue);

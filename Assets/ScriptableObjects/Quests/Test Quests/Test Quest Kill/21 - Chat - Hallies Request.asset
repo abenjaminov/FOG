@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: 1 - Chat - Hallies Request
+  m_Name: 21 - Chat - Hallies Request
   m_EditorClassIdentifier: 
   SessionType: 0
   AssociatedQuest: {fileID: 11400000, guid: 2da13c14553e65642a71b724aa2555a0, type: 2}

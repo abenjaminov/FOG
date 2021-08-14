@@ -24,6 +24,8 @@ MonoBehaviour:
     Amount: 1
   - ItemMeta: {fileID: 11400000, guid: 74925d9a697568243a1e631cc892f9cd, type: 2}
     Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+    Amount: 4
   CurrencyItem:
     ItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 1784
+    Amount: 100000
