@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
+  m_Name: Composite Bow
+  m_EditorClassIdentifier: 
+  Id: 4c420973-a6ad-49cf-8de8-d2abe7c2ca5a
+  Name: Composite Bow
+  ItemSprite: {fileID: 21300002, guid: afcd69ebddf648118e3b57b3fa819a04, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 4df562b013374aef8bb9be8a4219ffd8, type: 3}
+  Item:
+    Name: CompositeBow
+    Collection: Pro
+    Id: MilitaryHeroes.Pro.Bow.CompositeBow
+    Path: Assets/HeroEditor/MilitaryHeroes/Sprites/Equipment/Bow/Pro/CompositeBow.png
+    Sprite: {fileID: 21300004, guid: afcd69ebddf648118e3b57b3fa819a04, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: afcd69ebddf648118e3b57b3fa819a04, type: 3}
+    - {fileID: 21300002, guid: afcd69ebddf648118e3b57b3fa819a04, type: 3}
+    - {fileID: 21300000, guid: afcd69ebddf648118e3b57b3fa819a04, type: 3}
+    Multiple: 1
+    Hash: 828252bab480d670234212ae085dd063
+    Meta: 
+    Tags: []
+  Part: 10
+  RequiredLevel: 5
+  MonsterResistance: 10

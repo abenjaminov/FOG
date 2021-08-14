@@ -1,12 +1,10 @@
-﻿using System;
-using ScriptableObjects.Channels;
+﻿using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
 using TMPro;
-using UI.Elements.Quests;
 using UI.Screens;
 using UnityEngine;
 
-namespace UI.Elements
+namespace UI.Elements.Quests
 {
     public class QuestProgressInfo : ProgressBar, IQuestInfoItem
     {

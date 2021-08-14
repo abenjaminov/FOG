@@ -24,7 +24,7 @@ MonoBehaviour:
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _completeOnSpot: 0
   MaxValue: 1
-  CurrentValue: 100606
+  CurrentValue: 100629
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _inventoryItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
   _amountToCollect: 1

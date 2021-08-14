@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
+  m_Name: Viking Long Bow
+  m_EditorClassIdentifier: 
+  Id: 0f222eb9-42b8-48da-96b7-962bda8a982f
+  Name: Viking Long Bow
+  ItemSprite: {fileID: 21300002, guid: 75597262ca69491c836dab73f45d48f4, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 6944153ac5554f50a3580de4b5a8baf8, type: 3}
+  Item:
+    Name: VikingLongBow
+    Collection: Vikings
+    Id: FantasyHeroes.Vikings.Bow.VikingLongBow
+    Path: Assets/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Vikings/VikingLongBow.png
+    Sprite: {fileID: 21300004, guid: 75597262ca69491c836dab73f45d48f4, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 75597262ca69491c836dab73f45d48f4, type: 3}
+    - {fileID: 21300002, guid: 75597262ca69491c836dab73f45d48f4, type: 3}
+    - {fileID: 21300000, guid: 75597262ca69491c836dab73f45d48f4, type: 3}
+    Multiple: 1
+    Hash: f7e9fa323f68c206424b37a02f11ef2b
+    Meta: 
+    Tags: []
+  Part: 10
+  RequiredLevel: 15
+  MonsterResistance: 45

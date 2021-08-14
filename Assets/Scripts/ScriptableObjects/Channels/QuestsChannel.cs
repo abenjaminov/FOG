@@ -11,6 +11,7 @@ namespace ScriptableObjects.Channels
     public class QuestsChannel : ScriptableObject
     {
         [SerializeField] private NpcChannel _npcChannel;
+        [SerializeField] private PlayerTraits _playerTraits;
         
         public UnityAction<Quest> QuestCompleteEvent;
         public UnityAction<Quest> QuestActivatedEvent;
@@ -43,6 +44,8 @@ namespace ScriptableObjects.Channels
         
         public void AssignQuest(Quest questToAssign)
         {
+            if (_playerTraits.Level < questToAssign.RequiredLevel) return;
+            
             QuestActivatedEvent?.Invoke(questToAssign);
         }
     }

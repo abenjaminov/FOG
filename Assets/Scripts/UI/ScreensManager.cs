@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Quests;
@@ -22,6 +23,7 @@ namespace Platformer.UI
         
         [SerializeField] private ChatSelectionScreen _chatSelectionScreen;
         [SerializeField] private ChatScreen _chatScreen;
+        [SerializeField] private PlayerTraits _playerTraits;
 
         private List<KeySubscription> _subscriptions = new List<KeySubscription>();
         
@@ -68,11 +70,13 @@ namespace Platformer.UI
         {
             if (!_chatScreen.isActiveAndEnabled)
             {
-                var availableSessions = chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
-                                                                        (x.SessionType == ChatSessionType.AssignQuest &&
-                                                                         x.AssociatedQuest.State == QuestState.PendingActive) ||
-                                                                        (x.SessionType == ChatSessionType.CompleteQuest &&
-                                                                         x.AssociatedQuest.State == QuestState.PendingComplete)).ToList();
+                var availableSessions = 
+                    chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual || 
+                                                            (x.AssociatedQuest.RequiredLevel <= _playerTraits.Level &&
+                                                             ((x.SessionType == ChatSessionType.AssignQuest &&
+                                                               x.AssociatedQuest.State == QuestState.PendingActive) ||
+                                                              (x.SessionType == ChatSessionType.CompleteQuest &&
+                                                               x.AssociatedQuest.State == QuestState.PendingComplete)))).ToList();
 
                 if (availableSessions.Count <= 0) return;
                 

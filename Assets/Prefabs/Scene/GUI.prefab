@@ -12312,6 +12312,7 @@ MonoBehaviour:
   _map: {fileID: 9100358906770605535}
   _chatSelectionScreen: {fileID: 6360072376126184946}
   _chatScreen: {fileID: 9100358907563232701}
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!1 &9100358907216229385
 GameObject:
   m_ObjectHideFlags: 0
@@ -14248,6 +14249,7 @@ MonoBehaviour:
   _background: {fileID: 9100358907681857292}
   _foreground: {fileID: 9100358906763797721}
   _progressText: {fileID: 9100358906890609746}
+  _unitsPerSecond: 1500
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
 --- !u!1 &9100358907693351289
@@ -14968,6 +14970,7 @@ MonoBehaviour:
   _background: {fileID: 9100358907842174323}
   _foreground: {fileID: 9100358907753131193}
   _progressText: {fileID: 9100358906662567519}
+  _unitsPerSecond: 200
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!1 &9100358907853160426
 GameObject:

@@ -20,7 +20,7 @@ MonoBehaviour:
     ResistancePointsReward: 150
   NextQuests: []
   State: 0
-  RequiredLevel: 1
+  RequiredLevel: 5
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _completeOnSpot: 0
   MaxValue: 3
