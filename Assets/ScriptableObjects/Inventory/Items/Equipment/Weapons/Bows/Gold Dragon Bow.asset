@@ -17,14 +17,17 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300002, guid: 7e988b7e9a1d4175b665a4575fd625e6, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: b6a818ef96f74851a0655890eb4241a7, type: 3}
   Item:
-    Name: 
-    Collection: 
-    Id: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Multiple: 0
-    Hash: 
+    Name: GoldDragon
+    Collection: Basic
+    Id: FantasyHeroes.Basic.Bow.GoldDragon
+    Path: Assets/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/GoldDragon.png
+    Sprite: {fileID: 21300004, guid: 7e988b7e9a1d4175b665a4575fd625e6, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 7e988b7e9a1d4175b665a4575fd625e6, type: 3}
+    - {fileID: 21300002, guid: 7e988b7e9a1d4175b665a4575fd625e6, type: 3}
+    - {fileID: 21300000, guid: 7e988b7e9a1d4175b665a4575fd625e6, type: 3}
+    Multiple: 1
+    Hash: e6ec57830f266424d2e7019a53ae18d6
     Meta: 
     Tags: []
   Part: 10
