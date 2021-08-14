@@ -19,7 +19,7 @@ MonoBehaviour:
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
     ResistancePointsReward: 150
   NextQuests: []
-  State: 1
+  State: 0
   RequiredLevel: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _completeOnSpot: 0

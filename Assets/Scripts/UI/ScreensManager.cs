@@ -20,6 +20,7 @@ namespace Platformer.UI
         [SerializeField] private GUIScreen _inventory;
         [SerializeField] private GUIScreen _map;
         
+        [SerializeField] private ChatSelectionScreen _chatSelectionScreen;
         [SerializeField] private ChatScreen _chatScreen;
 
         private List<KeySubscription> _subscriptions = new List<KeySubscription>();
@@ -67,7 +68,6 @@ namespace Platformer.UI
         {
             if (!_chatScreen.isActiveAndEnabled)
             {
-                // TODO : Show multiple available sessions
                 var availableSessions = chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
                                                                         (x.SessionType == ChatSessionType.AssignQuest &&
                                                                          x.AssociatedQuest.State == QuestState.PendingActive) ||
@@ -76,8 +76,8 @@ namespace Platformer.UI
 
                 if (availableSessions.Count <= 0) return;
                 
-                _chatScreen.SetActive(true);
-                _chatScreen.StartChat(chatNpc, availableSessions[0]);
+                _chatSelectionScreen.SetActive(true);
+                _chatSelectionScreen.SelectChat(chatNpc, availableSessions);
             }
         }
 
