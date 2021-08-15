@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Security.Cryptography;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Chat;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace UI.Screens
 {
@@ -23,6 +26,7 @@ namespace UI.Screens
         public void SelectChat(ChatNpc chatNpc, List<ChatSession> sessions)
         {
             _chatNpc = chatNpc;
+            SetTitle(chatNpc);
             
             selectionItems = new List<ChatSelectionItem>();
 
@@ -34,9 +38,23 @@ namespace UI.Screens
                 selectionItem.SetText(session.GetSessionName());
                 selectionItem.Session = session;
                 selectionItem.ChatSelectedEvent += ChatSelectedEvent;
+                selectionItems.Add(selectionItem);
+            }
+
+            if (selectionItems.Count == 1)
+            {
+                ChatSelectedEvent(selectionItems[0]);
             }
         }
 
+        private void SetTitle(ChatNpc chatNpc)
+        {
+            var index = Random.Range(0, chatNpc.GeneralTextLines.Count);
+            var line = chatNpc.GeneralTextLines[index];
+
+            _titleText.text = line;
+        }
+        
         private void ChatSelectedEvent(ChatSelectionItem chatItem)
         {
             _chatScreen.SetActive(true);

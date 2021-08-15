@@ -16,15 +16,16 @@ namespace UI.Screens
 
         [SerializeField] private QuestProgressInfo _progressQuestInfoPrefab;
         [SerializeField] private QuestInfoItem _noProgressQuestInfoPrefab;
-
-        private float _totalHeightTaken = 0;
+        [SerializeField] private float _topOffset;
+        
+        private float _totalHeightTaken;
         private const float Margin = 3;
         
         private void Awake()
         {
             _questsChannel.QuestActivatedEvent += QuestActivatedEvent;
             _questsChannel.QuestCompleteEvent += QuestCompleteEvent;
-            _totalHeightTaken = -Margin;
+            _totalHeightTaken = -_topOffset - Margin;
         }
 
         private void QuestCompleteEvent(Quest completedQuest)
@@ -70,13 +71,13 @@ namespace UI.Screens
         {
             var size = infoItem.GetSize();
             _totalHeightTaken -= Margin;
-            infoItem.SetLocalPosition(new Vector3(0, _totalHeightTaken, 0));
+            infoItem.SetLocalPosition(new Vector3(-size.x, _totalHeightTaken, 0));
             _totalHeightTaken -= size.y;
         }
 
         private void RearangeInfoItems()
         {
-            _totalHeightTaken = -Margin;
+            _totalHeightTaken = -_topOffset - Margin;
 
             foreach (var infoItem in _questInfos)
             {

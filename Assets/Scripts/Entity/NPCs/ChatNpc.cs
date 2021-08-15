@@ -18,11 +18,16 @@ namespace Entity.NPCs
         [SerializeField] private NpcChannel _npcChannel;
         [SerializeField] public List<ChatSession> ChatSessions;
 
+        [SerializeField] public List<string> GeneralTextLines;
+
         private void Awake()
         {
             var visuals = Instantiate(_npcVisuals, Vector3.zero, Quaternion.identity, this.transform);
             visuals.transform.localPosition = Vector3.zero;
             _nameText.SetText(_name);
+            
+            if(GeneralTextLines.Count == 0)
+                GeneralTextLines.Add("Hello there!");
         }
         
         public void HandleDoubleClick()

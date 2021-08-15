@@ -42,6 +42,7 @@ namespace UI
             while (_currentValue < _currentValueDestination)
             {
                 _currentValue += (Time.deltaTime * _unitsPerSecond);
+                //_currentValue = Mathf.Min(1, _currentValue);
                 UpdateUI();
                 yield return new WaitForEndOfFrame();
             }

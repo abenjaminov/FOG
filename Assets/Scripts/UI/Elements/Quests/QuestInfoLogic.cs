@@ -1,5 +1,7 @@
-﻿using ScriptableObjects.Quests;
+﻿using Assets.HeroEditor.Common.CommonScripts;
+using ScriptableObjects.Quests;
 using TMPro;
+using UI.Behaviours;
 using UI.Screens;
 using UnityEngine;
 
@@ -12,12 +14,14 @@ namespace UI.Elements.Quests
         private GameObject _questInfoItem;
         
         [SerializeField] private TextMeshProUGUI _questName;
+        private SlideFromHorizontalEdge _slider;
 
-        public QuestInfoLogic(GameObject questInfoItem, TextMeshProUGUI questName)
+        public QuestInfoLogic(GameObject questInfoItem, TextMeshProUGUI questName, SlideFromHorizontalEdge slider)
         {
             _questInfoItem = questInfoItem;
             _rectTransform = questInfoItem.GetComponent<RectTransform>();
             _questName = questName;
+            _slider = slider;
         }
 
         public void SetQuest(T quest)
@@ -39,6 +43,7 @@ namespace UI.Elements.Quests
         public void SetLocalPosition(Vector3 position)
         {
             _questInfoItem.transform.localPosition = position;
+            _slider.enabled = true;
         }
     }
 }

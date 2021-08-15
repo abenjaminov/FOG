@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Quests Channel
   m_EditorClassIdentifier: 
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}

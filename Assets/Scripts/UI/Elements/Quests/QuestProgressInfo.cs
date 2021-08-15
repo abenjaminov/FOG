@@ -1,6 +1,7 @@
 ﻿using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
 using TMPro;
+using UI.Behaviours;
 using UI.Screens;
 using UnityEngine;
 
@@ -13,12 +14,14 @@ namespace UI.Elements.Quests
 
         private QuestInfoLogic<ProgressQuest> _questInfoLogic;
         [SerializeField] private TextMeshProUGUI _questName;
+
+        [SerializeField] private SlideFromHorizontalEdge _slider;
         
         private void Awake()
         {
             _questsChannel.QuestCompleteEvent += QuestCompleteEvent;
 
-            _questInfoLogic = new QuestInfoLogic<ProgressQuest>(this.gameObject, _questName);
+            _questInfoLogic = new QuestInfoLogic<ProgressQuest>(this.gameObject, _questName, _slider);
         }
 
         private void QuestCompleteEvent(Quest arg0)

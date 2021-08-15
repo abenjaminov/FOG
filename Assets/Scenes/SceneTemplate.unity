@@ -9276,6 +9276,14 @@ PrefabInstance:
       propertyPath: ChatSessions.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: dae99f5c0c7429b4d9f9400ab158a4be, type: 2}
+    - target: {fileID: 140830604225540920, guid: 4fa7bad3e9e4e4346980bbe4728b99d7, type: 3}
+      propertyPath: GeneralTextLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140830604225540920, guid: 4fa7bad3e9e4e4346980bbe4728b99d7, type: 3}
+      propertyPath: GeneralTextLines.Array.data[0]
+      value: Im the test environment NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 140830604225540921, guid: 4fa7bad3e9e4e4346980bbe4728b99d7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -11018,6 +11026,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5382310315207389261, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382310315207389261, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382310315207389261, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382310315207389261, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 761.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382310315207389261, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5460381427318642600, guid: 9ba82468c02bc9044971460d33580712, type: 3}
       propertyPath: m_Sprite
       value: 

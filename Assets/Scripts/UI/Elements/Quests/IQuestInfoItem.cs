@@ -1,7 +1,7 @@
 ﻿using ScriptableObjects.Quests;
 using UnityEngine;
 
-namespace UI.Screens
+namespace UI.Elements.Quests
 {
     public interface IQuestInfoItem
     {
