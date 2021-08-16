@@ -52,9 +52,6 @@ MonoBehaviour:
   - Order: 13
     ExpForNextLevel: 67094
     Points: 5
-  - Order: 13
-    ExpForNextLevel: 90577
-    Points: 5
   - Order: 14
     ExpForNextLevel: 122279
     Points: 5

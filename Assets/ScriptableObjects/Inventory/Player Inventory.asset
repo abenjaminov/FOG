@@ -38,6 +38,18 @@ MonoBehaviour:
     Amount: 1
   - ItemMeta: {fileID: 11400000, guid: 545c22785371ca349892f2e8b3e2b3db, type: 2}
     Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: 8303940dd97ad3d4b8660957e3bccb19, type: 2}
+    Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: 4dc9be04ebdfe7144879fb632bc0d8fa, type: 2}
+    Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: d4b5c4f77e5a97f46bfab6b41e61f2f6, type: 2}
+    Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: a97282fb9ac2a3243b18d9c9ad8e435e, type: 2}
+    Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: 70e9ef0d25126f4499995f1ca406b09f, type: 2}
+    Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: e052fd3c25b14a248b869501ab589317, type: 2}
+    Amount: 1
   CurrencyItem:
     ItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
     Amount: 100628

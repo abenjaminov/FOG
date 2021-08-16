@@ -16,11 +16,8 @@ namespace ScriptableObjects.Inventory
         
         [Header("Equipment")]
         public EquipmentItemMeta Helmet;
-        public EquipmentItemMeta Torso;
-        public EquipmentItemMeta Boots;
-        public EquipmentItemMeta Pelvis;
         public EquipmentItemMeta Cape;
-        public EquipmentItemMeta Gloves;
+        public EquipmentItemMeta Armour;
         public WeaponItemMeta PrimaryWeapon;
         public WeaponItemMeta SecondaryWeapon;
 
@@ -31,11 +28,8 @@ namespace ScriptableObjects.Inventory
             MetaByType = new Dictionary<EquipmentPart, Func<EquipmentItemMeta>>()
             {
                 {EquipmentPart.Helmet, () => Helmet},
-                {EquipmentPart.Vest, () => Torso},
-                {EquipmentPart.Boots, () => Boots},
-                {EquipmentPart.Belt, () => Pelvis},
                 {EquipmentPart.Cape, () => Cape},
-                {EquipmentPart.Gloves, () => Gloves},
+                {EquipmentPart.Armor, () => Armour},
                 {EquipmentPart.MeleeWeapon1H, () => PrimaryWeapon},
                 {EquipmentPart.Bow, () => PrimaryWeapon},
             };
@@ -52,23 +46,14 @@ namespace ScriptableObjects.Inventory
 
             switch (meta.Part)
             {
-                case EquipmentPart.Vest:
-                    Torso = meta;
-                    break;
-                case EquipmentPart.Boots:
-                    Boots = meta;
-                    break;
                 case EquipmentPart.Helmet:
                     Helmet = meta;
-                    break;
-                case EquipmentPart.Belt:
-                    Pelvis = meta;
                     break;
                 case EquipmentPart.Cape:
                     Cape = meta;
                     break;
-                case EquipmentPart.Gloves:
-                    Gloves = meta;
+                case EquipmentPart.Armor:
+                    Armour = meta;
                     break;
                 case EquipmentPart.MeleeWeapon1H:
                     ChangePrimaryWeapon(meta as WeaponItemMeta);

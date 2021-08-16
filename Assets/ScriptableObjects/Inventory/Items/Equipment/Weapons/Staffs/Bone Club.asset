@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
+  m_Name: Bone Club
+  m_EditorClassIdentifier: 
+  Id: 0959654f-093d-45d4-8115-66e376fa86ac
+  Name: Bone Club
+  ItemSprite: {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 1f05f7d282a343489ba374a0bba09a51, type: 3}
+  Item:
+    Name: BoneClub
+    Collection: Basic
+    Id: FantasyHeroes.Basic.MeleeWeapon1H.BoneClub
+    Path: Assets/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/BoneClub.png
+    Sprite: {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
+    Multiple: 1
+    Hash: 25c4995846e1afd68c07b033f5e6312d
+    Meta: 
+    Tags: []
+  Part: 7
+  RequiredLevel: 1
+  MonsterResistance: 3
+  IsStaff: 1

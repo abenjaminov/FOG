@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Player Equipment
   m_EditorClassIdentifier: 
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
-  Helmet: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
-  Torso: {fileID: 11400000, guid: c0f2e562b7deb7a4b8635878a9dd586f, type: 2}
-  Boots: {fileID: 11400000, guid: 81fec4a177a236b4ba132343e087e523, type: 2}
-  Pelvis: {fileID: 11400000, guid: 8d019253eaa4af44f97346b8bfd585be, type: 2}
+  Helmet: {fileID: 11400000, guid: 8afd183e732e20e42bc8f92b48c65c23, type: 2}
   Cape: {fileID: 0}
-  Gloves: {fileID: 0}
+  Armour: {fileID: 11400000, guid: d8a8ffdf2b41197469c94cce50ef05f5, type: 2}
   PrimaryWeapon: {fileID: 11400000, guid: 11f3cca8aa8500c45b40eadda3b62187, type: 2}
   SecondaryWeapon: {fileID: 0}

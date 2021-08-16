@@ -1,6 +1,7 @@
 ﻿using Abilities.Melee;
 using HeroEditor.Common.Enums;
 using Player;
+using ScriptableObjects.Inventory.ItemMetas;
 using State.States.FighterStates;
 
 namespace Entity.Player.Melee
@@ -31,6 +32,16 @@ namespace Entity.Player.Melee
         private void SlashEndEvent()
         {
             _playerStates.IsAbilityAnimationActivated = false;
+        }
+
+        protected override void OnWeaponChanged(WeaponItemMeta weapon)
+        {
+            IsEnabled = weapon.Part == WeaponEquipmentType && !weapon.IsStaff;
+
+            if (IsEnabled)
+            {
+                ActivateStates();
+            }
         }
     }
 }

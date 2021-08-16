@@ -6,5 +6,6 @@ namespace ScriptableObjects.Inventory.ItemMetas
     public class WeaponItemMeta : EquipmentItemMeta
     {
         public int MonsterResistance;
+        public bool IsStaff;
     }
 }

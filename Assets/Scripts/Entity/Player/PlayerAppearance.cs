@@ -22,23 +22,14 @@ namespace Entity.Player
         {
             _character = _player.GetCharacter();
 
-            if(_playerEquipment.Torso != null)
-                _character.Equip(_playerEquipment.Torso.Item, EquipmentPart.Vest);
-            
-            if(_playerEquipment.Boots != null)
-                _character.Equip(_playerEquipment.Boots.Item, EquipmentPart.Boots);
-            
             if(_playerEquipment.Helmet != null)
                 _character.Equip(_playerEquipment.Helmet.Item, EquipmentPart.Helmet);
-            
-            if(_playerEquipment.Pelvis != null)
-                _character.Equip(_playerEquipment.Pelvis.Item, EquipmentPart.Belt);
-            
+
             if(_playerEquipment.Cape != null)
                 _character.Equip(_playerEquipment.Cape.Item, EquipmentPart.Cape);
             
-            if(_playerEquipment.Gloves != null)
-                _character.Equip(_playerEquipment.Gloves.Item, EquipmentPart.Gloves);
+            if(_playerEquipment.Armour != null)
+                _character.Equip(_playerEquipment.Armour.Item, EquipmentPart.Armor);
 
             if(_playerEquipment.PrimaryWeapon != null)
             {

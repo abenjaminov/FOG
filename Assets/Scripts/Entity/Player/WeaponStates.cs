@@ -27,7 +27,7 @@ namespace Entity.Player
             _playerChannel.WeaponChangedEvent += OnWeaponChanged;
         }
 
-        private void OnWeaponChanged(EquipmentItemMeta weapon)
+        protected virtual void OnWeaponChanged(WeaponItemMeta weapon)
         {
             IsEnabled = weapon.Part == WeaponEquipmentType;
 

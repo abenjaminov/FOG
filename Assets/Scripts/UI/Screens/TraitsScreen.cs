@@ -5,6 +5,7 @@ using Platformer;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI.Screens
 {
@@ -17,7 +18,7 @@ namespace UI.Screens
     
         [SerializeField] private TextMeshProUGUI _dexText;
         [SerializeField] private TextMeshProUGUI _strText;
-        [SerializeField] private TextMeshProUGUI _defText;
+        [SerializeField] private TextMeshProUGUI _constText;
         [SerializeField] private TextMeshProUGUI _levelText;
         [SerializeField] private TextMeshProUGUI _pointsText;
         [SerializeField] private TextMeshProUGUI _expText;
@@ -34,7 +35,7 @@ namespace UI.Screens
         {
             _dexText.SetText(_playerTraits.Dexterity.ToString());
             _strText.SetText(_playerTraits.Strength.ToString());
-            _defText.SetText(_playerTraits.Defense.ToString());
+            _constText.SetText(_playerTraits.Constitution.ToString());
             _damageText.SetText(TraitsHelper.GetMinDamage(_playerTraits) + " - " + TraitsHelper.GetMaxDamage(_playerTraits));
         
             SetExp();
@@ -91,10 +92,10 @@ namespace UI.Screens
             UpdateUI();
         }
     
-        public void AddDefense()
+        public void AddConstitution()
         {
             _playerTraits.PointsLeft--;
-            _playerTraits.Defense++;
+            _playerTraits.Constitution++;
             UpdateUI();
         }
     }
