@@ -3,6 +3,7 @@ using System.Linq;
 using Helpers;
 using Platformer;
 using ScriptableObjects;
+using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;

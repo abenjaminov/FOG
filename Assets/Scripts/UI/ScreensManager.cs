@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
-using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Quests;
-using TMPro;
+using ScriptableObjects.Traits;
 using UI.Screens;
 using UnityEngine;
 
-namespace Platformer.UI
+namespace UI
 {
     public class ScreensManager : MonoBehaviour
     {

@@ -5,6 +5,7 @@ using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Traits;
 using UnityEngine;
 
 namespace Entity.Player

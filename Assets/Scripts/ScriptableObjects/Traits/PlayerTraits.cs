@@ -1,14 +1,12 @@
 ﻿using System.Linq;
-using Entity.Enemies;
-using ScriptableObjects.Channels;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Traits
 {
     [CreateAssetMenu(fileName = "Player Traits", menuName = "Game Stats/Player Traits", order = 0)]
-    public class PlayerTraits : Traits.Traits
+    public class PlayerTraits : Traits
     {
         public UnityAction GainedExperienceEvent;
 
@@ -21,13 +19,13 @@ namespace ScriptableObjects
         [HideInInspector] public int PointsLeft;
 
         [SerializeField] private LevelConfiguration _levelConfiguration;
-        [FormerlySerializedAs("resistancePointsGained")] [FormerlySerializedAs("_experienceGained")] [SerializeField] private int _resistancePointsGained;
+        [SerializeField] private int _resistancePointsGained;
 
         public float ReceiveDamageCooldown;
         
         public int Strength;
         public int Dexterity;
-        public int Inteligence;
+        public int Intelligence;
         public int Constitution;
         
         
@@ -41,6 +39,11 @@ namespace ScriptableObjects
             }
         }
 
+        public void SetResistancePointsSilent(int resistancePointsGained)
+        {
+            _resistancePointsGained = resistancePointsGained;
+        }
+        
         public void ChangeCurrentHealth(float healthDelta)
         {
             CurrentHealth = Mathf.Max(0, Mathf.Min(MaxHealth, CurrentHealth + healthDelta));
@@ -63,20 +66,6 @@ namespace ScriptableObjects
             _resistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
             
             LevelUpEvent?.Invoke();
-        }
-
-        protected override void Reset()
-        {
-            base.Reset();
-
-            _resistancePointsGained = 0;
-            Strength = 5;
-            Dexterity = 5;
-            Constitution = 5;
-            Inteligence = 5;
-            PointsLeft = 0;
-            CurrentHealth = MaxHealth;
-            MonsterStateResistance = 1;
         }
     }
 }

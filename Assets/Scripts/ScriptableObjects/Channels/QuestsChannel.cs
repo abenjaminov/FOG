@@ -2,6 +2,7 @@
 using Entity.NPCs;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Quests;
+using ScriptableObjects.Traits;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.Traits;
 using UnityEngine;
 
 namespace ScriptableObjects.Quests.QuestRewards
