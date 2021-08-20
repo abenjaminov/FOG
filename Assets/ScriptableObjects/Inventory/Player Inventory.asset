@@ -17,4 +17,4 @@ MonoBehaviour:
   OwnedItems: []
   CurrencyItem:
     ItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 0
+    Amount: 120
