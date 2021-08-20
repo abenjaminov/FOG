@@ -11,11 +11,15 @@ namespace Entity.Player.Melee
         private Entity.Player.Player _player;
 
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.MeleeWeapon1H;
-        
-        public override void LinkToStates(PlayerStates playerStates)
+
+        public override void Initialize()
         {
             _player = GetComponent<Player>();
-            _playerStates = playerStates;
+        }
+
+        public override void CreateStates()
+        {
+            
             BasicAttackState = new FighterSlashState(_player, _basicAttackAbility as SlashAbility);
         }
 

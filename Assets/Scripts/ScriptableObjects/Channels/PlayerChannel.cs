@@ -5,13 +5,16 @@ using UnityEngine.Events;
 namespace ScriptableObjects.Channels
 {
     [CreateAssetMenu(fileName = "Player Channel", menuName = "Channels/Player Channel", order = 6)]
-    public class PlayerChannel : ScriptableObject
+    public class PlayerChannel : BaseChannel
     {
         public UnityAction<WeaponItemMeta> WeaponChangedEvent;
         
         public void OnWeaponChanged(WeaponItemMeta newWeapon)
         {
-            WeaponChangedEvent?.Invoke(newWeapon);
+            InvokeEvent(() =>
+            {
+                WeaponChangedEvent?.Invoke(newWeapon);    
+            });
         }
     }
 }

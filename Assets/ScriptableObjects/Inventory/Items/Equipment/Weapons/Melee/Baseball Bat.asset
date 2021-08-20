@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Baseball Bat
   m_EditorClassIdentifier: 
-  Id: 
+  Id: d2eb896a-0662-446e-ae07-063ddfe2756f
   Name: Bat
   ItemSprite: {fileID: 21300000, guid: d9069619552640fead3767e06263cbda, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 26831e81492143219f5058c3bdbed3f0, type: 3}
@@ -31,3 +31,4 @@ MonoBehaviour:
   Part: 7
   RequiredLevel: 1
   MonsterResistance: 3
+  IsStaff: 0

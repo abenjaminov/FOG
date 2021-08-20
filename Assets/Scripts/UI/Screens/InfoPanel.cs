@@ -63,9 +63,9 @@ namespace UI
             }
         }
 
-        private void ItemAddedEvent(InventoryItem itemAddition, InventoryItem item)
+        private void ItemAddedEvent(InventoryItem item, int amountAdded)
         {
-            AddInfoItem("Gained " + item.ItemMeta.Name + " (" + itemAddition.Amount + ")");
+            AddInfoItem("Gained " + item.ItemMeta.Name + " (" + amountAdded + ")");
         }
         
         private void EnemyDiedEvent(Enemy enemy)

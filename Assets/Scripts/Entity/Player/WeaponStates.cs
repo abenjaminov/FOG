@@ -18,7 +18,7 @@ namespace Entity.Player
 
         [HideInInspector] public bool IsEnabled;
 
-        protected PlayerStates _playerStates;
+        [SerializeField] protected PlayerStates _playerStates;
 
         protected abstract EquipmentPart WeaponEquipmentType { get; }
 
@@ -36,8 +36,10 @@ namespace Entity.Player
                 ActivateStates();
             }
         }
-
-        public abstract void LinkToStates(PlayerStates playerStates);
+        
+        public virtual void Initialize() {}
+        
+        public abstract void CreateStates();
 
         protected abstract void ActivateStates();
         protected abstract void DeActivateStates();

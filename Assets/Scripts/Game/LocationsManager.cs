@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
+using Persistence;
+using Persistence.Accessors;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -7,28 +11,52 @@ using UnityEngine.SceneManagement;
 
 namespace Game
 {
-    public class LocationsManager : MonoBehaviour
+    public class LocationsManager : PersistentMonoBehaviour
     {
+        [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private LocationsChannel _locationsChannel;
+        [SerializeField] private ScenesList _scenesList;
         [SerializeField] private Entity.Player.Player _player;
         
-        // TODO : Get This from Saved Data
-        [SerializeField] private SceneAsset _firstScene;
+        [SerializeField] private SceneMeta _defaultFirstScene;
+        private SceneMeta _currentScene;
         
-        private void Awake()
+        protected override void Awake()
         {
-            _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
+            base.Awake();
             
+            _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
+            _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
+            
+            // TODO open loading scene
+        }
+
+        private void GameModulesLoadedEvent()
+        {
             LoadFirstScene();
+            _player.SetActive(true);
+        }
+
+        public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
+        {
+            var sceneMetaId = accessor.GetValue<string>("FirstScene");
+            var meta = _scenesList.GetSceneMetaById(sceneMetaId);
+
+            _currentScene = meta != null ? meta : _defaultFirstScene;
+        }
+
+        public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
+        {
+            accessor.PersistData("FirstScene",_currentScene.Id);
         }
 
         private void LoadFirstScene()
         {
-            var operation = SceneManager.LoadSceneAsync(_firstScene.name, LoadSceneMode.Additive);
+            var operation = SceneManager.LoadSceneAsync(_currentScene.SceneAsset.name, LoadSceneMode.Additive);
             
             operation.completed += asyncOperation =>
             {
-                _locationsChannel.OnChangeLocationComplete(_firstScene, null);
+                _locationsChannel.OnChangeLocationComplete(_currentScene, null);
                 
                 var startingPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
 
@@ -41,7 +69,7 @@ namespace Game
             };
         }
         
-        private void ChangeLocationEvent(SceneAsset destination, SceneAsset source)
+        private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
             SceneManager.UnloadSceneAsync(source.name);
                 

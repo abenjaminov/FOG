@@ -35,8 +35,6 @@ namespace UI.Screens
         {
             _player = FindObjectOfType<Entity.Player.Player>();
             _invChannel.ItemAddedEvent += ItemAddedEvent;
-
-            
         }
 
         private void ItemViewDoubleClicked(InventoryItemView item)
@@ -81,13 +79,15 @@ namespace UI.Screens
             }
         }
 
-        private void ItemAddedEvent(InventoryItem itemAddition, InventoryItem item)
+        private void ItemAddedEvent(InventoryItem item, int amountAdded)
         {
             UpdateUI();
         }
 
         private string MoneyToString(int money)
         {
+            if (money == 0) return "0";
+            
             var result = "";
             var currentPart = "";
             

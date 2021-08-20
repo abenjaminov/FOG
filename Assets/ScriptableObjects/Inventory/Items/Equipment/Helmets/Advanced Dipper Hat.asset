@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fffb49ac8c4464bbb6d5d27284fccf, type: 3}
   m_Name: Advanced Dipper Hat
   m_EditorClassIdentifier: 
+  Id: dbc5f8a0-2f77-4836-834b-4e43afe3870d
   Name: Advanced Dipper Hat
   ItemSprite: {fileID: 21300000, guid: aa418ac77c9d4970b2f60a2d4ef27f73, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: aa418ac77c9d4970b2f60a2d4ef27f73, type: 3}
@@ -28,3 +29,4 @@ MonoBehaviour:
     Meta: 
     Tags: []
   Part: 1
+  RequiredLevel: 0

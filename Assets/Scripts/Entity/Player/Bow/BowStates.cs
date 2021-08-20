@@ -1,13 +1,10 @@
-﻿using System;
-using Abilities;
-using Abilities.Bow;
+﻿using Abilities.Bow;
 using HeroEditor.Common.Enums;
 using Player;
-using State.States;
 using State.States.ArcherStates;
 using UnityEngine;
 
-namespace Entity.Player.ArcherClass
+namespace Entity.Player.Bow
 {
     public class BowStates : WeaponStates<ShootArrowAbility>
     {
@@ -21,24 +18,26 @@ namespace Entity.Player.ArcherClass
 
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.Bow;
 
-        public override void LinkToStates(PlayerStates playerStates)
+        public override void Initialize()
         {
             _archer = GetComponent<Player>();
-            _playerStates = playerStates;
+        }
+
+        public override void CreateStates()
+        {
             BasicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
+            
+            var strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
+            _playerStates.AddAttackState(strongArrowState);
+            
+            var fastAttackBuffState =
+                new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
+            _playerStates.AddBuffState(fastAttackBuffState,() => fastAttackBuffState.IsBuffApplied);
         }
 
         protected override void ActivateStates()
         {
             _playerStates.AnimationEvents.BowChargeEndEvent += BowChargeEndEvent;
-            var strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
-            
-            _playerStates.AddAttackState(strongArrowState);
-
-            var fastAttackBuffState =
-                new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
-            
-            _playerStates.AddBuffState(fastAttackBuffState,() => fastAttackBuffState.IsBuffApplied);
         }
 
         protected override void DeActivateStates()

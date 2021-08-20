@@ -1,59 +1,47 @@
-﻿using System;
-using Persistence.Accessors;
+﻿using Persistence.Accessors;
+using Persistence.PersistenceObjects;
 using ScriptableObjects.Traits;
 using UnityEngine;
 
 namespace Persistence.PersistenceHandlers
 {
-    public class PlayerTraitsPersistenceHandler : PersistantMonoBehaviour
+    public class PlayerTraitsPersistenceHandler : PersistentMonoBehaviour
     {
-        private PlayerTraitsPersistence _playerTraitsPersistence;
         [SerializeField] private PlayerTraits _playerTraits;
 
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
         {
-            _playerTraitsPersistence = accessor.GetValue<PlayerTraitsPersistence>("PlayerTraits");
+            var playerTraitsPersistence = accessor.GetValue<PlayerTraitsPersistence>("PlayerTraits");
 
-            if (_playerTraitsPersistence == null) return;
+            if (playerTraitsPersistence == null) return;
             
-            _playerTraits.Constitution = _playerTraitsPersistence.Constitution;
-            _playerTraits.Dexterity = _playerTraitsPersistence.Dexterity;
-            _playerTraits.Intelligence = _playerTraitsPersistence.Intelligence;
-            _playerTraits.Strength = _playerTraitsPersistence.Strength;
-            _playerTraits.CurrentHealth = _playerTraitsPersistence.CurrentHealth;
-            _playerTraits.PointsLeft = _playerTraitsPersistence.PointsLeft;
-            _playerTraits.Level = _playerTraitsPersistence.Level;
-            _playerTraits.SetResistancePointsSilent(_playerTraitsPersistence.ResistancePointsGained);
+            _playerTraits.Constitution = playerTraitsPersistence.Constitution;
+            _playerTraits.Dexterity = playerTraitsPersistence.Dexterity;
+            _playerTraits.Intelligence = playerTraitsPersistence.Intelligence;
+            _playerTraits.Strength = playerTraitsPersistence.Strength;
+            _playerTraits.CurrentHealth = playerTraitsPersistence.CurrentHealth;
+            _playerTraits.PointsLeft = playerTraitsPersistence.PointsLeft;
+            _playerTraits.Level = playerTraitsPersistence.Level;
+            _playerTraits.SetResistancePointsSilent(playerTraitsPersistence.ResistancePointsGained);
+            _playerTraits.MonsterStateResistance = playerTraitsPersistence.MonsterStateResistance;
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
-            _playerTraitsPersistence = new PlayerTraitsPersistence();
-            _playerTraitsPersistence.Constitution = _playerTraits.Constitution;
-            _playerTraitsPersistence.Dexterity = _playerTraits.Dexterity;
-            _playerTraitsPersistence.Intelligence = _playerTraits.Intelligence;
-            _playerTraitsPersistence.Strength = _playerTraits.Strength;
-            _playerTraitsPersistence.CurrentHealth = _playerTraits.CurrentHealth;
-            _playerTraitsPersistence.PointsLeft = _playerTraits.PointsLeft;
-            _playerTraitsPersistence.Level = _playerTraits.Level;
-            _playerTraitsPersistence.ResistancePointsGained = _playerTraits.ResistancePointsGained;
-            _playerTraitsPersistence.MonsterStateResistance = _playerTraits.MonsterStateResistance;
-            
-            accessor.PersistData<PlayerTraitsPersistence>("PlayerTraits", _playerTraitsPersistence);
-        }
-    }
+            var playerTraitsPersistence = new PlayerTraitsPersistence()
+            {
+                Constitution = _playerTraits.Constitution,
+                Dexterity = _playerTraits.Dexterity,
+                Intelligence = _playerTraits.Intelligence,
+                Strength = _playerTraits.Strength,
+                CurrentHealth = _playerTraits.CurrentHealth,
+                PointsLeft = _playerTraits.PointsLeft,
+                Level = _playerTraits.Level,
+                ResistancePointsGained = _playerTraits.ResistancePointsGained,
+                MonsterStateResistance = _playerTraits.MonsterStateResistance
+            };
 
-    [Serializable]
-    public class PlayerTraitsPersistence
-    {
-        internal float CurrentHealth;
-        internal int Strength;
-        internal int Dexterity;
-        internal int Intelligence;
-        internal int Constitution;
-        internal int PointsLeft;
-        internal int Level;
-        internal int ResistancePointsGained;
-        internal float MonsterStateResistance;
+            accessor.PersistData("PlayerTraits", playerTraitsPersistence);
+        }
     }
 }

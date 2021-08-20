@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Channels;
+﻿using ScriptableObjects;
+using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ namespace Controllers
     {
         private BoxCollider2D _boundsCollider;
         [SerializeField] private LocationsChannel _locationsChannel;
-        private Transform _player;
-        private UnityEngine.Camera _camera;
+        private Transform _playerTransform;
+        private Camera _camera;
         
         private float _rightBound;
         private float _leftBound;
@@ -19,12 +20,12 @@ namespace Controllers
         private void Awake()
         {
             _camera = GetComponent<Camera>();
-            _player = FindObjectOfType<Entity.Player.Player>().transform;
+            _playerTransform = FindObjectOfType<Entity.Player.Player>(true).transform;
             
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
         }
 
-        private void ChangeLocationCompleteEvent(SceneAsset arg0, SceneAsset arg1)
+        private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
         {
             var levelBounds = GameObject.FindGameObjectWithTag("LevelBounds");
 
@@ -54,7 +55,7 @@ namespace Controllers
 
         void Update () 
         {
-            var position = _player.position;
+            var position = _playerTransform.position;
             
             var pos = new Vector3(position.x, position.y, transform.position.z);
             pos.x = Mathf.Clamp(pos.x, _leftBound, _rightBound);

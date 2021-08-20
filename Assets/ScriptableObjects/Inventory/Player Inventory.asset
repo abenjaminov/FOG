@@ -13,43 +13,8 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
-  OwnedItems:
-  - ItemMeta: {fileID: 11400000, guid: 74925d9a697568243a1e631cc892f9cd, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Amount: 9
-  - ItemMeta: {fileID: 11400000, guid: f53656116c628a348bb1239fb24eccb8, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: b79ab98df7df5e74685d8d1cb07cefb6, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 3695d5c383ee27343b6f224b27818ae6, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: bdf77441dc7993648b9b13b40cde59de, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 06794e41a3cfda14da47d7e114c8c0cf, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 9c38d485ae4aae44c9047ff3c42c583e, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 11f3cca8aa8500c45b40eadda3b62187, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 5292e9612c2714d4aa8729c259224ded, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 178d1797984ec414bb7ab9d302dc74c2, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 545c22785371ca349892f2e8b3e2b3db, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 8303940dd97ad3d4b8660957e3bccb19, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 4dc9be04ebdfe7144879fb632bc0d8fa, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: d4b5c4f77e5a97f46bfab6b41e61f2f6, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: a97282fb9ac2a3243b18d9c9ad8e435e, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: 70e9ef0d25126f4499995f1ca406b09f, type: 2}
-    Amount: 1
-  - ItemMeta: {fileID: 11400000, guid: e052fd3c25b14a248b869501ab589317, type: 2}
-    Amount: 1
+  _inventoryItemMetas: {fileID: 11400000, guid: 9cfb58f471d525447a8d51b7d6230a32, type: 2}
+  OwnedItems: []
   CurrencyItem:
     ItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 100628
+    Amount: 0

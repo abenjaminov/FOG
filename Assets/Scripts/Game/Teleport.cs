@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -8,8 +9,8 @@ namespace Game
     public class Teleport : MonoBehaviour
     {
         private Entity.Player.Player playerReference;
-        public SceneAsset Source;
-        public SceneAsset Destination;
+        public SceneMeta Source;
+        public SceneMeta Destination;
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private InputChannel _inputChannel;
         public Transform CenterTransform;

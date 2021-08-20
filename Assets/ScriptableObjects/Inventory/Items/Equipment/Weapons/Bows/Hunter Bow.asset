@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Hunter Bow
   m_EditorClassIdentifier: 
-  Id: 
+  Id: 81547f25-9516-405e-ba0e-df99f856d211
   Name: Hunter Bow
   ItemSprite: {fileID: 21300002, guid: 506987369b8146e09eb67a09c9b4e7f4, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 188ee285adf84448b307a36f963d5760, type: 3}
@@ -33,3 +33,4 @@ MonoBehaviour:
   Part: 10
   RequiredLevel: 1
   MonsterResistance: 3
+  IsStaff: 0

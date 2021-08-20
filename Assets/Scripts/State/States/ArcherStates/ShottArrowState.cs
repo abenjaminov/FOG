@@ -3,7 +3,6 @@ using Animations;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Character;
 using Entity;
-using Entity.Player.ArcherClass;
 using UnityEngine;
 
 namespace State.States.ArcherStates

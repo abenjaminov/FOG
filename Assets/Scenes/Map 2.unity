@@ -560,16 +560,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3240926575904996803, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: m_Name
-      value: Teleport To Map 1 (1)
+      value: Teleport To Map 3
       objectReference: {fileID: 0}
     - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: Source
       value: 
-      objectReference: {fileID: 102900000, guid: 38db2f676e72dfa488d99d701e792b1a, type: 3}
+      objectReference: {fileID: 11400000, guid: 179a12a0243b57745b5cc81575d881bf, type: 2}
     - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: Destination
       value: 
-      objectReference: {fileID: 102900000, guid: b4a2c9e186b50aa458a7aac3b04d57a2, type: 3}
+      objectReference: {fileID: 11400000, guid: 6c5411ed424f1cd4089b9665b2609a49, type: 2}
     - target: {fileID: 3240926575904996814, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1267,11 +1267,11 @@ PrefabInstance:
     - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: Source
       value: 
-      objectReference: {fileID: 102900000, guid: 38db2f676e72dfa488d99d701e792b1a, type: 3}
+      objectReference: {fileID: 11400000, guid: 179a12a0243b57745b5cc81575d881bf, type: 2}
     - target: {fileID: 3240926575904996812, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: Destination
       value: 
-      objectReference: {fileID: 102900000, guid: d797e5ad953dbfe4c88aa99db774596e, type: 3}
+      objectReference: {fileID: 11400000, guid: c5a9cbbd736607044b993508df1bb678, type: 2}
     - target: {fileID: 3240926575904996814, guid: 325877fa401e1804b8dadafd6f0bfa2a, type: 3}
       propertyPath: m_RootOrder
       value: 8

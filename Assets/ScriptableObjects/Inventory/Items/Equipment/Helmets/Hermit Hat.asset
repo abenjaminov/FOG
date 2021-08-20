@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fffb49ac8c4464bbb6d5d27284fccf, type: 3}
   m_Name: Hermit Hat
   m_EditorClassIdentifier: 
+  Id: f085956c-be95-47fa-a870-9a5b973daa4b
   Name: Hermit Hat
   ItemSprite: {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
@@ -28,3 +29,4 @@ MonoBehaviour:
     Meta: 
     Tags: []
   Part: 1
+  RequiredLevel: 0

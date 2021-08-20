@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Water Wand
   m_EditorClassIdentifier: 
-  Id: 
+  Id: bcd54cc7-97f6-489f-928a-f10856167160
   Name: Water Staff
   ItemSprite: {fileID: 21300000, guid: e102f0ae754645349a0ed77db90a7f2c, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: d23bc351d7f8499dbc836ef596fe2bb2, type: 3}

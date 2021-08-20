@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace UI.Elements
 {
     public class MapLocation : MonoBehaviour
     {
-        [SerializeField] private SceneAsset _scene;
+        [SerializeField] private SceneMeta _scene;
         [SerializeField] private GameObject _markerInstance;
         [SerializeField] private LocationsChannel _locationsChannel;
 
@@ -17,13 +18,13 @@ namespace UI.Elements
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationEvent;
         }
 
-        private void ChangeLocationEvent(SceneAsset destination, SceneAsset source)
+        private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
-            if (source == _scene)
+            if (source.Id == _scene.Id)
             {
                 _markerInstance.SetActive(false);
             }
-            else if (destination == _scene)
+            else if (destination.Id == _scene.Id)
             {
                 _markerInstance.SetActive(true);
             }

@@ -8,11 +8,11 @@ namespace ScriptableObjects.Channels
     [CreateAssetMenu(fileName = "Inventory Channel", menuName = "Channels/Inventory Channel", order = 3)]
     public class InventoryChannel : ScriptableObject
     {
-        public UnityAction<InventoryItem, InventoryItem> ItemAddedEvent;
+        public UnityAction<InventoryItem, int> ItemAddedEvent;
 
-        public void OnItemAdded(InventoryItem itemAddition, InventoryItem item)
+        public void OnItemAdded(InventoryItem item, int amountAdded)
         {
-            ItemAddedEvent?.Invoke(itemAddition, item);
+            ItemAddedEvent?.Invoke(item, amountAdded);
         }
     }
 }

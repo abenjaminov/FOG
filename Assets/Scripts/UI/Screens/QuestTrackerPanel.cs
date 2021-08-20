@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
-using UI.Elements;
 using UI.Elements.Quests;
 using UnityEngine;
 

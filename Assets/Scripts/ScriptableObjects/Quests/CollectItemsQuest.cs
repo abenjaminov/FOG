@@ -47,7 +47,7 @@ namespace ScriptableObjects.Quests
             TryComplete(itemInInventory);
         }
 
-        private void ItemAddedEvent(InventoryItem itemAddition, InventoryItem item)
+        private void ItemAddedEvent(InventoryItem item, int amountAdded)
         {
             if (State == QuestState.PendingComplete) return;
             if (item.ItemMeta.Id != _inventoryItemMeta.Id) return;

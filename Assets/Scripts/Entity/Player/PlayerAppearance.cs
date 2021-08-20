@@ -40,18 +40,18 @@ namespace Entity.Player
 
         public void EquipItem(EquipmentItemMeta meta)
         {
-            RemoveItem(meta.Part);
+            UnEquipItem(meta.Part);
             _character.Equip(meta.Item, meta.Part); 
             _playerEquipment.SetMetaItem(meta);
         }
 
-        public void RemoveItem(EquipmentPart part)
+        public void UnEquipItem(EquipmentPart part)
         {
             EquipmentItemMeta oldEquipment = _playerEquipment.GetItemMetaByPartType(part);
 
             if (oldEquipment != null)
             {
-                _playerInventory.AddItemNoInfo(oldEquipment, 1);
+                _playerInventory.AddItemSilent(oldEquipment, 1);
                 _character.UnEquip(oldEquipment.Part);
             }
         }

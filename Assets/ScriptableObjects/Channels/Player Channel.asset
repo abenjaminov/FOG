@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60580d325d244a0af80a173b261c96b, type: 3}
   m_Name: Player Channel
   m_EditorClassIdentifier: 
+  _persistentActions: {fileID: 11400000, guid: 593230986d49d1e48976dd8aed0a9739, type: 2}

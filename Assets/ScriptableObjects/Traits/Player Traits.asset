@@ -28,5 +28,5 @@ MonoBehaviour:
   ReceiveDamageCooldown: 1
   Strength: 5
   Dexterity: 5
-  Inteligence: 5
+  Intelligence: 0
   Constitution: 5

@@ -7,9 +7,11 @@ namespace ScriptableObjects.Channels
     public class PersistenceChannel : ScriptableObject
     {
         public UnityAction GameModulesLoadedEvent;
+        public bool IsReady = false;
 
         public void OnGameModulesLoaded()
         {
+            IsReady = true;
             GameModulesLoadedEvent?.Invoke();
         }
     }

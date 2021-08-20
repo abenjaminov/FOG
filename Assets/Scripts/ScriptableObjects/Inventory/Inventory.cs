@@ -12,56 +12,46 @@ namespace ScriptableObjects.Inventory
     public class Inventory : ScriptableObject
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
+        [SerializeField] private InventoryItemsList _inventoryItemMetas;
         public List<InventoryItem> OwnedItems;
         public InventoryItem CurrencyItem;
 
-        public void AddItem(InventoryItemMeta itemMetaData, int amount)
+        public InventoryItem AddItemSilent(InventoryItemMeta itemMetaData, int amountToAdd)
         {
-            var newItem = new InventoryItem()
-            {
-                ItemMeta = itemMetaData,
-                Amount = amount
-            };
+            InventoryItem inventoryItem;
             
             if (itemMetaData is CurrencyItemMeta)
             {
-                AddCurrency(newItem, amount);
-                return;
-            }
-
-            var item = AddItemNoInfo(itemMetaData, amount);
-
-            _inventoryChannel.OnItemAdded(newItem, item);
-        }
-
-        public InventoryItem AddItemNoInfo(InventoryItemMeta itemMetaData, int amount)
-        {
-            var newItem = new InventoryItem()
-            {
-                ItemMeta = itemMetaData,
-                Amount = amount
-            };
-            
-            var item = OwnedItems.FirstOrDefault(x => x.ItemMeta.Name == itemMetaData.Name);
-            
-            if (item != null)
-            {
-                item.Amount += newItem.Amount;
+                CurrencyItem.Amount += amountToAdd;
+                inventoryItem = CurrencyItem;
             }
             else
             {
-                OwnedItems.Add(newItem);
-                item = newItem;
+                inventoryItem = OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == itemMetaData.Id);
+            
+                if (inventoryItem != null)
+                {
+                    inventoryItem.Amount += amountToAdd;
+                }
+                else
+                {
+                    inventoryItem = new InventoryItem()
+                    {
+                        ItemMeta = itemMetaData,
+                        Amount = amountToAdd
+                    };
+                    OwnedItems.Add(inventoryItem);
+                }
             }
 
-            return item;
+            return inventoryItem;
         }
-
-        private void AddCurrency(InventoryItem currencyAddition, int amount)
+        
+        public void AddItem(InventoryItemMeta itemMetaData, int amountToAdd)
         {
-            CurrencyItem.Amount += amount;
-            
-            _inventoryChannel.OnItemAdded(currencyAddition, CurrencyItem);
+            var inventoryItem = AddItemSilent(itemMetaData, amountToAdd);
+
+            _inventoryChannel.OnItemAdded(inventoryItem, amountToAdd);
         }
 
         private void RemoveItem(InventoryItem item)
@@ -82,6 +72,11 @@ namespace ScriptableObjects.Inventory
             {
                 RemoveItem(item);
             }
+        }
+
+        public InventoryItemMeta GetItemMetaById(string itemMetaId)
+        {
+            return _inventoryItemMetas.GetItemMetaById(itemMetaId);
         }
     }
 }

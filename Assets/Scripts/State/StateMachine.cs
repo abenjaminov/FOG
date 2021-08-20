@@ -100,7 +100,7 @@ namespace State
 
         public void Close()
         {
-            _currentState.OnExit();
+            //_currentState.OnExit();
         }
     }
 }

@@ -7,15 +7,15 @@ namespace ScriptableObjects.Channels
     [CreateAssetMenu(fileName = "Locations Channel", menuName = "Channels/Locations Channel", order = 5)]
     public class LocationsChannel : ScriptableObject
     {
-        public UnityAction<SceneAsset, SceneAsset> ChangeLocationEvent;
-        public UnityAction<SceneAsset, SceneAsset> ChangeLocationCompleteEvent;
+        public UnityAction<SceneMeta, SceneMeta> ChangeLocationEvent;
+        public UnityAction<SceneMeta, SceneMeta> ChangeLocationCompleteEvent;
 
-        public void OnChangeLocation(SceneAsset destination, SceneAsset source)
+        public void OnChangeLocation(SceneMeta destination, SceneMeta source)
         {
             ChangeLocationEvent?.Invoke(destination, source);
         }
 
-        public void OnChangeLocationComplete(SceneAsset destination, SceneAsset source)
+        public void OnChangeLocationComplete(SceneMeta destination, SceneMeta source)
         {
             ChangeLocationCompleteEvent?.Invoke(destination, source);
         }

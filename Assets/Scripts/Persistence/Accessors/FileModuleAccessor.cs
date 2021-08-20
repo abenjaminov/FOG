@@ -53,7 +53,14 @@ namespace Persistence.Accessors
             if (stream.Length == 0) return;
             
             BinaryFormatter bin = new BinaryFormatter();
-            _allData = (Dictionary<string, object>)bin.Deserialize(stream);
+            try
+            {
+                _allData = (Dictionary<string, object>)bin.Deserialize(stream);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
         }
         
         public void CloseModule()

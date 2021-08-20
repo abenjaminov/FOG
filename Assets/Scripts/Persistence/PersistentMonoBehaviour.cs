@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Persistence
 {
-    public abstract class PersistantMonoBehaviour : MonoBehaviour, IPersistantObject
+    public abstract class PersistentMonoBehaviour : MonoBehaviour, IPersistantObject
     {
         [SerializeField] private PersistantModuleTypes _moduleType;
         [SerializeField] private PersistenceManager _persistenceManager;

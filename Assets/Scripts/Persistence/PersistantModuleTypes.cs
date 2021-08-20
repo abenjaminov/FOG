@@ -2,7 +2,7 @@
 {
     public enum PersistantModuleTypes
     {
-        GameData,
+        GameState,
         Inventory,
         PlayerTraits
     }

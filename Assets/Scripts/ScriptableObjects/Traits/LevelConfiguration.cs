@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "Level Config", menuName = "Game Stats/Level Config", order = 0)]
+    [CreateAssetMenu(fileName = "Level Config", menuName = "Game Configuration/Levels", order = 0)]
     public class LevelConfiguration : ScriptableObject
     {
         public const int MAXLevel = 100;

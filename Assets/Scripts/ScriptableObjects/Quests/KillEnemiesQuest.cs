@@ -16,7 +16,7 @@ namespace ScriptableObjects.Quests
         public int NumberOfEnemiesToKill;
         
         private Enemy _questEnemy;
-        private int _actualEnemiesKilled = 0;
+        [HideInInspector] public int ActualEnemiesKilled;
 
         protected override void OnEnable()
         {
@@ -24,9 +24,7 @@ namespace ScriptableObjects.Quests
             _questEnemy = EnemyPrefab.GetComponentInChildren<Enemy>();
             MaxValue = NumberOfEnemiesToKill;
             
-            // TODO : Remove for production
-            _actualEnemiesKilled = 0;
-            ProgressMade(_actualEnemiesKilled);
+            ProgressMade(ActualEnemiesKilled);
         }
 
         protected override void QuestActive()
@@ -46,11 +44,11 @@ namespace ScriptableObjects.Quests
             
             if (killedEnemy.EnemyID == _questEnemy.EnemyID)
             {
-                _actualEnemiesKilled++;
-                ProgressMade(_actualEnemiesKilled);
+                ActualEnemiesKilled++;
+                ProgressMade(ActualEnemiesKilled);
             }
 
-            if (_actualEnemiesKilled == NumberOfEnemiesToKill)
+            if (ActualEnemiesKilled == NumberOfEnemiesToKill)
             {
                 this.Complete();
             }

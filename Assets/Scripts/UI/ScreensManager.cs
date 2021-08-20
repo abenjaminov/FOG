@@ -13,14 +13,21 @@ namespace UI
 {
     public class ScreensManager : MonoBehaviour
     {
+        [Header("Channels")]
+        [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private NpcChannel _NpcChannel;
+        
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
         [SerializeField] private GUIScreen _map;
         
         [SerializeField] private ChatSelectionScreen _chatSelectionScreen;
         [SerializeField] private ChatScreen _chatScreen;
+        [SerializeField] private QuestTrackerPanel _questTrackerPanel;
+
+        [SerializeField] private List<GameObject> _defaultViews;
+        
         [SerializeField] private PlayerTraits _playerTraits;
 
         private List<KeySubscription> _subscriptions = new List<KeySubscription>();
@@ -29,14 +36,24 @@ namespace UI
 
         private void Awake()
         {
+            _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
             _openScreens = new Stack<GUIScreen>();
+            
+            _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
+        }
+
+        private void GameModulesLoadedEvent()
+        {
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_map.GetActivationKey(), ToggleMapScreen));
             
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen));
-            
-            _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
+
+            foreach (var gameObject in _defaultViews)
+            {
+                gameObject.SetActive(true);
+            }
         }
 
         private void ToggleTraitsScreen()
@@ -56,6 +73,9 @@ namespace UI
         
         private void OnDestroy()
         {
+            _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
+            _NpcChannel.RequestChatStartEvent -= RequestChatStartEvent;
+            
             foreach (var subscription in _subscriptions)
             {
                 subscription.Unsubscribe();

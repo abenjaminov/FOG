@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entity.Enemies;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace World
             _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
         }
 
-        private void ChangeLocationCompleteEvent(SceneAsset arg0, SceneAsset arg1)
+        private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
         {
             var sortingOrder = 0;
             for (int i = 0; i < _enemySpawns.Count; i++)

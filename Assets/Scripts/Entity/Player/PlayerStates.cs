@@ -4,8 +4,7 @@ using Abilities;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player;
-using Entity.Player.ArcherClass;
-using Entity.Player.Gun;
+using Entity.Player.Bow;
 using Entity.Player.Melee;
 using Game;
 using ScriptableObjects.Channels;
@@ -30,7 +29,7 @@ namespace Player
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
         [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
-        [SerializeField] private TwoHandedGunStates _twoHandedGunStates;
+        //[SerializeField] private TwoHandedGunStates _twoHandedGunStates;
         
         private IState _defaultState;
         protected int _horizontalAxisRaw;
@@ -79,22 +78,19 @@ namespace Player
             _animator = GetComponentInChildren<Animator>();
             _player = GetComponent<Entity.Player.Player>();
             _playerClimb = GetComponentInChildren<PlayerClimb>();
+            AnimationEvents = GetComponentInChildren<AnimationEvents>();
+            
+            _stateMachine = new StateMachine(false);
+            
+            _bowStates.Initialize();
+            _oneHandedMeleeStates.Initialize();
+            //_twoHandedGunStates.Initialize();
         }
         
         protected virtual void Start()
         {
-            _stateMachine = new StateMachine(false);
-            
-            AnimationEvents = GetComponentInChildren<AnimationEvents>();
+            CreateStates();
 
-            _idle = new PlayerIdleState(_player, _playerMovement);
-            _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
-            _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
-            _jump = new PlayerJumpingState(_player, _collider2D, _playerMovement, _player.Traits.JumpHeight,_rigidBody);
-            _fall = new PlayerFallState(_player,_collider2D);
-            _dead = new PlayerDieState(_player, _playerMovement, _animator);
-            _climb = new PlayerClimbState(_player, _playerClimb,_playerMovement,_rigidBody,_collider2D, _inputChannel, _player.PlayerTraits.ClimbSpeed);
-            
             _noHorizontalInput = () => _horizontalAxisRaw == 0 && !IsAbilityAnimationActivated;
             _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
             _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
@@ -151,13 +147,13 @@ namespace Player
             
             ConfigureDeadState();
 
-            _bowStates.LinkToStates(this);
-            _oneHandedMeleeStates.LinkToStates(this);
-            _twoHandedGunStates.LinkToStates(this);
+            _bowStates.CreateStates();
+            _oneHandedMeleeStates.CreateStates();
+            //_twoHandedGunStates.LinkToStates();
             
             AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
             AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogic, null,() => _oneHandedMeleeStates.IsEnabled);
-            AddAbilityState(_twoHandedGunStates.BasicAttackState, _attackTransitionLogic, null,() => _twoHandedGunStates.IsEnabled);
+            //AddAbilityState(_twoHandedGunStates.BasicAttackState, _attackTransitionLogic, null,() => _twoHandedGunStates.IsEnabled);
 
             _defaultState = _idle;
             
@@ -184,6 +180,18 @@ namespace Player
             _allKeySubscription.AddRange(newSubs);
             
             _stateMachine.SetState(_defaultState);
+        }
+
+        private void CreateStates()
+        {
+            _idle = new PlayerIdleState(_player, _playerMovement);
+            _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
+            _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
+            _jump = new PlayerJumpingState(_player, _collider2D, _playerMovement, _player.Traits.JumpHeight, _rigidBody);
+            _fall = new PlayerFallState(_player, _collider2D);
+            _dead = new PlayerDieState(_player, _playerMovement, _animator);
+            _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _collider2D, _inputChannel,
+                _player.PlayerTraits.ClimbSpeed);
         }
 
         private void ConfigureDeadState()
@@ -224,9 +232,9 @@ namespace Player
             var shouldTransitionFromInternal =
                 new Func<bool>(() => shouldTransitionFrom?.Invoke() ?? true);
             
-            _stateMachine.AddTransition(_idle, () => _noHorizontalInput() && shouldTransitionFromInternal(), abilityState,null, "Shoot Arrow -> Idle");
-            _stateMachine.AddTransition(_walkLeft, () => _walkLeftTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Shoot Arrow -> Walk Left");
-            _stateMachine.AddTransition(_walkRight, () => _walkRightTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Shoot Arrow -> Walk Right");
+            _stateMachine.AddTransition(_idle, () => _noHorizontalInput() && shouldTransitionFromInternal(), abilityState,null, "Ability -> Idle");
+            _stateMachine.AddTransition(_walkLeft, () => _walkLeftTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Ability -> Walk Left");
+            _stateMachine.AddTransition(_walkRight, () => _walkRightTransitionCondition() && shouldTransitionFromInternal(), abilityState, null,"Ability -> Walk Right");
 
             var shouldTransitionToInternal = new Func<bool>(() => _shouldAbility() && abilityState.IsHotKeyDown() && (shouldTransitionTo?.Invoke() ?? true));
             

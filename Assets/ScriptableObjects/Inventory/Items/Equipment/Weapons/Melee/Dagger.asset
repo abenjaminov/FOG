@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b781062674bf48d1494744f4918c6, type: 3}
   m_Name: Dagger
   m_EditorClassIdentifier: 
-  Id: 
+  Id: c76bf7be-e9e0-4243-95d0-832792ec1e2e
   Name: Dagger
   ItemSprite: {fileID: 21300000, guid: 2be1851c3c804bf4b3f2d9013882d152, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 32126ef41de649bd9dda1a16b7f5d0e4, type: 3}
@@ -33,3 +33,4 @@ MonoBehaviour:
   Part: 7
   RequiredLevel: 5
   MonsterResistance: 10
+  IsStaff: 0

@@ -40,7 +40,7 @@ namespace Persistence
 
         public void Awake()
         {
-            _moduleAccessors.Add(new FileModuleAccessor(PersistantModuleTypes.GameData));
+            _moduleAccessors.Add(new FileModuleAccessor(PersistantModuleTypes.GameState));
             _moduleAccessors.Add(new FileModuleAccessor(PersistantModuleTypes.Inventory));
             _moduleAccessors.Add(new FileModuleAccessor(PersistantModuleTypes.PlayerTraits));
         }

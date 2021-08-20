@@ -10,10 +10,9 @@ namespace Entity.Player.Gun
         private Entity.Player.Player _player;
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.Firearm2H;
         
-        public override void LinkToStates(PlayerStates playerStates)
+        public override void CreateStates()
         {
             _player = GetComponent<Player>();
-            _playerStates = playerStates;
             BasicAttackState = new ShootState(_player, _basicAttackAbility as ShootAttackAbility);
         }
 
