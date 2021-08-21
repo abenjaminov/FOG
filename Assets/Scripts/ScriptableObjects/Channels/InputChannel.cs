@@ -73,7 +73,8 @@ namespace ScriptableObjects.Channels
 
     public class KeyDownSubscription : KeySubscription
     {
-        public KeyDownSubscription(InputChannel channel, KeyCode code, UnityAction action) : base(channel, code, action)
+        public KeyDownSubscription(InputChannel channel, KeyCode code, UnityAction action) 
+            : base(channel, code, action)
         {
         }
 
@@ -85,7 +86,8 @@ namespace ScriptableObjects.Channels
     
     public class KeyUpSubscription : KeySubscription
     {
-        public KeyUpSubscription(InputChannel channel, KeyCode code, UnityAction action) : base(channel, code, action)
+        public KeyUpSubscription(InputChannel channel, KeyCode code, UnityAction action) 
+            : base(channel, code, action)
         {
         }
 

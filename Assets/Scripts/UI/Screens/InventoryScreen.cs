@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Helpers;
-using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using TMPro;
@@ -58,7 +56,7 @@ namespace UI.Screens
 
         protected override void UpdateUI()
         {
-            _coinText.SetText(MoneyToString(_inventory.CurrencyItem.Amount));
+            _coinText.SetText(StringHelper.NumberToString(_inventory.CurrencyItem.Amount));
             
             for (int i = 0; i < _itemViews.Count; i++)
             {
@@ -82,32 +80,6 @@ namespace UI.Screens
         private void ItemAddedEvent(InventoryItem item, int amountAdded)
         {
             UpdateUI();
-        }
-
-        private string MoneyToString(int money)
-        {
-            if (money == 0) return "0";
-            
-            var result = "";
-            var currentPart = "";
-            
-            currentPart = (money % 1000).ToString();
-            
-            while (money > 0)
-            {
-                var zerosToAdd = 3 - currentPart.Length;
-                var zeros = StringHelper.MuiltiplyString("0", zerosToAdd);
-                currentPart = zeros + currentPart;
-                result = currentPart + result;
-                result = "," + result;
-                
-                money /= 1000;
-                currentPart = (money % 1000).ToString();
-            }
-
-            result = result.TrimStart(',', '0');
-            
-            return result;
         }
 
         private void OnItemDoubleClicked(int itemIndex)

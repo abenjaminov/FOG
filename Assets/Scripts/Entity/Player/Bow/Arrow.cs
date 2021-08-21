@@ -9,7 +9,7 @@ namespace Entity.Player.Bow
     {
         [SerializeField] private CombatChannel _combatChannel;
         [HideInInspector] public Player ParentCharacter;
-        [HideInInspector] private Ability _parentAbility;
+        private Ability _parentAbility;
         [SerializeField] private float _speed; 
         [HideInInspector] public Vector2 WorldMovementDirection;
         
@@ -40,15 +40,15 @@ namespace Entity.Player.Bow
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(typeof(Enemy), out var character))
-            {
-                _combatChannel.OnEnemyHit(ParentCharacter, (Enemy)character, _parentAbility);
-                numberOfEnemiesLeft--;
+            if (numberOfEnemiesLeft <= 0) return;
+            if (!other.TryGetComponent(typeof(Enemy), out var character)) return;
+            
+            _combatChannel.OnEnemyHit(ParentCharacter, (Enemy)character, _parentAbility);
+            numberOfEnemiesLeft--;
 
-                if (numberOfEnemiesLeft <= 0)
-                {
-                    Destroy(gameObject);    
-                }
+            if (numberOfEnemiesLeft <= 0)
+            {
+                Destroy(gameObject);    
             }
         }
     }

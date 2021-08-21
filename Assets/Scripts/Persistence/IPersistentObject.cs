@@ -2,7 +2,7 @@
 
 namespace Persistence
 {
-    public interface IPersistantObject
+    public interface IPersistentObject
     {
         PersistantModuleTypes GetModuleType();
         void OnModuleLoaded(IPersistenceModuleAccessor accessor);

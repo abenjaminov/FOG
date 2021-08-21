@@ -9,33 +9,33 @@ namespace Persistence
     {
         [SerializeField] private PersistenceChannel _persistenceChannel;
         
-        private Dictionary<PersistantModuleTypes, List<IPersistantObject>> _moduleLoadedSubscriptions = 
-            new Dictionary<PersistantModuleTypes, List<IPersistantObject>>();
+        private Dictionary<PersistantModuleTypes, List<IPersistentObject>> _moduleLoadedSubscriptions = 
+            new Dictionary<PersistantModuleTypes, List<IPersistentObject>>();
         
-        private Dictionary<PersistantModuleTypes, List<IPersistantObject>> _moduleClosingSubscriptions = 
-            new Dictionary<PersistantModuleTypes, List<IPersistantObject>>();
+        private Dictionary<PersistantModuleTypes, List<IPersistentObject>> _moduleClosingSubscriptions = 
+            new Dictionary<PersistantModuleTypes, List<IPersistentObject>>();
         
         private List<IPersistenceModuleAccessor> _moduleAccessors = 
             new List<IPersistenceModuleAccessor>();
         
-        public void RegisterModuleLoaded(IPersistantObject persistantObject)
+        public void RegisterModuleLoaded(IPersistentObject persistentObject)
         {
-            var moduleType = persistantObject.GetModuleType();
+            var moduleType = persistentObject.GetModuleType();
             
             if(!_moduleLoadedSubscriptions.ContainsKey(moduleType))
-                _moduleLoadedSubscriptions[moduleType] = new List<IPersistantObject>();
+                _moduleLoadedSubscriptions[moduleType] = new List<IPersistentObject>();
                 
-            _moduleLoadedSubscriptions[moduleType].Add(persistantObject);
+            _moduleLoadedSubscriptions[moduleType].Add(persistentObject);
         }
         
-        public void RegisterModuleClosing(IPersistantObject persistantObject)
+        public void RegisterModuleClosing(IPersistentObject persistentObject)
         {
-            var moduleType = persistantObject.GetModuleType();
+            var moduleType = persistentObject.GetModuleType();
             
             if(!_moduleClosingSubscriptions.ContainsKey(moduleType))
-                _moduleClosingSubscriptions[moduleType] = new List<IPersistantObject>();
+                _moduleClosingSubscriptions[moduleType] = new List<IPersistentObject>();
                 
-            _moduleClosingSubscriptions[moduleType].Add(persistantObject);
+            _moduleClosingSubscriptions[moduleType].Add(persistentObject);
         }
 
         public void Awake()
