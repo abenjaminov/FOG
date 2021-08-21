@@ -11,10 +11,11 @@ namespace ScriptableObjects.Channels
         
         public void OnWeaponChanged(WeaponItemMeta newWeapon)
         {
-            InvokeEvent(() =>
-            {
-                WeaponChangedEvent?.Invoke(newWeapon);    
-            });
+            WeaponChangedEvent?.Invoke(newWeapon);
+            // InvokeEvent(() =>
+            // {
+            //     WeaponChangedEvent?.Invoke(newWeapon);    
+            // });
         }
     }
 }

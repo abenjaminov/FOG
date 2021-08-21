@@ -11,20 +11,23 @@ using UnityEngine.SceneManagement;
 
 namespace Game
 {
-    public class LocationsManager : PersistentMonoBehaviour
+    public class LocationsManager : MonoBehaviour
     {
         [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private LocationsChannel _locationsChannel;
-        [SerializeField] private ScenesList _scenesList;
         [SerializeField] private Entity.Player.Player _player;
         
-        [SerializeField] private SceneMeta _defaultFirstScene;
+        public SceneMeta DefaultFirstScene;
         private SceneMeta _currentScene;
-        
-        protected override void Awake()
+
+        public SceneMeta CurrentScene
         {
-            base.Awake();
-            
+            get => _currentScene;
+            set => _currentScene = value;
+        }
+
+        protected void Awake()
+        {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
             _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
             
@@ -35,19 +38,6 @@ namespace Game
         {
             LoadFirstScene();
             _player.SetActive(true);
-        }
-
-        public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
-        {
-            var sceneMetaId = accessor.GetValue<string>("FirstScene");
-            var meta = _scenesList.GetSceneMetaById(sceneMetaId);
-
-            _currentScene = meta != null ? meta : _defaultFirstScene;
-        }
-
-        public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
-        {
-            accessor.PersistData("FirstScene",_currentScene.Id);
         }
 
         private void LoadFirstScene()

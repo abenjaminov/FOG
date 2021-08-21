@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 556090364}
   - component: {fileID: 556090365}
   - component: {fileID: 556090363}
+  - component: {fileID: 556090366}
   m_Layer: 0
   m_Name: Persistence
   m_TagString: Untagged
@@ -385,6 +386,22 @@ MonoBehaviour:
   _moduleType: 2
   _persistenceManager: {fileID: 556090364}
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+--- !u!114 &556090366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556090361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f615acd5ea944dbadb860aae4a7fcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moduleType: 0
+  _persistenceManager: {fileID: 556090364}
+  _locationsManager: {fileID: 2840444360503644839}
+  _scenesList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
 --- !u!1001 &829100520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,13 +649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd11730e5dc41e08036db1841409619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moduleType: 0
-  _persistenceManager: {fileID: 556090364}
   _persistenceChannel: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
-  _scenesList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
   _player: {fileID: 1322855706}
-  _defaultFirstScene: {fileID: 11400000, guid: d00f9203157f05944a67932cb48531a4, type: 2}
+  DefaultFirstScene: {fileID: 0}
 --- !u!1 &2840444360503644841
 GameObject:
   m_ObjectHideFlags: 0
