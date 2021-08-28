@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: dca39de9-e66c-40be-bf05-a398618b2bd7
   Name: Mercenary Helmet
   ItemSprite: {fileID: 21300000, guid: d75363f7bbeb40cb8f1f6fa975f2f764, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: d75363f7bbeb40cb8f1f6fa975f2f764, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: e04d8dce10b54a9a981402fbcef77cb9, type: 3}
   Item:
     Name: MercenaryHelm2 [Paint]
     Collection: Basic

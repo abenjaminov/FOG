@@ -20,6 +20,7 @@ namespace UI
         
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
+        [SerializeField] private GUIScreen _equipment;
         [SerializeField] private GUIScreen _map;
         
         [SerializeField] private ChatSelectionScreen _chatSelectionScreen;
@@ -47,6 +48,7 @@ namespace UI
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_map.GetActivationKey(), ToggleMapScreen));
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_equipment.GetActivationKey(), ToggleEquipmentScreen));
             
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen));
 
@@ -56,6 +58,11 @@ namespace UI
             }
         }
 
+        private void ToggleEquipmentScreen()
+        {
+            ToggleScreen(_equipment);
+        }
+        
         private void ToggleTraitsScreen()
         {
             ToggleScreen(_traitsScreen);

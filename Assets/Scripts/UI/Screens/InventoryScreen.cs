@@ -13,6 +13,7 @@ namespace UI.Screens
         private Entity.Player.Player _player;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private InventoryChannel _invChannel;
+        [SerializeField] private EquipmentDetailsPanel _equipmentDetailsPanel;
 
         [SerializeField] private TextMeshProUGUI _coinText;
         private List<InventoryItemView> _itemViews = new List<InventoryItemView>();
@@ -24,28 +25,43 @@ namespace UI.Screens
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked += ItemViewDoubleClicked;
+                itemView.ItemViewMouseEnter += ItemViewMouseEnter;
+                itemView.ItemViewMouseExit += ItemViewMouseExit;
             }
             
             base.Awake();
         }
 
+        private void ItemViewMouseExit(EquipmentItemView item)
+        {
+            _equipmentDetailsPanel.HideItemDetails();
+        }
+
+        private void ItemViewMouseEnter(EquipmentItemView item)
+        {
+            if (item.ItemMeta == null) return;
+            _equipmentDetailsPanel.ShowItemDetails(item.ItemMeta);
+        }
+
         void Start()
         {
             _player = FindObjectOfType<Entity.Player.Player>();
-            _invChannel.ItemAddedEvent += ItemAddedEvent;
+            _invChannel.ItemAddedSilentEvent += ItemAddedSilentEvent;
         }
 
-        private void ItemViewDoubleClicked(InventoryItemView item)
+        private void ItemViewDoubleClicked(EquipmentItemView item)
         {
-            OnItemDoubleClicked(_itemViews.IndexOf(item));
+            OnItemDoubleClicked(_itemViews.IndexOf(item as InventoryItemView));
         }
 
         private void OnDestroy()
         {
-            _invChannel.ItemAddedEvent -= ItemAddedEvent;
+            _invChannel.ItemAddedEvent -= ItemAddedSilentEvent;
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked -= ItemViewDoubleClicked;
+                itemView.ItemViewMouseEnter -= ItemViewMouseEnter;
+                itemView.ItemViewMouseExit -= ItemViewMouseExit;
             }
         }
 
@@ -67,17 +83,19 @@ namespace UI.Screens
                     _itemViews[i].ItemSprite.sprite = _inventory.OwnedItems[i].ItemMeta.InventoryItemSprite;
                     _itemViews[i].AmountText.SetText(_inventory.OwnedItems[i].Amount.ToString());
                     _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 255);
+                    _itemViews[i].ItemMeta = _inventory.OwnedItems[i].ItemMeta;
                 }
                 else
                 {
                     _itemViews[i].ItemSprite.sprite = null;
                     _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 0);
                     _itemViews[i].AmountText.SetText("");
+                    _itemViews[i].ItemMeta = null;
                 }
             }
         }
 
-        private void ItemAddedEvent(InventoryItem item, int amountAdded)
+        private void ItemAddedSilentEvent(InventoryItem item, int amountAdded)
         {
             UpdateUI();
         }

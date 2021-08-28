@@ -40,11 +40,9 @@ namespace ScriptableObjects.Inventory
             return MetaByType[partType]();
         }
         
-        public void SetMetaItem(EquipmentItemMeta meta)
+        public void SetMetaItem(EquipmentItemMeta meta, EquipmentPart? part = null)
         {
-            if (meta == null) return;
-
-            switch (meta.Part)
+            switch (part ?? meta.Part)
             {
                 case EquipmentPart.Helmet:
                     Helmet = meta;
@@ -56,19 +54,19 @@ namespace ScriptableObjects.Inventory
                     Armour = meta;
                     break;
                 case EquipmentPart.MeleeWeapon1H:
-                    ChangePrimaryWeapon(meta as WeaponItemMeta);
+                    ChangePrimaryWeapon(meta as WeaponItemMeta, part);
                     break;
                 case EquipmentPart.Bow:
-                    ChangePrimaryWeapon(meta as WeaponItemMeta);
+                    ChangePrimaryWeapon(meta as WeaponItemMeta, part);
                     break;
                 default:
                     break;
             }
         }
 
-        private void ChangePrimaryWeapon(WeaponItemMeta meta)
+        private void ChangePrimaryWeapon(WeaponItemMeta meta, EquipmentPart? part = null)
         {
-            _playerChannel.OnWeaponChanged(meta);
+            _playerChannel.OnWeaponChanged(meta, part);
             PrimaryWeapon = meta;
         }
     }

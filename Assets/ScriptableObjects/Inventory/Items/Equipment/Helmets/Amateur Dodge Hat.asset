@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 2ca88128-081c-445e-86eb-e951f7245101
   Name: Amateur Dodge Hat
   ItemSprite: {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: 334d56f30c624d12be10e3b4e94f2bac, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 878803e031b44940bdbf9bd7726b8761, type: 3}
   Item:
     Name: AmateurDodgeHat
     Collection: Basic

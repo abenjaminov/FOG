@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: f085956c-be95-47fa-a870-9a5b973daa4b
   Name: Hermit Hat
   ItemSprite: {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
-  InventoryItemSprite: {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
+  InventoryItemSprite: {fileID: 21300000, guid: 0ec7106d9fa84de9a25c337c5127046a, type: 3}
   Item:
     Name: HermitHat
     Collection: Basic

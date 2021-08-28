@@ -38,9 +38,9 @@ namespace Entity.Player.Melee
             _playerStates.IsAbilityAnimationActivated = false;
         }
 
-        protected override void OnWeaponChanged(WeaponItemMeta weapon)
+        protected override void OnWeaponChanged(WeaponItemMeta weapon, EquipmentPart part)
         {
-            IsEnabled = weapon.Part == WeaponEquipmentType && !weapon.IsStaff;
+            IsEnabled = weapon != null && weapon.Part == WeaponEquipmentType && !weapon.IsStaff;
 
             if (IsEnabled)
             {

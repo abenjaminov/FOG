@@ -42,17 +42,20 @@ namespace Entity.Player
         {
             UnEquipItem(meta.Part);
             _character.Equip(meta.Item, meta.Part); 
-            _playerEquipment.SetMetaItem(meta);
+            _playerEquipment.SetMetaItem(meta, meta.Part);
+            _playerChannel.OnItemEquipped(meta);
         }
 
         public void UnEquipItem(EquipmentPart part)
         {
-            EquipmentItemMeta oldEquipment = _playerEquipment.GetItemMetaByPartType(part);
+            var oldEquipment = _playerEquipment.GetItemMetaByPartType(part);
 
             if (oldEquipment != null)
             {
                 _playerInventory.AddItemSilent(oldEquipment, 1);
                 _character.UnEquip(oldEquipment.Part);
+                _playerEquipment.SetMetaItem(null, part);
+                _playerChannel.OnItemUnEquipped(null, part);
             }
         }
     }

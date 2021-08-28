@@ -44,6 +44,8 @@ namespace ScriptableObjects.Inventory
                 }
             }
 
+            _inventoryChannel.OnItemAddedSilent(inventoryItem, amountToAdd);
+            
             return inventoryItem;
         }
         

@@ -9,10 +9,16 @@ namespace ScriptableObjects.Channels
     public class InventoryChannel : ScriptableObject
     {
         public UnityAction<InventoryItem, int> ItemAddedEvent;
+        public UnityAction<InventoryItem, int> ItemAddedSilentEvent;
 
         public void OnItemAdded(InventoryItem item, int amountAdded)
         {
             ItemAddedEvent?.Invoke(item, amountAdded);
+        }
+        
+        public void OnItemAddedSilent(InventoryItem item, int amountAdded)
+        {
+            ItemAddedSilentEvent?.Invoke(item, amountAdded);
         }
     }
 }

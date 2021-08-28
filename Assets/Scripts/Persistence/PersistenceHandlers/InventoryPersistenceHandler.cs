@@ -12,6 +12,8 @@ namespace Persistence.PersistenceHandlers
 
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
         {
+            if (Debug.isDebugBuild) return;
+            
             var persistence = accessor.GetValue<PlayerInventoryPersistence>("PlayerInventory");
 
             if (persistence == null) return;
