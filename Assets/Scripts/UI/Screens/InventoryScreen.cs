@@ -32,15 +32,16 @@ namespace UI.Screens
             base.Awake();
         }
 
-        private void ItemViewMouseExit(EquipmentItemView item)
+        public void ItemViewMouseExit(EquipmentItemView item)
         {
             _equipmentDetailsPanel.HideItemDetails();
         }
 
-        private void ItemViewMouseEnter(EquipmentItemView item)
+        public void ItemViewMouseEnter(EquipmentItemView itemView)
         {
-            if (item.ItemMeta == null) return;
-            _equipmentDetailsPanel.ShowItemDetails(item.ItemMeta);
+            if (itemView.ItemMeta == null) return;
+            
+            _equipmentDetailsPanel.ShowItemDetails(itemView.ItemMeta, itemView.GetBottomLeftCorner());
         }
 
         void Start()

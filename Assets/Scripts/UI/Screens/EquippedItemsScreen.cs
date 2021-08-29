@@ -108,7 +108,7 @@ namespace UI.Screens
 
         private void ItemViewMouseEnter(EquipmentItemView itemView)
         {
-            _equipmentDetailsPanel.ShowItemDetails(itemView.ItemMeta);
+            _equipmentDetailsPanel.ShowItemDetails(itemView.ItemMeta, itemView.GetBottomLeftCorner());
         }
 
         public override KeyCode GetActivationKey()

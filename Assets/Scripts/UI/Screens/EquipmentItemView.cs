@@ -14,6 +14,12 @@ namespace UI.Screens
         public Action<EquipmentItemView> ItemViewDoubleClicked;
         public Action<EquipmentItemView> ItemViewMouseEnter;
         public Action<EquipmentItemView> ItemViewMouseExit;
+        private Collider2D _collider;
+
+        private void Awake()
+        {
+            _collider = GetComponent<Collider2D>();
+        }
 
         public void HandleDoubleClick()
         {
@@ -28,6 +34,11 @@ namespace UI.Screens
         public void OnPointerExit(PointerEventData eventData)
         {
             ItemViewMouseExit?.Invoke(this);
+        }
+
+        public Vector2 GetBottomLeftCorner()
+        {
+            return new Vector2(_collider.bounds.max.x, _collider.bounds.max.y);
         }
     }
 }

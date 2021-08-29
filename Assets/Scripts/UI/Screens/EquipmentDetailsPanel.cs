@@ -14,11 +14,12 @@ namespace UI.Screens
         [SerializeField] private TextMeshProUGUI _midText;
         [SerializeField] private TextMeshProUGUI _bottomText;
         
-        public void ShowItemDetails(InventoryItemMeta itemMeta)
+        public void ShowItemDetails(InventoryItemMeta itemMeta, Vector2 position)
         {
             gameObject.SetActive(true);
+            
             _itemImage.sprite = itemMeta.InventoryItemSprite;
-            transform.position = Input.mousePosition;
+            transform.position = position;
 
             if (itemMeta is PotionItemMeta potionMeta)
             {
