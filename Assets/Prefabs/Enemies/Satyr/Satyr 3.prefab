@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5567963214363045085}
   - component: {fileID: 5567963214363045087}
   - component: {fileID: 5567963214363045084}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 5567963214528427324}
   - component: {fileID: 5567963214528427325}
   - component: {fileID: 3906437158797357701}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 5567963214745161939}
   - component: {fileID: 5567963214745161949}
   - component: {fileID: 5567963214745161938}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 5567963215461287711}
   - component: {fileID: 5567963215461287708}
   - component: {fileID: 5567963215461287709}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Satyr 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ MonoBehaviour:
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.1
-  - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  - ItemMetaData: {fileID: 0}
     Percentage: 0.03
   _dropPosition: {fileID: 5567963216288472200}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 5567963215815780438}
   - component: {fileID: 5567963215815780433}
   - component: {fileID: 5567963215815780432}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5567963216288472200}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

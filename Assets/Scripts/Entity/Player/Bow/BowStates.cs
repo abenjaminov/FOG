@@ -16,6 +16,9 @@ namespace Entity.Player.Bow
         [Header("Fast Attack Buff")]
         [SerializeField] private FastAttackBuff _fastAttackBuff;
 
+        private ArcherShootArrowAbilityState _strongArrowState;
+        private ArcherApplyFastAttackBuffState _fastAttackBuffState;
+
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.Bow;
 
         public override void Initialize()
@@ -27,22 +30,28 @@ namespace Entity.Player.Bow
         {
             BasicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
             
-            var strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
-            _playerStates.AddAttackState(strongArrowState);
+            _strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
+            _playerStates.AddAttackState(_strongArrowState);
             
-            var fastAttackBuffState =
+            _fastAttackBuffState =
                 new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
-            _playerStates.AddBuffState(fastAttackBuffState,() => fastAttackBuffState.IsBuffApplied);
+            _playerStates.AddBuffState(_fastAttackBuffState,() => _fastAttackBuffState.IsBuffApplied);
         }
 
         protected override void ActivateStates()
         {
             _playerStates.AnimationEvents.BowChargeEndEvent += BowChargeEndEvent;
+            BasicAttackState.Ability.Activate();
+            _strongArrowState.Ability.Activate();
+            _fastAttackBuffState.Ability.Activate();
         }
 
         protected override void DeActivateStates()
         {
             _playerStates.AnimationEvents.BowChargeEndEvent -= BowChargeEndEvent;
+            BasicAttackState.Ability.Deactivate();
+            _strongArrowState.Ability.Deactivate();
+            _fastAttackBuffState.Ability.Deactivate();
         }
 
         private void BowChargeEndEvent()

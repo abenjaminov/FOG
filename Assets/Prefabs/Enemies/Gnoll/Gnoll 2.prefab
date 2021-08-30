@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6154071945152988773}
   - component: {fileID: 6154071945152988775}
   - component: {fileID: 6154071945152988774}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6154071945278066618}
   - component: {fileID: 6154071945278066617}
   - component: {fileID: 6154071945278066616}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 6154071945619054722}
   - component: {fileID: 6154071945619054724}
   - component: {fileID: 6154071945619054723}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 6154071945627183308}
   - component: {fileID: 6154071945627183307}
   - component: {fileID: 6173505194550347541}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 6154071945942122210}
   - component: {fileID: 6154071945942122209}
   - component: {fileID: 3769493848134667600}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Gnoll 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154071946120773196}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

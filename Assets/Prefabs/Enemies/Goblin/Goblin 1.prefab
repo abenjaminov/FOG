@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5805850283867269021}
   - component: {fileID: 5805850283867269022}
   - component: {fileID: 5805850283867269023}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5805850284307811106}
   - component: {fileID: 5805850284307811108}
   - component: {fileID: 5805850284307811107}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5805850284319473682}
   - component: {fileID: 5805850284319473681}
   - component: {fileID: 5805850284319473680}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Goblin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.1
-  - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  - ItemMetaData: {fileID: 0}
     Percentage: 0.03
   _dropPosition: {fileID: 5805850285118029639}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5805850285109469740}
   - component: {fileID: 5805850285109469739}
   - component: {fileID: 4576948155582035868}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5805850285118029639}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 5805850285759724348}
   - component: {fileID: 5805850285759724350}
   - component: {fileID: 5805850285759724349}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

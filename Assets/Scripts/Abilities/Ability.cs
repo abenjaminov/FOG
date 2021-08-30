@@ -18,5 +18,7 @@ namespace Abilities
         }
 
         public abstract void Use();
+        public virtual void Activate() {}
+        public virtual void Deactivate() {}
     }
 }

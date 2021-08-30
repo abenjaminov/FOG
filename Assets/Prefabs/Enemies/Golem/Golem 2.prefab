@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6783361957317803258}
   - component: {fileID: 6783361957317803259}
   - component: {fileID: 842220396303653002}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 6783361957551036466}
   - component: {fileID: 6783361957551036465}
   - component: {fileID: 6783361957551036464}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6783361957577583361}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 6783361957774916623}
   - component: {fileID: 6783361957774916621}
   - component: {fileID: 6783361957774916622}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 6783361958175547065}
   - component: {fileID: 6783361958175547066}
   - component: {fileID: 6783361958175547067}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Golem 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ MonoBehaviour:
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.1
-  - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  - ItemMetaData: {fileID: 0}
     Percentage: 0.03
   _dropPosition: {fileID: 6783361957577583361}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 6783361958382584018}
   - component: {fileID: 6783361958382584016}
   - component: {fileID: 6783361958382584017}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

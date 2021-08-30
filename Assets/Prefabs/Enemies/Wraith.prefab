@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7295133352606717480}
   - component: {fileID: 7295133352606717481}
   - component: {fileID: 7295133352606717478}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7295133353005326956}
   - component: {fileID: 7295133353005326959}
   - component: {fileID: 7295133353005326958}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Wraith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.1
-  - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  - ItemMetaData: {fileID: 0}
     Percentage: 0.03
   _dropPosition: {fileID: 7295133354446026764}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7295133353352376683}
   - component: {fileID: 7295133353352376681}
   - component: {fileID: 7295133353352376680}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 7295133353713862118}
   - component: {fileID: 7295133353713862116}
   - component: {fileID: 7295133353713862119}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 7295133353948501351}
   - component: {fileID: 7295133353948501350}
   - component: {fileID: 6016444606775308171}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7295133354446026764}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

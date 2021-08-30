@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 3614734985180281833}
   - component: {fileID: 3614734985180281814}
   - component: {fileID: 3614734985180281824}
-  - component: {fileID: 8792172990880172696}
+  - component: {fileID: 3155011166783144472}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -297,7 +297,6 @@ MonoBehaviour:
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
   _bowStates: {fileID: 3614734985180281814}
   _oneHandedMeleeStates: {fileID: 3614734985180281824}
-  _twoHandedGunStates: {fileID: 8792172990880172696}
 --- !u!114 &3614734985180281833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +331,7 @@ MonoBehaviour:
   _basicAttackAbility: {fileID: 3614734985040064252}
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   IsEnabled: 0
+  _playerStates: {fileID: 0}
   _fireArrowAbility: {fileID: 3614734985040064251}
   _fastAttackBuff: {fileID: 3614734985040064250}
 --- !u!114 &3614734985180281824
@@ -349,7 +349,8 @@ MonoBehaviour:
   _basicAttackAbility: {fileID: 3614734985180281833}
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   IsEnabled: 0
---- !u!114 &8792172990880172696
+  _playerStates: {fileID: 3614734985180281815}
+--- !u!114 &3155011166783144472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,12 +359,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3614734985040064249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4679a10df8594f92abd6abcff4686a0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 92150b852ac14b6e97b874dcbffa388f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _basicAttackAbility: {fileID: 1498660930}
-  _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
-  IsEnabled: 0
+  HotKey: 306
+  IsHotKeyDown: 0
+  DamagePercentage: 1
+  NumberOfEnemies: 1
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+  _range: 5
+  _layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3614734985330732682
 GameObject:
   m_ObjectHideFlags: 0

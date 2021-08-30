@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
+using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace UI.Screens
 {
     public class EquipmentDetailsPanel : MonoBehaviour
     {
+        [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] private Image _itemImage;
         [SerializeField] private TextMeshProUGUI _topText;
         [SerializeField] private TextMeshProUGUI _midText;
@@ -31,7 +33,32 @@ namespace UI.Screens
             {
                 _topText.text = weaponMeta.Name;
                 _midText.text = "MR : " + weaponMeta.MonsterResistance;
+                
                 _bottomText.text = "Level : " + weaponMeta.RequiredLevel;
+
+                if (_playerTraits.Level < weaponMeta.RequiredLevel)
+                {
+                    _bottomText.color = Color.red;
+                }
+                else
+                {
+                    _bottomText.color = Color.white;
+                }
+            }
+            else if (itemMeta is EquipmentItemMeta equipmentMeta)
+            {
+                _topText.text = equipmentMeta.Name;
+                _midText.text = "Level : " + equipmentMeta.RequiredLevel;
+                _bottomText.text = "";
+
+                if (_playerTraits.Level < equipmentMeta.RequiredLevel)
+                {
+                    _midText.color = Color.red;
+                }
+                else
+                {
+                    _midText.color = Color.white;
+                }
             }
         }
 

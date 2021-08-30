@@ -5,6 +5,7 @@ using Assets.HeroEditor.Common.CharacterScripts;
 using Entity;
 using Entity.Player;
 using Entity.Player.Bow;
+using Entity.Player.Magic;
 using Entity.Player.Melee;
 using Game;
 using ScriptableObjects.Channels;
@@ -29,6 +30,7 @@ namespace Player
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
         [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
+        [SerializeField] private MagicStates _magicStates;
         //[SerializeField] private TwoHandedGunStates _twoHandedGunStates;
         
         private IState _defaultState;
@@ -84,7 +86,7 @@ namespace Player
             
             _bowStates.Initialize();
             _oneHandedMeleeStates.Initialize();
-            //_twoHandedGunStates.Initialize();
+            _magicStates.Initialize();
         }
         
         protected virtual void Start()
@@ -149,11 +151,11 @@ namespace Player
 
             _bowStates.CreateStates();
             _oneHandedMeleeStates.CreateStates();
-            //_twoHandedGunStates.LinkToStates();
+            _magicStates.CreateStates();
             
             AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
             AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogic, null,() => _oneHandedMeleeStates.IsEnabled);
-            //AddAbilityState(_twoHandedGunStates.BasicAttackState, _attackTransitionLogic, null,() => _twoHandedGunStates.IsEnabled);
+            AddAbilityState(_magicStates.BasicAttackState, _attackTransitionLogic, null,() => _magicStates.IsEnabled);
 
             _defaultState = _idle;
             

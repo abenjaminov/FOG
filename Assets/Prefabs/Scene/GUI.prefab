@@ -3050,6 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad54d7ec70d6467384944a354a9daca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   _itemImage: {fileID: 6848034753435852731}
   _topText: {fileID: 1304447416033127381}
   _midText: {fileID: 3241286598625339613}

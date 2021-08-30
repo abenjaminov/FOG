@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8862956891177234563}
   - component: {fileID: 8862956891177234562}
   - component: {fileID: 8862956891177234621}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8862956892139851571}
   - component: {fileID: 8862956892139851568}
   - component: {fileID: 8716078318444046932}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Enemy Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8862956892209775817}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DamageSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 8862956892285068921}
   - component: {fileID: 8862956892285068926}
   - component: {fileID: 8862956892285068927}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Regular Skeleton 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ MonoBehaviour:
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
     Percentage: 0.1
-  - ItemMetaData: {fileID: 11400000, guid: ab1a3d8606970ac499b53f789335b36e, type: 2}
+  - ItemMetaData: {fileID: 0}
     Percentage: 0.03
   _dropPosition: {fileID: 8862956892209775817}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 8862956892355092439}
   - component: {fileID: 8862956892355092433}
   - component: {fileID: 8862956892355092438}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 8862956892413812257}
   - component: {fileID: 8862956892413812259}
   - component: {fileID: 8862956892413812256}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HealthBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

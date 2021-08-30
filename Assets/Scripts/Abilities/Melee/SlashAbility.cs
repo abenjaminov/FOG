@@ -8,12 +8,21 @@ namespace Abilities.Melee
         protected void Start()
         {
             _animationEvents = GetComponentInChildren<AnimationEvents>();
-            _animationEvents.MeleeStrikeEvent += OnMeleeHit;
         }
 
         public override void Use()
         {
             _hostWrapper.GetCharacter().Slash();
+        }
+
+        public override void Activate()
+        {
+            _animationEvents.MeleeStrikeEvent += OnMeleeHit;
+        }
+
+        public override void Deactivate()
+        {
+            _animationEvents.MeleeStrikeEvent -= OnMeleeHit;
         }
     }
 }
