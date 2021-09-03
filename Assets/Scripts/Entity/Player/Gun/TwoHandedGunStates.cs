@@ -18,12 +18,12 @@ namespace Entity.Player.Gun
 
         protected override void ActivateStates()
         {
-            _playerStates.AnimationEvents.ShootEndEvent += ShootEndEvent;
+            AnimationEvents.ShootEndEvent += ShootEndEvent;
         }
 
         protected override void DeActivateStates()
         {
-            _playerStates.AnimationEvents.ShootEndEvent -= ShootEndEvent;
+            AnimationEvents.ShootEndEvent -= ShootEndEvent;
         }
         
         private void ShootEndEvent()

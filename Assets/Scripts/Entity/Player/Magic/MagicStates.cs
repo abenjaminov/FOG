@@ -23,18 +23,18 @@ namespace Entity.Player.Magic
 
         protected override void ActivateStates()
         {
-            _playerStates.AnimationEvents.SlashEndEvent += SlashEndEvent;
+            AnimationEvents.SlashEndEvent += SlashEndEvent;
             BasicAttackState.Ability.Activate();
         }
 
         private void SlashEndEvent()
         {
-            _playerStates.IsAbilityAnimationActivated = false;
+            IsAbilityAnimationActivated = false;
         }
 
         protected override void DeActivateStates()
         {
-            _playerStates.AnimationEvents.SlashEndEvent -= SlashEndEvent;
+            AnimationEvents.SlashEndEvent -= SlashEndEvent;
             BasicAttackState.Ability.Deactivate();
         }
         
@@ -42,10 +42,7 @@ namespace Entity.Player.Magic
         {
             IsEnabled = weapon != null && weapon.Part == WeaponEquipmentType && weapon.IsStaff;
 
-            if (IsEnabled)
-            {
-                ActivateStates();
-            }
+            TryEnableStates();
         }
     }
 }

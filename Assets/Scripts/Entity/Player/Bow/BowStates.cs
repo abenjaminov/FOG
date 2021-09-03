@@ -31,7 +31,7 @@ namespace Entity.Player.Bow
             BasicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
             
             _strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
-            _playerStates.AddAttackState(_strongArrowState);
+            _playerStates.AddAttackState(_strongArrowState, this);
             
             _fastAttackBuffState =
                 new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
@@ -40,7 +40,7 @@ namespace Entity.Player.Bow
 
         protected override void ActivateStates()
         {
-            _playerStates.AnimationEvents.BowChargeEndEvent += BowChargeEndEvent;
+            AnimationEvents.BowChargeEndEvent += BowChargeEndEvent;
             BasicAttackState.Ability.Activate();
             _strongArrowState.Ability.Activate();
             _fastAttackBuffState.Ability.Activate();
@@ -48,7 +48,7 @@ namespace Entity.Player.Bow
 
         protected override void DeActivateStates()
         {
-            _playerStates.AnimationEvents.BowChargeEndEvent -= BowChargeEndEvent;
+            AnimationEvents.BowChargeEndEvent -= BowChargeEndEvent;
             BasicAttackState.Ability.Deactivate();
             _strongArrowState.Ability.Deactivate();
             _fastAttackBuffState.Ability.Deactivate();
@@ -56,7 +56,7 @@ namespace Entity.Player.Bow
 
         private void BowChargeEndEvent()
         {
-            _playerStates.IsAbilityAnimationActivated = false;
+            IsAbilityAnimationActivated = false;
         }
     }
 }

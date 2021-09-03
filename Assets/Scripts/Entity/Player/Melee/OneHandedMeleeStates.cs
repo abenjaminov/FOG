@@ -25,29 +25,26 @@ namespace Entity.Player.Melee
 
         protected override void ActivateStates()
         {
-            _playerStates.AnimationEvents.SlashEndEvent += SlashEndEvent;
+            AnimationEvents.SlashEndEvent += SlashEndEvent;
             BasicAttackState.Ability.Activate();
         }
 
         protected override void DeActivateStates()
         {
-            _playerStates.AnimationEvents.SlashEndEvent -= SlashEndEvent;
+            AnimationEvents.SlashEndEvent -= SlashEndEvent;
             BasicAttackState.Ability.Deactivate();
         }
 
         private void SlashEndEvent()
         {
-            _playerStates.IsAbilityAnimationActivated = false;
+            IsAbilityAnimationActivated = false;
         }
 
         protected override void OnWeaponChanged(WeaponItemMeta weapon, EquipmentPart part)
         {
             IsEnabled = weapon != null && weapon.Part == WeaponEquipmentType && !weapon.IsStaff;
 
-            if (IsEnabled)
-            {
-                ActivateStates();
-            }
+            TryEnableStates();
         }
     }
 }

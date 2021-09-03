@@ -19,19 +19,16 @@ namespace Player
     public class PlayerStates : MonoBehaviour
     {
         private bool _isBasicAttackKeyDown;
-        internal bool IsAbilityAnimationActivated = false;
-        
+
         protected StateMachine _stateMachine;
         
         [SerializeField] private InputChannel _inputChannel;
-
-        internal AnimationEvents AnimationEvents;
 
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
         [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
         [SerializeField] private MagicStates _magicStates;
-        //[SerializeField] private TwoHandedGunStates _twoHandedGunStates;
+        private WeaponStates _activeWeaponStates;
         
         private IState _defaultState;
         protected int _horizontalAxisRaw;
@@ -64,7 +61,8 @@ namespace Player
         protected Func<bool> _noHorizontalInput;
         
         // Transition Logic
-        protected Action _attackTransitionLogic;
+        protected Func<WeaponStates, Action> _attackTransitionLogicWrapper;
+        protected Action<WeaponStates> _attackTransitionLogic;
         protected Action _buffTransitionLogic;
         
         protected float _timeUntillNextAttack = 0;
@@ -80,22 +78,43 @@ namespace Player
             _animator = GetComponentInChildren<Animator>();
             _player = GetComponent<Entity.Player.Player>();
             _playerClimb = GetComponentInChildren<PlayerClimb>();
-            AnimationEvents = GetComponentInChildren<AnimationEvents>();
+
+            _attackTransitionLogic = (weaponStates) =>
+            {
+                _timeUntillNextAttack = _player.Traits.DelayBetweenAttacks;
+                weaponStates.IsAbilityAnimationActivated = true;
+            };
+
+            _attackTransitionLogicWrapper = new Func<WeaponStates, Action>(weaponStates =>
+            {
+                return () =>
+                {
+                    _attackTransitionLogic(weaponStates);
+                };
+            });
             
             _stateMachine = new StateMachine(false);
             
             _bowStates.Initialize();
+            _bowStates.StatesActivatedEvent += StatesActivatedEvent;
             _oneHandedMeleeStates.Initialize();
+            _oneHandedMeleeStates.StatesActivatedEvent += StatesActivatedEvent;
             _magicStates.Initialize();
+            _magicStates.StatesActivatedEvent += StatesActivatedEvent;
         }
-        
+
+        private void StatesActivatedEvent(WeaponStates activeStates)
+        {
+            _activeWeaponStates = activeStates;
+        }
+
         protected virtual void Start()
         {
             CreateStates();
 
-            _noHorizontalInput = () => _horizontalAxisRaw == 0 && !IsAbilityAnimationActivated;
-            _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
-            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !IsAbilityAnimationActivated;
+            _noHorizontalInput = () => _horizontalAxisRaw == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
+            _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
+            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
             var shouldJump = new Func<bool>(() =>  _isJumpButtonDown && _playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var shouldFall = new Func<bool>(() =>  !_playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
@@ -107,12 +126,8 @@ namespace Player
                                                       ((_playerClimb.CurrentEdge.Type == EdgeType.Upper && _isClimUpButtonDown) || 
                                                        (_playerClimb.CurrentEdge.Type == EdgeType.Lower && _isClimbDownButtonDown)));
 
-            _shouldAbility = () => !IsAbilityAnimationActivated && _timeUntillNextAttack <= 0;
-            _attackTransitionLogic = () =>
-            {
-                _timeUntillNextAttack = _player.Traits.DelayBetweenAttacks;
-                IsAbilityAnimationActivated = true;
-            };
+            _shouldAbility = () => _activeWeaponStates != null && !_activeWeaponStates.IsAbilityAnimationActivated && _timeUntillNextAttack <= 0;
+           
             
             _buffTransitionLogic = () =>
             {
@@ -153,9 +168,9 @@ namespace Player
             _oneHandedMeleeStates.CreateStates();
             _magicStates.CreateStates();
             
-            AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogic, null,() => _bowStates.IsEnabled);
-            AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogic, null,() => _oneHandedMeleeStates.IsEnabled);
-            AddAbilityState(_magicStates.BasicAttackState, _attackTransitionLogic, null,() => _magicStates.IsEnabled);
+            AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogicWrapper(_bowStates), null,() => _bowStates.IsEnabled);
+            AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogicWrapper(_oneHandedMeleeStates), null,() => _oneHandedMeleeStates.IsEnabled);
+            AddAbilityState(_magicStates.BasicAttackState, _attackTransitionLogicWrapper(_magicStates), null,() => _magicStates.IsEnabled);
 
             _defaultState = _idle;
             
@@ -216,9 +231,9 @@ namespace Player
             _stateMachine.Tick();
         }
 
-        internal void AddAttackState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
+        internal void AddAttackState(IAbilityState abilityState, WeaponStates weaponStates, Func<bool> shouldTransitionFrom = null)
         {
-            AddAbilityState(abilityState, _attackTransitionLogic, shouldTransitionFrom);
+            AddAbilityState(abilityState, _attackTransitionLogicWrapper(weaponStates), shouldTransitionFrom);
         }
         
         internal void AddBuffState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
@@ -270,6 +285,9 @@ namespace Player
             
             _allKeySubscription.Clear();
             _stateMachine.Close();
+            _bowStates.StatesActivatedEvent -= StatesActivatedEvent;
+            _oneHandedMeleeStates.StatesActivatedEvent -= StatesActivatedEvent;
+            _magicStates.StatesActivatedEvent -= StatesActivatedEvent;
         }
     }
 }

@@ -32,8 +32,7 @@ namespace Entity.Player
         {
             base.Awake();
             
-            var visuals = Instantiate(_charachterVisuals, Vector3.zero, Quaternion.identity, this.transform);
-            visuals.transform.localPosition = Vector3.zero;
+            _charachterVisuals.transform.localPosition = Vector3.zero;
             
             _playerTraits = Traits as PlayerTraits;;
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;

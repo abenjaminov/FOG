@@ -15,7 +15,10 @@ namespace ScriptableObjects.Channels
         
         public void OnWeaponChanged(WeaponItemMeta newWeapon, EquipmentPart? part = null)
         {
-            WeaponChangedEvent?.Invoke(newWeapon, part ?? newWeapon.Part);
+            InvokeEvent(() =>
+            {
+                WeaponChangedEvent?.Invoke(newWeapon, part ?? newWeapon.Part);    
+            });
         }
 
         public void OnItemEquipped(EquipmentItemMeta itemMeta, EquipmentPart? part = null)

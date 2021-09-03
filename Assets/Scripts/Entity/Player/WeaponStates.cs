@@ -1,20 +1,21 @@
 ﻿using System;
 using Abilities;
+using Assets.HeroEditor.Common.CharacterScripts;
 using HeroEditor.Common.Enums;
 using Player;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory.ItemMetas;
 using State.States;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Entity.Player
 {
-    public abstract class WeaponStates<TBasicAbilityType> : MonoBehaviour where TBasicAbilityType : Ability
+    public abstract class WeaponStates : MonoBehaviour
     {
-        [SerializeField] protected TBasicAbilityType _basicAttackAbility;
-        [HideInInspector] public PlayerAbilityState<TBasicAbilityType> BasicAttackState;
-        
-        [SerializeField] private PlayerChannel _playerChannel;
+        public bool IsAbilityAnimationActivated;
+        protected AnimationEvents AnimationEvents;
+        [SerializeField] protected PlayerChannel _playerChannel;
 
         [HideInInspector] public bool IsEnabled;
 
@@ -22,19 +23,19 @@ namespace Entity.Player
 
         protected abstract EquipmentPart WeaponEquipmentType { get; }
 
-        private void Awake()
+        public UnityAction<WeaponStates> StatesActivatedEvent;
+
+        protected virtual void Awake()
         {
             _playerChannel.WeaponChangedEvent += OnWeaponChanged;
+            AnimationEvents = GetComponentInChildren<AnimationEvents>();
         }
-
+        
         protected virtual void OnWeaponChanged(WeaponItemMeta weapon, EquipmentPart part)
         {
             IsEnabled = weapon != null && weapon.Part == WeaponEquipmentType;
 
-            if (IsEnabled)
-            {
-                ActivateStates();
-            }
+            TryEnableStates();
         }
         
         public virtual void Initialize() {}
@@ -43,10 +44,26 @@ namespace Entity.Player
 
         protected abstract void ActivateStates();
         protected abstract void DeActivateStates();
-
+        
+        protected void TryEnableStates()
+        {
+            if (IsEnabled)
+            {
+                ActivateStates();
+                
+                StatesActivatedEvent?.Invoke(this);
+            }
+        }
+        
         private void OnDisable()
         {
             _playerChannel.WeaponChangedEvent -= OnWeaponChanged;
         }
+    }
+    
+    public abstract class WeaponStates<TBasicAbilityType> : WeaponStates where TBasicAbilityType : Ability
+    {
+        [SerializeField] protected TBasicAbilityType _basicAttackAbility;
+        [HideInInspector] public PlayerAbilityState<TBasicAbilityType> BasicAttackState;
     }
 }
