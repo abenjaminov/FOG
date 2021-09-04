@@ -5,8 +5,9 @@ namespace Abilities.Melee
     public class SlashAbility : MeleeAttack
     {
         private AnimationEvents _animationEvents;
-        protected void Start()
+        protected override void Awake()
         {
+            base.Awake();
             _animationEvents = GetComponentInChildren<AnimationEvents>();
         }
 
