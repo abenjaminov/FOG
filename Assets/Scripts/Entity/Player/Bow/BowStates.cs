@@ -24,17 +24,16 @@ namespace Entity.Player.Bow
         public override void Initialize()
         {
             _archer = GetComponent<Player>();
-        }
-
-        public override void CreateStates()
-        {
+            
             BasicAttackState = new ArcherShootArrowAbilityState(_archer, _basicAttackAbility as ShootArrowAbility);
-            
             _strongArrowState = new ArcherShootArrowAbilityState(_archer, _fireArrowAbility);
-            _playerStates.AddAttackState(_strongArrowState, this);
-            
             _fastAttackBuffState =
                 new ArcherApplyFastAttackBuffState(_archer, _fastAttackBuff);
+        }
+
+        public override void HookStates()
+        {
+            _playerStates.AddAttackState(_strongArrowState, this);
             _playerStates.AddBuffState(_fastAttackBuffState,() => _fastAttackBuffState.IsBuffApplied);
         }
 

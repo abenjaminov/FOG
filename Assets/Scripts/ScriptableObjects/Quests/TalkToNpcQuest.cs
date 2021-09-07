@@ -27,6 +27,7 @@ namespace ScriptableObjects.Quests
         protected override void QuestActive()
         {
             _npcChannel.ChatStartedEvent += ChatStartedEvent;
+            this.State = QuestState.PendingComplete;
         }
 
         private void ChatStartedEvent(ChatNpc chatNpc, ChatSession chatSession)

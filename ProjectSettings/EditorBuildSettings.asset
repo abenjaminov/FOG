@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map 5.unity
     guid: 1b09c92b6f185cd4e82c148338fc160f
+  - enabled: 1
+    path: Assets/Scenes/Map 6 - Crossroads.unity
+    guid: 0136c8fa946338946821bce224f79859
+  - enabled: 1
+    path: Assets/Scenes/Map 7.unity
+    guid: 3780e5e412361e34289e8d5e57518fe6
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Scene.unity
+    guid: 171f7cec09ed8b94a9c5298174e98ee8
   m_configObjects: {}

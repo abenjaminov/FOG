@@ -12,6 +12,7 @@ namespace ScriptableObjects.Quests
         public string Id;
         public string Name;
         public ResistancePointsQuestReward RPReward;
+        public InventoryItemQuestReward ItemReward;
         
         public List<Quest> NextQuests;
         public QuestState State;
@@ -38,8 +39,9 @@ namespace ScriptableObjects.Quests
 
         public void ApplyRewards()
         {
-            if(RPReward.ApplyReward)
-                RPReward.Reward();
+            if(RPReward.ApplyReward) RPReward.Reward();
+            if (ItemReward.ApplyReward) ItemReward.Reward();
+                
         }
         
         private void QuestCompletedEvent(Quest completedQuest)

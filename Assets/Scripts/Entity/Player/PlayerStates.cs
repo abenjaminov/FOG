@@ -164,9 +164,9 @@ namespace Player
             
             ConfigureDeadState();
 
-            _bowStates.CreateStates();
-            _oneHandedMeleeStates.CreateStates();
-            _magicStates.CreateStates();
+            _bowStates.HookStates();
+            _oneHandedMeleeStates.HookStates();
+            _magicStates.HookStates();
             
             AddAbilityState(_bowStates.BasicAttackState, _attackTransitionLogicWrapper(_bowStates), null,() => _bowStates.IsEnabled);
             AddAbilityState(_oneHandedMeleeStates.BasicAttackState, _attackTransitionLogicWrapper(_oneHandedMeleeStates), null,() => _oneHandedMeleeStates.IsEnabled);

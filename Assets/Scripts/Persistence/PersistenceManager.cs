@@ -8,6 +8,7 @@ namespace Persistence
     public class PersistenceManager : MonoBehaviour
     {
         [SerializeField] private PersistenceChannel _persistenceChannel;
+        [SerializeField] private bool _disablePersistence;
         
         private Dictionary<PersistantModuleTypes, List<IPersistentObject>> _moduleLoadedSubscriptions = 
             new Dictionary<PersistantModuleTypes, List<IPersistentObject>>();
@@ -47,17 +48,18 @@ namespace Persistence
 
         public void Start()
         {
-            foreach (var moduleAccessor in _moduleAccessors)
+            if (!_disablePersistence)
             {
-                var moduleType = moduleAccessor.GetModuleType();
-                
-                if(!_moduleLoadedSubscriptions.ContainsKey(moduleType)) continue;
-                
-                moduleAccessor.LoadModule();
-                
-                foreach (var subscription in _moduleLoadedSubscriptions[moduleType])
+                foreach (var moduleAccessor in _moduleAccessors)
                 {
-                    subscription.OnModuleLoaded(moduleAccessor);
+                    var moduleType = moduleAccessor.GetModuleType();
+                
+                    if(!_moduleLoadedSubscriptions.ContainsKey(moduleType)) continue;
+                
+                    foreach (var subscription in _moduleLoadedSubscriptions[moduleType])
+                    {
+                        subscription.OnModuleLoaded(moduleAccessor);
+                    }
                 }
             }
             
@@ -66,6 +68,8 @@ namespace Persistence
 
         public void OnApplicationQuit()
         {
+            if (_disablePersistence) return;
+            
             foreach (var moduleAccessor in _moduleAccessors)
             {
                 var moduleType = moduleAccessor.GetModuleType();

@@ -22,7 +22,7 @@ namespace Game
 
         public SceneMeta CurrentScene
         {
-            get => _currentScene;
+            get => _currentScene ? _currentScene : DefaultFirstScene;
             set => _currentScene = value;
         }
 
@@ -42,7 +42,7 @@ namespace Game
 
         private void LoadFirstScene()
         {
-            var operation = SceneManager.LoadSceneAsync(_currentScene.SceneAsset.name, LoadSceneMode.Additive);
+            var operation = SceneManager.LoadSceneAsync(CurrentScene.SceneAsset.name, LoadSceneMode.Additive);
             
             operation.completed += asyncOperation =>
             {

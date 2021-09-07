@@ -16,5 +16,5 @@ MonoBehaviour:
   Helmet: {fileID: 11400000, guid: 8afd183e732e20e42bc8f92b48c65c23, type: 2}
   Cape: {fileID: 0}
   Armour: {fileID: 11400000, guid: d8a8ffdf2b41197469c94cce50ef05f5, type: 2}
-  PrimaryWeapon: {fileID: 11400000, guid: 11f3cca8aa8500c45b40eadda3b62187, type: 2}
+  PrimaryWeapon: {fileID: 11400000, guid: 8303940dd97ad3d4b8660957e3bccb19, type: 2}
   SecondaryWeapon: {fileID: 0}

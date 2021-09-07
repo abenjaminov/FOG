@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e4fb4c874e38a7f52eaa3ffc9546, type: 3}
   m_Name: Map 3
   m_EditorClassIdentifier: 
-  SceneAsset: {fileID: 102900000, guid: b4a2c9e186b50aa458a7aac3b04d57a2, type: 3}
   Id: c59c3edc-a787-4989-8fda-466a9ba05637
+  LevelAloud: 3
+  SceneAsset: {fileID: 102900000, guid: b4a2c9e186b50aa458a7aac3b04d57a2, type: 3}

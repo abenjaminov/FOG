@@ -15,12 +15,12 @@ namespace Entity.Player.Melee
         public override void Initialize()
         {
             _player = GetComponent<Player>();
+            BasicAttackState = new FighterSlashState(_player, _basicAttackAbility as SlashAbility);
         }
 
-        public override void CreateStates()
+        public override void HookStates()
         {
             
-            BasicAttackState = new FighterSlashState(_player, _basicAttackAbility as SlashAbility);
         }
 
         protected override void ActivateStates()

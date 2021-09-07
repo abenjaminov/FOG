@@ -10,6 +10,8 @@ namespace ScriptableObjects.Channels
         public UnityAction<SceneMeta, SceneMeta> ChangeLocationEvent;
         public UnityAction<SceneMeta, SceneMeta> ChangeLocationCompleteEvent;
 
+        public SceneMeta CurrentScene;
+        
         public void OnChangeLocation(SceneMeta destination, SceneMeta source)
         {
             ChangeLocationEvent?.Invoke(destination, source);
@@ -17,6 +19,7 @@ namespace ScriptableObjects.Channels
 
         public void OnChangeLocationComplete(SceneMeta destination, SceneMeta source)
         {
+            CurrentScene = destination;
             ChangeLocationCompleteEvent?.Invoke(destination, source);
         }
     }

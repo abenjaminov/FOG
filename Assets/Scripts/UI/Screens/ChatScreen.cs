@@ -18,8 +18,8 @@ namespace UI.Screens
         [SerializeField] private Button _buttonRight;
         [SerializeField] private Button _buttonLeft;
         [SerializeField] private QuestsChannel _questsChannel;
-        private Text _buttonRightText;
-        private Text _buttonLeftText;
+        private TextMeshProUGUI _buttonRightText;
+        private TextMeshProUGUI _buttonLeftText;
         
         private float _currentTimeBetweenCharacters;
         private int _currentCharacterIndex;
@@ -32,8 +32,8 @@ namespace UI.Screens
 
         private void Awake()
         {
-            _buttonRightText = _buttonRight.GetComponentInChildren<Text>();
-            _buttonLeftText = _buttonLeft.GetComponentInChildren<Text>();
+            _buttonRightText = _buttonRight.GetComponentInChildren<TextMeshProUGUI>();
+            _buttonLeftText = _buttonLeft.GetComponentInChildren<TextMeshProUGUI>();
         }
 
         public void StartChat(ChatNpc chatNpc, ChatSession chatSession)

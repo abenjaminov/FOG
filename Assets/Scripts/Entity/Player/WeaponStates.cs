@@ -40,7 +40,7 @@ namespace Entity.Player
         
         public virtual void Initialize() {}
         
-        public abstract void CreateStates();
+        public abstract void HookStates();
 
         protected abstract void ActivateStates();
         protected abstract void DeActivateStates();

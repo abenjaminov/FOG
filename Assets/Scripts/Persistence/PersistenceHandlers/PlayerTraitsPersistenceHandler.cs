@@ -23,7 +23,7 @@ namespace Persistence.PersistenceHandlers
             _playerTraits.PointsLeft = playerTraitsPersistence.PointsLeft;
             _playerTraits.Level = playerTraitsPersistence.Level;
             _playerTraits.SetResistancePointsSilent(playerTraitsPersistence.ResistancePointsGained);
-            _playerTraits.MonsterStateResistance = playerTraitsPersistence.MonsterStateResistance;
+            _playerTraits.SetMonsterResistanceSilent(playerTraitsPersistence.MonsterStateResistance);
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)

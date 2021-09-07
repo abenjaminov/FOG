@@ -11,6 +11,7 @@ namespace Entity.NPCs
     public class ChatNpc : MonoBehaviour, IDoubleClickHandler
     {
         [Header("Visuals")] [SerializeField] private GameObject _npcVisuals;
+        [SerializeField] bool faceLeft;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private string _name;
         
@@ -22,7 +23,7 @@ namespace Entity.NPCs
 
         private void Awake()
         {
-            var visuals = Instantiate(_npcVisuals, Vector3.zero, Quaternion.identity, this.transform);
+            var visuals = Instantiate(_npcVisuals, Vector3.zero, Quaternion.Euler(0, faceLeft ? 180 : 0, 0), this.transform);
             visuals.transform.localPosition = Vector3.zero;
             _nameText.SetText(_name);
             

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
+  m_Name: T13 - Choose youre path
+  m_EditorClassIdentifier: 
+  SessionType: 1
+  AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
+  ChatItems:
+  - Text: '{NAME} I was waiting for you, there is no time to waste!'
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: We need to help you recall the basics and then we have to find out what
+      caused all of this!
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: Here take this bat for now, you can equip it through your inventory screen,
+      just press {INV_KEY}
+    Options:
+    - Text: Next
+      Action: 2

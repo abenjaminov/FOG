@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,18 +8,24 @@ namespace UI
 {
     public abstract class ProgressBar : MonoBehaviour
     {
-        private float _currentValue;
+        private float _defaultStartingValue = -1;
+        private float _currentValue  = -1;
         private float _currentValueDestination;
         protected float MaxValue;
-
+        private bool _isUpdatingValue;
+        
         protected float CurrentValue
         {
             get => _currentValueDestination;
             set
             {
                 _currentValueDestination = value;
-                StopCoroutine("UpdateCurrentValue");
-                StartCoroutine(UpdateCurrentValue());
+
+                if (!_isUpdatingValue)
+                {
+                    StartCoroutine(nameof(UpdateCurrentValue));
+                }
+                    
             }
         }
 
@@ -32,21 +39,37 @@ namespace UI
             var actualPercentage = _currentValue / MaxValue;
 
             var foregroundWidth = _background.rect.width * Mathf.Min(actualPercentage,1f);
+            
             _foreground.sizeDelta = new Vector2(foregroundWidth, _foreground.rect.height);
             
             _progressText.SetText(CurrentValue + " / " + MaxValue);
         }
 
+        protected void SetInitialCurrentValue(float value)
+        {
+            _currentValue = value;
+            _currentValueDestination = value;
+        }
+        
         private IEnumerator UpdateCurrentValue()
         {
-            while (_currentValue < _currentValueDestination)
+            _isUpdatingValue = true;
+
+            while (Math.Abs(_currentValue - _currentValueDestination) > 0.01f)
             {
-                _currentValue += (Time.deltaTime * _unitsPerSecond);
-                //_currentValue = Mathf.Min(1, _currentValue);
+                if(_currentValue > _currentValueDestination)
+                    _currentValue = Mathf.Max(_currentValue -(Time.deltaTime * _unitsPerSecond), 
+                                              _currentValueDestination);
+                else
+                    _currentValue = Mathf.Min(_currentValue + (Time.deltaTime * _unitsPerSecond), 
+                                              _currentValueDestination);
+                
                 UpdateUI();
                 yield return new WaitForEndOfFrame();
-            }
+            }    
             
+
+            _isUpdatingValue = false;
             yield return null;
         }
     }

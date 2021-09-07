@@ -18,15 +18,15 @@ MonoBehaviour:
   DelayBetweenAttacks: 0.8
   MaxHealth: 100
   Defense: 5
-  Level: 25
+  Level: 2
   ClimbSpeed: 3
-  MonsterStateResistance: 1
   CurrentHealth: 100
-  PointsLeft: 30
+  PointsLeft: 5
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
   _resistancePointsGained: 0
+  _monsterStateResistance: 100
   ReceiveDamageCooldown: 1
   Strength: 5
   Dexterity: 5
-  Intelligence: 0
+  Intelligence: 5
   Constitution: 5

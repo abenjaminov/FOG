@@ -14,11 +14,12 @@ namespace Entity.Player.Magic
         public override void Initialize()
         {
             _player = GetComponent<Player>();
-        }
-        
-        public override void CreateStates()
-        {
             BasicAttackState = new MagicAttackState(_player, _basicAttackAbility as MagicAttackAbility);
+        }
+
+        public override void HookStates()
+        {
+            
         }
 
         protected override void ActivateStates()
