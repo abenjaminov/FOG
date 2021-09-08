@@ -20,7 +20,7 @@ namespace ScriptableObjects.Traits
         [HideInInspector] public float CurrentHealth;
         [HideInInspector] public int PointsLeft;
 
-        [SerializeField] private LevelConfiguration _levelConfiguration;
+        [SerializeField] internal LevelConfiguration _levelConfiguration;
         [SerializeField] private int _resistancePointsGained;
         [SerializeField] private float _monsterStateResistance;
 
@@ -86,7 +86,7 @@ namespace ScriptableObjects.Traits
             LevelUpEvent?.Invoke();
         }
 
-        protected override void Reset()
+        public new void Reset()
         {
             WalkSpeed = 3;
             JumpHeight = 1.1f;

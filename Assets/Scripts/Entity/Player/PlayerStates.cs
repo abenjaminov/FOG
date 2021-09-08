@@ -112,9 +112,10 @@ namespace Player
         {
             CreateStates();
 
-            _noHorizontalInput = () => _horizontalAxisRaw == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
-            _walkLeftTransitionCondition = () => _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
-            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && !_activeWeaponStates.IsAbilityAnimationActivated;
+            _noHorizontalInput = () => _horizontalAxisRaw == 0 && (_activeWeaponStates == null || !_activeWeaponStates.IsAbilityAnimationActivated);
+            _walkLeftTransitionCondition = () =>
+                _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && (_activeWeaponStates == null || !_activeWeaponStates.IsAbilityAnimationActivated);
+            _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && (_activeWeaponStates == null || !_activeWeaponStates.IsAbilityAnimationActivated);
             var shouldJump = new Func<bool>(() =>  _isJumpButtonDown && _playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var shouldFall = new Func<bool>(() =>  !_playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);

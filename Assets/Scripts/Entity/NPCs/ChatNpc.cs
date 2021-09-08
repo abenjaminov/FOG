@@ -14,12 +14,14 @@ namespace Entity.NPCs
         [SerializeField] bool faceLeft;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private string _name;
+        [SerializeField] private GameObject _contentIndicator;
         
         public string NpcId;
         [SerializeField] private NpcChannel _npcChannel;
         [SerializeField] public List<ChatSession> ChatSessions;
 
         [SerializeField] public List<string> GeneralTextLines;
+        
 
         private void Awake()
         {
