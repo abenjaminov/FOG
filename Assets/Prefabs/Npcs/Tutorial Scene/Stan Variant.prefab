@@ -8,17 +8,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: NpcId
+      value: b3fd9d76-1078-46d5-91ea-321dd2d777d8
+      objectReference: {fileID: 0}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: faceLeft
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: _nameText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6371225449194686574}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _playerTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _questChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: _contentIndicator
       value: 
       objectReference: {fileID: 5970743398282855259}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _persistenceChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: ChatSessions.Array.data[0]
       value: 
@@ -69,10 +85,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990752858139293598, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: m_Name
-      value: Stan
+      value: Stan Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 990752858867327536, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -430345217
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+--- !u!114 &6371225449194686574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 990752858474436940, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+  m_PrefabInstance: {fileID: 6184849334945698082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5970743398282855259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 506840565310509689, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}

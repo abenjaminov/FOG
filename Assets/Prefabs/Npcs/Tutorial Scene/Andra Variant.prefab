@@ -8,13 +8,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: NpcId
+      value: f29f14c7-1a12-4a02-8f93-6317bc992847
+      objectReference: {fileID: 0}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: _name
       value: Andra
+      objectReference: {fileID: 0}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: faceLeft
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: _npcVisuals
       value: 
       objectReference: {fileID: 1109987028385428, guid: b49693a5aeb90b14b98567a0adb625a3, type: 3}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _playerTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _questChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: _persistenceChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: ChatSessions.Array.data[0]
       value: 
@@ -65,11 +85,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990752858139293598, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: m_Name
-      value: Andra
+      value: Andra Variant
       objectReference: {fileID: 0}
     - target: {fileID: 990752858474436940, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: m_text
       value: Andra
+      objectReference: {fileID: 0}
+    - target: {fileID: 990752858867327536, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -430345217
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}

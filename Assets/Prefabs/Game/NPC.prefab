@@ -46,11 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _npcVisuals: {fileID: 1109987028385428, guid: 15635f49f42c2e345b1f65da859a1ed4, type: 3}
+  faceLeft: 0
   _nameText: {fileID: 5125087597375562771}
   _name: Gale
+  _contentIndicator: {fileID: 0}
+  NpcId: 
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
+  _questChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   ChatSessions:
-  - {fileID: 11400000, guid: db0d9466da2def840b7f909b3ec682f8, type: 2}
+  - {fileID: 0}
+  GeneralTextLines: []
 --- !u!61 &5125087597040667332
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -139,6 +139,9 @@ MonoBehaviour:
   _contentIndicator: {fileID: 506840565310509689}
   NpcId: cf9e3763-9ee2-436b-a7fc-c445c75b0e69
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
+  _questChannel: {fileID: 0}
+  _persistenceChannel: {fileID: 0}
+  _playerTraits: {fileID: 0}
   ChatSessions:
   - {fileID: 0}
   GeneralTextLines: []
@@ -361,7 +364,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -1873468137
+  m_SortingLayerID: -430345217
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &990752858867327537

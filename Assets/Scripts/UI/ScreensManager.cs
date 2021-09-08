@@ -3,8 +3,6 @@ using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Channels;
-using ScriptableObjects.Chat;
-using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
 using UI.Screens;
 using UnityEngine;
@@ -95,13 +93,8 @@ namespace UI
         {
             if (!_chatScreen.isActiveAndEnabled)
             {
-                var availableSessions = 
-                    chatNpc.ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual || 
-                                                            (x.AssociatedQuest.RequiredLevel <= _playerTraits.Level &&
-                                                             ((x.SessionType == ChatSessionType.AssignQuest &&
-                                                               x.AssociatedQuest.State == QuestState.PendingActive) ||
-                                                              (x.SessionType == ChatSessionType.CompleteQuest &&
-                                                               x.AssociatedQuest.State == QuestState.PendingComplete)))).ToList();
+                var availableSessions =
+                    chatNpc.GetAvailableChatSessions();
 
                 if (availableSessions.Count <= 0) return;
                 
