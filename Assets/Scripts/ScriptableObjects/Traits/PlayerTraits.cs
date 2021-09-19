@@ -103,6 +103,7 @@ namespace ScriptableObjects.Traits
             Intelligence = 5;
             Intelligence = 5;
             Constitution = 5;
+            PointsLeft = 0;
         }
     }
 }

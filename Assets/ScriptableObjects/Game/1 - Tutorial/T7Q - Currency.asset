@@ -15,9 +15,9 @@ MonoBehaviour:
   Id: 213862c5-e8fb-4538-88fd-c26b1b446c5e
   _name: Currency
   RPReward:
-    ApplyReward: 0
-    _playerTraits: {fileID: 0}
-    ResistancePointsReward: 0
+    ApplyReward: 1
+    _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    ResistancePointsReward: 325
   ItemReward:
     ApplyReward: 1
     _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
@@ -31,7 +31,7 @@ MonoBehaviour:
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   MaxValue: 5
-  CurrentValue: 7
+  CurrentValue: 5
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _inventoryItemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
   _amountToCollect: 5

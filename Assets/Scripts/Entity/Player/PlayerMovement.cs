@@ -11,6 +11,7 @@ namespace Player
         private bool _isOnGround;
         
         private Rigidbody2D _rigidbody2D;
+        [SerializeField] private GameObject _visualsToRotate;
 
         private bool _isMovementActive = true;
         
@@ -36,7 +37,7 @@ namespace Player
 
         public void SetYRotation(float yRotation)
         {
-            transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            _visualsToRotate.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
     }
 }

@@ -24,9 +24,13 @@ namespace ScriptableObjects.Quests
         public override void Complete()
         {
             _inventoryChannel.ItemAddedEvent -= ItemAddedEvent;
-            _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);
             
             base.Complete();
+            
+            if (State == QuestState.Completed)
+            {
+                _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);
+            }
         }
 
         public override void Activate()

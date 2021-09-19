@@ -23,10 +23,9 @@ MonoBehaviour:
     _playerInventory: {fileID: 0}
     _itemRewards: []
   DependencyQuest: {fileID: 0}
-  State: 0
+  State: 3
   RequiredLevel: 1
-  NextQuests:
-  - {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
+  NextQuests: []
   _completeOnSpot: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   NpcPrefab: {fileID: 410632306677058701, guid: cfbcac15e11901e41b67b0e073b31217, type: 3}

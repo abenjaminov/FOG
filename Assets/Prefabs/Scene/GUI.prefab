@@ -15291,7 +15291,7 @@ MonoBehaviour:
   _textArea: {fileID: 9100358907116826420}
   _buttonRight: {fileID: 7765340688141442056}
   _buttonLeft: {fileID: 1806805589041879713}
-  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
 --- !u!1 &9100358907598351054
 GameObject:
   m_ObjectHideFlags: 0

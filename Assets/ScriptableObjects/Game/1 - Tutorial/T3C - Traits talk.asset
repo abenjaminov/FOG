@@ -56,6 +56,6 @@ MonoBehaviour:
   - Text: Intelligence is for Magical weapons
     Options:
     - Text: Next
-      Action: 0
+      Action: 2
     - Text: Back
       Action: 1
