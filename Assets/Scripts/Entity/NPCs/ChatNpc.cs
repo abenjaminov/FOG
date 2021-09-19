@@ -28,7 +28,6 @@ namespace Entity.NPCs
 
         [SerializeField] public List<string> GeneralTextLines;
         
-
         private void Awake()
         {
             var visuals = Instantiate(_npcVisuals, Vector3.zero, Quaternion.Euler(0, faceLeft ? 180 : 0, 0), this.transform);
@@ -38,13 +37,18 @@ namespace Entity.NPCs
             if(GeneralTextLines.Count == 0)
                 GeneralTextLines.Add("Hello there!");
             
-            _questChannel.QuestActivatedEvent += QuestStateChanged;
-            _questChannel.QuestCompleteEvent += QuestStateChanged;
-            
+            _questChannel.QuestStateChangedEvent += QuestStateChanged;
+
             UpdateContentIndicator();
         }
 
-        private void QuestStateChanged(Quest arg0)
+
+        private void OnDestroy()
+        {
+            _questChannel.QuestStateChangedEvent -= QuestStateChanged;
+        }
+
+        private void QuestStateChanged(Quest quest)
         {
             UpdateContentIndicator();
         }
@@ -63,8 +67,13 @@ namespace Entity.NPCs
 
         public List<ChatSession> GetAvailableChatSessions()
         {
-            return ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual || 
+            return ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
+                                           
                                            (x.AssociatedQuest.RequiredLevel <= _playerTraits.Level &&
+                                            
+                                            (x.AssociatedQuest.DependencyQuest == null || 
+                                             x.AssociatedQuest.DependencyQuest.State == QuestState.Completed) &&
+                                            
                                             ((x.SessionType == ChatSessionType.AssignQuest &&
                                               x.AssociatedQuest.State == QuestState.PendingActive) ||
                                              (x.SessionType == ChatSessionType.CompleteQuest &&

@@ -27,7 +27,7 @@ namespace UI.Elements.Quests
         public void SetQuest(T quest)
         {
             Quest = quest;
-            _questName.text = quest.Name;
+            _questName.text = quest.GetName();
         }
 
         public string GetQuestId()

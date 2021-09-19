@@ -47,18 +47,23 @@ namespace Game
             operation.completed += asyncOperation =>
             {
                 _locationsChannel.OnChangeLocationComplete(_currentScene, null);
-                
-                var startingPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
 
-                if (startingPoint == null)
-                {
-                    Debug.LogError("There is no Object with 'SpawnPoint' Tag");
-                }
-                
-                _player.transform.position = startingPoint.transform.position;
+                PositionPlayerOnSpawnPoint();
             };
         }
-        
+
+        private void PositionPlayerOnSpawnPoint()
+        {
+            var startingPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+
+            if (startingPoint == null)
+            {
+                Debug.LogError("There is no Object with 'SpawnPoint' Tag");
+            }
+
+            _player.transform.position = startingPoint.transform.position;
+        }
+
         private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
             SceneManager.UnloadSceneAsync(source.name);
@@ -77,6 +82,10 @@ namespace Game
                 if (teleport != null)
                 {
                     _player.transform.position = teleport.CenterTransform.position;
+                }
+                else
+                {
+                    PositionPlayerOnSpawnPoint();
                 }
             };
         }

@@ -1683,8 +1683,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6508,8 +6508,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7613,6 +7613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _questsList: {fileID: 11400000, guid: 948d09ae50d215a43b1925b1792c1392, type: 2}
   _progressQuestInfoPrefab: {fileID: -289077693403789588, guid: 3404b6f974dede748b4fc93abb350ca4, type: 3}
   _noProgressQuestInfoPrefab: {fileID: -4709731225232237441, guid: 1963f9d0b0b65404ab051a091870940a, type: 3}
   _topOffset: 50
@@ -13988,6 +13989,8 @@ MonoBehaviour:
   _persistenceChannel: {fileID: 0}
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
   _NpcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
+  _questsChannel: {fileID: 0}
+  _questsList: {fileID: 0}
   _traitsScreen: {fileID: 9100358907560920770}
   _inventory: {fileID: 9100358906503451944}
   _equipment: {fileID: 6545180005789257772}
@@ -14033,7 +14036,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 33}
-  m_SizeDelta: {x: 160, y: 175.6}
+  m_SizeDelta: {x: 250.6, y: 175.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &9100358907216229389
 CanvasRenderer:

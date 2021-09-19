@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
 using UI.Elements.Quests;
@@ -11,6 +13,7 @@ namespace UI.Screens
     public class QuestTrackerPanel : MonoBehaviour
     {
         [SerializeField] private QuestsChannel _questsChannel;
+        [SerializeField] private QuestsList _questsList;
         private List<IQuestInfoItem> _questInfos = new List<IQuestInfoItem>();
 
         [SerializeField] private QuestProgressInfo _progressQuestInfoPrefab;
@@ -25,6 +28,18 @@ namespace UI.Screens
             _questsChannel.QuestActivatedEvent += QuestActivatedEvent;
             _questsChannel.QuestCompleteEvent += QuestCompleteEvent;
             _totalHeightTaken = -_topOffset - Margin;
+
+            CheckQuestsList();
+        }
+
+        private void CheckQuestsList()
+        {
+            var runningQuests = _questsList.GetAllRunningQuests().Take(3);
+
+            foreach (var runningQuest in runningQuests)
+            {
+                QuestActivatedEvent(runningQuest);
+            }
         }
 
         private void QuestCompleteEvent(Quest completedQuest)
@@ -42,10 +57,19 @@ namespace UI.Screens
 
         private void QuestActivatedEvent(Quest activatedQuest)
         {
+            this.SetActive(true);
+            
+            StartCoroutine(QuestActivatedSequence(activatedQuest));
+        }
+
+        IEnumerator QuestActivatedSequence(Quest activatedQuest)
+        {
             if (activatedQuest is ProgressQuest progressQuest)
             {
                 var infoItem = Instantiate(_progressQuestInfoPrefab, this.transform);
 
+                yield return new WaitForEndOfFrame();
+                
                 infoItem.SetQuest(progressQuest);
                 
                 AddInfoItem(infoItem);
@@ -53,10 +77,15 @@ namespace UI.Screens
             else
             {
                 var infoItem = Instantiate(_noProgressQuestInfoPrefab, this.transform);
+                
+                yield return new WaitForEndOfFrame();
+                
                 infoItem.SetQuest(activatedQuest);
                 
                 AddInfoItem(infoItem);
             }
+            
+            yield break;
         }
 
         private void AddInfoItem(IQuestInfoItem infoItem)

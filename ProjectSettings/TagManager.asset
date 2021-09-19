@@ -51,11 +51,14 @@ TagManager:
   - name: Buildings
     uniqueID: 3515482577
     locked: 0
-  - name: Props
+  - name: Props Before ground
     uniqueID: 3927299527
     locked: 0
   - name: Ground
     uniqueID: 3561613695
+    locked: 0
+  - name: Props above ground
+    uniqueID: 1591705239
     locked: 0
   - name: Boss
     uniqueID: 1626845105

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game;
 using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
 
@@ -20,12 +21,5 @@ namespace ScriptableObjects.Quests.QuestRewards
             
             return true;
         }
-    }
-
-    [Serializable]
-    public class ItemReward
-    {
-        [SerializeField] internal InventoryItemMeta ItemMeta;
-        [SerializeField] internal int Amount;
     }
 }

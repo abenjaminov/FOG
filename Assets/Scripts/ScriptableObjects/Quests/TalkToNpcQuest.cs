@@ -16,18 +16,27 @@ namespace ScriptableObjects.Quests
         protected override void OnEnable()
         {
             base.OnEnable();
+
+            if (State == QuestState.PendingComplete)
+            {
+                
+            }
+            
             _completeOnSpot = true;
         }
 
-        protected override void QuestCompleted()
+        public override void Complete()
         {
             _npcChannel.ChatStartedEvent -= ChatStartedEvent;
+            
+            base.Complete();
         }
 
-        protected override void QuestActive()
+        public override void Activate()
         {
             _npcChannel.ChatStartedEvent += ChatStartedEvent;
-            this.State = QuestState.PendingComplete;
+            State = QuestState.PendingComplete;
+            _questsChannel.OnQuestAssigned(this);
         }
 
         private void ChatStartedEvent(ChatNpc chatNpc, ChatSession chatSession)

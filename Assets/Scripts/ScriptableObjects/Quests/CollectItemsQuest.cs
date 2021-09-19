@@ -21,15 +21,18 @@ namespace ScriptableObjects.Quests
             MaxValue = _amountToCollect;
         }
 
-        protected override void QuestCompleted()
+        public override void Complete()
         {
             _inventoryChannel.ItemAddedEvent -= ItemAddedEvent;
             _playerInventory.AddItem(_inventoryItemMeta, -_amountToCollect);
-            Complete();
+            
+            base.Complete();
         }
 
-        protected override void QuestActive()
+        public override void Activate()
         {
+            base.Activate();
+            
             _inventoryChannel.ItemAddedEvent += ItemAddedEvent;
             
             InventoryItem itemInInventory;

@@ -8419,7 +8419,7 @@ SortingGroup:
   m_GameObject: {fileID: 1549338164171444}
   m_Enabled: 1
   m_SortingLayerID: -430345217
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 200
 --- !u!1 &1561873368260788
 GameObject:

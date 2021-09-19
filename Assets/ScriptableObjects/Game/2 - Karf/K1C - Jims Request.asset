@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: T11 - A Cry for help
+  m_Name: K1C - Jims Request
   m_EditorClassIdentifier: 
   SessionType: 0
-  AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
+  AssociatedQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
   ChatItems:
-  - Text: '{NAME} this is no time to be confused!'
-    Options:
-    - Text: '"Why?"'
-      Action: 0
-  - Text: There was a big fog, and once it cleared almost everyone that we know turned
-      into monsters.
+  - Text: "I\u2019m so glad you are finally back! We need your help, all kind of
+      Gnolls have taken over the outskirts of the town and we need to defeat them."
     Options:
     - Text: Next
       Action: 0
-  - Text: Go Meat {NPC1} fast, I'm busy. She will explain everything. Just follow
-      the signs.
+  - Text: "Let\u2019s start with something simple, go to {MAP1} and defeat 50 {GNOLL1}"
     Options:
-    - Text: Next
+    - Text: Accept
       Action: 2
+    - Text: Decline
+      Action: 3

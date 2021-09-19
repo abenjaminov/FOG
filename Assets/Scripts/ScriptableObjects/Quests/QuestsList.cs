@@ -10,23 +10,36 @@ namespace ScriptableObjects.Quests
         [Header("Tutorial")]
         [SerializeField] private List<Quest> TutorialQuests;
         
+        [SerializeField] private List<Quest> Karf;
+        
         [SerializeField] private List<Quest> Quests;
 
         public List<Quest> GetAllRunningQuests()
         {
-            return Quests.Where(x => x.State != QuestState.PendingActive).ToList();
+            var runningQuests = new List<Quest>();
+            
+            runningQuests.AddRange(Quests.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
+            runningQuests.AddRange(TutorialQuests.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
+            runningQuests.AddRange(Karf.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
+
+            return runningQuests;
         }
 
         public void ResetQuests()
         {
             foreach (var quest in Quests)
             {
-                quest.State = QuestState.PendingActive;
+                quest.ResetQuest();
             }
             
             foreach (var quest in TutorialQuests)
             {
-                quest.State = QuestState.PendingActive;
+                quest.ResetQuest();
+            }
+            
+            foreach (var quest in Karf)
+            {
+                quest.ResetQuest();
             }
         }
     }

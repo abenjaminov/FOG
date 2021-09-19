@@ -16,7 +16,13 @@ namespace ScriptableObjects.Quests
         public int NumberOfEnemiesToKill;
         
         private Enemy _questEnemy;
+
         [HideInInspector] public int ActualEnemiesKilled;
+
+        public override string GetName()
+        {
+            return "Defeat " + NumberOfEnemiesToKill + " " + EnemyPrefab.name;
+        }
 
         protected override void OnEnable()
         {
@@ -27,15 +33,18 @@ namespace ScriptableObjects.Quests
             ProgressMade(ActualEnemiesKilled);
         }
 
-        protected override void QuestActive()
+        public override void Activate()
         {
+            base.Activate();
+            
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
         }
 
-        protected override void QuestCompleted()
+        public override void Complete()
         {
             _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
-            this.Complete();
+            
+            base.Complete();
         }
         
         private void EnemyDiedEvent(Enemy killedEnemy)
@@ -52,6 +61,12 @@ namespace ScriptableObjects.Quests
             {
                 this.Complete();
             }
+        }
+
+        public override void ResetQuest()
+        {
+            base.ResetQuest();
+            ActualEnemiesKilled = 0;
         }
     }
 }

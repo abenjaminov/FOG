@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
+  m_Name: T8C - You are ready
+  m_EditorClassIdentifier: 
+  SessionType: 1
+  AssociatedQuest: {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
+  ChatItems:
+  - Text: Well done, there is nothing much that i can teach you at this point. You'll
+      need some more experience.
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: 'Keep going east and reach town, in Karf find Jim.
+
+      He can guide
+      you to the next step'
+    Options:
+    - Text: Next
+      Action: 2

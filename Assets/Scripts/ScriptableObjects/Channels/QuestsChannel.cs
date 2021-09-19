@@ -16,6 +16,8 @@ namespace ScriptableObjects.Channels
         
         public UnityAction<Quest> QuestCompleteEvent;
         public UnityAction<Quest> QuestActivatedEvent;
+        public UnityAction<Quest> QuestPendingCompleteEvent;
+        public UnityAction<Quest> QuestStateChangedEvent;
 
         private void OnEnable()
         {
@@ -32,22 +34,43 @@ namespace ScriptableObjects.Channels
             if (reason == ChatDialogOptionAction.Accept)
             {
                 if(chatSession.SessionType == ChatSessionType.AssignQuest)
-                    this.AssignQuest(chatSession.AssociatedQuest);
+                    AssignQuest(chatSession.AssociatedQuest);
                 else if (chatSession.SessionType == ChatSessionType.CompleteQuest)
-                    this.CompleteQuest(chatSession.AssociatedQuest);
+                    chatSession.AssociatedQuest.Complete();
             }
         }
 
-        public void CompleteQuest(Quest completedQuest)
+        public void OnQuestCompleted(Quest completedQuest)
         {
             QuestCompleteEvent?.Invoke(completedQuest);
+            
+            OnQuestStateChanged(completedQuest);
         }
         
+        public void OnQuestPendingComplete(Quest pendingQuest)
+        {
+            QuestPendingCompleteEvent?.Invoke(pendingQuest);
+            
+            OnQuestStateChanged(pendingQuest);
+        }
+        
+        public void OnQuestAssigned(Quest questToAssign)
+        {
+            QuestActivatedEvent?.Invoke(questToAssign);
+
+            OnQuestStateChanged(questToAssign);
+        }
+
         public void AssignQuest(Quest questToAssign)
         {
             if (_playerTraits.Level < questToAssign.RequiredLevel) return;
             
-            QuestActivatedEvent?.Invoke(questToAssign);
+            questToAssign.Activate();
+        }
+
+        private void OnQuestStateChanged(Quest quest)
+        {
+            QuestStateChangedEvent?.Invoke(quest);
         }
     }
 }

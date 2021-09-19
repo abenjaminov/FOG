@@ -3,6 +3,7 @@ using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
+using ScriptableObjects.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ namespace UI.Screens
         [SerializeField] private TextMeshProUGUI _textArea;
         [SerializeField] private Button _buttonRight;
         [SerializeField] private Button _buttonLeft;
-        [SerializeField] private QuestsChannel _questsChannel;
+        [SerializeField] private Inventory _playerInventory;
         private TextMeshProUGUI _buttonRightText;
         private TextMeshProUGUI _buttonLeftText;
         
@@ -134,8 +135,22 @@ namespace UI.Screens
 
         private void CloseScreen(ChatDialogOptionAction reason)
         {
+            if (reason == ChatDialogOptionAction.Accept)
+            {
+                GiveItems();
+            }
+            
             _npcChannel.OnChatEnded(_currentChatNpc, _currentChatSession, reason);
+            
             this.SetActive(false);
+        }
+
+        private void GiveItems()
+        {
+            foreach (var itemReward in _currentChatSession.ItemRewards)
+            {
+                _playerInventory.AddItem(itemReward.ItemMeta, itemReward.Amount);
+            }
         }
     }
 }

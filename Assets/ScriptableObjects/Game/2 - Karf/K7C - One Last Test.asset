@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
+  m_Name: K7C - One Last Test
+  m_EditorClassIdentifier: 
+  SessionType: 0
+  AssociatedQuest: {fileID: 11400000, guid: ad6b7a712bbf6c640bd2b29c03f89432, type: 2}
+  ChatItems:
+  - Text: You actually made it back alive!
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: Lets give you a real test, defeat 50 {GNOLL3}. Good luck.
+    Options:
+    - Text: Accept
+      Action: 2
+    - Text: Decline
+      Action: 3

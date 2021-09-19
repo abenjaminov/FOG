@@ -28,6 +28,7 @@ namespace World
         {
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
             _liveEnemies = new List<SpawnedEnemy>();
+            InitializeSpawn();
         }
 
         private void OnDestroy()
@@ -36,6 +37,11 @@ namespace World
         }
 
         private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
+        {
+            InitializeSpawn();
+        }
+        
+        private void InitializeSpawn() 
         {
             var sortingOrder = 0;
             for (int i = 0; i < _enemySpawns.Count; i++)

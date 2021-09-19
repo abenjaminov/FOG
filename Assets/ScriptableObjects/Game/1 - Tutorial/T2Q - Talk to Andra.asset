@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f13ceebbe2844ccb918efcaa9a8089de, type: 3}
-  m_Name: T12 - Talk to Andra
+  m_Name: T2Q - Talk to Andra
   m_EditorClassIdentifier: 
   Id: 562c8cdd-4732-446b-ab18-08535e4ddf3b
-  Name: Talk to Andra
+  _name: Talk to Andra
   RPReward:
     ApplyReward: 1
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
     ResistancePointsReward: 170
   ItemReward:
-    ApplyReward: 1
-    _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
-    _itemRewards:
-    - ItemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
-      Amount: 1
-  NextQuests: []
+    ApplyReward: 0
+    _playerInventory: {fileID: 0}
+    _itemRewards: []
+  DependencyQuest: {fileID: 0}
   State: 0
   RequiredLevel: 1
-  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  NextQuests:
+  - {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
   _completeOnSpot: 1
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   NpcPrefab: {fileID: 410632306677058701, guid: cfbcac15e11901e41b67b0e073b31217, type: 3}
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}

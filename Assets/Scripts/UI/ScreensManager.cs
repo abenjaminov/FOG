@@ -3,6 +3,7 @@ using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
 using UI.Screens;
 using UnityEngine;
@@ -15,6 +16,9 @@ namespace UI
         [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private NpcChannel _NpcChannel;
+        [SerializeField] private QuestsChannel _questsChannel;
+        [SerializeField] private QuestsList _questsList;
+        
         
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
@@ -39,8 +43,23 @@ namespace UI
             _openScreens = new Stack<GUIScreen>();
             
             _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
+            _questsChannel.QuestStateChangedEvent += QuestStateChangedEvent;
+            
+            CheckQuestsTracker();
         }
 
+        private void QuestStateChangedEvent(Quest arg0)
+        {
+            CheckQuestsTracker(); 
+        }
+
+        private void CheckQuestsTracker()
+        {
+            var runningQuests = _questsList.GetAllRunningQuests();
+
+            _questTrackerPanel.SetActive(runningQuests.Count > 0);
+        }
+        
         private void GameModulesLoadedEvent()
         {
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen));
@@ -80,6 +99,7 @@ namespace UI
         {
             _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
             _NpcChannel.RequestChatStartEvent -= RequestChatStartEvent;
+            _questsChannel.QuestStateChangedEvent -= QuestStateChangedEvent;
             
             foreach (var subscription in _subscriptions)
             {

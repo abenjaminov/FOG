@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ae56be1be6412ca17b86f386276c7f, type: 3}
+  m_Name: T5Q - We have to fight
+  m_EditorClassIdentifier: 
+  Id: edb545d1-fea7-4c2d-99dc-e7cc546c348d
+  _name: We have to fight
+  RPReward:
+    ApplyReward: 1
+    _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    ResistancePointsReward: 105
+  ItemReward:
+    ApplyReward: 0
+    _playerInventory: {fileID: 0}
+    _itemRewards: []
+  DependencyQuest: {fileID: 0}
+  State: 0
+  RequiredLevel: 2
+  NextQuests:
+  - {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
+  _completeOnSpot: 0
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  MaxValue: 1
+  CurrentValue: 0
+  EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+  NumberOfEnemiesToKill: 1
+  ActualEnemiesKilled: 0

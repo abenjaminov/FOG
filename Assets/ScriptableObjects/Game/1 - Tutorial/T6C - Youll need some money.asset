@@ -10,22 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: T13 - Choose youre path
+  m_Name: T6C - Youll need some money
   m_EditorClassIdentifier: 
   SessionType: 1
-  AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
+  AssociatedQuest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
   ChatItems:
-  - Text: '{NAME} I was waiting for you, there is no time to waste!'
+  - Text: Well done, those gnolls are scary!
     Options:
     - Text: Next
       Action: 0
-  - Text: We need to help you recall the basics and then we have to find out what
-      caused all of this!
+  - Text: There are Bigger and stronger monsters out there, youll need all the help
+      you can get.
     Options:
     - Text: Next
       Action: 0
-  - Text: Here take this bat for now, you can equip it through your inventory screen,
-      just press {INV_KEY}
+  - Text: 'Before you leave help me collect some coins,
+
+      Kill the gnolls and
+      they will drop them.'
     Options:
-    - Text: Next
+    - Text: Accept
       Action: 2
+    - Text: Decline
+      Action: 3

@@ -139,9 +139,9 @@ MonoBehaviour:
   _contentIndicator: {fileID: 506840565310509689}
   NpcId: cf9e3763-9ee2-436b-a7fc-c445c75b0e69
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
-  _questChannel: {fileID: 0}
-  _persistenceChannel: {fileID: 0}
-  _playerTraits: {fileID: 0}
+  _questChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  _persistenceChannel: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   ChatSessions:
   - {fileID: 0}
   GeneralTextLines: []

@@ -10,82 +10,77 @@ namespace ScriptableObjects.Quests
     {
         [Header("General Quest")] 
         public string Id;
-        public string Name;
+        [SerializeField] private string _name;
+        
+        [Header("Rewards")]
         public ResistancePointsQuestReward RPReward;
         public InventoryItemQuestReward ItemReward;
+
+        [Header("Configuration")]
+        public Quest DependencyQuest;
         
-        public List<Quest> NextQuests;
         public QuestState State;
         public int RequiredLevel;
-        [SerializeField] protected QuestsChannel _questsChannel;
+        public List<Quest> NextQuests;
         [SerializeField] protected bool _completeOnSpot;
+        
+        [Header("Integration")]
+        [SerializeField] protected QuestsChannel _questsChannel;
 
+        public virtual string GetName()
+        {
+            return _name;
+        }
+        
         protected virtual void OnEnable()
         {
-            _questsChannel.QuestActivatedEvent += QuestActiveEvent;
-            _questsChannel.QuestCompleteEvent += QuestCompletedEvent;
-            
-            if (State == QuestState.Active)
+            if (State == QuestState.Active || (_completeOnSpot && State == QuestState.PendingComplete))
             {
-                QuestActive();
+                Activate();
             }
         }
 
-        private void OnDisable()
-        {
-            _questsChannel.QuestActivatedEvent -= QuestActiveEvent;
-            _questsChannel.QuestCompleteEvent -= QuestCompletedEvent;
-        }
-
-        public void ApplyRewards()
+        private void ApplyRewards()
         {
             if(RPReward.ApplyReward) RPReward.Reward();
             if (ItemReward.ApplyReward) ItemReward.Reward();
                 
         }
-        
-        private void QuestCompletedEvent(Quest completedQuest)
-        {
-            if (completedQuest != this) return;
-            
-            QuestCompleted();
-            State = QuestState.Completed;
-        }
 
-        protected abstract void QuestCompleted();
-        
-        private void QuestActiveEvent(Quest activeQuest)
-        {
-            if (activeQuest != this) return;
-            
-            State = QuestState.Active;
-            QuestActive();
-        }
-        
-        protected abstract void QuestActive();
-
-        protected void Complete()
+        public virtual void Complete()
         {
             if (!_completeOnSpot && (State == QuestState.Active || State == QuestState.PendingActive))
             {
                 State = QuestState.PendingComplete;
+
+                _questsChannel.OnQuestPendingComplete(this);
             }
             else if(_completeOnSpot || State == QuestState.PendingComplete)
             {
                 State = QuestState.Completed;
-                
-                if(_completeOnSpot)
-                    _questsChannel.CompleteQuest(this);
 
-                this.ApplyRewards();
+                ApplyRewards();
+                
+                _questsChannel.OnQuestCompleted(this);
             
                 if (NextQuests.Count <= 0) return;
             
                 foreach (var quest in NextQuests)
                 {
-                    _questsChannel.AssignQuest(quest);    
+                    quest.Activate();   
                 }
             }
+        }
+
+        public virtual void Activate()
+        {
+            State = QuestState.Active;
+            _questsChannel.OnQuestAssigned(this);
+        }
+
+        public virtual void ResetQuest()
+        {
+            State = QuestState.PendingActive;
         }
     }
 

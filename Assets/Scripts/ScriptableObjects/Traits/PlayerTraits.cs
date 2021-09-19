@@ -31,7 +31,6 @@ namespace ScriptableObjects.Traits
         public int Intelligence;
         public int Constitution;
         
-        
         public float MonsterStateResistance
         {
             get => _monsterStateResistance;
