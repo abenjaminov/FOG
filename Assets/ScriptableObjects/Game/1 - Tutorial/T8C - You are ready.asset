@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 1
   AssociatedQuest: {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Well done, there is nothing much that i can teach you at this point. You'll
       need some more experience.
@@ -23,7 +24,7 @@ MonoBehaviour:
   - Text: 'Keep going east and reach town, in Karf find Jim.
 
       He can guide
-      you to the next step'
+      further.'
     Options:
     - Text: Next
       Action: 2

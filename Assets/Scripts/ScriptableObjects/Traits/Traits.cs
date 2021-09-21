@@ -11,6 +11,8 @@ namespace ScriptableObjects.Traits
         public UnityAction HealthChangedEvent;
         public UnityAction LevelUpEvent;
 
+        public string Name;
+
         public float WalkSpeed;
         public float JumpHeight;
 

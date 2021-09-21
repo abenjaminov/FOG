@@ -3,6 +3,7 @@ using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
 using UI.Screens;

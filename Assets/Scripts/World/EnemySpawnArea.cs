@@ -20,7 +20,7 @@ namespace World
         [SerializeField] private float _spawnInterval;
         [SerializeField] private LocationsChannel _locationsChannel;
 
-        private bool _isSpawning = true;
+        private bool _isSpawning;
 
         private List<SpawnedEnemy> _liveEnemies;
 
@@ -43,6 +43,8 @@ namespace World
         
         private void InitializeSpawn() 
         {
+            if (_isSpawning) return;
+            
             var sortingOrder = 0;
             for (int i = 0; i < _enemySpawns.Count; i++)
             {
@@ -79,6 +81,8 @@ namespace World
         
         private IEnumerator SpawnInterval()
         {
+            _isSpawning = true;
+            
             yield return new WaitForSeconds(_firstSpawnDelay);
             
             Spawn();

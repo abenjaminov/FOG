@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1076383267
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e17ac3a34dd56ee44b9dc1a1203e5181, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -553,9 +553,13 @@ MonoBehaviour:
   - ItemMetaData: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
     Percentage: 0.87
   - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Percentage: 0.1
-  - ItemMetaData: {fileID: 0}
-    Percentage: 0.03
+    Percentage: 0.07
+  - ItemMetaData: {fileID: 11400000, guid: 8303940dd97ad3d4b8660957e3bccb19, type: 2}
+    Percentage: 0.07
+  - ItemMetaData: {fileID: 11400000, guid: 06794e41a3cfda14da47d7e114c8c0cf, type: 2}
+    Percentage: 0.05
+  - ItemMetaData: {fileID: 11400000, guid: bdf77441dc7993648b9b13b40cde59de, type: 2}
+    Percentage: 0.05
   _dropPosition: {fileID: 6864787256123778453}
   _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
   _dropperTraits: {fileID: 11400000, guid: 758cf6c523894bd4ab7cfba23abeb72c, type: 2}

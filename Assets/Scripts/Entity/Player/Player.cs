@@ -4,6 +4,7 @@ using Assets.HeroEditor.Common.CommonScripts;
 using Entity.Enemies;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Traits;
 using UnityEngine;

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Quests;
@@ -8,9 +10,8 @@ namespace Game.Behaviours
 {
     public class ActiveStateOnQuestState : MonoBehaviour
     {
-        [SerializeField] private Quest _quest;
+        [SerializeField] private List<QuestStateMap> _quests;
         [SerializeField] private bool _activeState;
-        [SerializeField] private QuestState _questState;
 
         [SerializeField] private QuestsChannel _questsChannel;
 
@@ -18,7 +19,12 @@ namespace Game.Behaviours
         {
             _questsChannel.QuestStateChangedEvent += QuestStateChangedEvent;
 
-            if (_quest.State == _questState)
+            UpdateActiveState();
+        }
+
+        private void UpdateActiveState()
+        {
+            if (_quests.Any(q => q.State == q.Quest.State))
             {
                 this.SetActive(_activeState);
             }
@@ -30,10 +36,19 @@ namespace Game.Behaviours
 
         private void QuestStateChangedEvent(Quest quest)
         {
-            if (_quest.Id == quest.Id && quest.State == _questState)
-            {
-                this.SetActive(_activeState);
-            }
+            UpdateActiveState();
         }
+
+        private void OnDestroy()
+        {
+            _questsChannel.QuestStateChangedEvent -= QuestStateChangedEvent;
+        }
+    }
+
+    [Serializable]
+    public class QuestStateMap
+    {
+        public Quest Quest;
+        public QuestState State;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ScriptableObjects.GameConfiguration;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -104,6 +105,7 @@ namespace ScriptableObjects.Traits
             Intelligence = 5;
             Constitution = 5;
             PointsLeft = 0;
+            Name = "";
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Game;
 using Persistence.Accessors;
 using ScriptableObjects;
+using ScriptableObjects.GameConfiguration;
 using UnityEngine;
 
 namespace Persistence.PersistenceHandlers

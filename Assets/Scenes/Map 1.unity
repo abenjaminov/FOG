@@ -1427,7 +1427,7 @@ MonoBehaviour:
   _rightBounds: {fileID: 1200782359}
   _leftBounds: {fileID: 878314199}
   _firstSpawnDelay: 0
-  _spawnInterval: 4
+  _spawnInterval: 25
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
 --- !u!4 &1040931750
 Transform:
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   _rightBounds: {fileID: 1182352478}
   _leftBounds: {fileID: 491091690}
   _firstSpawnDelay: 0
-  _spawnInterval: 4
+  _spawnInterval: 25
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
 --- !u!4 &1389619006
 Transform:
@@ -4037,6 +4037,10 @@ PrefabInstance:
     - target: {fileID: 4086326496977258543, guid: 60971dd622dbdec46a51d5eec284f172, type: 3}
       propertyPath: m_Name
       value: EnemySpawn 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199521073211769793, guid: 60971dd622dbdec46a51d5eec284f172, type: 3}
+      propertyPath: _spawnInterval
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5199521073211769793, guid: 60971dd622dbdec46a51d5eec284f172, type: 3}
       propertyPath: _enemySpawns.Array.size

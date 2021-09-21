@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 1
   AssociatedQuest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Well done, those gnolls are scary!
     Options:
@@ -28,6 +29,12 @@ MonoBehaviour:
 
       Kill the gnolls and
       they will drop them.'
+    Options:
+    - Text: Next
+      Action: 0
+    - Text: Back
+      Action: 1
+  - Text: To pickup items, you can press the {PICKUP_KEY}.
     Options:
     - Text: Accept
       Action: 2

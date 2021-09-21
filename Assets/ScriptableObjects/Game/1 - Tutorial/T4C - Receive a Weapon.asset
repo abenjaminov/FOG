@@ -22,13 +22,14 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: you can equip it through your inventory screen, just press {INV_KEY}
+  - Text: you can equip it through your inventory screen, just press {INV_KEY} and
+      double click.
     Options:
     - Text: Next
       Action: 0
     - Text: Back
       Action: 1
-  - Text: Try killing some gnolls using it
+  - Text: Try killing some gnolls with the bat.
     Options:
     - Text: Accept
       Action: 2

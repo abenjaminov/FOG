@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ScriptableObjects.Quests;
 using UnityEngine;
 
-namespace ScriptableObjects.Quests
+namespace ScriptableObjects.GameConfiguration
 {
     [CreateAssetMenu(fileName = "Quests List", menuName = "Game Configuration/Quests")]
     public class QuestsList : ScriptableObject

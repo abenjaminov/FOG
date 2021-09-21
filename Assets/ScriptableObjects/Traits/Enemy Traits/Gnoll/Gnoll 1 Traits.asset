@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b14b8e73164d148dd7b9a0842d9c47, type: 3}
   m_Name: Gnoll 1 Traits
   m_EditorClassIdentifier: 
-  WalkSpeed: 3
+  Name: 
+  WalkSpeed: 2
   JumpHeight: 0
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0

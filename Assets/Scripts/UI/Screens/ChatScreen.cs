@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
+using Helpers;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Inventory;
@@ -12,6 +13,7 @@ namespace UI.Screens
 {
     public class ChatScreen : MonoBehaviour
     {
+        [SerializeField] private TextPhraseMapper _textPhraseMapper;
         [SerializeField] private NpcChannel _npcChannel;
         [SerializeField] private float _timeBetweenCharacters;
 
@@ -28,6 +30,7 @@ namespace UI.Screens
         private ChatNpc _currentChatNpc; 
         private ChatSession _currentChatSession;
         private ChatItem _currentChatItem;
+        private string _currentChatItemText;
         private int _currentChatItemIndex;
         private bool _isChatWriting;
 
@@ -41,7 +44,7 @@ namespace UI.Screens
         {
             _currentChatNpc = chatNpc;
             _currentChatSession = chatSession;
-            
+
             _textArea.text = "";
             _currentChatItemIndex = 0;
             
@@ -57,6 +60,17 @@ namespace UI.Screens
             _currentChatItem = _currentChatSession.ChatItems[_currentChatItemIndex];
             _currentCharacterIndex = 0;
             _currentTimeBetweenCharacters = _timeBetweenCharacters;
+
+            _currentChatItemText = _currentChatItem.Text;
+            var phrases = _textPhraseMapper.GetPhrases();
+            
+            foreach (var phrase in phrases)
+            {
+                if (!_currentChatItemText.Contains(phrase)) continue;
+
+                _currentChatItemText = 
+                    _currentChatItemText.Replace(phrase, _textPhraseMapper.GetPhraseReplacement(phrase));
+            }
             
             _buttonRightText.text = _currentChatItem.Options[0].Text;
 
@@ -79,11 +93,11 @@ namespace UI.Screens
 
             if (_currentTimeBetweenCharacters <= 0)
             {
-                _textArea.SetText(_currentChatItem.Text.Substring(0, _currentCharacterIndex));
+                _textArea.SetText(_currentChatItemText.Substring(0, _currentCharacterIndex));
                 _currentCharacterIndex++;
                 _currentTimeBetweenCharacters = _timeBetweenCharacters;
 
-                if (_currentCharacterIndex > _currentChatItem.Text.Length)
+                if (_currentCharacterIndex > _currentChatItemText.Length)
                 {
                     _isChatWriting = false;
                 }

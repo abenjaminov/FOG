@@ -1,5 +1,6 @@
 ﻿using System;
 using Entity.Player;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Quests;

@@ -50,17 +50,7 @@ namespace Persistence
         {
             if (!_disablePersistence)
             {
-                foreach (var moduleAccessor in _moduleAccessors)
-                {
-                    var moduleType = moduleAccessor.GetModuleType();
-                
-                    if(!_moduleLoadedSubscriptions.ContainsKey(moduleType)) continue;
-                
-                    foreach (var subscription in _moduleLoadedSubscriptions[moduleType])
-                    {
-                        subscription.OnModuleLoaded(moduleAccessor);
-                    }
-                }
+                LoadModules();
             }
             
             _persistenceChannel.OnGameModulesLoaded();
@@ -69,18 +59,38 @@ namespace Persistence
         public void OnApplicationQuit()
         {
             if (_disablePersistence) return;
-            
+
+            SaveModules();
+        }
+
+        private void LoadModules()
+        {
             foreach (var moduleAccessor in _moduleAccessors)
             {
                 var moduleType = moduleAccessor.GetModuleType();
-                
-                if(!_moduleClosingSubscriptions.ContainsKey(moduleType)) continue;
-                
+
+                if (!_moduleLoadedSubscriptions.ContainsKey(moduleType)) continue;
+
+                foreach (var subscription in _moduleLoadedSubscriptions[moduleType])
+                {
+                    subscription.OnModuleLoaded(moduleAccessor);
+                }
+            }
+        }
+
+        private void SaveModules()
+        {
+            foreach (var moduleAccessor in _moduleAccessors)
+            {
+                var moduleType = moduleAccessor.GetModuleType();
+
+                if (!_moduleClosingSubscriptions.ContainsKey(moduleType)) continue;
+
                 foreach (var subscription in _moduleClosingSubscriptions[moduleType])
                 {
                     subscription.OnModuleClosing(moduleAccessor);
                 }
-                
+
                 moduleAccessor.CloseModule();
             }
         }

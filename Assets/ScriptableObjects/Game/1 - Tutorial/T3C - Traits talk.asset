@@ -28,7 +28,7 @@ MonoBehaviour:
     - Text: Back
       Action: 1
   - Text: Once we finish talking here ill help you level up. Try pressing {TRAITS_KEY}
-      and adding some traits so you will get stronger
+      and adding some traits so you will get stronger.
     Options:
     - Text: Next
       Action: 0

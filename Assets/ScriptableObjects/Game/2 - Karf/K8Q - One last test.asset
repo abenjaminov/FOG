@@ -17,7 +17,7 @@ MonoBehaviour:
   RPReward:
     ApplyReward: 1
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
-    ResistancePointsReward: 200
+    ResistancePointsReward: 400
   ItemReward:
     ApplyReward: 0
     _playerInventory: {fileID: 0}

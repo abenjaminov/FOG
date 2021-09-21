@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b14b8e73164d148dd7b9a0842d9c47, type: 3}
-  m_Name: Gnoll 2 Traits
+  m_Script: {fileID: 11500000, guid: 1f787f0348494ec6832117cdae7aa58d, type: 3}
+  m_Name: Keyboard Configuration
   m_EditorClassIdentifier: 
-  Name: 
-  WalkSpeed: 2
-  JumpHeight: 0
-  BaseDelayBetweenAttacks: 0
-  DelayBetweenAttacks: 0
-  MaxHealth: 24
-  Defense: 0
-  Level: 2
-  ResistancePoints: 4
+  WalkRight: 275
+  WalkLeft: 276
+  Climb: 273
+  Attack: 306
+  Pickup: 122

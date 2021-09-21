@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 0
   AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: '{NAME} this is no time to be confused!'
     Options:
@@ -24,7 +25,7 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: Go Meat {NPC1} fast, I'm busy. She will explain everything. Just follow
+  - Text: Go Meat Andra fast, I'm busy. She will explain everything. Just follow
       the signs.
     Options:
     - Text: Next

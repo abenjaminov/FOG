@@ -16,21 +16,21 @@ MonoBehaviour:
   _name: Advanced fighting
   RPReward:
     ApplyReward: 1
-    _playerTraits: {fileID: 0}
-    ResistancePointsReward: 175
+    _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+    ResistancePointsReward: 275
   ItemReward:
     ApplyReward: 0
     _playerInventory: {fileID: 0}
     _itemRewards: []
   DependencyQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
-  State: 1
+  State: 3
   RequiredLevel: 3
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   MaxValue: 50
-  CurrentValue: 0
+  CurrentValue: 50
   EnemyPrefab: {fileID: 6154071945942122208, guid: d583a5b64d440054cad34fb502fdeda9, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 50
-  ActualEnemiesKilled: 0
+  ActualEnemiesKilled: 50

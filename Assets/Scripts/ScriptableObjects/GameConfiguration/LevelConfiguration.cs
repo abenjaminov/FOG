@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.GameConfiguration
 {
     [CreateAssetMenu(fileName = "Level Config", menuName = "Game Configuration/Levels", order = 0)]
     public class LevelConfiguration : ScriptableObject

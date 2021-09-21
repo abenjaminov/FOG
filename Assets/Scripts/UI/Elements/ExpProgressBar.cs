@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptableObjects;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Traits;
 using UnityEngine;
 

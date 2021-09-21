@@ -5,6 +5,7 @@ namespace Persistence.PersistenceObjects
     [Serializable]
     public class PlayerTraitsPersistence
     {
+        internal string Name;
         internal float CurrentHealth;
         internal int Strength;
         internal int Dexterity;

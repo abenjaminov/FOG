@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.GameConfiguration
 {
     [CreateAssetMenu(fileName = "Scenes List", menuName = "Game Configuration/Scenes")]
     public class ScenesList : ScriptableObject

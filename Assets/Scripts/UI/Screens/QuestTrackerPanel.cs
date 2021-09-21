@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
 using UI.Elements.Quests;
 using UnityEngine;

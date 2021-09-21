@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects.Quests;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
 using UnityEngine;
 

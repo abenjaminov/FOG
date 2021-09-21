@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9100358907563232701, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: _textPhraseMapper
+      value: 
+      objectReference: {fileID: 2840444360503644842}
     - target: {fileID: 9100358907853160426, guid: 9ba82468c02bc9044971460d33580712, type: 3}
       propertyPath: m_Name
       value: _ GameStats Panel
@@ -522,11 +526,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1641653719 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7987077610366607130, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-  m_PrefabInstance: {fileID: 3108685897642242835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2840444360503644834
 Transform:
   m_ObjectHideFlags: 0
@@ -582,7 +581,7 @@ MonoBehaviour:
   _persistenceChannel: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
   _player: {fileID: 3614734984389323322}
-  DefaultFirstScene: {fileID: 11400000, guid: b0eb77ab33d49d54d92fc830b2d2359a, type: 2}
+  DefaultFirstScene: {fileID: 11400000, guid: d00f9203157f05944a67932cb48531a4, type: 2}
 --- !u!1 &2840444360503644841
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +595,7 @@ GameObject:
   - component: {fileID: 2840444360503644836}
   - component: {fileID: 2840444360503644839}
   - component: {fileID: 6681910177769211151}
+  - component: {fileID: 2840444360503644842}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -603,6 +603,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2840444360503644842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840444360503644841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83a7e9a25c4c59ba124642321cb3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _platyerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
 --- !u!1001 &3108685897642242835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,10 +672,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1805480605340470287, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
-      propertyPath: _visualsToRotate
-      value: 
-      objectReference: {fileID: 1641653719}
     - target: {fileID: 8258348582829953066, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: _locationsManager
       value: 
