@@ -26,7 +26,7 @@ namespace State.States.DropStates
         
         public void Tick()
         {
-            if (Vector3.Distance(_playerTransform.position, _dropTransform.position) <= 0.1f)
+            if (Vector3.Distance(_playerTransform.position, _dropTransform.position) <= 0.3f)
             {
                 Object.Destroy(_dropTransform.gameObject);
             }

@@ -14,8 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 1
   AssociatedQuest: {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Ok, I see you. But im still not very impressed.
     Options:
     - Text: Next
+      Action: 0
+  - Text: Here take this hat and come back when you are level 4.
+    Options:
+    - Text: Accept
       Action: 2
+    - Text: Decline
+      Action: 3

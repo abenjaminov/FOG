@@ -393,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240590380}
   - component: {fileID: 240590379}
+  - component: {fileID: 240590378}
   m_Layer: 0
   m_Name: EnemySpawn 2
   m_TagString: Untagged
@@ -400,6 +401,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &240590378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240590377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84d0bdde3bb4bad8f932b42654de62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quests:
+  - Quest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
+    State: 1
+  - Quest: {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
+    State: 1
+  _activeState: 1
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
 --- !u!114 &240590379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,8 +1544,6 @@ MonoBehaviour:
   _quests:
   - Quest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
     State: 1
-  - Quest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
-    State: 2
   _activeState: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
 --- !u!212 &509807992
@@ -9989,6 +10007,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1560119914313934056, guid: f0d43fa8a563f364ea0c83db874b271e, type: 3}
+      propertyPath: ChatSessions.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: dee6729bc7dc2424a8f0b8a2f90d36b3, type: 2}
+    - target: {fileID: 1560119914313934056, guid: f0d43fa8a563f364ea0c83db874b271e, type: 3}
       propertyPath: ChatSessions.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 169a381fd88b5e048b779c311c0db76d, type: 2}
@@ -10057,6 +10079,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6371225448992974522, guid: a3c4023455a7c3d4e87e60cb283b90c0, type: 3}
+      propertyPath: ChatSessions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371225448992974522, guid: a3c4023455a7c3d4e87e60cb283b90c0, type: 3}
+      propertyPath: ChatSessions.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b5b691e4a7cfe154d87d37e6d1099450, type: 2}
     - target: {fileID: 6371225448992974523, guid: a3c4023455a7c3d4e87e60cb283b90c0, type: 3}
       propertyPath: m_RootOrder
       value: 7

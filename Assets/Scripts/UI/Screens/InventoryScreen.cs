@@ -3,6 +3,7 @@ using System.Linq;
 using Helpers;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
 using UnityEngine;
 
@@ -82,7 +83,15 @@ namespace UI.Screens
                 if (_inventory.OwnedItems.Count > i)
                 {
                     _itemViews[i].ItemSprite.sprite = _inventory.OwnedItems[i].ItemMeta.InventoryItemSprite;
-                    _itemViews[i].AmountText.SetText(_inventory.OwnedItems[i].Amount.ToString());
+                    if (_inventory.OwnedItems[i].ItemMeta is EquipmentItemMeta)
+                    {
+                        _itemViews[i].AmountText.SetText("");
+                    }
+                    else
+                    {
+                        _itemViews[i].AmountText.SetText(_inventory.OwnedItems[i].Amount.ToString());    
+                    }
+                    
                     _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 255);
                     _itemViews[i].ItemMeta = _inventory.OwnedItems[i].ItemMeta;
                 }

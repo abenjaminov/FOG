@@ -7,11 +7,16 @@ namespace ScriptableObjects.GameConfiguration
     [CreateAssetMenu(fileName = "Scenes List", menuName = "Game Configuration/Scenes")]
     public class ScenesList : ScriptableObject
     {
-        [SerializeField] private List<SceneMeta> _scenes;
+        public List<SceneMeta> Scenes;
 
         public SceneMeta GetSceneMetaById(string sceneId)
         {
-            return _scenes.FirstOrDefault(x => x.Id == sceneId);
+            return Scenes.FirstOrDefault(x => x.Id == sceneId);
+        }
+
+        public SceneMeta GetSceneMetaByPhrase(string phrase)
+        {
+            return Scenes.FirstOrDefault(x => x.ReplacementPhrase == phrase);
         }
     }
 }

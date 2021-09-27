@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemRewards: []
   ChatItems:
   - Text: Well done, there is nothing much that i can teach you at this point. You'll
-      need some more experience.
+      need some more resistance points.
     Options:
     - Text: Next
       Action: 0

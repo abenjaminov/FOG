@@ -25,6 +25,15 @@ namespace ScriptableObjects.Inventory
                 CurrencyItem.Amount += amountToAdd;
                 inventoryItem = CurrencyItem;
             }
+            else if (itemMetaData is EquipmentItemMeta)
+            {
+                inventoryItem = new InventoryItem()
+                {
+                    ItemMeta = itemMetaData,
+                    Amount = 1
+                };
+                OwnedItems.Add(inventoryItem);
+            }
             else
             {
                 inventoryItem = OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == itemMetaData.Id);

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e89543202a94708b0c2b2a49c171938, type: 3}
+  m_Name: Gnoll 2
+  m_EditorClassIdentifier: 
+  AssetName: Gnoll
+  ReplacementPhrase: '{GNOLL2}'
+  _enemyTraits: {fileID: 11400000, guid: ff9bde5ee132ccf4b838d9c3ba62e50e, type: 2}

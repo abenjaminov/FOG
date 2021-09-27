@@ -6,15 +6,17 @@ using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Inventory;
 using TMPro;
+using UI.Mouse;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Screens
 {
-    public class ChatScreen : MonoBehaviour
+    public class ChatScreen : MonoBehaviour, ISingleClickHandler
     {
         [SerializeField] private TextPhraseMapper _textPhraseMapper;
         [SerializeField] private NpcChannel _npcChannel;
+        [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private float _timeBetweenCharacters;
 
         [SerializeField] private TextMeshProUGUI _textArea;
@@ -23,6 +25,8 @@ namespace UI.Screens
         [SerializeField] private Inventory _playerInventory;
         private TextMeshProUGUI _buttonRightText;
         private TextMeshProUGUI _buttonLeftText;
+
+        private KeySubscription _escapeSubscription;
         
         private float _currentTimeBetweenCharacters;
         private int _currentCharacterIndex;
@@ -38,6 +42,18 @@ namespace UI.Screens
         {
             _buttonRightText = _buttonRight.GetComponentInChildren<TextMeshProUGUI>();
             _buttonLeftText = _buttonLeft.GetComponentInChildren<TextMeshProUGUI>();
+
+            _escapeSubscription = _inputChannel.SubscribeKeyDown(KeyCode.Escape, EscapeKeyPressed);
+        }
+
+        private void OnDestroy()
+        {
+            _escapeSubscription.Unsubscribe();
+        }
+
+        private void EscapeKeyPressed()
+        {
+            
         }
 
         public void StartChat(ChatNpc chatNpc, ChatSession chatSession)
@@ -94,13 +110,18 @@ namespace UI.Screens
             if (_currentTimeBetweenCharacters <= 0)
             {
                 _textArea.SetText(_currentChatItemText.Substring(0, _currentCharacterIndex));
-                _currentCharacterIndex++;
-                _currentTimeBetweenCharacters = _timeBetweenCharacters;
+                SetChatItemTextIndex(_currentCharacterIndex + 1);
+            }
+        }
 
-                if (_currentCharacterIndex > _currentChatItemText.Length)
-                {
-                    _isChatWriting = false;
-                }
+        private void SetChatItemTextIndex(int index)
+        {
+            _currentCharacterIndex = index;
+            _currentTimeBetweenCharacters = _timeBetweenCharacters;
+
+            if (_currentCharacterIndex > _currentChatItemText.Length)
+            {
+                _isChatWriting = false;
             }
         }
 
@@ -165,6 +186,11 @@ namespace UI.Screens
             {
                 _playerInventory.AddItem(itemReward.ItemMeta, itemReward.Amount);
             }
+        }
+        
+        public void HandleClick()
+        {
+            SetChatItemTextIndex(_currentChatItemText.Length - 1);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ScriptableObjects.Traits
     [CreateAssetMenu(fileName = "Player Traits", menuName = "Game Stats/Player Traits", order = 0)]
     public class PlayerTraits : Traits
     {
-        public UnityAction GainedExperienceEvent;
+        public UnityAction<float> GainedResistancePointsEvent;
         public UnityAction MonsterResistanceChangedEvent;
         
         public const float MaxMonsterStateResistance = 100;
@@ -19,7 +19,7 @@ namespace ScriptableObjects.Traits
         public float ClimbSpeed;
         
         [HideInInspector] public float CurrentHealth;
-        [HideInInspector] public int PointsLeft;
+        [SerializeField] public int PointsLeft;
 
         [SerializeField] internal LevelConfiguration _levelConfiguration;
         [SerializeField] private int _resistancePointsGained;
@@ -47,8 +47,9 @@ namespace ScriptableObjects.Traits
             get => _resistancePointsGained;
             set
             {
+                var oldPoints = _resistancePointsGained;
                 _resistancePointsGained = value;
-                GainedExperienceEvent?.Invoke();
+                GainedResistancePointsEvent?.Invoke(_resistancePointsGained - oldPoints);
             }
         }
 
@@ -81,8 +82,8 @@ namespace ScriptableObjects.Traits
             if (level == null || prevLevel == null) return;
             
             PointsLeft += level.Points;
-            ResistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
-            
+            _resistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
+
             LevelUpEvent?.Invoke();
         }
 

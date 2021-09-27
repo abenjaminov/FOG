@@ -19,18 +19,20 @@ MonoBehaviour:
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
     ResistancePointsReward: 400
   ItemReward:
-    ApplyReward: 0
-    _playerInventory: {fileID: 0}
-    _itemRewards: []
+    ApplyReward: 1
+    _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
+    _itemRewards:
+    - ItemMeta: {fileID: 11400000, guid: 4dc9be04ebdfe7144879fb632bc0d8fa, type: 2}
+      Amount: 1
   DependencyQuest: {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
-  State: 0
+  State: 2
   RequiredLevel: 4
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
-  MaxValue: 50
+  MaxValue: 1
   CurrentValue: 0
   EnemyPrefab: {fileID: 3215571654241298141, guid: 24026d9aaf2a79740bd0af26001f6a89, type: 3}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-  NumberOfEnemiesToKill: 50
+  NumberOfEnemiesToKill: 60
   ActualEnemiesKilled: 0

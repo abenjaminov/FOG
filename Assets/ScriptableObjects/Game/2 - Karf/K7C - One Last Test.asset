@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 0
   AssociatedQuest: {fileID: 11400000, guid: ad6b7a712bbf6c640bd2b29c03f89432, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: You actually made it back alive!
     Options:
     - Text: Next
       Action: 0
-  - Text: Lets give you a real test, defeat 50 {GNOLL3}. Good luck.
+  - Text: Lets give you a real test, defeat 60 {GNOLL3} and when youre done go see
+      Axar on {MAP4}. Good luck.
     Options:
     - Text: Accept
       Action: 2

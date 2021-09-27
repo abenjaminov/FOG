@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e4fb4c874e38a7f52eaa3ffc9546, type: 3}
   m_Name: Map 6 - Crossroads
   m_EditorClassIdentifier: 
+  AssetName: Crossroads
+  ReplacementPhrase: '{MAP6}'
   Id: 6ed33e47-99e8-4d73-a590-dbb11c76a5b6
-  LevelAloud: 6
+  LevelAloud: 4
   SceneAsset: {fileID: 102900000, guid: 0136c8fa946338946821bce224f79859, type: 3}

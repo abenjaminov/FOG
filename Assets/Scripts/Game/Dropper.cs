@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ScriptableObjects;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
+using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -24,7 +25,11 @@ namespace Game
 
             foreach (var dropItem in _dropItems)
             {
+                if (dropItem.AssosiatedQuest != null &&
+                    dropItem.AssosiatedQuest.State != QuestState.Active) continue;
+                
                 var randomNumber = Random.Range(0f, 1f);
+                
                 if (randomNumber <= dropItem.Percentage)
                 {
                     var offsetValue = (numberOfInstantiated + 1) / 2;

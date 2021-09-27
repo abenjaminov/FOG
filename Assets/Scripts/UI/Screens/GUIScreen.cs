@@ -14,7 +14,7 @@ namespace UI.Screens
             UpdateUI();
         }
 
-        public void ToggleView()
+        public virtual void ToggleView()
         {
             gameObject.SetActive(!gameObject.activeSelf);
             IsOpen = gameObject.activeSelf;

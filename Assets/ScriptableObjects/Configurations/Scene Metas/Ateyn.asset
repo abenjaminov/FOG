@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e4fb4c874e38a7f52eaa3ffc9546, type: 3}
   m_Name: Ateyn
   m_EditorClassIdentifier: 
+  AssetName: Ateyn
+  ReplacementPhrase: '{ATEYN}'
   Id: 9f6d33a7-a61e-4ec5-85fb-75f7731e3233
   LevelAloud: 8
   SceneAsset: {fileID: 102900000, guid: d2c4715c50e936945b24cabe412d03d0, type: 3}

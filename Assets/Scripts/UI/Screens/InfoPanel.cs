@@ -1,19 +1,16 @@
-using System;
 using System.Collections.Generic;
-using Entity.Enemies;
-using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Analytics;
 
 namespace UI
 {
     public class InfoPanel : MonoBehaviour
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
-        [SerializeField] private CombatChannel _combatChannel;
+        [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] TextMeshProUGUI _infoTextPrefab;
         [SerializeField] private int _maxInfos;
         [SerializeField] private float _fadingTime;
@@ -26,7 +23,7 @@ namespace UI
         
         void Awake()
         {
-            _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
+            _playerTraits.GainedResistancePointsEvent += GainedResistancePointsEvent;
             _inventoryChannel.ItemAddedEvent += ItemAddedEvent; 
             
             _rectTransform = GetComponent<RectTransform>();
@@ -44,7 +41,7 @@ namespace UI
                 });
             }
         }
-        
+
         private void Update()
         {
             for (int i = 0; i < _allTexts.Count; i++)
@@ -67,12 +64,15 @@ namespace UI
         {
             AddInfoItem("Gained " + item.ItemMeta.Name + " (" + amountAdded + ")");
         }
-        
-        private void EnemyDiedEvent(Enemy enemy)
-        {
-            AddInfoItem(((EnemyTraits) enemy.Traits).ResistancePoints + " Exp Gained");
-        }
 
+
+        private void GainedResistancePointsEvent(float gained)
+        {
+            if (gained == 0) return;
+            
+            AddInfoItem(gained + " RP Gained");
+        }
+        
         private void AddInfoItem(string itemText)
         {
             var infoText = _allTexts[_nextInfoIndex].TextMesh;
@@ -92,7 +92,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
+            _playerTraits.GainedResistancePointsEvent -= GainedResistancePointsEvent;
             _inventoryChannel.ItemAddedEvent -= ItemAddedEvent; 
         }
     }

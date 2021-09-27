@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e4fb4c874e38a7f52eaa3ffc9546, type: 3}
   m_Name: Map 4
   m_EditorClassIdentifier: 
+  AssetName: Map 4
+  ReplacementPhrase: '{MAP4}'
   Id: 1f423728-d34c-4d58-90e8-9b7065053e19
   LevelAloud: 3
   SceneAsset: {fileID: 102900000, guid: 14129f64aa5243d4dbf6ed13f03264d1, type: 3}

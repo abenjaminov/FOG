@@ -145,11 +145,15 @@ namespace Helpers
             return CalculateAttackerDamage(attacker, -rangeDiff);
         }
         
-        public static float CalculateAttackRange(Traits attacker)
+        public static float CalculateAttackRange(PlayerTraits attacker)
         {
-            // var range = (attacker.Strength + (attacker.Dexterity*1.5f)) / (float)attacker.Level;
-            // return range;
-            return 15;
+            // TODO: Turn into ScriptableObject?
+            var minRange = 4;
+            var maxRange = 15;
+            var maxDex = 125;
+
+            var range = Mathf.Min(maxRange, minRange + (attacker.Dexterity / (maxRange * maxDex)));
+            return range;
         }
     }
 }

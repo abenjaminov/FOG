@@ -1,4 +1,5 @@
 ﻿using Entity;
+using Player;
 using ScriptableObjects.Channels;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Abilities
         protected CharacterWrapper _hostWrapper;
         public int NumberOfEnemies;
         [SerializeField] protected CombatChannel _combatChannel;
+        [SerializeField] protected PlayerMovement _playerMovement;
 
         protected override void Awake()
         {

@@ -2,6 +2,7 @@
 using Entity;
 using Entity.Enemies;
 using Newtonsoft.Json.Utilities;
+using Player;
 using UnityEngine;
 
 namespace Abilities
@@ -10,10 +11,10 @@ namespace Abilities
     {
         [SerializeField] private float _meleeRange;
         [SerializeField] private Transform _hitRayOrigin;
-        
+
         protected void OnMeleeHit()
         {
-            var worldDirection = _host.GetWorldMovementDirection();
+            var worldDirection = _playerMovement.GetWorldMovementDirection();
             var hit = Physics2D.RaycastAll(_hitRayOrigin.position,worldDirection , _meleeRange).ToList();
             hit.AddRange(Physics2D.RaycastAll(_hitRayOrigin.position ,-worldDirection , _meleeRange / 3));
 
@@ -34,7 +35,7 @@ namespace Abilities
         
         private void Update()
         {
-            Debug.DrawRay(_hitRayOrigin.position, _host.GetWorldMovementDirection() * _meleeRange, Color.red);
+            Debug.DrawRay(_hitRayOrigin.position, _playerMovement.GetWorldMovementDirection() * _meleeRange, Color.red);
         }
     }
 }

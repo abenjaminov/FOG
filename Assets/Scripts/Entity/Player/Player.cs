@@ -39,9 +39,15 @@ namespace Entity.Player
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
             
             // ReSharper disable once PossibleNullReferenceException
-            _playerTraits.GainedExperienceEvent += GainedExperienceEvent;
+            _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
 
             _receiveDamageColldown = _playerTraits.ReceiveDamageCooldown;
+        }
+
+        private void OnDestroy()
+        {
+            _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
+            _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
         }
 
         protected override void Start()
@@ -61,7 +67,7 @@ namespace Entity.Player
                 _hitbox.SetActive(true);
         }
 
-        private void GainedExperienceEvent()
+        private void GainedExperienceEvent(float gained)
         {
             var currentLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level);
             if (currentLevel != null && _playerTraits.ResistancePointsGained >= currentLevel.ExpForNextLevel)

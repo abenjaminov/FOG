@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Entity.Player.Bow;
 using Helpers;
+using Player;
+using ScriptableObjects.Traits;
 using UnityEngine;
 
 namespace Abilities.Bow
@@ -14,9 +16,9 @@ namespace Abilities.Bow
         {
             var arrow = Object.Instantiate(_arrowPrefab, _fireTransform).GetComponent<Arrow>();
             
-            arrow.WorldMovementDirection = _host.GetWorldMovementDirection();
+            arrow.WorldMovementDirection = _playerMovement.GetWorldMovementDirection();
             arrow.ParentCharacter = (Entity.Player.Player) _hostWrapper;
-            arrow.Range = TraitsHelper.CalculateAttackRange(_host.Traits);
+            arrow.Range = TraitsHelper.CalculateAttackRange(_host.Traits as PlayerTraits);
             arrow.SetParentAbility(this);
             
             var sr = arrow.GetComponent<SpriteRenderer>();

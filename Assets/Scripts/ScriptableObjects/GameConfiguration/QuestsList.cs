@@ -13,6 +13,9 @@ namespace ScriptableObjects.GameConfiguration
         
         [SerializeField] private List<Quest> Karf;
         
+        [SerializeField] private List<Quest> Map5;
+        [SerializeField] private List<Quest> Crossroads;
+        
         [SerializeField] private List<Quest> Quests;
 
         public List<Quest> GetAllRunningQuests()
@@ -22,6 +25,8 @@ namespace ScriptableObjects.GameConfiguration
             runningQuests.AddRange(Quests.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
             runningQuests.AddRange(TutorialQuests.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
             runningQuests.AddRange(Karf.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
+            runningQuests.AddRange(Map5.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
+            runningQuests.AddRange(Crossroads.Where(x => x.State == QuestState.Active || x.State == QuestState.PendingComplete));
 
             return runningQuests;
         }
@@ -39,6 +44,16 @@ namespace ScriptableObjects.GameConfiguration
             }
             
             foreach (var quest in Karf)
+            {
+                quest.ResetQuest();
+            }
+            
+            foreach (var quest in Map5)
+            {
+                quest.ResetQuest();
+            }
+            
+            foreach (var quest in Crossroads)
             {
                 quest.ResetQuest();
             }

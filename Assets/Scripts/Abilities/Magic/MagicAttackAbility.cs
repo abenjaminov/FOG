@@ -38,7 +38,7 @@ namespace Abilities.Magic
         
         private void OnMagicHit()
         {
-            var direction = _host.GetWorldMovementDirection();
+            var direction = _playerMovement.GetWorldMovementDirection();
             var downAddition = Vector3.down * (_downRange / 3);
             var startPoint = transform.position + downAddition;
             var endPoint = startPoint - downAddition + new Vector3(direction.x * _forwardRange, _upRange);
@@ -57,7 +57,7 @@ namespace Abilities.Magic
         
         private void Update()
         {
-            var direction = _host.GetWorldMovementDirection();
+            var direction = _playerMovement.GetWorldMovementDirection();
             var downAddition = Vector3.down * (_downRange / 3);
             var startPoint = transform.position + downAddition;
             var endPoint = startPoint - downAddition + new Vector3(direction.x * _forwardRange, _upRange);

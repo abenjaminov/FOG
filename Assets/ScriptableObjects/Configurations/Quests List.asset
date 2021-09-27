@@ -20,6 +20,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
   - {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
   - {fileID: 11400000, guid: ad6b7a712bbf6c640bd2b29c03f89432, type: 2}
+  Map5:
+  - {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
+  Crossroads:
+  - {fileID: 11400000, guid: 38416f440f423ac4c92b5b2d4d173d9f, type: 2}
   Quests:
   - {fileID: 11400000, guid: c27227744221a9e40bfead248b3bc79b, type: 2}
   - {fileID: 11400000, guid: 2da13c14553e65642a71b724aa2555a0, type: 2}

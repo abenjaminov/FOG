@@ -5,6 +5,7 @@ using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
+using UnityEditor;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -26,6 +27,7 @@ namespace ScriptableObjects
         [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private EquipmentItemMeta _defaultArmourMeta;
         
+        [MenuItem("MyMenu/Reset all objects")]
         [ContextMenu("Reset All Objects")]
         private void ResetObjects()
         {

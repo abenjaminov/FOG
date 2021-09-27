@@ -39,5 +39,10 @@ namespace Player
         {
             _visualsToRotate.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
+
+        public Vector3 GetWorldMovementDirection()
+        {
+            return _visualsToRotate.transform.rotation.y != 0 ? Vector2.left : Vector2.right;
+        }
     }
 }

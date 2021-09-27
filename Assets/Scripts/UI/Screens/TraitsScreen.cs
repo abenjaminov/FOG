@@ -60,6 +60,13 @@ namespace UI.Screens
             }
         }
 
+        public override void ToggleView()
+        {
+            base.ToggleView();
+            
+            UpdateUI();
+        }
+
         private void SetExp()
         {
             _levelText.SetText(_playerTraits.Level.ToString());

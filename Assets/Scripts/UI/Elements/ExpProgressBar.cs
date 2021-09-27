@@ -17,7 +17,7 @@ namespace UI
 
             CurrentValue = _playerTraits.ResistancePointsGained;
             
-            _playerTraits.GainedExperienceEvent += GainedExperienceEvent;
+            _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
             _playerTraits.LevelUpEvent += LevelUpEvent;
             
             UpdateUI();
@@ -25,13 +25,14 @@ namespace UI
 
         private void OnDestroy()
         {
-            _playerTraits.GainedExperienceEvent -= GainedExperienceEvent;
+            _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
             _playerTraits.LevelUpEvent -= LevelUpEvent;
         }
 
         private void LevelUpEvent()
         {
             UpdateMaxValue();
+            CurrentValue = _playerTraits.ResistancePointsGained;
             UpdateUI(); 
         }
 
@@ -48,7 +49,7 @@ namespace UI
             }
         }
 
-        private void GainedExperienceEvent()
+        private void GainedExperienceEvent(float gained)
         {
             CurrentValue = _playerTraits.ResistancePointsGained;
             UpdateUI();

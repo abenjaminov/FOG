@@ -19,8 +19,7 @@ namespace UI
         [SerializeField] private NpcChannel _NpcChannel;
         [SerializeField] private QuestsChannel _questsChannel;
         [SerializeField] private QuestsList _questsList;
-        
-        
+
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
         [SerializeField] private GUIScreen _equipment;
