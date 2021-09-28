@@ -10,7 +10,7 @@ namespace ScriptableObjects.Quests
     public class KillEnemiesQuest : ProgressQuest
     {
         [Header("Kill enemies quest")]
-        public GameObject EnemyPrefab;
+        public EnemyMeta EnemyMeta;
         
         public CombatChannel _combatChannel;
         public int NumberOfEnemiesToKill;
@@ -21,13 +21,13 @@ namespace ScriptableObjects.Quests
 
         public override string GetName()
         {
-            return "Defeat " + NumberOfEnemiesToKill + " " + EnemyPrefab.name;
+            return "Defeat " + NumberOfEnemiesToKill + " " + EnemyMeta.ReplacementPhrase;
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            _questEnemy = EnemyPrefab.GetComponentInChildren<Enemy>();
+            _questEnemy = EnemyMeta.EnemyPrefab.GetComponentInChildren<Enemy>();
             MaxValue = NumberOfEnemiesToKill;
             
             ProgressMade(ActualEnemiesKilled);

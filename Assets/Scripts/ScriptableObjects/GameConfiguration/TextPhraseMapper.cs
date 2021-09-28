@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ScriptableObjects;
-using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Traits;
 using UnityEngine;
 
-namespace Helpers
+namespace ScriptableObjects.GameConfiguration
 {
-    public class TextPhraseMapper : MonoBehaviour
+    [CreateAssetMenu(fileName = "Phrase Mapper", menuName = "Game Configuration/Phrase Mapper")]
+    public class TextPhraseMapper : ScriptableObject
     {
         [SerializeField] private PlayerTraits _platyerTraits;
         [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
@@ -17,7 +16,7 @@ namespace Helpers
 
         private Dictionary<string, Func<string>> TextPhrases;
         
-        private void Awake()
+        private void OnEnable()
         {
             TextPhrases = new Dictionary<string, Func<string>>()
             {
@@ -41,6 +40,21 @@ namespace Helpers
             }
         }
 
+        public string RephraseText(string text)
+        {
+            var phrases = GetPhrases();
+
+            foreach (var phrase in phrases)
+            {
+                if (!text.Contains(phrase)) continue;
+
+                text =
+                    text.Replace(phrase, GetPhraseReplacement(phrase));
+            }
+
+            return text;
+        }
+        
         public List<string> GetPhrases()
         {
             return TextPhrases.Keys.ToList();

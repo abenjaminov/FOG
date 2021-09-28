@@ -1,4 +1,5 @@
 ﻿using Assets.HeroEditor.Common.CommonScripts;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
 using TMPro;
 using UI.Behaviours;
@@ -15,19 +16,24 @@ namespace UI.Elements.Quests
         
         [SerializeField] private TextMeshProUGUI _questName;
         private SlideFromHorizontalEdge _slider;
+        private readonly TextPhraseMapper _phraseMapper;
 
-        public QuestInfoLogic(GameObject questInfoItem, TextMeshProUGUI questName, SlideFromHorizontalEdge slider)
+        public QuestInfoLogic(GameObject questInfoItem, 
+                              TextMeshProUGUI questName, 
+                              SlideFromHorizontalEdge slider,
+                              TextPhraseMapper phraseMapper)
         {
             _questInfoItem = questInfoItem;
             _rectTransform = questInfoItem.GetComponent<RectTransform>();
             _questName = questName;
             _slider = slider;
+            _phraseMapper = phraseMapper;
         }
 
         public void SetQuest(T quest)
         {
             Quest = quest;
-            _questName.text = quest.GetName();
+            _questName.text = _phraseMapper.RephraseText(quest.GetName());
         }
 
         public string GetQuestId()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Entity.Enemies;
+using UnityEngine;
 
 namespace ScriptableObjects
 {
@@ -6,5 +7,6 @@ namespace ScriptableObjects
     public class EnemyMeta : AssetMeta
     {
         [SerializeField] private EnemyTraits _enemyTraits;
+        public GameObject EnemyPrefab;
     }
 }

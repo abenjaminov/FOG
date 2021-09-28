@@ -27,7 +27,7 @@ MonoBehaviour:
       Action: 0
     - Text: Back
       Action: 1
-  - Text: Help me, defeat more of these Orcs so we can understand them better.
+  - Text: Help me defeat some {ORC2} so we can understand them better.
     Options:
     - Text: Accept
       Action: 2

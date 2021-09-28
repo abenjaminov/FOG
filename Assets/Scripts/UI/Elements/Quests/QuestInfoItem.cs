@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
 using TMPro;
 using UI.Behaviours;
@@ -15,10 +16,11 @@ namespace UI.Elements.Quests
 
         [SerializeField] private TextMeshProUGUI _questName;
         [SerializeField] private SlideFromHorizontalEdge _slider;
+        [SerializeField] private TextPhraseMapper _phraseMapper;
         
         private void Awake()
         {
-            _questInfoLogic = new QuestInfoLogic<Quest>(this.gameObject, _questName, _slider);
+            _questInfoLogic = new QuestInfoLogic<Quest>(this.gameObject, _questName, _slider, _phraseMapper);
         }
 
         public void SetQuest(Quest quest)

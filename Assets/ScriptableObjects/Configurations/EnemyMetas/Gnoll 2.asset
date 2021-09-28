@@ -15,3 +15,4 @@ MonoBehaviour:
   AssetName: Gnoll
   ReplacementPhrase: '{GNOLL2}'
   _enemyTraits: {fileID: 11400000, guid: ff9bde5ee132ccf4b838d9c3ba62e50e, type: 2}
+  EnemyPrefab: {fileID: 6154071945942122208, guid: d583a5b64d440054cad34fb502fdeda9, type: 3}

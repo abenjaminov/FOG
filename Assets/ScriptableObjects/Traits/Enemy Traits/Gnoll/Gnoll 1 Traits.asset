@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gnoll 1 Traits
   m_EditorClassIdentifier: 
   Name: 
-  WalkSpeed: 2
+  WalkSpeed: 1.7
   JumpHeight: 0
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0

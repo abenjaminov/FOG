@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Assets.HeroEditor.Common.CommonScripts;
 using Entity.NPCs;
 using ScriptableObjects.Chat;
+using ScriptableObjects.Quests;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -35,7 +36,15 @@ namespace UI.Screens
                 var session = sessions[i];
                 var selectionItem = Instantiate(_chatSelectionItemPrefab, _selectionOptionsPanel.transform);
                 selectionItem.transform.localPosition = new Vector3(20, -10 - (20 * i), 0);
-                selectionItem.SetText(session.GetSessionName());
+                var text = session.GetSessionName();
+
+                if (session.AssociatedQuest != null && 
+                    session.AssociatedQuest.State == QuestState.PendingComplete)
+                {
+                    text += " (Complete)";
+                }
+                
+                selectionItem.SetText(text);
                 selectionItem.Session = session;
                 selectionItem.ChatSelectedEvent += ChatSelectedEvent;
                 selectionItems.Add(selectionItem);

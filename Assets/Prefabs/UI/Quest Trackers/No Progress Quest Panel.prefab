@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questName: {fileID: 7760059958203071317}
   _slider: {fileID: 4372823409139354886}
+  _phraseMapper: {fileID: 11400000, guid: 4907b29677634694fa8544eee8e6d688, type: 2}
 --- !u!114 &4372823409139354886
 MonoBehaviour:
   m_ObjectHideFlags: 0

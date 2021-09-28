@@ -15735,7 +15735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea2b31aa5ac450d883dc537f0ffa202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textPhraseMapper: {fileID: 0}
+  _textPhraseMapper: {fileID: 11400000, guid: 4907b29677634694fa8544eee8e6d688, type: 2}
   _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
   _timeBetweenCharacters: 0.03

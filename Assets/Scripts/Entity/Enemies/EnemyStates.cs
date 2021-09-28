@@ -13,7 +13,6 @@ namespace Entity.Enemies
         private StateMachine _stateMachine;
 
         [SerializeField] private CombatChannel _combatChannel;
-        [SerializeField] private float _walkingSpeed;
         [SerializeField] private float _maxIdleTimeBetweenTargets;
         [SerializeField] private float _minIdleTimeBetweenTargets;
         private float _idleTimeBetweenTargets;
@@ -33,14 +32,18 @@ namespace Entity.Enemies
             _enemy = GetComponent<Enemy>();
             
             var idle = new IdleState(_enemy, enemyMovement);
-            var walk = new EnemyWalkState(_enemy, enemyMovement, animator, _walkingSpeed);
+            var walk = new EnemyWalkState(_enemy, enemyMovement, animator, _enemy.Traits.WalkSpeed);
             var dead = new EnemyDieState(enemyMovement,animator,_combatChannel, _enemy);
             var vanishState = new EmptyState();
 
-            var shouldStand = new Func<bool>(() => !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
-                                                   (Vector2.Distance(enemyMovement.Target, enemyMovement.transform.position) <= .2f ||
-                                                   enemyMovement.transform.position.x <= enemyMovement.LeftBounds.x ||
-                                                   enemyMovement.transform.position.x >= enemyMovement.RightBounds.x));
+            var shouldStand = new Func<bool>(() =>
+            {
+                Vector3 position;
+                return !_enemy.IsDead && enemyMovement.Target != Vector2.positiveInfinity &&
+                       (Vector2.Distance(enemyMovement.Target, (position = enemyMovement.transform.position)) <= .2f ||
+                        position.x <= enemyMovement.LeftBounds.x ||
+                        position.x >= enemyMovement.RightBounds.x);
+            });
             var shouldWalk = new Func<bool>(() => !_enemy.IsDead && idle.IdleTime >= _idleTimeBetweenTargets && !isAlwaysIdle);
             var shouldDie = new Func<bool>(() => _enemy.IsDead && !isAlwaysIdle);
             var shouldVanish = new Func<bool>(() => _enemy.IsDead && dead.TimeDead >= _deadDelayTime && !isAlwaysIdle);

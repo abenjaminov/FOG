@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83a7e9a25c4c59ba124642321cb3a8, type: 3}
+  m_Name: Phrase Mapper
+  m_EditorClassIdentifier: 
+  _platyerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
+  _sceneList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
+  _enemyList: {fileID: 11400000, guid: ff30526dc40899d4db9e9c996728484d, type: 2}

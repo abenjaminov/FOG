@@ -218,10 +218,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9100358907563232701, guid: 9ba82468c02bc9044971460d33580712, type: 3}
-      propertyPath: _textPhraseMapper
-      value: 
-      objectReference: {fileID: 2840444360503644842}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba82468c02bc9044971460d33580712, type: 3}
 --- !u!1 &556090361
@@ -501,7 +497,6 @@ GameObject:
   - component: {fileID: 2840444360503644836}
   - component: {fileID: 2840444360503644839}
   - component: {fileID: 6681910177769211151}
-  - component: {fileID: 2840444360503644842}
   - component: {fileID: 2840444360503644843}
   m_Layer: 0
   m_Name: Game
@@ -510,22 +505,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2840444360503644842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2840444360503644841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc83a7e9a25c4c59ba124642321cb3a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _platyerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
-  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
-  _sceneList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
-  _enemyList: {fileID: 11400000, guid: ff30526dc40899d4db9e9c996728484d, type: 2}
 --- !u!114 &2840444360503644843
 MonoBehaviour:
   m_ObjectHideFlags: 0

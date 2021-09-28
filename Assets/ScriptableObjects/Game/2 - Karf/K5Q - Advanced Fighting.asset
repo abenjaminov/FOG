@@ -25,14 +25,14 @@ MonoBehaviour:
     - ItemMeta: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
       Amount: 1
   DependencyQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
-  State: 0
+  State: 1
   RequiredLevel: 3
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   MaxValue: 40
-  CurrentValue: 50
-  EnemyPrefab: {fileID: 6154071945942122208, guid: d583a5b64d440054cad34fb502fdeda9, type: 3}
+  CurrentValue: 0
+  EnemyMeta: {fileID: 11400000, guid: 47baf4fd2f01ef044895a25746a77a50, type: 2}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 40
-  ActualEnemiesKilled: 50
+  ActualEnemiesKilled: 0

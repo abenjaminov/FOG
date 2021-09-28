@@ -28,9 +28,9 @@ MonoBehaviour:
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
-  MaxValue: 0
+  MaxValue: 50
   CurrentValue: 0
-  EnemyPrefab: {fileID: 2019617913211333601, guid: 8e1c3fc8fe9eba842b906955974a7123, type: 3}
+  EnemyMeta: {fileID: 11400000, guid: 115dd72ce2709f946ab0dfbffcdaefd5, type: 2}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 50
   ActualEnemiesKilled: 0

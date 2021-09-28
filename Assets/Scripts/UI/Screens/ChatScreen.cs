@@ -4,6 +4,7 @@ using Entity.NPCs;
 using Helpers;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using TMPro;
 using UI.Mouse;
@@ -77,17 +78,8 @@ namespace UI.Screens
             _currentCharacterIndex = 0;
             _currentTimeBetweenCharacters = _timeBetweenCharacters;
 
-            _currentChatItemText = _currentChatItem.Text;
-            var phrases = _textPhraseMapper.GetPhrases();
-            
-            foreach (var phrase in phrases)
-            {
-                if (!_currentChatItemText.Contains(phrase)) continue;
+            _currentChatItemText = _textPhraseMapper.RephraseText(_currentChatItem.Text);
 
-                _currentChatItemText = 
-                    _currentChatItemText.Replace(phrase, _textPhraseMapper.GetPhraseReplacement(phrase));
-            }
-            
             _buttonRightText.text = _currentChatItem.Options[0].Text;
 
             if (_currentChatItem.Options.Count > 1)
@@ -100,7 +92,7 @@ namespace UI.Screens
                 _buttonLeft.SetActive(false);
             }
         }
-        
+
         private void Update()
         {
             if (!_isChatWriting) return;

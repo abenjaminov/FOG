@@ -13,18 +13,24 @@ MonoBehaviour:
   m_Name: 22 - Quest - Kill 5 Gnolls
   m_EditorClassIdentifier: 
   Id: 7c29b95e-ed85-4f28-b5c2-b149f852d0c1
-  Name: Kill those Gnolls
+  _name: 
   RPReward:
     ApplyReward: 1
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
     ResistancePointsReward: 150
-  NextQuests: []
+  ItemReward:
+    ApplyReward: 0
+    _playerInventory: {fileID: 0}
+    _itemRewards: []
+  DependencyQuest: {fileID: 0}
   State: 0
   RequiredLevel: 5
-  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
+  NextQuests: []
   _completeOnSpot: 0
+  _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   MaxValue: 3
   CurrentValue: 0
-  EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  EnemyMeta: {fileID: 11400000, guid: 4af3a6f29d528b344a08959da7c1ee53, type: 2}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 3
+  ActualEnemiesKilled: 0

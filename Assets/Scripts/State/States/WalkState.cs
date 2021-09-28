@@ -11,8 +11,8 @@ namespace State.States
     {
         protected WorldEntity _worldEntity;
         protected ICharacterMovement _characterMovement;
-        protected  Animator _animator;
-        protected  float _speed;
+        protected Animator _animator;
+        protected float _speed;
 
         
         

@@ -32,7 +32,7 @@ MonoBehaviour:
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   MaxValue: 60
   CurrentValue: 0
-  EnemyPrefab: {fileID: 3215571654241298141, guid: 24026d9aaf2a79740bd0af26001f6a89, type: 3}
+  EnemyMeta: {fileID: 11400000, guid: 2058851f2817d8d4c9a7c84bb159c70a, type: 2}
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   NumberOfEnemiesToKill: 60
   ActualEnemiesKilled: 0

@@ -15,3 +15,4 @@ MonoBehaviour:
   AssetName: Orc
   ReplacementPhrase: '{ORC2}'
   _enemyTraits: {fileID: 11400000, guid: dfd7696e7f12cfe4ba06e74b5e9ec3f1, type: 2}
+  EnemyPrefab: {fileID: 4404344710206377579, guid: 5618523bdf8fda140a9ef902c8bd7467, type: 3}
