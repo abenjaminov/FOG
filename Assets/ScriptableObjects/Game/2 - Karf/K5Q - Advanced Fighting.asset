@@ -25,7 +25,7 @@ MonoBehaviour:
     - ItemMeta: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
       Amount: 1
   DependencyQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
-  State: 3
+  State: 0
   RequiredLevel: 3
   NextQuests: []
   _completeOnSpot: 0

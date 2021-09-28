@@ -18,16 +18,19 @@ namespace UI.Elements
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationEvent;
         }
 
+        private void OnEnable()
+        {
+            UpdateMarker();
+        }
+
         private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
-            if (source.Id == _scene.Id)
-            {
-                _markerInstance.SetActive(false);
-            }
-            else if (destination.Id == _scene.Id)
-            {
-                _markerInstance.SetActive(true);
-            }
+            UpdateMarker();
+        }
+
+        private void UpdateMarker()
+        {
+            _markerInstance.SetActive(_locationsChannel.CurrentScene.Id == _scene.Id);
         }
 
         private void OnDestroy()

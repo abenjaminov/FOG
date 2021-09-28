@@ -16,7 +16,7 @@ namespace Persistence.PersistenceHandlers
             var sceneMetaId = accessor.GetValue<string>("FirstScene");
             var meta = _scenesList.GetSceneMetaById(sceneMetaId);
 
-            _locationsManager.CurrentScene = meta != null ? meta : _locationsManager.DefaultFirstScene;
+            _locationsManager.CurrentScene = meta != null ? meta : _scenesList.DefaultFirstScene;
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)

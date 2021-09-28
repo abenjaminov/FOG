@@ -5,6 +5,7 @@ using Persistence;
 using Persistence.Accessors;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,13 +17,13 @@ namespace Game
         [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private Entity.Player.Player _player;
+        [SerializeField] private ScenesList _scenesList;
         
-        public SceneMeta DefaultFirstScene;
         private SceneMeta _currentScene;
 
         public SceneMeta CurrentScene
         {
-            get => _currentScene ? _currentScene : DefaultFirstScene;
+            get => _currentScene ? _currentScene : _scenesList.DefaultFirstScene;
             set => _currentScene = value;
         }
 
@@ -46,7 +47,7 @@ namespace Game
             
             operation.completed += asyncOperation =>
             {
-                _locationsChannel.OnChangeLocationComplete(_currentScene, null);
+                _locationsChannel.OnChangeLocationComplete(CurrentScene, null);
 
                 PositionPlayerOnSpawnPoint();
             };

@@ -24,6 +24,7 @@ namespace Helpers
                 {"{NAME}", GetPlayerName},
                 {"{TRAITS_KEY}", () => GetKeyName(_keyboardConfiguration.OpenTraitsScreen)},
                 {"{INV_KEY}", () => GetKeyName(_keyboardConfiguration.OpenInventoryScreen)},
+                {"{MAP_KEY}", () => GetKeyName(_keyboardConfiguration.OpenMapScreen)},
                 {"{PICKUP_KEY}", () => GetKeyName(_keyboardConfiguration.Pickup)}
             };
             

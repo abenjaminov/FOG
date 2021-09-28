@@ -1,1 +1,7 @@
 Drop items from inventory
+Gnolls to fast - reduce speed
+damage taken from enemies
+hurt animation for enemies?
+world map
+	above all
+	

@@ -18,3 +18,5 @@ MonoBehaviour:
   _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
   _playerEquipment: {fileID: 11400000, guid: 03623857bbd37d34bb4a31d44f4b6b2e, type: 2}
   _defaultArmourMeta: {fileID: 11400000, guid: d8a8ffdf2b41197469c94cce50ef05f5, type: 2}
+  _sceneList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
+  _primaryWeapon: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}

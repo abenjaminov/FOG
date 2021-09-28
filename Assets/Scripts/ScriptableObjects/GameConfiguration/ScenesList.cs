@@ -7,6 +7,7 @@ namespace ScriptableObjects.GameConfiguration
     [CreateAssetMenu(fileName = "Scenes List", menuName = "Game Configuration/Scenes")]
     public class ScenesList : ScriptableObject
     {
+        public SceneMeta DefaultFirstScene;
         public List<SceneMeta> Scenes;
 
         public SceneMeta GetSceneMetaById(string sceneId)

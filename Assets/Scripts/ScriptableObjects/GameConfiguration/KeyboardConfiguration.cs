@@ -12,5 +12,6 @@ namespace ScriptableObjects.GameConfiguration
         public KeyCode Pickup = KeyCode.Z;
         public KeyCode OpenTraitsScreen = KeyCode.T;
         public KeyCode OpenInventoryScreen = KeyCode.I;
+        public KeyCode OpenMapScreen = KeyCode.M;
     }
 }
