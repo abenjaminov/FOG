@@ -1,12 +1,12 @@
 ﻿using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using UnityEngine;
 
 namespace UI.Screens
 {
     public abstract class GUIScreen : MonoBehaviour
     {
-        [SerializeField] protected InputChannel _inputChannel;
-        protected KeyCode activationKey;
+        [SerializeField] protected KeyboardConfiguration _keyboardConfiguration;
         public bool IsOpen;
         
         protected virtual void Awake()

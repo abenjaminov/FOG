@@ -13,5 +13,6 @@ namespace ScriptableObjects.GameConfiguration
         public KeyCode OpenTraitsScreen = KeyCode.T;
         public KeyCode OpenInventoryScreen = KeyCode.I;
         public KeyCode OpenMapScreen = KeyCode.M;
+        public KeyCode OpenEquippedScreen = KeyCode.E;
     }
 }

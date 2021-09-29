@@ -69,7 +69,7 @@ namespace UI.Screens
 
         public override KeyCode GetActivationKey()
         {
-            return KeyCode.I;
+            return _keyboardConfiguration.OpenInventoryScreen;
         }
 
         protected override void UpdateUI()

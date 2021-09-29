@@ -2218,7 +2218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b6a8335fe7414daa8ec9a3e81b1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   IsOpen: 0
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   _helmet: {fileID: 7207599253932987458}
@@ -11980,7 +11980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c835a9459ac3c0844a572fe0b9dac36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   IsOpen: 0
   _inventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
   _invChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
@@ -12988,7 +12988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c36f484e5c74615ac694756b13c75c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   IsOpen: 0
 --- !u!1 &9100358906799673628
 GameObject:
@@ -15589,7 +15589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbedabbb00bdee4ea1d57d15e657989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   IsOpen: 0
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}

@@ -6,7 +6,7 @@ namespace UI.Screens
     {
         public override KeyCode GetActivationKey()
         {
-            return KeyCode.M;
+            return _keyboardConfiguration.OpenMapScreen;
         }
 
         protected override void UpdateUI()

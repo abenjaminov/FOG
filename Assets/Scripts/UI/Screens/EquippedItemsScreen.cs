@@ -113,7 +113,7 @@ namespace UI.Screens
 
         public override KeyCode GetActivationKey()
         {
-            return KeyCode.E;
+            return _keyboardConfiguration.OpenEquippedScreen;
         }
 
         protected override void UpdateUI()

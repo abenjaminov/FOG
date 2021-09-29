@@ -30,7 +30,7 @@ namespace UI.Screens
 
         public override KeyCode GetActivationKey()
         {
-            return KeyCode.T;
+            return _keyboardConfiguration.OpenTraitsScreen;
         }
 
         protected override void UpdateUI()
