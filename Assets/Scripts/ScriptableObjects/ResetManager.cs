@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Entity.Player;
 using ScriptableObjects.GameConfiguration;
@@ -31,11 +32,26 @@ namespace ScriptableObjects
         [Header("Scenes")] 
         [SerializeField] private ScenesList _sceneList;
 
-        [Header("Phase 1 - Karf")] [SerializeField]
-        private WeaponItemMeta _primaryWeapon;
+        [Header("Phase 1 - Karf")] 
+        [SerializeField] private WeaponItemMeta _primaryWeapon;
+
+        [Header("Phase 2")] 
+        [SerializeField] private List<Quest> _phase2QuestsToComplete;
+
+        private void ShowPhaseResetMessage(string text)
+        {
+            EditorUtility.DisplayDialog("Phase reset", text, "Nice");
+        }
         
         [ContextMenu("Phases/Phase 0 - Tutorial")]
         private void Phase0()
+        {
+            Phase0Content();
+            
+            ShowPhaseResetMessage("Phase 0 - Tutorial beggining");
+        }
+
+        private void Phase0Content()
         {
             ResetPlayerTraits();
             ResetQuests();
@@ -44,16 +60,46 @@ namespace ScriptableObjects
             
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
         }
-        
-        [ContextMenu("Phases/Phase 1 - Karf")]
-        private void Phase1()
+
+        private void Phase1Content()
         {
-            Phase0();
+            Phase0Content();
             _playerTraits.Level = 3;
             _playerTraits.Strength = 15;
 
             _playerEquipment.PrimaryWeapon = _primaryWeapon;
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{KARF}");
+        }
+        
+        [ContextMenu("Phases/Phase 1 - Karf")]
+        private void Phase1()
+        {
+            Phase1Content();
+            
+            ShowPhaseResetMessage("Phase 1 - Right after tutorial ended and moved to Karf");
+        }
+
+        private void Phase2Content()
+        {
+            Phase1Content();
+            _playerTraits.Level = 4;
+            _playerTraits.Strength = 20;
+
+            foreach (var quest in _phase2QuestsToComplete)
+            {
+                quest.State = QuestState.Completed;
+            }
+            
+            _playerEquipment.PrimaryWeapon = _primaryWeapon;
+            _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{KARF}");
+        }
+        
+        [ContextMenu("Phases/Phase 2 - Karf Level 4")]
+        private void Phase2()
+        {
+            Phase2Content();
+            
+            ShowPhaseResetMessage("Phase 2 - Level 4");
         }
 
         [ContextMenu("Specific/Reset Player Traits")]

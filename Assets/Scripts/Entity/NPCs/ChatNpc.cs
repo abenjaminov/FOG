@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Chat;
 using ScriptableObjects.Quests;
@@ -8,6 +9,7 @@ using ScriptableObjects.Traits;
 using TMPro;
 using UI.Mouse;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Entity.NPCs
 {
@@ -17,12 +19,13 @@ namespace Entity.NPCs
         [SerializeField] bool faceLeft;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private string _name;
-        [SerializeField] private GameObject _contentIndicator;
+        [SerializeField] private RawImage _indicator;
+        [SerializeField] private Texture _completedIndicator;
+        [SerializeField] private Texture _availableIndicator;
         
         public string NpcId;
         [SerializeField] private NpcChannel _npcChannel;
         [SerializeField] private QuestsChannel _questChannel;
-        [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] public List<ChatSession> ChatSessions;
 
@@ -55,9 +58,30 @@ namespace Entity.NPCs
 
         private void UpdateContentIndicator()
         {
-            var count = GetAvailableChatSessions().Count;
+            var chatSessions = GetAvailableChatSessions();
 
-            _contentIndicator.SetActive(count > 0);
+            var availableCount =
+                chatSessions.Count(
+                    x => x.AssociatedQuest != null && x.AssociatedQuest.State == QuestState.PendingActive);
+            
+            var completedCount =
+                chatSessions.Count(
+                    x => x.AssociatedQuest != null && x.AssociatedQuest.State == QuestState.Completed);
+
+            _indicator.SetActive(chatSessions.Count > 0);
+
+            if (availableCount > 0 && completedCount > 0)
+            {
+                
+            }
+            else if (availableCount > 0)
+            {
+                _indicator.texture = _availableIndicator;
+            }
+            else
+            {
+                _indicator.texture = _completedIndicator;
+            }
         }
 
         public void HandleDoubleClick()

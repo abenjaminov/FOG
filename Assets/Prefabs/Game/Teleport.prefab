@@ -4782,7 +4782,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -430345217
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -4851,6 +4851,7 @@ MonoBehaviour:
   Destination: {fileID: 0}
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   CenterTransform: {fileID: 3240926576975817976}
 --- !u!1 &3240926576010432817
 GameObject:
@@ -4921,7 +4922,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -430345217
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 82b3cb457d5699849a5501277cb9e198, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.77254903}
@@ -5005,7 +5006,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1873468137
-  m_SortingLayer: 6
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0

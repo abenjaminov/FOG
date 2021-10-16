@@ -529,6 +529,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1805480605340470276, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _keyboardConfiguration
+      value: 
+      objectReference: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
+    - target: {fileID: 1805480605340470280, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1805480605340470286, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -539,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1805480605340470286, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.31
+      value: -0.323
       objectReference: {fileID: 0}
     - target: {fileID: 1805480605340470286, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -573,6 +581,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1805480605480687916, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _keyboardConfiguration
+      value: 
+      objectReference: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
     - target: {fileID: 8258348582829953066, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: _locationsManager
       value: 
@@ -602,4 +614,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a257938c089495aa45a4ea4324f23cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPlayerInvincible: 1
+  _isPlayerInvincible: 0

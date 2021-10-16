@@ -21,7 +21,6 @@ namespace Entity.Player
         [SerializeField] private CombatChannel _combatChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
         [SerializeField] private Collider2D _hitbox;
-        [HideInInspector] public Vector2 WorldMovementDirection;
         private float _receiveDamageColldown;
         private float _timeUntillVulnerable;
         
@@ -40,14 +39,21 @@ namespace Entity.Player
             
             // ReSharper disable once PossibleNullReferenceException
             _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
+            _playerTraits.ReviveEvent += ReviveEvent;
 
             _receiveDamageColldown = _playerTraits.ReceiveDamageCooldown;
+        }
+
+        private void ReviveEvent()
+        {
+            IsDead = false;
         }
 
         private void OnDestroy()
         {
             _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
             _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
+            _playerTraits.ReviveEvent -= ReviveEvent;
         }
 
         protected override void Start()
@@ -89,19 +95,18 @@ namespace Entity.Player
 
             ChangeHealth(-damage);
 
-            if (_playerTraits.GetCurrentHealth() <= 0)
-            {
-                IsDead = true;
-            }
-
             _timeUntillVulnerable = _receiveDamageColldown;
             _hitbox.SetActive(false);
         }
 
         public override void ChangeHealth(float delta)
         {
-            _health = Mathf.Max(0, Mathf.Min(Traits.MaxHealth, _health + delta));
             _playerTraits.ChangeCurrentHealth(delta);
+            
+            if (_playerTraits.GetCurrentHealth() <= 0)
+            {
+                IsDead = true;
+            }
         }
 
         private void EnemyDiedEvent(Enemy deadEnemy)

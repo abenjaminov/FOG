@@ -10,6 +10,7 @@ namespace ScriptableObjects.Traits
     {
         public UnityAction HealthChangedEvent;
         public UnityAction LevelUpEvent;
+        public UnityAction DiedEvent;
 
         public string Name;
 
@@ -18,7 +19,7 @@ namespace ScriptableObjects.Traits
 
         public float BaseDelayBetweenAttacks;
         [HideInInspector] public float DelayBetweenAttacks;
-        
+
         public float MaxHealth;
         public int Defense;
         

@@ -117,5 +117,15 @@ namespace UI.Screens
             _inventory.UseItem(_player, _inventory.OwnedItems[itemIndex]);
             UpdateUI();
         }
+        
+        public override void ToggleView()
+        {
+            base.ToggleView();
+
+            if (!IsOpen)
+            {
+                _equipmentDetailsPanel.HideItemDetails();
+            }
+        }
     }
 }

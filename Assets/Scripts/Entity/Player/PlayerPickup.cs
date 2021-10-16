@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Character.Player
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private Inventory _playerInventory;
         [SerializeField] private Transform _pickupTransform;
+        [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
         private List<Drop> _dropsInRange;
 
         private KeySubscription _pickupSubscription;
@@ -20,7 +22,7 @@ namespace Character.Player
         {
             _dropsInRange = new List<Drop>();
             
-            _pickupSubscription = _inputChannel.SubscribeKeyDown(KeyCode.Z, Pickup);
+            _pickupSubscription = _inputChannel.SubscribeKeyDown(_keyboardConfiguration.Pickup, Pickup);
         }
 
         private void OnDestroy()

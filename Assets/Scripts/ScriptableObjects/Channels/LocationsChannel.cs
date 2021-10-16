@@ -9,19 +9,23 @@ namespace ScriptableObjects.Channels
     {
         public UnityAction<SceneMeta, SceneMeta> ChangeLocationEvent;
         public UnityAction<SceneMeta, SceneMeta> ChangeLocationCompleteEvent;
+        public UnityAction<SceneMeta, SceneMeta> RespawnEvent;
 
         public SceneMeta CurrentScene;
-        public SceneMeta PreviousScene;
-        
+
         public void OnChangeLocation(SceneMeta destination, SceneMeta source)
         {
             ChangeLocationEvent?.Invoke(destination, source);
         }
 
+        public void OnRespawn(SceneMeta destination, SceneMeta source)
+        {
+            RespawnEvent?.Invoke(destination, source);
+        }
+
         public void OnChangeLocationComplete(SceneMeta destination, SceneMeta source)
         {
             CurrentScene = destination;
-            PreviousScene = source;
             ChangeLocationCompleteEvent?.Invoke(destination, source);
         }
     }

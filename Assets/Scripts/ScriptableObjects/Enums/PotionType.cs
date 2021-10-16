@@ -3,6 +3,6 @@
     public enum PotionType
     {
         Hp,
-        Mana
+        MonsterResistance
     }
 }

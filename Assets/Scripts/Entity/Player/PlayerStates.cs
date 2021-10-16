@@ -9,6 +9,7 @@ using Entity.Player.Magic;
 using Entity.Player.Melee;
 using Game;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using State;
 using State.States;
 using State.States.PlayerStates;
@@ -23,6 +24,7 @@ namespace Player
         protected StateMachine _stateMachine;
         
         [SerializeField] private InputChannel _inputChannel;
+        [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
 
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
@@ -175,20 +177,20 @@ namespace Player
 
             _defaultState = _idle;
             
-            RegisterBooleanToKey(KeyCode.LeftAlt,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
-            RegisterBooleanToKey(KeyCode.UpArrow,(isKeyDown) => { _isClimUpButtonDown = isKeyDown; });
-            RegisterBooleanToKey(KeyCode.DownArrow,(isKeyDown) => { _isClimbDownButtonDown = isKeyDown; });
+            RegisterBooleanToKey(_keyboardConfiguration.Jump,(isKeyDown) => { _isJumpButtonDown = isKeyDown; });
+            RegisterBooleanToKey(_keyboardConfiguration.ClimbUp,(isKeyDown) => { _isClimUpButtonDown = isKeyDown; });
+            RegisterBooleanToKey(_keyboardConfiguration.ClimbDown,(isKeyDown) => { _isClimbDownButtonDown = isKeyDown; });
 
             var newSubs = new List<KeySubscription>()
             {
-                _inputChannel.SubscribeKeyDown(KeyCode.RightArrow, () => _horizontalAxisRaw = 1),
-                _inputChannel.SubscribeKeyDown(KeyCode.LeftArrow, () => _horizontalAxisRaw = -1),
-                _inputChannel.SubscribeKeyUp(KeyCode.RightArrow, () =>
+                _inputChannel.SubscribeKeyDown(_keyboardConfiguration.WalkRight, () => _horizontalAxisRaw = 1),
+                _inputChannel.SubscribeKeyDown(_keyboardConfiguration.WalkLeft, () => _horizontalAxisRaw = -1),
+                _inputChannel.SubscribeKeyUp(_keyboardConfiguration.WalkRight, () =>
                 {
                     if (_horizontalAxisRaw == 1)
                         _horizontalAxisRaw = 0;
                 }),
-                _inputChannel.SubscribeKeyUp(KeyCode.LeftArrow, () =>
+                _inputChannel.SubscribeKeyUp(_keyboardConfiguration.WalkLeft, () =>
                 {
                     if (_horizontalAxisRaw == -1)
                         _horizontalAxisRaw = 0;
@@ -209,7 +211,7 @@ namespace Player
             _fall = new PlayerFallState(_player, _collider2D);
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
             _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _collider2D, _inputChannel,
-                _player.PlayerTraits.ClimbSpeed);
+                _player.PlayerTraits.ClimbSpeed, _keyboardConfiguration);
         }
 
         private void ConfigureDeadState()
@@ -220,6 +222,9 @@ namespace Player
             _stateMachine.AddTransition(_dead, shouldDie, _walkRight);
             _stateMachine.AddTransition(_dead, shouldDie, _walkLeft);
             _stateMachine.AddTransition(_dead, shouldDie, _idle);
+            
+            var shouldRevive = new Func<bool>(() => !_player.IsDead);
+            _stateMachine.AddTransition(_idle, shouldRevive, _dead);
         }
 
         protected virtual void Update()

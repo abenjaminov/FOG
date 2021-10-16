@@ -14,20 +14,25 @@ namespace UI
             MaxValue = _playerTraits.MaxHealth;
             CurrentValue = _playerTraits.GetCurrentHealth();
             
-            _playerTraits.HealthChangedEvent += HealthChangedEvent;
+            _playerTraits.HealthChangedEvent += UpdateUI;
+            _playerTraits.LevelUpEvent += UpdateUI;
+            _playerTraits.TraitsChangedEvent += UpdateUI;
             
             UpdateUI();
         }
 
-        private void HealthChangedEvent()
+        protected override void UpdateUI()
         {
+            MaxValue = _playerTraits.MaxHealth;
             CurrentValue = _playerTraits.GetCurrentHealth();
-            UpdateUI();
+            base.UpdateUI();
         }
 
         private void OnDestroy()
         {
-            _playerTraits.HealthChangedEvent -= HealthChangedEvent;
+            _playerTraits.HealthChangedEvent -= UpdateUI;
+            _playerTraits.LevelUpEvent -= UpdateUI;
+            _playerTraits.TraitsChangedEvent -= UpdateUI;
         }
     }
 }

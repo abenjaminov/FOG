@@ -66,8 +66,8 @@ namespace ScriptableObjects.Inventory
 
         private void ChangePrimaryWeapon(WeaponItemMeta meta, EquipmentPart? part = null)
         {
-            _playerChannel.OnWeaponChanged(meta, part);
             PrimaryWeapon = meta;
+            _playerChannel.OnWeaponChanged(meta, part);
         }
     }
 }

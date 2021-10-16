@@ -1,9 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Helpers;
+using HeroEditor.Common.Enums;
 using Platformer;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
+using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
@@ -13,7 +18,9 @@ namespace UI.Screens
 {
     public class TraitsScreen : GUIScreen
     {
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private LevelConfiguration _levelConfiguration;
 
         [SerializeField] private List<GameObject> _addButtons;
@@ -21,12 +28,25 @@ namespace UI.Screens
         [SerializeField] private TextMeshProUGUI _dexText;
         [SerializeField] private TextMeshProUGUI _strText;
         [SerializeField] private TextMeshProUGUI _constText;
+        [SerializeField] private TextMeshProUGUI _intText;
         [SerializeField] private TextMeshProUGUI _levelText;
         [SerializeField] private TextMeshProUGUI _pointsText;
         [SerializeField] private TextMeshProUGUI _expText;
         [SerializeField] private TextMeshProUGUI _damageText;
 
         private int previousExp = -1;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            _playerChannel.WeaponChangedEvent += WeaponChangedEvent;
+        }
+
+        private void WeaponChangedEvent(WeaponItemMeta arg0, EquipmentPart arg1)
+        {
+            UpdateUI();
+        }
 
         public override KeyCode GetActivationKey()
         {
@@ -37,8 +57,18 @@ namespace UI.Screens
         {
             _dexText.SetText(_playerTraits.Dexterity.ToString());
             _strText.SetText(_playerTraits.Strength.ToString());
+            _intText.SetText(_playerTraits.Intelligence.ToString());
             _constText.SetText(_playerTraits.Constitution.ToString());
-            _damageText.SetText(TraitsHelper.GetMinDamage(_playerTraits) + " - " + TraitsHelper.GetMaxDamage(_playerTraits));
+
+            if (_playerEquipment.PrimaryWeapon == null)
+            {
+                _damageText.SetText("----");
+            }
+            else
+            {
+                _damageText.SetText(TraitsHelper.GetMinPlayerDamage(_playerTraits, _playerEquipment) + 
+                                    " - " + TraitsHelper.GetMaxPlayerDamage(_playerTraits, _playerEquipment));    
+            }
         
             SetExp();
 
@@ -100,12 +130,24 @@ namespace UI.Screens
             _playerTraits.Dexterity++;
             UpdateUI();
         }
+        
+        public void AddIntelligence()
+        {
+            _playerTraits.PointsLeft--;
+            _playerTraits.Intelligence++;
+            UpdateUI();
+        }
     
         public void AddConstitution()
         {
             _playerTraits.PointsLeft--;
             _playerTraits.Constitution++;
             UpdateUI();
+        }
+
+        private void OnDestroy()
+        {
+            _playerChannel.WeaponChangedEvent -= WeaponChangedEvent;
         }
     }
 }

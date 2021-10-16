@@ -67,6 +67,8 @@ namespace Persistence
         {
             foreach (var moduleAccessor in _moduleAccessors)
             {
+                moduleAccessor.LoadModule();
+                
                 var moduleType = moduleAccessor.GetModuleType();
 
                 if (!_moduleLoadedSubscriptions.ContainsKey(moduleType)) continue;

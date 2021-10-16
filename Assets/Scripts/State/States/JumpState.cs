@@ -32,7 +32,6 @@ namespace State.States
         {
             var jumpVelocity = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
             _playerMovement.SetVelocity(new Vector2(_rigidBody2D.velocity.x, jumpVelocity));
-            _collider.enabled = false;
             _previousState = _player.GetCharacter().GetState();
             _player.GetCharacter().SetState(CharacterState.Jump);
         }
@@ -40,7 +39,6 @@ namespace State.States
         public void OnExit()
         {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, 0);
-            _collider.enabled = true;
             _player.GetCharacter().SetState(_previousState);
         }
     }

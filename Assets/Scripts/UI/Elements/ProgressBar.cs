@@ -25,7 +25,6 @@ namespace UI
                 {
                     StartCoroutine(nameof(UpdateCurrentValue));
                 }
-                    
             }
         }
 

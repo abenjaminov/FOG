@@ -31,8 +31,13 @@ namespace Game
         {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
             _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
+            _locationsChannel.RespawnEvent += OnRespawn;
             
-            // TODO open loading scene
+        }
+
+        private void OnRespawn(SceneMeta destination, SceneMeta source)
+        {
+            LoadScene(destination, source, true);
         }
 
         private void GameModulesLoadedEvent()
@@ -44,7 +49,7 @@ namespace Game
         private void LoadFirstScene()
         {
             var operation = SceneManager.LoadSceneAsync(CurrentScene.SceneAsset.name, LoadSceneMode.Additive);
-            
+
             operation.completed += asyncOperation =>
             {
                 _locationsChannel.OnChangeLocationComplete(CurrentScene, null);
@@ -67,20 +72,25 @@ namespace Game
 
         private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
+            LoadScene(destination, source, true);
+        }
+
+        private void LoadScene(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
+        {
             SceneManager.UnloadSceneAsync(source.name);
-                
+
             var operation = SceneManager.LoadSceneAsync(destination.name, LoadSceneMode.Additive);
-            
+
             operation.completed += asyncOperation =>
             {
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
-                
+
                 _locationsChannel.OnChangeLocationComplete(destination, source);
                 _currentScene = destination;
-                
+
                 var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
 
-                if (teleport != null)
+                if (teleport != null && !ignoreTeleports)
                 {
                     _player.transform.position = teleport.CenterTransform.position;
                 }
@@ -94,6 +104,8 @@ namespace Game
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationEvent -= ChangeLocationEvent;
+            _locationsChannel.RespawnEvent -= OnRespawn;
+            _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
         }
     }
 }

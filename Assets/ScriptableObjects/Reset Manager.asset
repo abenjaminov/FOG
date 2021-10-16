@@ -20,3 +20,6 @@ MonoBehaviour:
   _defaultArmourMeta: {fileID: 11400000, guid: d8a8ffdf2b41197469c94cce50ef05f5, type: 2}
   _sceneList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
   _primaryWeapon: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
+  _phase2QuestsToComplete:
+  - {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
+  - {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}

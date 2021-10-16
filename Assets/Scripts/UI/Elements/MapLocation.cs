@@ -3,14 +3,18 @@ using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace UI.Elements
 {
-    public class MapLocation : MonoBehaviour
+    public class MapLocation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private SceneMeta _scene;
         [SerializeField] private GameObject _markerInstance;
         [SerializeField] private LocationsChannel _locationsChannel;
+        
+        public Action<MapLocation> MapLocationMouseEnter;
+        public Action<MapLocation> MapLocationMouseExit;
 
         private void Awake()
         {
@@ -36,6 +40,21 @@ namespace UI.Elements
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationEvent;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            MapLocationMouseEnter?.Invoke(this);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            MapLocationMouseExit?.Invoke(this);
+        }
+
+        public SceneMeta GetSceneMeta()
+        {
+            return _scene;
         }
     }
 }

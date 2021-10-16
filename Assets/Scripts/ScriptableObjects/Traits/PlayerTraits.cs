@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Helpers;
 using ScriptableObjects.GameConfiguration;
 using UnityEditor;
 using UnityEngine;
@@ -12,7 +13,9 @@ namespace ScriptableObjects.Traits
     {
         public UnityAction<float> GainedResistancePointsEvent;
         public UnityAction MonsterResistanceChangedEvent;
-        
+        public UnityAction TraitsChangedEvent;
+        public UnityAction ReviveEvent;
+
         public const float MaxMonsterStateResistance = 100;
         public const float MinMonsterStateResistance = 0;
 
@@ -27,17 +30,62 @@ namespace ScriptableObjects.Traits
 
         public float ReceiveDamageCooldown;
         
-        public int Strength;
-        public int Dexterity;
-        public int Intelligence;
-        public int Constitution;
-        
+        [SerializeField] private int _strength;
+        [SerializeField] private int _dexterity;
+        [SerializeField] private int _intelligence;
+        [SerializeField] private int _constitution;
+
+        public int Strength
+        {
+            get => _strength;
+            set
+            {
+                _strength = value;
+                TraitsChangedEvent?.Invoke();
+            }
+        }
+        public int Dexterity
+        {
+            get => _dexterity;
+            set
+            {
+                _dexterity = value;
+                TraitsChangedEvent?.Invoke();
+            }
+        }
+        public int Intelligence
+        {
+            get => _intelligence;
+            set
+            {
+                _intelligence = value;
+                TraitsChangedEvent?.Invoke();
+            }
+        }
+
+        public int Constitution
+        {
+            get => _constitution;
+            set
+            {
+                _constitution = value;
+                UpdateMaxHealth();
+                TraitsChangedEvent?.Invoke();
+            }
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            MaxHealth = TraitsHelper.GetPlayerMaxHealth(this);
+        }
+
         public float MonsterStateResistance
         {
             get => _monsterStateResistance;
             set
             {
-                _monsterStateResistance = value;
+                SetMonsterResistanceSilent(value);
                 MonsterResistanceChangedEvent?.Invoke();
             }
         }
@@ -57,21 +105,45 @@ namespace ScriptableObjects.Traits
         {
             _resistancePointsGained = resistancePointsGained;
         }
-
+        
+        
         public void SetMonsterResistanceSilent(float monsterResistance)
         {
-            _monsterStateResistance = monsterResistance;
+            _monsterStateResistance = Mathf.Min(MaxMonsterStateResistance,monsterResistance);
         }
         
         public void ChangeCurrentHealth(float healthDelta)
         {
             CurrentHealth = Mathf.Max(0, Mathf.Min(MaxHealth, CurrentHealth + healthDelta));
             HealthChangedEvent?.Invoke();
+
+            if (CurrentHealth <= 0)
+            {
+                DiedEvent?.Invoke();
+            }
+        }
+
+        public void Revive()
+        {
+            CurrentHealth = 50;
+            HealthChangedEvent?.Invoke();
+
+            var resistancePointsToLose = (int)(_levelConfiguration.GetLevelByOrder(this.Level).ExpForNextLevel * 0.15);
+            ResistancePointsGained = Mathf.Max(0, _resistancePointsGained - resistancePointsToLose);
+            
+            ReviveEvent?.Invoke();
         }
 
         public float GetCurrentHealth()
         {
             return CurrentHealth;
+        }
+
+        private void UpdateMaxHealth()
+        {
+            var prevMaxHealth = MaxHealth;
+            MaxHealth = TraitsHelper.GetPlayerMaxHealth(this);
+            CurrentHealth += prevMaxHealth - CurrentHealth; 
         }
         
         public void LevelUp()
@@ -83,7 +155,8 @@ namespace ScriptableObjects.Traits
             
             PointsLeft += level.Points;
             _resistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
-
+            UpdateMaxHealth();
+            
             LevelUpEvent?.Invoke();
         }
 
@@ -92,21 +165,21 @@ namespace ScriptableObjects.Traits
             WalkSpeed = 3;
             JumpHeight = 1.1f;
             BaseDelayBetweenAttacks = 0.8f;
-            MaxHealth = 100;
-            CurrentHealth = MaxHealth;
             Defense = 5;
             Level = 1;
             ClimbSpeed = 3;
             _resistancePointsGained = 0;
             _monsterStateResistance = 100;
             ReceiveDamageCooldown = 1;
-            Strength = 5;
-            Dexterity = 5;
-            Intelligence = 5;
-            Intelligence = 5;
-            Constitution = 5;
+            _strength = 5;
+            _dexterity = 5;
+            _intelligence = 5;
+            _intelligence = 5;
+            _constitution = 5;
             PointsLeft = 0;
             Name = "";
+            MaxHealth = TraitsHelper.GetPlayerMaxHealth(this);
+            CurrentHealth = MaxHealth;
         }
     }
 }

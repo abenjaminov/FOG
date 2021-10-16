@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e400332113c4f71937964808937b399, type: 3}
   m_Name: Player Traits
   m_EditorClassIdentifier: 
-  Name: Jaco
+  Name: 
   WalkSpeed: 3
   JumpHeight: 1.1
   BaseDelayBetweenAttacks: 0.8
   DelayBetweenAttacks: 0.8
-  MaxHealth: 100
+  MaxHealth: 184
   Defense: 5
-  Level: 1
+  Level: 3
   ClimbSpeed: 3
-  CurrentHealth: 100
+  CurrentHealth: 50
   PointsLeft: 0
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
-  _resistancePointsGained: 0
+  _resistancePointsGained: 930
   _monsterStateResistance: 100
   ReceiveDamageCooldown: 1
-  Strength: 5
-  Dexterity: 5
-  Intelligence: 5
-  Constitution: 5
+  _strength: 15
+  _dexterity: 5
+  _intelligence: 5
+  _constitution: 5

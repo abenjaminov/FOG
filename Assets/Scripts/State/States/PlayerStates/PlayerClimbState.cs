@@ -3,6 +3,7 @@ using Entity;
 using Entity.Player;
 using Player;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using UnityEngine;
 
 namespace State.States.PlayerStates
@@ -16,6 +17,7 @@ namespace State.States.PlayerStates
         protected float _climbSpeed;
         protected Rigidbody2D _rigidbody2D;
         protected Collider2D _collider;
+        protected KeyboardConfiguration _keyboardConfiguration;
 
         private int _direction;
 
@@ -27,7 +29,8 @@ namespace State.States.PlayerStates
             Rigidbody2D rigidBody,
             Collider2D collider,
             InputChannel inputChannel,
-            float climbSpeed)
+            float climbSpeed,
+            KeyboardConfiguration keyboardConfiguration)
         {
             _player = player;
             _playerClimb = playerClimb;
@@ -36,6 +39,7 @@ namespace State.States.PlayerStates
             _collider = collider;
             _inputChannel = inputChannel;
             _climbSpeed = climbSpeed;
+            _keyboardConfiguration = keyboardConfiguration;
         }
 
         public void Tick()
@@ -57,10 +61,10 @@ namespace State.States.PlayerStates
             
             playerTransform.position = playerPosition;
 
-            _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.UpArrow, ClimbUp));
-            _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.DownArrow, ClimbDown));
-            _subscriptions.Add(_inputChannel.SubscribeKeyUp(KeyCode.UpArrow, Stop));
-            _subscriptions.Add(_inputChannel.SubscribeKeyUp(KeyCode.DownArrow, Stop));
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_keyboardConfiguration.ClimbUp, ClimbUp));
+            _subscriptions.Add(_inputChannel.SubscribeKeyDown(_keyboardConfiguration.ClimbDown, ClimbDown));
+            _subscriptions.Add(_inputChannel.SubscribeKeyUp(_keyboardConfiguration.ClimbUp, Stop));
+            _subscriptions.Add(_inputChannel.SubscribeKeyUp(_keyboardConfiguration.ClimbDown, Stop));
 
             if (_playerClimb.CurrentLadder.Center.y > _player.transform.position.y)
             {

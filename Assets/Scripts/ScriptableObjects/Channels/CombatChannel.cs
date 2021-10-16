@@ -17,14 +17,15 @@ namespace ScriptableObjects.Channels
         
         public void OnEnemyHit(Entity.Player.Player player, Enemy enemy, Ability ability = null)
         {
-            var damage = TraitsHelper.CalculatePlayerDamage(player.PlayerTraits, player.Equipment);
-            var damageWithAbilityFactor = Mathf.Ceil(damage * (ability?.DamagePercentage ?? 1));
+            var damage = TraitsHelper.CalculateDamageInflictedByPlayer(player.PlayerTraits, player.Equipment);
+            var damageWithAbilityFactor = Mathf.Ceil(damage * (ability != null ? ability.DamagePercentage : 1));
             enemy.ReceiveDamage(damageWithAbilityFactor);
         }
 
         public void OnPlayerHit(Entity.Player.Player player, Enemy enemy)
         {
-            player.ReceiveDamage(1);
+            var damageToPlayer = TraitsHelper.GetEnemyDamage(enemy);
+            player.ReceiveDamage(damageToPlayer);
         }
 
         public void OnEnemyDied(Enemy enemy)

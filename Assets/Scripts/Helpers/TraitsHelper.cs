@@ -1,4 +1,5 @@
 ﻿using System;
+using Entity.Enemies;
 using HeroEditor.Common.Enums;
 using ScriptableObjects;
 using ScriptableObjects.Inventory;
@@ -12,6 +13,12 @@ namespace Helpers
     {
         private static float MainStatMultiplier = 1/75f;
         private static float SecondaryStatMultiplier = 1/150f;
+
+        public static int GetPlayerMaxHealth(PlayerTraits traits)
+        {
+            return 100 + (35 * (traits.Level - 1)) + (7 * (traits.Level - 1)) +
+                          (traits.Constitution - 5) * traits.Level;
+        }
         
         private static int GetMaxBaseDamage(int level)
         {
@@ -23,26 +30,54 @@ namespace Helpers
             return (int) (1 + Mathf.Pow(level, 2) * Mathf.Log10(level));
         }
 
-        public static int CalculatePlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
+        private static int GetWeaponDamageAddition(PlayerTraits traits, PlayerEquipment equipment)
         {
+            var result = equipment.PrimaryWeapon.MonsterResistance * traits.Level;
+            return result;
+        }
+        
+        public static int GetMinPlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
+        {
+            var weaponAddition = GetWeaponDamageAddition(traits, equipment);
+            
             int minTraitsDmg = 0;
-            var maxTraitsDmg = 0;
 
             if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
             {
                 minTraitsDmg = GetMeleeMin(traits);
-                maxTraitsDmg = GetMeleeMax(traits);
             }
             else if (equipment.PrimaryWeapon.Part == EquipmentPart.Bow)
             {
                 minTraitsDmg = GetBowMin(traits);
+            }
+            
+            var minFinal = minTraitsDmg + weaponAddition;
+            return minFinal;
+        }
+        
+        public static int GetMaxPlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
+        {
+            var weaponAddition = GetWeaponDamageAddition(traits, equipment);
+            
+            int maxTraitsDmg = 0;
+
+            if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
+            {
+                maxTraitsDmg = GetMeleeMax(traits);
+            }
+            else if (equipment.PrimaryWeapon.Part == EquipmentPart.Bow)
+            {
                 maxTraitsDmg = GetBowMax(traits);
             }
-
-            var weaponAddition = equipment.PrimaryWeapon.MonsterResistance * traits.Level;
-
-            var minFinal = minTraitsDmg + weaponAddition;
-            var maxFinal = maxTraitsDmg + weaponAddition;
+            
+            var minFinal = maxTraitsDmg + weaponAddition;
+            return minFinal;
+        }
+        
+        public static int CalculateDamageInflictedByPlayer(PlayerTraits traits, PlayerEquipment equipment)
+        {
+            var minFinal = GetMinPlayerDamage(traits, equipment);
+            var maxFinal = GetMaxPlayerDamage(traits, equipment);
             
             // + 1 because max is Exclusive
             return Random.Range(minFinal, maxFinal + 1);
@@ -97,54 +132,7 @@ namespace Helpers
         }
 
         #endregion
-        
-        public static int CalculateDamage(Traits attacker, Traits receiver)
-        {
-            // var rangeDiff = GetRangeDiff(attacker);
-            //
-            // return CalculateDamage(attacker, receiver, rangeDiff);
-            return 0;
-        }
 
-        private static float GetRangeDiff(Traits attacker)
-        {
-            // var rangeDiff = Mathf.Exp(Mathf.Ceil((float) attacker.Level / attacker.Dexterity));
-            //
-            // return rangeDiff;
-            return 0;
-        }
-
-        private static int CalculateDamage(Traits attacker, Traits receiver,float rangeDiff)
-        {
-            var rangeValue = Mathf.Ceil(Random.Range(-rangeDiff, rangeDiff));
-
-            return CalculateAttackerDamage(attacker, rangeValue);
-        }
-
-        private static int CalculateAttackerDamage(Traits attacker, float rangeValue)
-        {
-            // var damage = Mathf.Ceil(attacker.Strength * ((float) attacker.Level / LevelConfiguration.MAXLevel));
-            // damage += rangeValue;
-            //
-            // return
-            // (int) Mathf.Ceil(Mathf.Max(attacker.Level, attacker.Level + damage));
-            return 0;
-        }
-
-        public static int GetMaxDamage(Traits attacker)
-        {
-            var rangeDiff = GetRangeDiff(attacker);
-
-            return CalculateAttackerDamage(attacker, rangeDiff);
-        }
-        
-        public static int GetMinDamage(Traits attacker)
-        {
-            var rangeDiff = GetRangeDiff(attacker);
-
-            return CalculateAttackerDamage(attacker, -rangeDiff);
-        }
-        
         public static float CalculateAttackRange(PlayerTraits attacker)
         {
             // TODO: Turn into ScriptableObject?
@@ -155,5 +143,28 @@ namespace Helpers
             var range = Mathf.Min(maxRange, minRange + (attacker.Dexterity / (maxRange * maxDex)));
             return range;
         }
+
+        #region Enemies
+
+        public static int GetEnemyDamage(Enemy enemy)
+        {
+            var minFactor = 7;
+            var maxFactor = 9;
+
+            var minValue = CalculateEnemyAttackValue(enemy, minFactor);
+            var maxValue = CalculateEnemyAttackValue(enemy, maxFactor);
+
+            var damage = Random.Range(minValue, maxValue + 1);
+
+            return damage;
+        }
+
+        private static int CalculateEnemyAttackValue(Enemy enemy,int factor)
+        {
+            var result = (int)Math.Ceiling(factor * Mathf.Pow(enemy.Traits.Level + 1, 1.5f));
+            return result;
+        }
+
+        #endregion
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   Id: 9f6d33a7-a61e-4ec5-85fb-75f7731e3233
   LevelAloud: 8
   SceneAsset: {fileID: 102900000, guid: d2c4715c50e936945b24cabe412d03d0, type: 3}
+  RespawnScene: {fileID: 11400000}

@@ -11,13 +11,17 @@ namespace ScriptableObjects.Inventory.ItemMetas
 
         public override bool Use(Entity.Player.Player player)
         {
-            if (PotionType == PotionType.Hp)
+            switch (PotionType)
             {
-                player.PlayerTraits.ChangeCurrentHealth(GainAmount);
-                return true;
+                case PotionType.Hp:
+                    player.PlayerTraits.ChangeCurrentHealth(GainAmount);
+                    return true;
+                case PotionType.MonsterResistance:
+                    player.PlayerTraits.MonsterStateResistance += GainAmount;
+                    return true;
+                default:
+                    return false;
             }
-
-            return false;
         }
     }
 }

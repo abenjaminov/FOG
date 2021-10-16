@@ -9,5 +9,6 @@ namespace ScriptableObjects
         public string Id;
         public int LevelAloud;
         public SceneAsset SceneAsset;
+        public SceneMeta RespawnScene;
     }
 }

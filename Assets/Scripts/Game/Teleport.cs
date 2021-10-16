@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.GameConfiguration;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Game
         public SceneMeta Destination;
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private InputChannel _inputChannel;
+        [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
         public Transform CenterTransform;
 
         private KeySubscription keyUpSub;
@@ -28,7 +30,7 @@ namespace Game
                 playerReference = player;
                 
                 keyUpSub?.Unsubscribe();
-                keyUpSub = _inputChannel.SubscribeKeyDown(KeyCode.UpArrow, OnTeleport);
+                keyUpSub = _inputChannel.SubscribeKeyDown(_keyboardConfiguration.EnterTeleport, OnTeleport);
             }
         }
 
