@@ -65,7 +65,7 @@ namespace UI.Screens
 
         private void OnDestroy()
         {
-            _invChannel.ItemAmountChangedEvent -= ItemAddedSilentEvent;
+            _invChannel.ItemAmountChangedSilentEvent -= ItemAddedSilentEvent;
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked -= ItemViewDoubleClicked;
@@ -124,7 +124,7 @@ namespace UI.Screens
         {
             if (itemIndex >= _inventory.OwnedItems.Count) return;
             
-            _inventory.UseItem(_player, _inventory.OwnedItems[itemIndex]);
+            _invChannel.OnUseItemRequest(_inventory.OwnedItems[itemIndex], _player);
             UpdateUI();
         }
         

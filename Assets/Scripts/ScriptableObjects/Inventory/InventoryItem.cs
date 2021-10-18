@@ -10,7 +10,7 @@ namespace ScriptableObjects.Inventory
         public InventoryItemMeta ItemMeta;
         public int Amount;
 
-        public void Use(Entity.Player.Player player, int amount)
+        public void Use(int amount, Entity.Player.Player player = null)
         {
             if (ItemMeta.Use(player))
             {

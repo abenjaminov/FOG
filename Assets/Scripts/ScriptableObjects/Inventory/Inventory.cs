@@ -15,6 +15,16 @@ namespace ScriptableObjects.Inventory
         public List<InventoryItem> OwnedItems;
         public InventoryItem CurrencyItem;
 
+        private void OnEnable()
+        {
+            _inventoryChannel.UseItemRequestEvent += UseItem;
+        }
+
+        private void OnDisable()
+        {
+            _inventoryChannel.UseItemRequestEvent -= UseItem;
+        }
+
         public InventoryItem AddItemSilent(InventoryItemMeta itemMetaData, int amountToAdd)
         {
             InventoryItem inventoryItem;
@@ -74,15 +84,16 @@ namespace ScriptableObjects.Inventory
             }
         }
 
-        public void UseItem(Entity.Player.Player player, InventoryItem item)
+        private void UseItem(InventoryItem item, Entity.Player.Player player = null)
         {
-            item.Use(player, 1);
+            item.Use( 1,player);
             
             if (item.Amount == 0)
             {
                 RemoveItem(item);
             }
             
+            _inventoryChannel.OnItemAmountChangedSilent(item, -1);
             _inventoryChannel.OnItemAmountChanged(item, -1);
         }
 

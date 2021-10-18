@@ -13,12 +13,12 @@ namespace UI.Elements
 {
     public class HotKeySpot : MonoBehaviour, IDragTarget
     {
+        [SerializeField] private Entity.Player.Player _player;
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private TextMeshProUGUI _amountText;
         [SerializeField] private Image _itemImage;
         [SerializeField] private KeyCode _keyCode;
-        [SerializeField] private Entity.Player.Player _player;
 
         private KeySubscription _hotKeySubscription;
         private InventoryItemView _currentItemView;
@@ -55,12 +55,18 @@ namespace UI.Elements
 
         private void KeyDown()
         {
-            _currentItemView.ItemMeta.Use(_player);
+            _inventoryChannel.OnUseItemRequest(_currentItemView.InventoryItem, _player);
         }
 
         public bool IsEmpty()
         {
             return _itemImage.sprite == null;
+        }
+
+        private void OnDestroy()
+        {
+            _hotKeySubscription?.Unsubscribe();
+            _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChangedEvent;
         }
     }
 }

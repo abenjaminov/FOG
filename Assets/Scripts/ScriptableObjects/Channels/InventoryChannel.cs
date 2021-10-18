@@ -10,6 +10,7 @@ namespace ScriptableObjects.Channels
     {
         public UnityAction<InventoryItem, int> ItemAmountChangedEvent;
         public UnityAction<InventoryItem, int> ItemAmountChangedSilentEvent;
+        public UnityAction<InventoryItem, Entity.Player.Player> UseItemRequestEvent;
 
         public void OnItemAmountChanged(InventoryItem item, int amountDelta)
         {
@@ -19,6 +20,11 @@ namespace ScriptableObjects.Channels
         public void OnItemAmountChangedSilent(InventoryItem item, int amountDelta)
         {
             ItemAmountChangedSilentEvent?.Invoke(item, amountDelta);
+        }
+
+        public void OnUseItemRequest(InventoryItem item, Entity.Player.Player player = null)
+        {
+            UseItemRequestEvent?.Invoke(item, player);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ScriptableObjects.Inventory.ItemMetas
         
         public override bool Use(Entity.Player.Player player)
         {
+            if (player == null) return false;
             if (player.Traits.Level < RequiredLevel) return false;
             
             player.Apearence.EquipItem(this);
