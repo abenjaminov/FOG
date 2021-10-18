@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
 using UI.Mouse;
 using UnityEngine;
@@ -10,5 +11,10 @@ namespace UI.Screens
     class InventoryItemView : EquipmentItemView
     {
         public TextMeshProUGUI AmountText;
+
+        public bool IsUsable()
+        {
+            return ItemMeta is PotionItemMeta;
+        }
     }
 }

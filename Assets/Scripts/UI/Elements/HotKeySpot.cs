@@ -39,6 +39,12 @@ namespace UI.Elements
             if (!draggable.GetGameObject().TryGetComponent(typeof(InventoryItemView), out var component)) return;
 
             _currentItemView = (InventoryItemView)component;
+
+            if (!_currentItemView.IsUsable())
+            {
+                _currentItemView = null;
+                return;
+            }
             
             UpdateUI();
 
