@@ -14,6 +14,7 @@ namespace UI.Screens
         private Entity.Player.Player _player;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private InventoryChannel _invChannel;
+        [SerializeField] private DragChannel _dragChannel;
         [SerializeField] private EquipmentDetailsPanel _equipmentDetailsPanel;
 
         [SerializeField] private TextMeshProUGUI _coinText;
@@ -28,17 +29,23 @@ namespace UI.Screens
                 itemView.ItemViewDoubleClicked += ItemViewDoubleClicked;
                 itemView.ItemViewMouseEnter += ItemViewMouseEnter;
                 itemView.ItemViewMouseExit += ItemViewMouseExit;
+                itemView.ItemViewSingleClicked += ItemViewSingleClicked;
             }
             
             base.Awake();
         }
 
-        public void ItemViewMouseExit(EquipmentItemView item)
+        private void ItemViewSingleClicked(EquipmentItemView item)
+        {
+            _dragChannel.OnDragStart(item);
+        }
+
+        private void ItemViewMouseExit(EquipmentItemView item)
         {
             _equipmentDetailsPanel.HideItemDetails();
         }
 
-        public void ItemViewMouseEnter(EquipmentItemView itemView)
+        private void ItemViewMouseEnter(EquipmentItemView itemView)
         {
             if (itemView.ItemMeta == null) return;
             
@@ -48,7 +55,7 @@ namespace UI.Screens
         void Start()
         {
             _player = FindObjectOfType<Entity.Player.Player>();
-            _invChannel.ItemAddedSilentEvent += ItemAddedSilentEvent;
+            _invChannel.ItemAmountChangedSilentEvent += ItemAddedSilentEvent;
         }
 
         private void ItemViewDoubleClicked(EquipmentItemView item)
@@ -58,12 +65,13 @@ namespace UI.Screens
 
         private void OnDestroy()
         {
-            _invChannel.ItemAddedEvent -= ItemAddedSilentEvent;
+            _invChannel.ItemAmountChangedEvent -= ItemAddedSilentEvent;
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked -= ItemViewDoubleClicked;
                 itemView.ItemViewMouseEnter -= ItemViewMouseEnter;
                 itemView.ItemViewMouseExit -= ItemViewMouseExit;
+                itemView.ItemViewSingleClicked -= ItemViewSingleClicked;
             }
         }
 
@@ -94,6 +102,7 @@ namespace UI.Screens
                     
                     _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 255);
                     _itemViews[i].ItemMeta = _inventory.OwnedItems[i].ItemMeta;
+                    _itemViews[i].InventoryItem = _inventory.OwnedItems[i];
                 }
                 else
                 {
@@ -101,6 +110,7 @@ namespace UI.Screens
                     _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 0);
                     _itemViews[i].AmountText.SetText("");
                     _itemViews[i].ItemMeta = null;
+                    _itemViews[i].InventoryItem = null;
                 }
             }
         }

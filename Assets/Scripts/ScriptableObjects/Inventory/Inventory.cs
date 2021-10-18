@@ -4,7 +4,6 @@ using System.Linq;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory.ItemMetas;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ScriptableObjects.Inventory
 {
@@ -53,7 +52,7 @@ namespace ScriptableObjects.Inventory
                 }
             }
 
-            _inventoryChannel.OnItemAddedSilent(inventoryItem, amountToAdd);
+            _inventoryChannel.OnItemAmountChangedSilent(inventoryItem, amountToAdd);
             
             return inventoryItem;
         }
@@ -62,7 +61,7 @@ namespace ScriptableObjects.Inventory
         {
             var inventoryItem = AddItemSilent(itemMetaData, amountToAdd);
 
-            _inventoryChannel.OnItemAdded(inventoryItem, amountToAdd);
+            _inventoryChannel.OnItemAmountChanged(inventoryItem, amountToAdd);
         }
 
         private void RemoveItem(InventoryItem item)
@@ -83,6 +82,8 @@ namespace ScriptableObjects.Inventory
             {
                 RemoveItem(item);
             }
+            
+            _inventoryChannel.OnItemAmountChanged(item, -1);
         }
 
         public InventoryItemMeta GetItemMetaById(string itemMetaId)

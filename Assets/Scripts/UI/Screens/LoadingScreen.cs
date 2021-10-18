@@ -35,6 +35,7 @@ namespace UI.Screens
         {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
+            gameObject.SetActive(true);
             StartCoroutine(nameof(LoadingLoop));
         }
 

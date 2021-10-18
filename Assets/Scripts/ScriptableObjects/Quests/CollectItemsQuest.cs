@@ -23,7 +23,7 @@ namespace ScriptableObjects.Quests
 
         public override void Complete()
         {
-            _inventoryChannel.ItemAddedEvent -= ItemAddedEvent;
+            _inventoryChannel.ItemAmountChangedEvent -= ItemAddedEvent;
             
             base.Complete();
             
@@ -37,7 +37,7 @@ namespace ScriptableObjects.Quests
         {
             base.Activate();
             
-            _inventoryChannel.ItemAddedEvent += ItemAddedEvent;
+            _inventoryChannel.ItemAmountChangedEvent += ItemAddedEvent;
             
             InventoryItem itemInInventory;
             

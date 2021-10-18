@@ -24,7 +24,7 @@ namespace UI
         void Awake()
         {
             _playerTraits.GainedResistancePointsEvent += GainedResistancePointsEvent;
-            _inventoryChannel.ItemAddedEvent += ItemAddedEvent; 
+            _inventoryChannel.ItemAmountChangedEvent += ItemAddedEvent; 
             
             _rectTransform = GetComponent<RectTransform>();
             _textHeight = _infoTextPrefab.rectTransform.sizeDelta.y;
@@ -93,7 +93,7 @@ namespace UI
         private void OnDestroy()
         {
             _playerTraits.GainedResistancePointsEvent -= GainedResistancePointsEvent;
-            _inventoryChannel.ItemAddedEvent -= ItemAddedEvent; 
+            _inventoryChannel.ItemAmountChangedEvent -= ItemAddedEvent; 
         }
     }
 
