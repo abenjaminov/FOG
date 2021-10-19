@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
 using Helpers;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
+using UI.Elements;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Screens
 {
@@ -18,12 +21,22 @@ namespace UI.Screens
         [SerializeField] private EquipmentDetailsPanel _equipmentDetailsPanel;
 
         [SerializeField] private TextMeshProUGUI _coinText;
+        [SerializeField] private PagingComponent _pagingComponent;
         private List<InventoryItemView> _itemViews = new List<InventoryItemView>();
+
+        private int _itemsPerPage;
+        private int _numOfPages;
 
         protected override void Awake()
         {
             _itemViews = GetComponentsInChildren<InventoryItemView>().ToList();
-            
+
+            _pagingComponent.CurrentPage = 1;
+            _itemsPerPage = _itemViews.Count;
+
+            _pagingComponent.NextPageClickedEvent += UpdateUI;
+            _pagingComponent.PreviousPageClickedEvent += UpdateUI;
+
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked += ItemViewDoubleClicked;
@@ -66,6 +79,8 @@ namespace UI.Screens
         private void OnDestroy()
         {
             _invChannel.ItemAmountChangedSilentEvent -= ItemAddedSilentEvent;
+            _pagingComponent.NextPageClickedEvent -= UpdateUI;
+            _pagingComponent.PreviousPageClickedEvent -= UpdateUI;
             foreach (var itemView in _itemViews)
             {
                 itemView.ItemViewDoubleClicked -= ItemViewDoubleClicked;
@@ -82,35 +97,44 @@ namespace UI.Screens
 
         protected override void UpdateUI()
         {
-            _coinText.SetText(StringHelper.NumberToString(_inventory.CurrencyItem.Amount));
+            _pagingComponent.NumberOfPages = (_inventory.OwnedItems.Count / _itemsPerPage) + 1;
             
-            for (int i = 0; i < _itemViews.Count; i++)
+            _pagingComponent.UpdateUI();
+
+            _coinText.SetText(StringHelper.NumberToString(_inventory.CurrencyItem.Amount));
+
+            var startIndex = (_pagingComponent.CurrentPage - 1) * _itemsPerPage;
+            var endIndex = startIndex + _itemsPerPage;
+
+            for (int i = startIndex; i < endIndex; i++)
             {
-                var color = _itemViews[i].ItemSprite.color;
-                    
+                var viewIndex = i - startIndex;
+                var itemView = _itemViews[viewIndex];
+                var color = itemView.ItemSprite.color;
+                
                 if (_inventory.OwnedItems.Count > i)
                 {
-                    _itemViews[i].ItemSprite.sprite = _inventory.OwnedItems[i].ItemMeta.InventoryItemSprite;
+                    itemView.ItemSprite.sprite = _inventory.OwnedItems[i].ItemMeta.InventoryItemSprite;
                     if (_inventory.OwnedItems[i].ItemMeta is EquipmentItemMeta)
                     {
-                        _itemViews[i].AmountText.SetText("");
+                        itemView.AmountText.SetText("");
                     }
                     else
                     {
-                        _itemViews[i].AmountText.SetText(_inventory.OwnedItems[i].Amount.ToString());    
+                        itemView.AmountText.SetText(_inventory.OwnedItems[i].Amount.ToString());    
                     }
                     
-                    _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 255);
-                    _itemViews[i].ItemMeta = _inventory.OwnedItems[i].ItemMeta;
-                    _itemViews[i].InventoryItem = _inventory.OwnedItems[i];
+                    itemView.ItemSprite.color = new Color(color.r, color.g, color.b, 255);
+                    itemView.ItemMeta = _inventory.OwnedItems[i].ItemMeta;
+                    itemView.InventoryItem = _inventory.OwnedItems[i];
                 }
                 else
                 {
-                    _itemViews[i].ItemSprite.sprite = null;
-                    _itemViews[i].ItemSprite.color = new Color(color.r, color.g, color.b, 0);
-                    _itemViews[i].AmountText.SetText("");
-                    _itemViews[i].ItemMeta = null;
-                    _itemViews[i].InventoryItem = null;
+                    itemView.ItemSprite.sprite = null;
+                    itemView.ItemSprite.color = new Color(color.r, color.g, color.b, 0);
+                    itemView.AmountText.SetText("");
+                    itemView.ItemMeta = null;
+                    itemView.InventoryItem = null;
                 }
             }
         }
