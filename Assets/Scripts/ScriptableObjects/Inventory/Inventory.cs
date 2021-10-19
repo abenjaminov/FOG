@@ -86,7 +86,11 @@ namespace ScriptableObjects.Inventory
 
         private void UseItem(InventoryItem item, Entity.Player.Player player = null)
         {
-            item.Use( 1,player);
+            if (!item.Use(1, player))
+            {
+                _inventoryChannel.OnFailedToUseItem(item);
+                return;
+            }
             
             if (item.Amount == 0)
             {

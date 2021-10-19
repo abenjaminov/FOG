@@ -24,7 +24,8 @@ namespace UI
         void Awake()
         {
             _playerTraits.GainedResistancePointsEvent += GainedResistancePointsEvent;
-            _inventoryChannel.ItemAmountChangedEvent += ItemAddedEvent; 
+            _inventoryChannel.ItemAmountChangedEvent += ItemAmountChanged;
+            _inventoryChannel.FailedToUseItemEvent += FailedToUseItemEvent;
             
             _rectTransform = GetComponent<RectTransform>();
             _textHeight = _infoTextPrefab.rectTransform.sizeDelta.y;
@@ -40,6 +41,11 @@ namespace UI
                     TextMesh = infoText
                 });
             }
+        }
+
+        private void FailedToUseItemEvent(InventoryItem item)
+        {
+            AddInfoItem("Cannot use this item right now");
         }
 
         private void Update()
@@ -60,7 +66,7 @@ namespace UI
             }
         }
 
-        private void ItemAddedEvent(InventoryItem item, int amountAdded)
+        private void ItemAmountChanged(InventoryItem item, int amountAdded)
         {
             AddInfoItem("Gained " + item.ItemMeta.Name + " (" + amountAdded + ")");
         }
@@ -93,7 +99,8 @@ namespace UI
         private void OnDestroy()
         {
             _playerTraits.GainedResistancePointsEvent -= GainedResistancePointsEvent;
-            _inventoryChannel.ItemAmountChangedEvent -= ItemAddedEvent; 
+            _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChanged;
+            _inventoryChannel.FailedToUseItemEvent -= FailedToUseItemEvent;
         }
     }
 

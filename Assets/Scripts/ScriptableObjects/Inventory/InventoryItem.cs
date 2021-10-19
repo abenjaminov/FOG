@@ -10,12 +10,15 @@ namespace ScriptableObjects.Inventory
         public InventoryItemMeta ItemMeta;
         public int Amount;
 
-        public void Use(int amount, Entity.Player.Player player = null)
+        public bool Use(int amount, Entity.Player.Player player = null)
         {
-            if (ItemMeta.Use(player))
+            var result = ItemMeta.Use(player); 
+            if (result)
             {
                 Amount = Mathf.Max(0, Amount - amount);
             }
+
+            return result;
         }
     }
 }
