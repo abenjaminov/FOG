@@ -14,7 +14,7 @@ namespace UI.Screens
         IPointerEnterHandler, 
         IPointerExitHandler, 
         IDraggable, 
-        ISingleClickHandler
+        ISingleClickHandler, IRightClickHandler
     {
         public Image ItemSprite;
         public InventoryItemMeta ItemMeta;
@@ -23,6 +23,7 @@ namespace UI.Screens
         public Action<EquipmentItemView> ItemViewSingleClicked;
         public Action<EquipmentItemView> ItemViewMouseEnter;
         public Action<EquipmentItemView> ItemViewMouseExit;
+        public Action<EquipmentItemView> ItemViewRightClicked;
         private Collider2D _collider;
 
         private void Awake()
@@ -30,6 +31,11 @@ namespace UI.Screens
             _collider = GetComponent<Collider2D>();
         }
 
+        public void HandleRightClick()
+        {
+            ItemViewRightClicked?.Invoke(this);
+        }
+        
         public void HandleDoubleClick()
         {
             ItemViewDoubleClicked?.Invoke(this);

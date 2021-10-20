@@ -12,6 +12,7 @@ namespace UI
     {
         [SerializeField] private DragChannel _dragChannel;
         [SerializeField] private DragItem _dragItem;
+        [SerializeField] private InventoryChannel _inventoryChannel;
 
         private Sprite currentDraggingSprite;
         

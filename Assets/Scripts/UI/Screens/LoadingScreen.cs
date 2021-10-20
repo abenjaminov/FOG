@@ -28,14 +28,15 @@ namespace UI.Screens
         
         private List<string> _tips = new List<string>()
         {
-            
+            "Remove an item from a hotkey by pressing the right click when over it.",
+            "You can drop an item from your inventory by pressing right click while hovering above it."
         };
 
         private void Awake()
         {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
-            gameObject.SetActive(true);
+            _loadingBackground.SetActive(true);
             StartCoroutine(nameof(LoadingLoop));
         }
 

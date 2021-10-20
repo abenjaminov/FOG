@@ -16,7 +16,7 @@ namespace UI.Screens
     {
         private Entity.Player.Player _player;
         [SerializeField] private Inventory _inventory;
-        [SerializeField] private InventoryChannel _invChannel;
+        [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private DragChannel _dragChannel;
         [SerializeField] private EquipmentDetailsPanel _equipmentDetailsPanel;
 
@@ -43,17 +43,23 @@ namespace UI.Screens
                 itemView.ItemViewMouseEnter += ItemViewMouseEnter;
                 itemView.ItemViewMouseExit += ItemViewMouseExit;
                 itemView.ItemViewSingleClicked += ItemViewSingleClicked;
+                itemView.ItemViewRightClicked += ItemViewRightClicked;
             }
             
             base.Awake();
         }
 
-        private void ItemViewSingleClicked(EquipmentItemView item)
+        private void ItemViewRightClicked(EquipmentItemView itemView)
         {
-            _dragChannel.OnDragStart(item);
+            _inventoryChannel.OnDropItemRequest(itemView.InventoryItem);
         }
 
-        private void ItemViewMouseExit(EquipmentItemView item)
+        private void ItemViewSingleClicked(EquipmentItemView itemView)
+        {
+            _dragChannel.OnDragStart(itemView);
+        }
+
+        private void ItemViewMouseExit(EquipmentItemView itemView)
         {
             _equipmentDetailsPanel.HideItemDetails();
         }
@@ -68,7 +74,7 @@ namespace UI.Screens
         void Start()
         {
             _player = FindObjectOfType<Entity.Player.Player>();
-            _invChannel.ItemAmountChangedSilentEvent += ItemAddedSilentEvent;
+            _inventoryChannel.ItemAmountChangedSilentEvent += ItemAddedSilentEvent;
         }
 
         private void ItemViewDoubleClicked(EquipmentItemView item)
@@ -78,7 +84,7 @@ namespace UI.Screens
 
         private void OnDestroy()
         {
-            _invChannel.ItemAmountChangedSilentEvent -= ItemAddedSilentEvent;
+            _inventoryChannel.ItemAmountChangedSilentEvent -= ItemAddedSilentEvent;
             _pagingComponent.NextPageClickedEvent -= UpdateUI;
             _pagingComponent.PreviousPageClickedEvent -= UpdateUI;
             foreach (var itemView in _itemViews)
@@ -87,6 +93,7 @@ namespace UI.Screens
                 itemView.ItemViewMouseEnter -= ItemViewMouseEnter;
                 itemView.ItemViewMouseExit -= ItemViewMouseExit;
                 itemView.ItemViewSingleClicked -= ItemViewSingleClicked;
+                itemView.ItemViewRightClicked -= ItemViewRightClicked;
             }
         }
 
@@ -148,7 +155,7 @@ namespace UI.Screens
         {
             if (itemIndex >= _inventory.OwnedItems.Count) return;
             
-            _invChannel.OnUseItemRequest(_inventory.OwnedItems[itemIndex], _player);
+            _inventoryChannel.OnUseItemRequest(_inventory.OwnedItems[itemIndex], _player);
             UpdateUI();
         }
         

@@ -68,7 +68,9 @@ namespace UI
 
         private void ItemAmountChanged(InventoryItem item, int amountAdded)
         {
-            AddInfoItem("Gained " + item.ItemMeta.Name + " (" + amountAdded + ")");
+            var message = amountAdded > 0 ? "Gained " : "Lost ";
+            message += item.ItemMeta.Name + " (" + amountAdded + ")";
+            AddInfoItem(message);
         }
 
 

@@ -5,7 +5,7 @@ namespace Entity.Enemies
 {
     public class Enemy : WorldEntity
     {
-        private Dropper _dropper;
+        private RandomItemsDropper _randomItemsDropper;
         private bool _isAgressive;
 
         private EnemyHealthUI _healthUI;
@@ -18,7 +18,7 @@ namespace Entity.Enemies
         {
             base.Awake();
             
-            _dropper = GetComponentInParent<Dropper>();
+            _randomItemsDropper = GetComponentInParent<RandomItemsDropper>();
             _healthUI = GetComponent<EnemyHealthUI>();
         }
 
@@ -76,7 +76,7 @@ namespace Entity.Enemies
         {
             base.Die();
 
-            _dropper.Drop();
+            _randomItemsDropper.Drop();
         }
     }
 }

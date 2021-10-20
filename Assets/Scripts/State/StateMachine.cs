@@ -12,11 +12,12 @@ namespace State
         private List<Transition> _currentTransitions;
         private static List<Transition> NoStateTransitions;
         private bool _showDebug;
+
+        public IState CurrentState => _currentState;
         
         static StateMachine()
         {
             NoStateTransitions = new List<Transition>();
-            
         }
         
         public StateMachine(bool showDebug = false)

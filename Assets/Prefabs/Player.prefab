@@ -10264,6 +10264,7 @@ GameObject:
   - component: {fileID: 3108685895997719505}
   - component: {fileID: 3108685895997719504}
   - component: {fileID: 8258348582829953066}
+  - component: {fileID: 7635766392120692190}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -10285,6 +10286,7 @@ Transform:
   - {fileID: 1835873080}
   - {fileID: 1389949585118786311}
   - {fileID: 1316319165}
+  - {fileID: 8025245430010187962}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10336,7 +10338,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1805480605340470281
 BoxCollider2D:
@@ -10379,6 +10381,7 @@ MonoBehaviour:
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
   _playerInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}
   _pickupTransform: {fileID: 1805480605158773431}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
 --- !u!114 &3108685896162190009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10490,7 +10493,6 @@ MonoBehaviour:
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
   _hitbox: {fileID: 1805480603950020741}
-  WorldMovementDirection: {x: 0, y: 0}
   Apearence: {fileID: 0}
   Equipment: {fileID: 11400000, guid: 03623857bbd37d34bb4a31d44f4b6b2e, type: 2}
 --- !u!114 &1805480605480687916
@@ -10506,6 +10508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputChannel: {fileID: 11400000, guid: 8545bad1a4f5ab04eaaac9908ea0d0e4, type: 2}
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
   _bowStates: {fileID: 1805480605480687917}
   _oneHandedMeleeStates: {fileID: 1805480605480687899}
   _magicStates: {fileID: 3108685895997719504}
@@ -10622,6 +10625,21 @@ MonoBehaviour:
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
   _locationsManager: {fileID: 0}
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
+--- !u!114 &7635766392120692190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805480605340470274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748862fc6f154cf6a929972dd2b62a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropPosition: {fileID: 8025245430010187962}
+  _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
+  _dropperTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!1 &3842782147808337647
 GameObject:
   m_ObjectHideFlags: 0
@@ -10657,6 +10675,36 @@ Transform:
   - {fileID: 7988108360256620812}
   m_Father: {fileID: 1805480605340470286}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7368903518493882230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8025245430010187962}
+  m_Layer: 3
+  m_Name: Drop Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8025245430010187962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368903518493882230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.168, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1805480605340470286}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7986075393212326286
 PrefabInstance:
@@ -10727,13 +10775,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dac2ba26da5aa7b4fb4be00ad15839c6, type: 3}
---- !u!1 &7987077610366607130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1109987028385428, guid: dac2ba26da5aa7b4fb4be00ad15839c6, type: 3}
-  m_PrefabInstance: {fileID: 7986075393212326286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7988108360256620812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4305107873441922, guid: dac2ba26da5aa7b4fb4be00ad15839c6, type: 3}
+  m_PrefabInstance: {fileID: 7986075393212326286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7987077610366607130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1109987028385428, guid: dac2ba26da5aa7b4fb4be00ad15839c6, type: 3}
   m_PrefabInstance: {fileID: 7986075393212326286}
   m_PrefabAsset: {fileID: 0}

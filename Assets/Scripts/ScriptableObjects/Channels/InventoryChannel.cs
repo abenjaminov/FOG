@@ -12,6 +12,7 @@ namespace ScriptableObjects.Channels
         public UnityAction<InventoryItem, int> ItemAmountChangedSilentEvent;
         public UnityAction<InventoryItem, Entity.Player.Player> UseItemRequestEvent;
         public UnityAction<InventoryItem> FailedToUseItemEvent;
+        public UnityAction<InventoryItem> DropItemRequestEvent;
 
         public void OnItemAmountChanged(InventoryItem item, int amountDelta)
         {
@@ -31,6 +32,11 @@ namespace ScriptableObjects.Channels
         public void OnFailedToUseItem(InventoryItem item)
         {
             FailedToUseItemEvent?.Invoke(item);
+        }
+
+        public void OnDropItemRequest(InventoryItem item)
+        {
+            DropItemRequestEvent?.Invoke(item);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace Game
 
         private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
-            LoadScene(destination, source, true);
+            LoadScene(destination, source);
         }
 
         private void LoadScene(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)

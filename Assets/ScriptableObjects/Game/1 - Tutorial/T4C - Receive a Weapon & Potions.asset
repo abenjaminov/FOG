@@ -10,20 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: T4C - Receive a Weapon
+  m_Name: T4C - Receive a Weapon & Potions
   m_EditorClassIdentifier: 
   SessionType: 0
   AssociatedQuest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
   ItemRewards:
   - ItemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
     Amount: 1
+  - ItemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+    Amount: 50
   ChatItems:
-  - Text: For now you can take this baseball bat for attacking.
+  - Text: You'll need some potions and a weapon to start fighting these monsters,
+      take these HP potions and a baseball bat.
     Options:
     - Text: Next
       Action: 0
-  - Text: you can equip it through your inventory screen, just press {INV_KEY} and
-      double click.
+  - Text: you can equip the bat through your inventory screen, just press the {INV_KEY}
+      key and double click.
+    Options:
+    - Text: Next
+      Action: 0
+    - Text: Back
+      Action: 1
+  - Text: To use the potions either double click them in the inventory screen or
+      click them once and place them on the hot key boxes on the bottom right.
     Options:
     - Text: Next
       Action: 0

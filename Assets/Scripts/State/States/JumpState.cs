@@ -11,12 +11,13 @@ namespace State.States
         private Rigidbody2D _rigidBody2D;
         private PlayerMovement _playerMovement;
         private float _jumpHeight;
-        private Collider2D _collider;
         private CharacterState _previousState;
 
-        public PlayerJumpingState(Entity.Player.Player player, Collider2D collider,PlayerMovement playerMovement, float jumpHeight, Rigidbody2D rigidBody2D)
+        public PlayerJumpingState(Entity.Player.Player player,
+            PlayerMovement playerMovement, 
+            float jumpHeight, 
+            Rigidbody2D rigidBody2D)
         {
-            _collider = collider;
             _playerMovement = playerMovement;
             _jumpHeight = jumpHeight;
             _rigidBody2D = rigidBody2D;
@@ -28,7 +29,7 @@ namespace State.States
             
         }
 
-        public void OnEnter()
+        public virtual void OnEnter()
         {
             var jumpVelocity = Mathf.Sqrt(2 * 9.8f * _jumpHeight);
             _playerMovement.SetVelocity(new Vector2(_rigidBody2D.velocity.x, jumpVelocity));

@@ -74,10 +74,18 @@ namespace ScriptableObjects.Inventory
             _inventoryChannel.OnItemAmountChanged(inventoryItem, amountToAdd);
         }
 
-        private void RemoveItem(InventoryItem item)
+        public void RemoveItem(InventoryItem item)
+        {
+            RemoveItemInternal(item);
+            
+            _inventoryChannel.OnItemAmountChangedSilent(item, -1);
+            _inventoryChannel.OnItemAmountChanged(item, -1);
+        }
+
+        private void RemoveItemInternal(InventoryItem item)
         {
             var itemToRemove = OwnedItems.FirstOrDefault(x => x == item);
-            
+
             if (itemToRemove != null)
             {
                 OwnedItems.Remove(itemToRemove);
@@ -94,9 +102,9 @@ namespace ScriptableObjects.Inventory
             
             if (item.Amount == 0)
             {
-                RemoveItem(item);
+                RemoveItemInternal(item);
             }
-            
+
             _inventoryChannel.OnItemAmountChangedSilent(item, -1);
             _inventoryChannel.OnItemAmountChanged(item, -1);
         }

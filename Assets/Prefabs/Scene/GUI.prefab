@@ -280,6 +280,8 @@ GameObject:
   - component: {fileID: 521291528}
   - component: {fileID: 521291527}
   - component: {fileID: 521291526}
+  - component: {fileID: 521291529}
+  - component: {fileID: 521291530}
   m_Layer: 5
   m_Name: Left arrow
   m_TagString: Untagged
@@ -388,8 +390,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9100358906503451944}
-        m_TargetAssemblyTypeName: UI.Screens.InventoryScreen, Assembly-CSharp
+      - m_Target: {fileID: 7047724655417241734}
+        m_TargetAssemblyTypeName: UI.Elements.PagingComponent, Assembly-CSharp
         m_MethodName: PreviousPage
         m_Mode: 1
         m_Arguments:
@@ -400,6 +402,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &521291529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521291524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cafc40b442d441cb4d2126b65c160c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseOverScale: 1.15
+  _mouseDownScale: 0.8
+  _mouseLeaveScale: 1
+  _shadow: {fileID: 521291530}
+--- !u!114 &521291530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521291524}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.59607846}
+  m_EffectDistance: {x: -1.5, y: -1.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1070153450
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +632,8 @@ GameObject:
   - component: {fileID: 1360605506}
   - component: {fileID: 1360605505}
   - component: {fileID: 1360605504}
+  - component: {fileID: 1360605507}
+  - component: {fileID: 1360605508}
   m_Layer: 5
   m_Name: Right arrow
   m_TagString: Untagged
@@ -707,8 +742,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9100358906503451944}
-        m_TargetAssemblyTypeName: UI.Screens.InventoryScreen, Assembly-CSharp
+      - m_Target: {fileID: 7047724655417241734}
+        m_TargetAssemblyTypeName: UI.Elements.PagingComponent, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
         m_Arguments:
@@ -719,6 +754,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1360605507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360605502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cafc40b442d441cb4d2126b65c160c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseOverScale: 1.15
+  _mouseDownScale: 0.8
+  _mouseLeaveScale: 1
+  _shadow: {fileID: 1360605508}
+--- !u!114 &1360605508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360605502}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.59607846}
+  m_EffectDistance: {x: 1.5, y: -1.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1751040497
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +796,7 @@ GameObject:
   - component: {fileID: 1751040498}
   - component: {fileID: 1751040500}
   - component: {fileID: 1751040499}
+  - component: {fileID: 7047724655417241734}
   m_Layer: 5
   m_Name: Paging
   m_TagString: Untagged
@@ -780,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -797,6 +864,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7047724655417241734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751040497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e88879806d8429a87866897b82be32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pagingText: {fileID: 1846139214}
+  _rightArrow: {fileID: 1360605505}
+  _leftArrow: {fileID: 521291527}
+  CurrentPage: 0
+  NumberOfPages: 0
 --- !u!1 &1846139212
 GameObject:
   m_ObjectHideFlags: 0
@@ -14806,7 +14890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9100358906503451945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14888,8 +14972,7 @@ MonoBehaviour:
   _dragChannel: {fileID: 11400000, guid: fc805822eb8f4c24e808c6570d5f97fa, type: 2}
   _equipmentDetailsPanel: {fileID: 4630240186810329761}
   _coinText: {fileID: 9100358906879314366}
-  _pagingPanel: {fileID: 1751040497}
-  _pagingText: {fileID: 1846139214}
+  _pagingComponent: {fileID: 7047724655417241734}
 --- !u!1 &9100358906542905610
 GameObject:
   m_ObjectHideFlags: 0
@@ -21346,9 +21429,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 400840570872857198, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
   m_PrefabInstance: {fileID: 3176375208099464550}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8118831586172178372 stripped
+--- !u!114 &3241286598625339613 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6683097909470415522, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 67444666931113403, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
   m_PrefabInstance: {fileID: 3176375208099464550}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -21357,9 +21440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3241286598625339613 stripped
+--- !u!114 &1304447416033127381 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 67444666931113403, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4471674685778882227, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
   m_PrefabInstance: {fileID: 3176375208099464550}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -21379,9 +21462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1304447416033127381 stripped
+--- !u!114 &8118831586172178372 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4471674685778882227, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6683097909470415522, guid: 123db260722b7c8469517fdd3f5c96cd, type: 3}
   m_PrefabInstance: {fileID: 3176375208099464550}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

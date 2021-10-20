@@ -51,6 +51,7 @@ namespace Player
         protected PlayerWalkLeftState _walkLeft;
         protected PlayerWalkRightState _walkRight;
         protected PlayerJumpingState _jump;
+        protected JumpFromLadderState _jumpFromLadder;
         protected PlayerFallState _fall;
         protected DieState _dead;
         protected IAbilityState _basicAttackState;
@@ -119,6 +120,7 @@ namespace Player
                 _horizontalAxisRaw < 0 && _rigidBody.velocity.y == 0 && (_activeWeaponStates == null || !_activeWeaponStates.IsAbilityAnimationActivated);
             _walkRightTransitionCondition = () => _horizontalAxisRaw > 0 && _rigidBody.velocity.y == 0 && (_activeWeaponStates == null || !_activeWeaponStates.IsAbilityAnimationActivated);
             var shouldJump = new Func<bool>(() =>  _isJumpButtonDown && _playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
+            var shouldJumpFromClimb = new Func<bool>(() =>  _isJumpButtonDown && _stateMachine.CurrentState == _climb);
             var shouldFall = new Func<bool>(() =>  !_playerGroundCheck.IsOnGround && _rigidBody.velocity.y == 0);
             var walkLeftAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw < 0 && _rigidBody.velocity.y < 0);
             var walkRightAfterLand = new Func<bool>(() => _playerGroundCheck.IsOnGround && _horizontalAxisRaw > 0 && _rigidBody.velocity.y < 0);
@@ -140,22 +142,26 @@ namespace Player
             _stateMachine.AddTransition(_idle, _noHorizontalInput, _walkLeft);
             _stateMachine.AddTransition(_idle, _noHorizontalInput, _walkRight);
             _stateMachine.AddTransition(_idle, idleAfterJump, _jump);
+            _stateMachine.AddTransition(_idle, idleAfterJump, _jumpFromLadder);
             _stateMachine.AddTransition(_idle, idleAfterJump, _fall);
             _stateMachine.AddTransition(_idle, idleAfterClimb, _climb);
 
             _stateMachine.AddTransition(_walkLeft, _walkLeftTransitionCondition, _idle);
             _stateMachine.AddTransition(_walkLeft, _walkLeftTransitionCondition, _walkRight);
             _stateMachine.AddTransition(_walkLeft, walkLeftAfterLand, _jump);
+            _stateMachine.AddTransition(_walkLeft, walkLeftAfterLand, _jumpFromLadder);
             _stateMachine.AddTransition(_walkLeft, walkLeftAfterLand, _fall);
             
             _stateMachine.AddTransition(_walkRight, _walkRightTransitionCondition, _idle);
             _stateMachine.AddTransition(_walkRight, _walkRightTransitionCondition, _walkLeft);
             _stateMachine.AddTransition(_walkRight, walkRightAfterLand, _jump);
+            _stateMachine.AddTransition(_walkRight, walkRightAfterLand, _jumpFromLadder);
             _stateMachine.AddTransition(_walkRight, walkRightAfterLand, _fall);
             
             _stateMachine.AddTransition(_jump,shouldJump, _walkLeft);
             _stateMachine.AddTransition(_jump,shouldJump, _walkRight);
             _stateMachine.AddTransition(_jump,shouldJump, _idle);
+            _stateMachine.AddTransition(_jumpFromLadder,shouldJumpFromClimb, _climb);
             
             _stateMachine.AddTransition(_fall, shouldFall,_walkLeft);
             _stateMachine.AddTransition(_fall, shouldFall,_walkRight);
@@ -207,7 +213,8 @@ namespace Player
             _idle = new PlayerIdleState(_player, _playerMovement);
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
-            _jump = new PlayerJumpingState(_player, _collider2D, _playerMovement, _player.Traits.JumpHeight, _rigidBody);
+            _jump = new PlayerJumpingState(_player, _playerMovement, _player.Traits.JumpHeight, _rigidBody);
+            _jumpFromLadder = new JumpFromLadderState(_player, _playerMovement, _rigidBody);
             _fall = new PlayerFallState(_player, _collider2D);
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
             _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _collider2D, _inputChannel,

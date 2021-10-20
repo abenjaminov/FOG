@@ -49,10 +49,5 @@ namespace Entity.Player
                 IsOnEdge = false;
             }
         }
-
-        private void UpdateClimbDirectionOptions()
-        {
-            
-        }
     }
 }

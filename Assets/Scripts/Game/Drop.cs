@@ -62,11 +62,11 @@ namespace Game
             _stateMachine.SetState(_droppedState);
         }
 
-        public void SetInventoryItemMeta(InventoryItemMeta invItemMeta, Traits dropperTraits)
+        public void SetInventoryItemMeta(InventoryItemMeta invItemMeta, int amount)
         {
             InventoryItemMeta = invItemMeta;
             _renderer.sprite = invItemMeta.ItemSprite;
-            Amount = DropsHelper.GetDropAmount(invItemMeta, dropperTraits);
+            Amount = amount;
         }
 
         private void Update()

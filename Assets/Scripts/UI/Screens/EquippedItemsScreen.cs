@@ -25,17 +25,19 @@ namespace UI.Screens
             
             _helmet.ItemViewMouseEnter += ItemViewMouseEnter;
             _helmet.ItemViewMouseExit += ItemViewMouseExit;
+            _helmet.ItemViewDoubleClicked += HelmetItemViewDoubleClicked;
+
             _armour.ItemViewMouseEnter += ItemViewMouseEnter;
             _armour.ItemViewMouseExit += ItemViewMouseExit;
+            _armour.ItemViewDoubleClicked += ArmourItemViewDoubleClicked;
+
             _primaryWeapon.ItemViewMouseEnter += ItemViewMouseEnter;
             _primaryWeapon.ItemViewMouseExit += ItemViewMouseExit;
+            _primaryWeapon.ItemViewDoubleClicked += PrimaryWeaponItemViewDoubleClick;
+
             _cape.ItemViewMouseEnter += ItemViewMouseEnter;
             _cape.ItemViewMouseExit += ItemViewMouseExit;
-            
-            _helmet.ItemViewDoubleClicked += HelmetItemViewDoubleClicked;
-            _armour.ItemViewDoubleClicked += ArmourItemViewDoubleClicked;
             _cape.ItemViewDoubleClicked += CapeItemViewDoubleClicked;
-            _primaryWeapon.ItemViewDoubleClicked += PrimaryWeaponItemViewDoubleClick;
 
             _playerChannel.ItemEquippedEvent += EquipmentChangedEvent;
             _playerChannel.ItemUnEquippedEvent += EquipmentChangedEvent;
