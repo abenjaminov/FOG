@@ -30,7 +30,7 @@ Shader "Hero Editor/Gray Paint" {
         Pass {
             Name "FORWARD"
             Tags {
-                "LightMode"="ForwardBase"
+                "LightMode"="UniversalForward"
             }
             Blend SrcAlpha OneMinusSrcAlpha
             Cull Off

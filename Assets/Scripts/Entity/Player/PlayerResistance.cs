@@ -11,7 +11,6 @@ namespace Entity.Player
     public class PlayerResistance : MonoBehaviour
     {
         [SerializeField] private LocationsChannel _locationsChannel;
-        [SerializeField] private LocationsManager _locationsManager;
         [SerializeField] private PlayerTraits _playerTraits;
 
         private bool innerEnabled;
@@ -23,32 +22,35 @@ namespace Entity.Player
 
         private void ChangeLocationCompleteEvent(SceneMeta destination, SceneMeta source)
         {
-            innerEnabled = true;
-            // TODO : Update some UI about availability
+            innerEnabled = false;
             
-            var levelDiff = _locationsManager.CurrentScene.LevelAloud - _playerTraits.Level;
-
-            StopCoroutine(nameof(ReduceMonsterResistance));
             StartCoroutine(nameof(ReduceMonsterResistance));
         }
 
         private IEnumerator ReduceMonsterResistance()
         {
-            while (_playerTraits.MonsterStateResistance >= PlayerTraits.MinMonsterStateResistance && 
-                   _playerTraits.MonsterStateResistance <= PlayerTraits.MaxMonsterStateResistance)
+            innerEnabled = true;
+            var levelDiff = _playerTraits.Level - _locationsChannel.CurrentScene.LevelAloud;
+            var delta = Mathf.Sign(levelDiff) * Mathf.Pow(levelDiff, 2);
+            
+            while (innerEnabled)
             {
-                var levelDiff = _playerTraits.Level - _locationsManager.CurrentScene.LevelAloud;
-                
-                yield return new WaitForSeconds(1);
-                var newResistance = _playerTraits.MonsterStateResistance + levelDiff;
-                _playerTraits.MonsterStateResistance = 
-                    Mathf.Max(PlayerTraits.MinMonsterStateResistance, 
-                        Mathf.Min(PlayerTraits.MaxMonsterStateResistance, newResistance));
+                yield return new WaitForSeconds(2);
+
+                if (_playerTraits.MonsterStateResistance > PlayerTraits.MinMonsterStateResistance)
+                {
+                    var newResistance = _playerTraits.MonsterStateResistance + delta;
+                    _playerTraits.MonsterStateResistance = 
+                        Mathf.Max(PlayerTraits.MinMonsterStateResistance, 
+                            Mathf.Min(PlayerTraits.MaxMonsterStateResistance, newResistance));
+                }
+                else if(delta < 0)
+                {
+                    _playerTraits.ChangeCurrentHealth(delta);
+                }
             }
             
-            // TODO : Reduce HP when Monster state resistance points are lost
-
-            yield break;
+            yield return null;
         }
 
         private void OnDestroy()

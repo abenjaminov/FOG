@@ -40,8 +40,14 @@ namespace Entity.Player
             // ReSharper disable once PossibleNullReferenceException
             _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
             _playerTraits.ReviveEvent += ReviveEvent;
+            _playerTraits.DiedEvent += PlayerDiedEvent;
 
             _receiveDamageColldown = _playerTraits.ReceiveDamageCooldown;
+        }
+
+        private void PlayerDiedEvent()
+        {
+            IsDead = true;
         }
 
         private void ReviveEvent()
@@ -54,6 +60,7 @@ namespace Entity.Player
             _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
             _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
             _playerTraits.ReviveEvent -= ReviveEvent;
+            _playerTraits.DiedEvent -= PlayerDiedEvent;
         }
 
         protected override void Start()

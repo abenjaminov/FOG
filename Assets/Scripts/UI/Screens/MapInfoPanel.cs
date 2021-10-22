@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
+using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace UI.Screens
     {
         [SerializeField] private TextMeshProUGUI _mapName;
         [SerializeField] private LocationsChannel _locationsChannel;
+        [SerializeField] private PlayerTraits _playerTraits;
 
         private void Awake()
         {
@@ -18,7 +20,16 @@ namespace UI.Screens
 
         private void ChangeLocationCompleteEvent(SceneMeta dest, SceneMeta source)
         {
-            _mapName.SetText(dest.AssetName);
+            if (_locationsChannel.CurrentScene.LevelAloud <= _playerTraits.Level)
+            {
+                _mapName.color = Color.yellow;
+                _mapName.SetText(dest.AssetName);
+            }
+            else
+            {
+                _mapName.color = Color.red;
+                _mapName.SetText($"{dest.AssetName} (Level {_locationsChannel.CurrentScene.LevelAloud} required)");
+            }
         }
 
         private void OnDestroy()

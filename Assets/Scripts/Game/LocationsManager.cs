@@ -85,8 +85,8 @@ namespace Game
             {
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
 
-                _locationsChannel.OnChangeLocationComplete(destination, source);
                 _currentScene = destination;
+                _locationsChannel.OnChangeLocationComplete(destination, source);
 
                 var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
 

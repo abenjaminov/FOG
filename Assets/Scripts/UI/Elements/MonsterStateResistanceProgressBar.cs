@@ -12,8 +12,7 @@ namespace UI.Elements
             MaxValue = PlayerTraits.MaxMonsterStateResistance;
             
             SetInitialCurrentValue(_playerTraits.MonsterStateResistance);
-            //CurrentValue = _playerTraits.MonsterStateResistance;
-            
+
             _playerTraits.MonsterResistanceChangedEvent += MonsterResistanceChangedEvent;
             
             UpdateUI();

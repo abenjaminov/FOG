@@ -42,9 +42,7 @@ namespace UI.Screens
         private IEnumerator RespawnSequence()
         {
             _screenVisuals.SetActive(true);
-            
-            yield return new WaitForSeconds(1);
-            
+
             while (_actualTimeBeforeRespawn > 0)
             {
                 _respawnTimer.text = _actualTimeBeforeRespawn.ToString();
@@ -55,7 +53,8 @@ namespace UI.Screens
             _screenVisuals.SetActive(false);
             
             _playerTraits.Revive();
-            _locationsChannel.OnRespawn(_locationsChannel.CurrentScene.RespawnScene, _locationsChannel.CurrentScene);
+            _locationsChannel.OnRespawn(_locationsChannel.CurrentScene.RespawnScene, 
+                _locationsChannel.CurrentScene);
         }
     }
 }
