@@ -26,7 +26,7 @@ MonoBehaviour:
       Amount: 1
   DependencyQuest: {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
   State: 0
-  RequiredLevel: 4
+  RequiredLevel: 3
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}

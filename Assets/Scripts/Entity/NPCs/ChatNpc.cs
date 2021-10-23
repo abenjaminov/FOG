@@ -41,16 +41,22 @@ namespace Entity.NPCs
                 GeneralTextLines.Add("Hello there!");
             
             _questChannel.QuestStateChangedEvent += QuestStateChanged;
+            _npcChannel.ChatEndedEvent += ChatEndedEvent;
 
             UpdateContentIndicator();
         }
 
-
         private void OnDestroy()
         {
             _questChannel.QuestStateChangedEvent -= QuestStateChanged;
+            _npcChannel.ChatEndedEvent -= ChatEndedEvent;
         }
 
+        private void ChatEndedEvent(ChatNpc arg0, ChatSession arg1, ChatDialogOptionAction arg2)
+        {
+            UpdateContentIndicator();
+        }
+        
         private void QuestStateChanged(Quest quest)
         {
             UpdateContentIndicator();
@@ -91,9 +97,9 @@ namespace Entity.NPCs
 
         public List<ChatSession> GetAvailableChatSessions()
         {
-            return ChatSessions.Where(x => x.SessionType == ChatSessionType.Casual ||
+            return ChatSessions.Where(x => (x.SessionType == ChatSessionType.Casual && (!x.IsOneTime || (x.IsOneTime && !x.IsOneTimeDone))) ||
                                            
-                                           (x.AssociatedQuest.RequiredLevel <= _playerTraits.Level &&
+                                           (x.AssociatedQuest != null && x.AssociatedQuest.RequiredLevel <= _playerTraits.Level &&
                                             
                                             (x.AssociatedQuest.DependencyQuest == null || 
                                              x.AssociatedQuest.DependencyQuest.State == QuestState.Completed) &&

@@ -18,21 +18,38 @@ namespace Entity.Player
         private void Awake()
         {
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
+            _playerTraits.LevelUpEvent += LevelUpEvent;
+        }
+
+        private void OnDestroy()
+        {
+            _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
+            _playerTraits.LevelUpEvent -= LevelUpEvent;
+            StopCoroutine(nameof(ReduceMonsterResistance));
+        }
+
+        private void LevelUpEvent()
+        {
+            RestartResistanceCheck();
         }
 
         private void ChangeLocationCompleteEvent(SceneMeta destination, SceneMeta source)
         {
+            RestartResistanceCheck();
+        }
+
+        private void RestartResistanceCheck()
+        {
             innerEnabled = false;
-            
+
             StartCoroutine(nameof(ReduceMonsterResistance));
         }
 
         private IEnumerator ReduceMonsterResistance()
         {
             innerEnabled = true;
-            var levelDiff = _playerTraits.Level - _locationsChannel.CurrentScene.LevelAloud;
-            var delta = Mathf.Sign(levelDiff) * Mathf.Pow(levelDiff, 2);
-            
+            var delta = _playerTraits.Level - _locationsChannel.CurrentScene.LevelAloud;
+
             while (innerEnabled)
             {
                 yield return new WaitForSeconds(2);
@@ -51,12 +68,6 @@ namespace Entity.Player
             }
             
             yield return null;
-        }
-
-        private void OnDestroy()
-        {
-            _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
-            StopCoroutine(nameof(ReduceMonsterResistance));
         }
     }
 }

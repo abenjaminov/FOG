@@ -164,6 +164,9 @@ namespace UI.Screens
         {
             if (reason == ChatDialogOptionAction.Accept)
             {
+                if (_currentChatSession.IsOneTime)
+                    _currentChatSession.IsOneTimeDone = true;
+                
                 GiveItems();
             }
             

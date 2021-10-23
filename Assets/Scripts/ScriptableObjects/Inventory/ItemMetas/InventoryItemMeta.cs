@@ -10,5 +10,6 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public Sprite InventoryItemSprite;
 
         public abstract bool Use(Entity.Player.Player player);
+        public abstract bool IsConsumable();
     }
 }

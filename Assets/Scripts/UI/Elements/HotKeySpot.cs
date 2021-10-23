@@ -1,5 +1,6 @@
 ﻿using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
+using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
 using UI.Behaviours;
 using UI.Mouse;
@@ -19,28 +20,32 @@ namespace UI.Elements
         [SerializeField] private KeyCode _keyCode;
 
         private KeySubscription _hotKeySubscription;
-        private InventoryItemView _currentItemView;
+        private InventoryItem _currentInventoryItem;
 
         private void Awake()
         {
             _inventoryChannel.ItemAmountChangedEvent += ItemAmountChangedEvent;
         }
 
-        private void ItemAmountChangedEvent(InventoryItem arg0, int arg1)
+        private void ItemAmountChangedEvent(InventoryItem inventoryItem, int amount)
         {
-            if(_currentItemView != null && _currentItemView.ItemMeta.Id == arg0.ItemMeta.Id)
-                UpdateUI();
+            if (_currentInventoryItem == null || _currentInventoryItem.ItemMeta.Id != inventoryItem.ItemMeta.Id) return;
+                
+            if (inventoryItem.Amount == 0)
+                _currentInventoryItem = null;
+            
+            UpdateUI();
         }
 
         public void DragDropped(IDraggable draggable)
         {
             if (!draggable.GetGameObject().TryGetComponent(typeof(InventoryItemView), out var component)) return;
 
-            _currentItemView = (InventoryItemView)component;
+            _currentInventoryItem = ((InventoryItemView)component).InventoryItem;
 
-            if (!_currentItemView.IsUsable())
+            if (!_currentInventoryItem.ItemMeta.IsConsumable())
             {
-                _currentItemView = null;
+                _currentInventoryItem = null;
                 return;
             }
             
@@ -53,7 +58,7 @@ namespace UI.Elements
         {
             var color = _itemImage.color;
             
-            if (_currentItemView == null)
+            if (_currentInventoryItem == null)
             {
                 _itemImage.sprite = null;
                 _itemImage.color = new Color(color.r, color.g, color.b, 0);
@@ -61,15 +66,15 @@ namespace UI.Elements
             }
             else
             {
-                _itemImage.sprite = _currentItemView.ItemSprite.sprite;
+                _itemImage.sprite = _currentInventoryItem.ItemMeta.InventoryItemSprite;
                 _itemImage.color = new Color(color.r, color.g, color.b, 255);
-                _amountText.SetText(_currentItemView.InventoryItem.Amount.ToString());    
+                _amountText.SetText(_currentInventoryItem.Amount.ToString());    
             }
         }
 
         private void KeyDown()
         {
-            _inventoryChannel.OnUseItemRequest(_currentItemView.InventoryItem, _player);
+            _inventoryChannel.OnUseItemRequest(_currentInventoryItem, _player);
         }
 
         public bool IsEmpty()
@@ -85,9 +90,9 @@ namespace UI.Elements
 
         public void HandleRightClick()
         {
-            if (_currentItemView == null) return;
+            if (_currentInventoryItem == null) return;
             
-            _currentItemView = null;
+            _currentInventoryItem = null;
             UpdateUI();
         }
     }

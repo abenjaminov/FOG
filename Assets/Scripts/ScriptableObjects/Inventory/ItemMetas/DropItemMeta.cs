@@ -11,5 +11,10 @@ namespace ScriptableObjects.Inventory.ItemMetas
         {
             return false;
         }
+
+        public override bool IsConsumable()
+        {
+            return false;
+        }
     }
 }

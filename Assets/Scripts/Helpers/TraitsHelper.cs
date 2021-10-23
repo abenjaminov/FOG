@@ -148,8 +148,8 @@ namespace Helpers
 
         public static int GetEnemyDamage(Enemy enemy)
         {
-            var minFactor = 7;
-            var maxFactor = 9;
+            var minFactor = 3;
+            var maxFactor = 5;
 
             var minValue = CalculateEnemyAttackValue(enemy, minFactor);
             var maxValue = CalculateEnemyAttackValue(enemy, maxFactor);

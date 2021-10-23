@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
+  m_Name: M4-2C - MR
+  m_EditorClassIdentifier: 
+  SessionType: 2
+  IsOneTime: 1
+  IsOneTimeDone: 1
+  AssociatedQuest: {fileID: 0}
+  ItemRewards:
+  - ItemMeta: {fileID: 11400000, guid: 01ec003f1b4115e4b823311ca9988dbf, type: 2}
+    Amount: 10
+  ChatItems:
+  - Text: '{NAME} you are too weak for this place!'
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: The toxic fog is draining your monster resistance. Take these potions,
+      they can help temporarily restore some resistance.
+    Options:
+    - Text: Next
+      Action: 0
+    - Text: Back
+      Action: 1
+  - Text: The best way to avoid the fog is just to get stronger!
+    Options:
+    - Text: Next
+      Action: 2
+    - Text: Back
+      Action: 1

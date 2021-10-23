@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e400332113c4f71937964808937b399, type: 3}
   m_Name: Player Traits
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Geralt
   WalkSpeed: 3
   JumpHeight: 1.1
   BaseDelayBetweenAttacks: 0.8
@@ -21,11 +21,11 @@ MonoBehaviour:
   Defense: 5
   Level: 3
   ClimbSpeed: 3
-  CurrentHealth: 50
+  CurrentHealth: 184
   PointsLeft: 0
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
-  _resistancePointsGained: 930
-  _monsterStateResistance: 100
+  _resistancePointsGained: 0
+  _monsterStateResistance: 0
   ReceiveDamageCooldown: 1
   _strength: 15
   _dexterity: 5

@@ -15,6 +15,6 @@ MonoBehaviour:
   AssetName: Map 4
   ReplacementPhrase: '{MAP4}'
   Id: 1f423728-d34c-4d58-90e8-9b7065053e19
-  LevelAloud: 3
+  LevelAloud: 5
   SceneAsset: {fileID: 102900000, guid: 14129f64aa5243d4dbf6ed13f03264d1, type: 3}
   RespawnScene: {fileID: 11400000, guid: d00f9203157f05944a67932cb48531a4, type: 2}

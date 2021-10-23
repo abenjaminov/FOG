@@ -495,7 +495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!73398921 &1991787904
 VFXRenderer:
   m_ObjectHideFlags: 2
@@ -503,7 +503,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991787903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -553,7 +553,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 175
+      - m_Value: 500
         m_Name: Fog amount
         m_Overridden: 1
       - m_Value: 5
@@ -562,7 +562,7 @@ VisualEffect:
       - m_Value: 4.5
         m_Name: ParticleSizeMin
         m_Overridden: 1
-      - m_Value: 0.5
+      - m_Value: 0.2
         m_Name: FogAlpha
         m_Overridden: 1
     m_Vector2f:
@@ -621,7 +621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visualEffect: {fileID: 1991787905}
-  _cameraToFollow: {fileID: 1356192081}
 --- !u!4 &2840444360503644834
 Transform:
   m_ObjectHideFlags: 0

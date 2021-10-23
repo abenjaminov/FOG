@@ -7,7 +7,19 @@ namespace ScriptableObjects.Inventory
     [Serializable]
     public class InventoryItem
     {
-        public InventoryItemMeta ItemMeta;
+        [SerializeField] private InventoryItemMeta _itemMeta;
+
+        public InventoryItemMeta ItemMeta
+        {
+            get
+            {
+                return _itemMeta;
+            }
+            set
+            {
+                _itemMeta = value;
+            }
+        }
         public int Amount;
 
         public bool Use(int amount, Entity.Player.Player player = null)

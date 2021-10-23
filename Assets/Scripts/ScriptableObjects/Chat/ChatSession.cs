@@ -10,6 +10,8 @@ namespace ScriptableObjects.Chat
     public class ChatSession : ScriptableObject
     {
         public ChatSessionType SessionType;
+        public bool IsOneTime;
+        public bool IsOneTimeDone;
         public Quest AssociatedQuest;
         public List<ItemReward> ItemRewards;
         public List<ChatItem> ChatItems;
