@@ -93,6 +93,7 @@ namespace UI.Elements
             if (_currentInventoryItem == null) return;
             
             _currentInventoryItem = null;
+            _hotKeySubscription.Unsubscribe();
             UpdateUI();
         }
     }

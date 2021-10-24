@@ -55,14 +55,14 @@ namespace UI.Mouse
             return hit;
         }
 
-        private static List<T> GetClickableObjects<T>()
+        private static IEnumerable<T> GetClickableObjects<T>()
         {
             var hit = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero).ToList();
             hit.AddRange(Physics2D.RaycastAll(Input.mousePosition, Vector2.zero));
             
-            var clickableObjects = hit.Select(x => x.collider.GetComponent<T>()).Where(x => x != null).ToList();
+            var clickableObjects = hit.Select(x => x.collider.GetComponents<T>()).Where(x => x != null).ToList();
 
-            return clickableObjects;
+            return clickableObjects.SelectMany(x => x);
         }
         
         private void HandleDoubleClick()
@@ -79,7 +79,8 @@ namespace UI.Mouse
 
         private void HandleRightClick()
         {
-            var clickableObjects = GetClickableObjects<IRightClickHandler>();
+            var clickableObjects =
+                GetClickableObjects<IRightClickHandler>();
             
             foreach (var clickableObject in clickableObjects)
             {

@@ -34,6 +34,7 @@ namespace ScriptableObjects
 
         [Header("Phase 1 - Karf")] 
         [SerializeField] private WeaponItemMeta _primaryWeapon;
+        [SerializeField] private PotionItemMeta _hpPotion;
 
         [Header("Phase 2")] 
         [SerializeField] private List<Quest> _phase2QuestsToComplete;
@@ -57,7 +58,8 @@ namespace ScriptableObjects
             ResetQuests();
             ResetInventory();
             ResetEquipment();
-            
+
+            _playerInventory.AddItemSilent(_hpPotion, 50);
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
         }
 

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T1C - A Cry for help
   m_EditorClassIdentifier: 
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
   ItemRewards: []
   ChatItems:
@@ -20,8 +22,8 @@ MonoBehaviour:
     Options:
     - Text: '"Why?"'
       Action: 0
-  - Text: There was a big fog, and once it cleared almost everyone that we know turned
-      into monsters.
+  - Text: A big fog cloud appeared, and once it cleared almost everyone that we know
+      turned into monsters.
     Options:
     - Text: Next
       Action: 0

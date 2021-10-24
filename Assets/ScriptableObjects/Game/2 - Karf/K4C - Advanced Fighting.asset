@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: K4C - Advanced Fighting
   m_EditorClassIdentifier: 
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
+  ItemRewards: []
   ChatItems:
-  - Text: I see your doing well, lets take down {GNOLL2} now.
+  - Text: I see your doing well, lets take down some {GNOLL2}s now.
     Options:
     - Text: Next
       Action: 0
-  - Text: Travel to {MAP2} and defeat 50 {GNOLL2}, make sure you are at least level
-      3 before you come back.
+  - Text: Travel to {MAP2} or {MAP3} and defeat 50 {GNOLL2}s, you can look at the
+      map by pressing the {MAP_KEY}
     Options:
     - Text: Accept
       Action: 2

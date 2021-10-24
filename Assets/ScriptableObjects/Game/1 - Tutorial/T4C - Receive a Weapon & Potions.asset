@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T4C - Receive a Weapon & Potions
   m_EditorClassIdentifier: 
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
   ItemRewards:
   - ItemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
@@ -25,8 +27,8 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: you can equip the bat through your inventory screen, just press the {INV_KEY}
-      key and double click.
+  - Text: you can equip the bat through your inventory screen, just press the {INV_KEY} 
+      and double click.
     Options:
     - Text: Next
       Action: 0

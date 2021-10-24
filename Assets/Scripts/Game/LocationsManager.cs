@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Assets.HeroEditor.Common.CommonScripts;
 using Persistence;
 using Persistence.Accessors;
@@ -83,24 +86,32 @@ namespace Game
 
             operation.completed += asyncOperation =>
             {
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
-
-                _currentScene = destination;
-                _locationsChannel.OnChangeLocationComplete(destination, source);
-
-                var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
-
-                if (teleport != null && !ignoreTeleports)
-                {
-                    _player.transform.position = teleport.CenterTransform.position;
-                }
-                else
-                {
-                    PositionPlayerOnSpawnPoint();
-                }
+                OnSceneLoadComplete(destination, source, ignoreTeleports);
             };
         }
 
+        async void OnSceneLoadComplete(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
+                
+            _currentScene = destination;
+
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            
+            _locationsChannel.OnChangeLocationComplete(destination, source);
+
+            var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
+
+            if (teleport != null && !ignoreTeleports)
+            {
+                _player.transform.position = teleport.CenterTransform.position;
+            }
+            else
+            {
+                PositionPlayerOnSpawnPoint();
+            }
+        }
+        
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationEvent -= ChangeLocationEvent;

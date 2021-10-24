@@ -17,4 +17,4 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 6154e5b2b7f4f7d478e012c3e9a56ebf, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 7c7d7b121e5f1be46bc38ca31fe9a63f, type: 3}
   PotionType: 1
-  GainAmount: 20
+  GainAmount: 50
