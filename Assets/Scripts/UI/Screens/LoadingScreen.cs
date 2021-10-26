@@ -38,6 +38,7 @@ namespace UI.Screens
         private void Awake()
         {
             _locationsChannel.ChangeLocationEvent += ChangeLocationEvent;
+            _locationsChannel.RespawnEvent += ChangeLocationEvent;
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
             StartLoading();
         }
@@ -96,6 +97,7 @@ namespace UI.Screens
         {
             _locationsChannel.ChangeLocationEvent -= ChangeLocationEvent;
             _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
+            _locationsChannel.RespawnEvent -= ChangeLocationEvent; 
         }
     }
 }

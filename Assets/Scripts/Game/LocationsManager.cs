@@ -40,7 +40,7 @@ namespace Game
 
         private void OnRespawn(SceneMeta destination, SceneMeta source)
         {
-            LoadScene(destination, source, true);
+            ChangeLocation(destination, source, true);
         }
 
         private void GameModulesLoadedEvent()
@@ -75,43 +75,38 @@ namespace Game
 
         private void ChangeLocationEvent(SceneMeta destination, SceneMeta source)
         {
-            LoadScene(destination, source);
+            ChangeLocation(destination, source);
         }
 
-        private void LoadScene(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
+        private async void ChangeLocation(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
         {
             SceneManager.UnloadSceneAsync(source.name);
-
+            
             var operation = SceneManager.LoadSceneAsync(destination.name, LoadSceneMode.Additive);
 
+            await Task.Delay(TimeSpan.FromSeconds(3));
+            
             operation.completed += asyncOperation =>
             {
-                OnSceneLoadComplete(destination, source, ignoreTeleports);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
+                
+                _currentScene = destination;
+            
+                _locationsChannel.OnChangeLocationComplete(destination, source);
+
+                var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
+
+                if (teleport != null && !ignoreTeleports)
+                {
+                    _player.transform.position = teleport.CenterTransform.position;
+                }
+                else
+                {
+                    PositionPlayerOnSpawnPoint();
+                }
             };
         }
 
-        async void OnSceneLoadComplete(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(destination.name));
-                
-            _currentScene = destination;
-
-            await Task.Delay(TimeSpan.FromSeconds(1));
-            
-            _locationsChannel.OnChangeLocationComplete(destination, source);
-
-            var teleport = FindObjectsOfType<Teleport>().SingleOrDefault(x => x.Destination == source);
-
-            if (teleport != null && !ignoreTeleports)
-            {
-                _player.transform.position = teleport.CenterTransform.position;
-            }
-            else
-            {
-                PositionPlayerOnSpawnPoint();
-            }
-        }
-        
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationEvent -= ChangeLocationEvent;
