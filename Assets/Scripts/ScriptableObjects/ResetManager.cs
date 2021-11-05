@@ -28,6 +28,7 @@ namespace ScriptableObjects
         [Header("Player Equipment")] 
         [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private EquipmentItemMeta _defaultArmourMeta;
+        [SerializeField] private EquipmentItemMeta _helmetMeta;
 
         [Header("Scenes")] 
         [SerializeField] private ScenesList _sceneList;
@@ -38,6 +39,9 @@ namespace ScriptableObjects
 
         [Header("Phase 2")] 
         [SerializeField] private List<Quest> _phase2QuestsToComplete;
+        
+        [Header("Phase 3")] 
+        [SerializeField] private List<Quest> _phase3QuestsToComplete;
 
         private void ShowPhaseResetMessage(string text)
         {
@@ -93,6 +97,7 @@ namespace ScriptableObjects
             }
             
             _playerEquipment.PrimaryWeapon = _primaryWeapon;
+            _playerEquipment.Helmet = _helmetMeta;
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{KARF}");
         }
         
@@ -102,6 +107,26 @@ namespace ScriptableObjects
             Phase2Content();
             
             ShowPhaseResetMessage("Phase 2 - Level 4");
+        }
+
+        private void Phase3Content()
+        {
+            Phase2Content();
+            
+            foreach (var quest in _phase3QuestsToComplete)
+            {
+                quest.State = QuestState.Completed;
+            }
+            
+            _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{MAP5}");
+        }
+        
+        [ContextMenu("Phases/Phase 3 -Map 5 Level 4")]
+        private void Phase3()
+        {
+            Phase3Content();
+            
+            ShowPhaseResetMessage("Phase 3 - Level 4");
         }
 
         [ContextMenu("Specific/Reset Player Traits")]

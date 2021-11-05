@@ -1,0 +1,4 @@
+high jump get u stuck in ground on land
+can heal while dead
+drop off map
+hotkey persistance

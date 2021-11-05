@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Assets.HeroEditor.Common.CommonScripts;
-using Persistence;
-using Persistence.Accessors;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial Scene.unity
     guid: 171f7cec09ed8b94a9c5298174e98ee8
+  - enabled: 1
+    path: Assets/Scenes/Ateyn.unity
+    guid: d2c4715c50e936945b24cabe412d03d0
   m_configObjects: {}

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: M5-1C - Stans Brother
   m_EditorClassIdentifier: 
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
   ItemRewards: []
   ChatItems:
@@ -35,7 +37,7 @@ MonoBehaviour:
       Action: 1
   - Text: Try to defeath some of the Orcs here and find me that ring.
     Options:
-    - Text: Next
-      Action: 0
+    - Text: Accept
+      Action: 2
     - Text: Back
       Action: 1
