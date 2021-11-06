@@ -867,6 +867,7 @@ MonoBehaviour:
   _inventory: {fileID: 1249049871}
   _equipment: {fileID: 695458613}
   _map: {fileID: 1159952173}
+  _settings: {fileID: 0}
   _chatSelectionScreen: {fileID: 1141649855}
   _chatScreen: {fileID: 905552884}
   _questTrackerPanel: {fileID: 1936002085}
@@ -874,7 +875,6 @@ MonoBehaviour:
   - {fileID: 982788763}
   - {fileID: 16932742}
   - {fileID: 1674807587}
-  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
 --- !u!114 &1141649855 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7762396581559070050, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
@@ -1004,6 +1004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562b4798babd415c9f760778f602731c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _keyboardConfiguration: {fileID: 11400000, guid: a25657ec925bb9347a6f6f1f241f7dc1, type: 2}
+  IsOpen: 0
   _tabs:
   - {fileID: 0}
 --- !u!1 &1633365458
@@ -1418,6 +1420,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -264.576
       objectReference: {fileID: 0}
+    - target: {fileID: 1915938017430918743, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1915938017890425340, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_SizeDelta.x
       value: 594.2026
@@ -1460,7 +1466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1915938017998980574, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -419.576
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 1915938018018350480, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_RootOrder

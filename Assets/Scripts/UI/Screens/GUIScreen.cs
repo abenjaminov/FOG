@@ -7,7 +7,7 @@ namespace UI.Screens
     public abstract class GUIScreen : MonoBehaviour
     {
         [SerializeField] protected KeyboardConfiguration _keyboardConfiguration;
-        public bool IsOpen;
+        [HideInInspector] public bool IsOpen;
         
         protected virtual void Awake()
         {

@@ -16,6 +16,7 @@ namespace ScriptableObjects.GameConfiguration
         public KeyCode OpenInventoryScreen = KeyCode.I;
         public KeyCode OpenMapScreen = KeyCode.M;
         public KeyCode OpenEquippedScreen = KeyCode.E;
+        public KeyCode OpenSettingsScreen = KeyCode.S;
         public KeyCode EnterTeleport = KeyCode.UpArrow;
     }
 }

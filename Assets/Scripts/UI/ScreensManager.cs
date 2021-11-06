@@ -5,7 +5,6 @@ using Entity.NPCs;
 using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Quests;
-using ScriptableObjects.Traits;
 using UI.Screens;
 using UnityEngine;
 
@@ -20,18 +19,18 @@ namespace UI
         [SerializeField] private QuestsChannel _questsChannel;
         [SerializeField] private QuestsList _questsList;
 
+        [Header("Screens")]
         [SerializeField] private GUIScreen _traitsScreen;
         [SerializeField] private GUIScreen _inventory;
         [SerializeField] private GUIScreen _equipment;
         [SerializeField] private GUIScreen _map;
+        [SerializeField] private GUIScreen _settings;
         
         [SerializeField] private ChatSelectionScreen _chatSelectionScreen;
         [SerializeField] private ChatScreen _chatScreen;
         [SerializeField] private QuestTrackerPanel _questTrackerPanel;
-
-        [SerializeField] private List<GameObject> _defaultViews;
         
-        [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private List<GameObject> _defaultViews;
 
         private List<KeySubscription> _subscriptions = new List<KeySubscription>();
         
@@ -66,6 +65,7 @@ namespace UI
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_map.GetActivationKey(), ToggleMapScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_equipment.GetActivationKey(), ToggleEquipmentScreen));
+            //_subscriptions.Add(_inputChannel.SubscribeKeyDown(_settings.GetActivationKey(), ToggleSettingsScreen));
             
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen));
 
@@ -78,6 +78,11 @@ namespace UI
         private void ToggleEquipmentScreen()
         {
             ToggleScreen(_equipment);
+        }
+        
+        private void ToggleSettingsScreen()
+        {
+            ToggleScreen(_settings);
         }
         
         private void ToggleTraitsScreen()
