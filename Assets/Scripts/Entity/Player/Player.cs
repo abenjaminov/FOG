@@ -108,12 +108,12 @@ namespace Entity.Player
 
         public override void ChangeHealth(float delta)
         {
-            _playerTraits.ChangeCurrentHealth(delta);
-            
-            if (_playerTraits.GetCurrentHealth() <= 0)
+            if (_playerTraits.GetCurrentHealth() + delta <= 0)
             {
                 IsDead = true;
             }
+            
+            _playerTraits.ChangeCurrentHealth(delta);
         }
 
         private void EnemyDiedEvent(Enemy deadEnemy)
