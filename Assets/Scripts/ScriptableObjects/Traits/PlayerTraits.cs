@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Helpers;
+using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
 using UnityEditor;
 using UnityEngine;
@@ -11,11 +12,6 @@ namespace ScriptableObjects.Traits
     [CreateAssetMenu(fileName = "Player Traits", menuName = "Game Stats/Player Traits", order = 0)]
     public class PlayerTraits : Traits
     {
-        public UnityAction<float> GainedResistancePointsEvent;
-        public UnityAction MonsterResistanceChangedEvent;
-        public UnityAction TraitsChangedEvent;
-        public UnityAction ReviveEvent;
-
         public const float MaxMonsterStateResistance = 100;
         public const float MinMonsterStateResistance = 0;
 
@@ -24,6 +20,7 @@ namespace ScriptableObjects.Traits
         [HideInInspector] public float CurrentHealth;
         [SerializeField] public int PointsLeft;
 
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] internal LevelConfiguration _levelConfiguration;
         [SerializeField] private int _resistancePointsGained;
         [SerializeField] private float _monsterStateResistance;
@@ -41,7 +38,7 @@ namespace ScriptableObjects.Traits
             set
             {
                 _strength = value;
-                TraitsChangedEvent?.Invoke();
+                _playerChannel.OnTraitsChangedEvent();
             }
         }
         public int Dexterity
@@ -50,7 +47,7 @@ namespace ScriptableObjects.Traits
             set
             {
                 _dexterity = value;
-                TraitsChangedEvent?.Invoke();
+                _playerChannel.OnTraitsChangedEvent();
             }
         }
         public int Intelligence
@@ -59,7 +56,7 @@ namespace ScriptableObjects.Traits
             set
             {
                 _intelligence = value;
-                TraitsChangedEvent?.Invoke();
+                _playerChannel.OnTraitsChangedEvent();
             }
         }
 
@@ -70,7 +67,7 @@ namespace ScriptableObjects.Traits
             {
                 _constitution = value;
                 UpdateMaxHealth();
-                TraitsChangedEvent?.Invoke();
+                _playerChannel.OnTraitsChangedEvent();
             }
         }
 
@@ -86,7 +83,7 @@ namespace ScriptableObjects.Traits
             set
             {
                 SetMonsterResistanceSilent(value);
-                MonsterResistanceChangedEvent?.Invoke();
+                _playerChannel.OnMonsterResistanceChanged();
             }
         }
 
@@ -97,7 +94,7 @@ namespace ScriptableObjects.Traits
             {
                 var oldPoints = _resistancePointsGained;
                 _resistancePointsGained = value;
-                GainedResistancePointsEvent?.Invoke(_resistancePointsGained - oldPoints);
+                _playerChannel.OnGainedResistancePointsEvent(_resistancePointsGained - oldPoints);
             }
         }
 
@@ -131,7 +128,7 @@ namespace ScriptableObjects.Traits
             var resistancePointsToLose = (int)(_levelConfiguration.GetLevelByOrder(this.Level).ExpForNextLevel * 0.15);
             ResistancePointsGained = Mathf.Max(0, _resistancePointsGained - resistancePointsToLose);
             
-            ReviveEvent?.Invoke();
+            _playerChannel.OnRevive();
         }
 
         public float GetCurrentHealth()
@@ -157,7 +154,7 @@ namespace ScriptableObjects.Traits
             _resistancePointsGained = _resistancePointsGained - prevLevel.ExpForNextLevel;
             UpdateMaxHealth();
             
-            LevelUpEvent?.Invoke();
+            _playerChannel.OnLevelUp();
         }
 
         public new void Reset()
@@ -165,7 +162,6 @@ namespace ScriptableObjects.Traits
             WalkSpeed = 3;
             JumpHeight = 1.1f;
             BaseDelayBetweenAttacks = 0.8f;
-            Defense = 5;
             Level = 1;
             ClimbSpeed = 3;
             _resistancePointsGained = 0;

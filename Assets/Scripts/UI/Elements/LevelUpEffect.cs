@@ -10,13 +10,13 @@ namespace UI.Elements
     {
         [SerializeField] private ParticleSystem _levelUpEffect;
         [SerializeField] private GameObject _levelUpImage;
-        [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
 
         private bool isPlayingAnimation;
         
         private void Awake()
         {
-            _playerTraits.LevelUpEvent += LevelUpEvent;
+            _playerChannel.LevelUpEvent += LevelUpEvent;
         }
 
         private void LevelUpEvent()
@@ -40,7 +40,7 @@ namespace UI.Elements
         
         private void OnDestroy()
         {
-            _playerTraits.LevelUpEvent -= LevelUpEvent;
+            _playerChannel.LevelUpEvent -= LevelUpEvent;
         }
     }
 }

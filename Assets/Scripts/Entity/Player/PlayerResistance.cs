@@ -12,19 +12,20 @@ namespace Entity.Player
     {
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
 
         private bool innerEnabled;
         
         private void Awake()
         {
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
-            _playerTraits.LevelUpEvent += LevelUpEvent;
+            _playerChannel.LevelUpEvent += LevelUpEvent;
         }
 
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
-            _playerTraits.LevelUpEvent -= LevelUpEvent;
+            _playerChannel.LevelUpEvent -= LevelUpEvent;
             StopCoroutine(nameof(ReduceMonsterResistance));
         }
 

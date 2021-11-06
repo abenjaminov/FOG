@@ -1,5 +1,6 @@
 using System;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
@@ -7,12 +8,13 @@ using UnityEngine;
 public class GameStatsPanel : MonoBehaviour
 {
     [SerializeField] private PlayerTraits _playerTraits;
+    [SerializeField] private PlayerChannel _playerChannel;
     [SerializeField] private TextMeshProUGUI _levelText;
     
     void Awake()
     {
         UpdateLevelText();
-        _playerTraits.LevelUpEvent += LevelUpEvent;
+        _playerChannel.LevelUpEvent += LevelUpEvent;
     }
 
     private void UpdateLevelText()
@@ -27,6 +29,6 @@ public class GameStatsPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerTraits.LevelUpEvent -= LevelUpEvent;
+        _playerChannel.LevelUpEvent -= LevelUpEvent;
     }
 }

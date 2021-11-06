@@ -13,6 +13,7 @@ namespace Game
     {
         [SerializeField] private LocationsChannel _locationsChannel;
         [SerializeField] private Fog _fog;
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private PlayerTraits _playerTraits;
         [Range(1,10)]
         [SerializeField] private int _maxLevelDiff;
@@ -20,13 +21,13 @@ namespace Game
         private void Awake()
         {
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
-            _playerTraits.LevelUpEvent += LevelUpEvent;
+            _playerChannel.LevelUpEvent += LevelUpEvent;
         }
 
         private void OnDestroy()
         {
             _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
-            _playerTraits.LevelUpEvent -= LevelUpEvent;
+            _playerChannel.LevelUpEvent -= LevelUpEvent;
         }
 
         private void LevelUpEvent()

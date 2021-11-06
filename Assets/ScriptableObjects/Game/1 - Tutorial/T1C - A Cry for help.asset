@@ -20,15 +20,19 @@ MonoBehaviour:
   ChatItems:
   - Text: '{NAME} This is no time to be confused!'
     Options:
-    - Text: '"Why?"'
+    - Text: Next
       Action: 0
   - Text: A big fog cloud appeared, and once it cleared almost everyone that we know
       turned into monsters.
     Options:
     - Text: Next
       Action: 0
+    - Text: Back
+      Action: 1
   - Text: Go meet Andra fast, I'm busy. She will explain everything. Just follow
       the signs.
     Options:
     - Text: Next
       Action: 2
+    - Text: Back
+      Action: 1

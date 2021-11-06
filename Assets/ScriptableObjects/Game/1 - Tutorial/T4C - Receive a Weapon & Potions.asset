@@ -35,7 +35,8 @@ MonoBehaviour:
     - Text: Back
       Action: 1
   - Text: To use the potions either double click them in the inventory screen or
-      click them once and place them on the hot key boxes on the bottom right.
+      click them once and place them on the hot key boxes on the bottom left of your
+      screen.
     Options:
     - Text: Next
       Action: 0

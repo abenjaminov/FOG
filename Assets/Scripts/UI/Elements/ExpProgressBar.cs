@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Traits;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace UI
     public class ExpProgressBar : ProgressBar
     {
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
         
         private void Awake()
@@ -17,16 +19,16 @@ namespace UI
 
             CurrentValue = _playerTraits.ResistancePointsGained;
             
-            _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
-            _playerTraits.LevelUpEvent += LevelUpEvent;
+            _playerChannel.GainedResistancePointsEvent += GainedExperienceEvent;
+            _playerChannel.LevelUpEvent += LevelUpEvent;
             
             UpdateUI();
         }
 
         private void OnDestroy()
         {
-            _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
-            _playerTraits.LevelUpEvent -= LevelUpEvent;
+            _playerChannel.GainedResistancePointsEvent -= GainedExperienceEvent;
+            _playerChannel.LevelUpEvent -= LevelUpEvent;
         }
 
         private void LevelUpEvent()

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T6C - Youll need some money
   m_EditorClassIdentifier: 
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 9bb326cb3e76e4a4097d3fb7e07d00ac, type: 2}
   ItemRewards: []
   ChatItems:
@@ -28,7 +30,7 @@ MonoBehaviour:
   - Text: 'Before you leave help me collect some coins,
 
       Kill the gnolls and
-      they will drop them.'
+      they will drop some.'
     Options:
     - Text: Next
       Action: 0

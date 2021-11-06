@@ -1,4 +1,6 @@
-﻿using ScriptableObjects.Traits;
+﻿using System;
+using ScriptableObjects.Channels;
+using ScriptableObjects.Traits;
 using UnityEngine;
 
 namespace UI.Elements
@@ -6,6 +8,7 @@ namespace UI.Elements
     public class MonsterStateResistanceProgressBar : ProgressBar
     {
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
         
         private void Awake()
         {
@@ -13,7 +16,7 @@ namespace UI.Elements
             
             SetInitialCurrentValue(_playerTraits.MonsterStateResistance);
 
-            _playerTraits.MonsterResistanceChangedEvent += MonsterResistanceChangedEvent;
+            _playerChannel.MonsterResistanceChangedEvent += MonsterResistanceChangedEvent;
             
             UpdateUI();
         }
@@ -21,6 +24,11 @@ namespace UI.Elements
         private void MonsterResistanceChangedEvent()
         {
             CurrentValue = _playerTraits.MonsterStateResistance;
+        }
+
+        private void OnDestroy()
+        {
+            _playerChannel.MonsterResistanceChangedEvent -= MonsterResistanceChangedEvent;
         }
     }
 }

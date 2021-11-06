@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T8C - You are ready
   m_EditorClassIdentifier: 
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
   ItemRewards: []
   ChatItems:
@@ -21,10 +23,10 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: 'Keep going east and reach town, in Karf find Jim.
+  - Text: 'Keep going east and reach Karf town and find Jim.
 
       He can guide
-      further.'
+      you further.'
     Options:
     - Text: Next
       Action: 2

@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Traits;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace UI
     public class HpProgressBar : ProgressBar
     {
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
         
         private void Awake()
         {
@@ -15,8 +17,8 @@ namespace UI
             CurrentValue = _playerTraits.GetCurrentHealth();
             
             _playerTraits.HealthChangedEvent += UpdateUI;
-            _playerTraits.LevelUpEvent += UpdateUI;
-            _playerTraits.TraitsChangedEvent += UpdateUI;
+            _playerChannel.LevelUpEvent += UpdateUI;
+            _playerChannel.TraitsChangedEvent += UpdateUI;
             
             UpdateUI();
         }
@@ -31,8 +33,8 @@ namespace UI
         private void OnDestroy()
         {
             _playerTraits.HealthChangedEvent -= UpdateUI;
-            _playerTraits.LevelUpEvent -= UpdateUI;
-            _playerTraits.TraitsChangedEvent -= UpdateUI;
+            _playerChannel.LevelUpEvent -= UpdateUI;
+            _playerChannel.TraitsChangedEvent -= UpdateUI;
         }
     }
 }

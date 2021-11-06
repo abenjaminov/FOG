@@ -5,12 +5,13 @@ using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.Screens
 {
     public class InfoPanel : MonoBehaviour
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] TextMeshProUGUI _infoTextPrefab;
         [SerializeField] private int _maxInfos;
         [SerializeField] private float _fadingTime;
@@ -23,7 +24,7 @@ namespace UI
         
         void Awake()
         {
-            _playerTraits.GainedResistancePointsEvent += GainedResistancePointsEvent;
+            _playerChannel.GainedResistancePointsEvent += GainedResistancePointsEvent;
             _inventoryChannel.ItemAmountChangedEvent += ItemAmountChanged;
             _inventoryChannel.FailedToUseItemEvent += FailedToUseItemEvent;
             
@@ -100,7 +101,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            _playerTraits.GainedResistancePointsEvent -= GainedResistancePointsEvent;
+            _playerChannel.GainedResistancePointsEvent -= GainedResistancePointsEvent;
             _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChanged;
             _inventoryChannel.FailedToUseItemEvent -= FailedToUseItemEvent;
         }

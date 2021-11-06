@@ -19,6 +19,7 @@ namespace Entity.Player
         
         [Header("Player Specific")]
         [SerializeField] private CombatChannel _combatChannel;
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private LevelConfiguration _levelConfiguration;
         [SerializeField] private Collider2D _hitbox;
         private float _receiveDamageColldown;
@@ -38,8 +39,8 @@ namespace Entity.Player
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
             
             // ReSharper disable once PossibleNullReferenceException
-            _playerTraits.GainedResistancePointsEvent += GainedExperienceEvent;
-            _playerTraits.ReviveEvent += ReviveEvent;
+            _playerChannel.GainedResistancePointsEvent += GainedExperienceEvent;
+            _playerChannel.ReviveEvent += ReviveEvent;
             _playerTraits.DiedEvent += PlayerDiedEvent;
 
             _receiveDamageColldown = _playerTraits.ReceiveDamageCooldown;
@@ -57,9 +58,9 @@ namespace Entity.Player
 
         private void OnDestroy()
         {
-            _playerTraits.GainedResistancePointsEvent -= GainedExperienceEvent;
+            _playerChannel.GainedResistancePointsEvent -= GainedExperienceEvent;
             _combatChannel.EnemyDiedEvent -= EnemyDiedEvent;
-            _playerTraits.ReviveEvent -= ReviveEvent;
+            _playerChannel.ReviveEvent -= ReviveEvent;
             _playerTraits.DiedEvent -= PlayerDiedEvent;
         }
 

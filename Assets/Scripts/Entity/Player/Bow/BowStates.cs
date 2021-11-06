@@ -33,8 +33,8 @@ namespace Entity.Player.Bow
 
         public override void HookStates()
         {
-            _playerStates.AddAttackState(_strongArrowState, this);
-            _playerStates.AddBuffState(_fastAttackBuffState,() => _fastAttackBuffState.IsBuffApplied);
+            //_playerStates.AddAttackState(_strongArrowState, this);
+            //_playerStates.AddBuffState(_fastAttackBuffState,() => _fastAttackBuffState.IsBuffApplied);
         }
 
         protected override void ActivateStates()
