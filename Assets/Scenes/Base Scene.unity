@@ -1592,7 +1592,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1692,6 +1692,7 @@ MonoBehaviour:
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _gameChannel: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
+  _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
   _homeScreenBackgroundMusic: {fileID: 8300000, guid: a7b450fb7980bcd4780aad4e8df2843c, type: 3}
   _levelUpSFX: {fileID: 8300000, guid: 581245304d1df9d49b0783c04abe7e16, type: 3}
   _questCompletedSFX: {fileID: 8300000, guid: 3b05e3cacccd055478aaf20cb4c3bfe0, type: 3}

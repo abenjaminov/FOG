@@ -10,5 +10,6 @@ namespace ScriptableObjects
         public int LevelAloud;
         public SceneAsset SceneAsset;
         public SceneMeta RespawnScene;
+        public AudioClip SceneAudio;
     }
 }

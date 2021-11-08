@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistenceChannel: {fileID: 11400000, guid: 92e89efb094029844a099ee6419a5988, type: 2}
-  _disablePersistence: 1
+  _disablePersistence: 0
 --- !u!114 &556090365
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ namespace Persistence.Accessors
             }
 
             using var stream = File.Open(GetPath(), FileMode.OpenOrCreate);
-            
+
             BinaryFormatter bin = new BinaryFormatter();
             stream.Seek(0, SeekOrigin.Begin);
             bin.Serialize(stream, _allData);
