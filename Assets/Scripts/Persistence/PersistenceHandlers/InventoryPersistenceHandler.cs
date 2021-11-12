@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects;
 using ScriptableObjects.Inventory;
@@ -27,11 +28,19 @@ namespace Persistence.PersistenceHandlers
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
+            var persistence = GetPersistenceItem();
+
+            accessor.PersistData("PlayerInventory", persistence);
+        }
+
+        private PlayerInventoryPersistence GetPersistenceItem()
+        {
             var persistence = new PlayerInventoryPersistence();
 
             var itemsPersistence = _playerInventory.OwnedItems.Select(x =>
                 new PlayerInventoryItemPersistence()
                 {
+                    Name = x.ItemMeta.Name,
                     Amount = x.Amount,
                     InventoryItemMetaId = x.ItemMeta.Id
                 });
@@ -41,8 +50,21 @@ namespace Persistence.PersistenceHandlers
                 Amount = _playerInventory.CurrencyItem.Amount,
                 InventoryItemMetaId = _playerInventory.CurrencyItem.ItemMeta.Id
             };
+            return persistence;
+        }
+
+        public override void PrintPersistantData()
+        {
+            var strBuilder = new StringBuilder();
+            strBuilder.AppendLine("##### INVENTORY PERSISTENCE #####");
+            var persistence = GetPersistenceItem();
+            foreach (var persistentItem in persistence.OwnedItems)
+            {
+                strBuilder.AppendLine($"Item : {persistentItem.Name}, {persistentItem.Amount}");
+            }
+            strBuilder.AppendLine($"Currency : {persistence.CurrencyItem.Amount}");
             
-            accessor.PersistData("PlayerInventory", persistence);
+            Debug.Log(strBuilder.ToString());
         }
     }
 }

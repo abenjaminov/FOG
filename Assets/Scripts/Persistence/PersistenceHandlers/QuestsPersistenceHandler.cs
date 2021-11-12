@@ -47,5 +47,10 @@ namespace Persistence.PersistenceHandlers
                 });
             accessor.PersistData("RunningNoProgressQuests", noProgressQuests);
         }
+
+        public override void PrintPersistantData()
+        {
+            
+        }
     }
 }

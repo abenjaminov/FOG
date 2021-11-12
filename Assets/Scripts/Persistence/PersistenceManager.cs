@@ -61,6 +61,8 @@ namespace Persistence
             if (_disablePersistence) return;
 
             SaveModules();
+            
+            _persistenceChannel.OnGameModulesSaved();
         }
 
         private void LoadModules()

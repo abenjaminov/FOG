@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Entity.Player;
 using ScriptableObjects.GameConfiguration;
@@ -62,6 +63,7 @@ namespace ScriptableObjects
             ResetQuests();
             ResetInventory();
             ResetEquipment();
+            ResetPersistence();
 
             _playerInventory.AddItemSilent(_hpPotion, 50);
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
@@ -129,6 +131,26 @@ namespace ScriptableObjects
             ShowPhaseResetMessage("Phase 3 - Level 4");
         }
 
+        [ContextMenu("Specific/Reset Persistence")]
+        private void ResetPersistence()
+        {
+            var path = Application.persistentDataPath + "\\GamePersistence\\";
+
+            if (Directory.Exists(path))
+            {
+                string[] files = Directory.GetFiles(path);
+                string[] dirs = Directory.GetDirectories(path);
+
+                foreach (string file in files)
+                {
+                    File.SetAttributes(file, FileAttributes.Normal);
+                    File.Delete(file);
+                }
+
+                Directory.Delete(path, false);
+            }
+        }
+        
         [ContextMenu("Specific/Reset Player Traits")]
         private void ResetPlayerTraits()
         {

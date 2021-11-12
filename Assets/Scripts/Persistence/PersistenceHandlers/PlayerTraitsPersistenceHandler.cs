@@ -1,4 +1,5 @@
-﻿using Persistence.Accessors;
+﻿using System.Text;
+using Persistence.Accessors;
 using Persistence.PersistenceObjects;
 using ScriptableObjects.Traits;
 using UnityEngine;
@@ -29,6 +30,13 @@ namespace Persistence.PersistenceHandlers
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
+            var playerTraitsPersistence = GetPlayerPersistence();
+
+            accessor.PersistData("PlayerTraits", playerTraitsPersistence);
+        }
+
+        private PlayerTraitsPersistence GetPlayerPersistence()
+        {
             var playerTraitsPersistence = new PlayerTraitsPersistence()
             {
                 Constitution = _playerTraits.Constitution,
@@ -42,8 +50,27 @@ namespace Persistence.PersistenceHandlers
                 MonsterStateResistance = _playerTraits.MonsterStateResistance,
                 Name = _playerTraits.Name
             };
+            return playerTraitsPersistence;
+        }
 
-            accessor.PersistData("PlayerTraits", playerTraitsPersistence);
+        public override void PrintPersistantData()
+        {
+            var strBuilder = new StringBuilder();
+            strBuilder.AppendLine("##### PLAYER TRAITS PERSISTENCE #####");
+            var playerTraitsPersistence = GetPlayerPersistence();
+
+            strBuilder.AppendLine($"Constitution {playerTraitsPersistence.Constitution}");
+            strBuilder.AppendLine($"Dexterity {playerTraitsPersistence.Dexterity}");
+            strBuilder.AppendLine($"Intelligence {playerTraitsPersistence.Intelligence}");
+            strBuilder.AppendLine($"Strength {playerTraitsPersistence.Strength}");
+            strBuilder.AppendLine($"CurrentHealth {playerTraitsPersistence.CurrentHealth}");
+            strBuilder.AppendLine($"PointsLeft {playerTraitsPersistence.PointsLeft}");
+            strBuilder.AppendLine($"Level {playerTraitsPersistence.Level}");
+            strBuilder.AppendLine($"ResistancePointsGained {playerTraitsPersistence.ResistancePointsGained}");
+            strBuilder.AppendLine($"MonsterStateResistance {playerTraitsPersistence.MonsterStateResistance}");
+            strBuilder.AppendLine($"Name {playerTraitsPersistence.Name}");
+            
+            Debug.Log(strBuilder.ToString());
         }
     }
 }

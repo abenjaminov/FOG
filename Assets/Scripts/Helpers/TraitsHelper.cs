@@ -148,21 +148,7 @@ namespace Helpers
 
         public static int GetEnemyDamage(Enemy enemy)
         {
-            var minFactor = 3;
-            var maxFactor = 5;
-
-            var minValue = CalculateEnemyAttackValue(enemy, minFactor);
-            var maxValue = CalculateEnemyAttackValue(enemy, maxFactor);
-
-            var damage = Random.Range(minValue, maxValue + 1);
-
-            return damage;
-        }
-
-        private static int CalculateEnemyAttackValue(Enemy enemy,int factor)
-        {
-            var result = (int)Math.Ceiling(factor * Mathf.Pow(enemy.Traits.Level + 1, 1.5f));
-            return result;
+            return ((EnemyTraits)enemy.Traits).GetDamage();
         }
 
         #endregion

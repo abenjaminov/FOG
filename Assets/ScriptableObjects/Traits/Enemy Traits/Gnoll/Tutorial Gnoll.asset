@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b14b8e73164d148dd7b9a0842d9c47, type: 3}
-  m_Name: Gnoll 2 Traits
+  m_Script: {fileID: 11500000, guid: 76ea84b954354c1997459ad9f528787d, type: 3}
+  m_Name: Tutorial Gnoll
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Tutorial Gnoll
   WalkSpeed: 1.7
   JumpHeight: 0
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0
-  MaxHealth: 24
-  Level: 2
-  ResistancePoints: 5
+  MaxHealth: 18
+  Level: 1
+  ResistancePoints: 2
+  FixedDamage: 1

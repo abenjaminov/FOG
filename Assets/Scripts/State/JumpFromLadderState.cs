@@ -8,7 +8,7 @@ namespace State
     {
         public JumpFromLadderState(Entity.Player.Player player, 
             PlayerMovement playerMovement,
-            Rigidbody2D rigidBody2D) : base(player, playerMovement, 0, rigidBody2D)
+            Rigidbody2D rigidBody2D, Collider2D _collider) : base(player, playerMovement, 0, rigidBody2D,_collider)
         {
         }
     }

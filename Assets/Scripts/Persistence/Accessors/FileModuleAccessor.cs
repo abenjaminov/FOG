@@ -81,7 +81,7 @@ namespace Persistence.Accessors
 
         private string GetDirectoryPath()
         {
-            return Application.persistentDataPath;
+            return Application.persistentDataPath + "\\GamePersistence\\";
         }
         
         private bool DirectoryExists()
@@ -91,7 +91,7 @@ namespace Persistence.Accessors
         
         private string GetPath()
         {
-            return GetDirectoryPath() + "\\" + _moduleName + _filePrefix;
+            return GetDirectoryPath() + _moduleName + _filePrefix;
         }
     }
 }

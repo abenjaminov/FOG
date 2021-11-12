@@ -18,6 +18,5 @@ MonoBehaviour:
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0
   MaxHealth: 50
-  Defense: 0
   Level: 3
-  ResistancePoints: 9
+  ResistancePoints: 8

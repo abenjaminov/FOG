@@ -52,7 +52,7 @@ namespace Game.Audio
         
         private void ChangeLocationCompleteEvent(SceneMeta destination, SceneMeta source)
         {
-            PlayBackgroundClip(source.SceneAudio);
+            PlayBackgroundClip(destination.SceneAudio);
         }
         
         private void PlayGameEvent()

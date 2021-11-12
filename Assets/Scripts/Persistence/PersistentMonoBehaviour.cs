@@ -23,5 +23,7 @@ namespace Persistence
         public abstract void OnModuleLoaded(IPersistenceModuleAccessor accessor);
 
         public abstract void OnModuleClosing(IPersistenceModuleAccessor accessor);
+
+        public abstract void PrintPersistantData();
     }
 }

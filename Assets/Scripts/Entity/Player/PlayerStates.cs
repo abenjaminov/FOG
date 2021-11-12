@@ -44,7 +44,7 @@ namespace Player
         protected PlayerMovement _playerMovement;
         protected PlayerClimb _playerClimb;
         protected GroundCheck _playerGroundCheck;
-        protected Collider2D _collider2D;
+        [SerializeField] protected Collider2D _hitBoxCollider;
         
         // States
         protected IdleState _idle;
@@ -77,7 +77,7 @@ namespace Player
             _playerMovement = GetComponent<PlayerMovement>();
             _rigidBody = GetComponent<Rigidbody2D>();
             _playerGroundCheck = GetComponentInChildren<GroundCheck>();
-            _collider2D = GetComponent<Collider2D>();
+            _hitBoxCollider = GetComponent<Collider2D>();
             _animator = GetComponentInChildren<Animator>();
             _player = GetComponent<Entity.Player.Player>();
             _playerClimb = GetComponentInChildren<PlayerClimb>();
@@ -213,11 +213,11 @@ namespace Player
             _idle = new PlayerIdleState(_player, _playerMovement);
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
-            _jump = new PlayerJumpingState(_player, _playerMovement, _player.Traits.JumpHeight, _rigidBody);
-            _jumpFromLadder = new JumpFromLadderState(_player, _playerMovement, _rigidBody);
-            _fall = new PlayerFallState(_player, _collider2D);
+            _jump = new PlayerJumpingState(_player, _playerMovement, _player.Traits.JumpHeight, _rigidBody, _hitBoxCollider);
+            _jumpFromLadder = new JumpFromLadderState(_player, _playerMovement, _rigidBody, _hitBoxCollider);
+            _fall = new PlayerFallState(_player, _hitBoxCollider);
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
-            _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _collider2D, _inputChannel,
+            _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _hitBoxCollider, _inputChannel,
                 _player.PlayerTraits.ClimbSpeed, _keyboardConfiguration);
         }
 

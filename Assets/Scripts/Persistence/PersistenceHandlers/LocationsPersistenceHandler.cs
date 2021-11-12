@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using System.Text;
+using Game;
 using Persistence.Accessors;
 using ScriptableObjects;
 using ScriptableObjects.GameConfiguration;
@@ -22,6 +23,15 @@ namespace Persistence.PersistenceHandlers
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
             accessor.PersistData("FirstScene",_locationsManager.CurrentScene.Id);
+        }
+
+        public override void PrintPersistantData()
+        {
+            var strBuilder = new StringBuilder();
+            strBuilder.AppendLine("##### LOCATION PERSISTENCE #####");
+            strBuilder.AppendLine($"{_locationsManager.CurrentScene.AssetName}");
+            
+            Debug.Log(strBuilder.ToString());
         }
     }
 }

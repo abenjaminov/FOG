@@ -1,7 +1,10 @@
 using System;
+using System.Timers;
 using Animations;
 using Character;
+using Game;
 using ScriptableObjects;
+using ScriptableObjects.Channels;
 using UnityEngine;
 
 namespace Player
@@ -11,13 +14,27 @@ namespace Player
         private bool _isOnGround;
         
         private Rigidbody2D _rigidbody2D;
+        [SerializeField] private GameChannel _gameChannel;
         [SerializeField] private GameObject _visualsToRotate;
 
         private bool _isMovementActive = true;
+        private Vector2 _velocity;
         
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _gameChannel.HitLevelBoundsEvent += HitLevelBoundsEvent;
+        }
+
+        private void OnDestroy()
+        {
+            _gameChannel.HitLevelBoundsEvent -= HitLevelBoundsEvent;
+        }
+
+        private void HitLevelBoundsEvent(LevelBounds arg0)
+        {
+            SetHorizontalVelocity(0);
+            Debug.Log("HitLevelBounds");
         }
 
         public void SetHorizontalVelocity(float horizontalVelocity)

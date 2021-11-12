@@ -173,7 +173,7 @@ namespace ScriptableObjects.Traits
             _intelligence = 5;
             _constitution = 5;
             PointsLeft = 0;
-            Name = "";
+            Name = "Name";
             MaxHealth = TraitsHelper.GetPlayerMaxHealth(this);
             CurrentHealth = MaxHealth;
         }

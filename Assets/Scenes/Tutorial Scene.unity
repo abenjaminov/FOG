@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 240590379}
   - component: {fileID: 240590378}
   m_Layer: 0
-  m_Name: EnemySpawn 2
+  m_Name: EnemySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,11 +597,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySpawns:
-  - EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  - EnemyPrefab: {fileID: 7025602634865127855, guid: 055ce04ccb1df4a4a90f0d91ff41252e, type: 3}
     SpawnPosition: {fileID: 1408271283}
-  - EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  - EnemyPrefab: {fileID: 7025602634865127855, guid: 055ce04ccb1df4a4a90f0d91ff41252e, type: 3}
     SpawnPosition: {fileID: 884269261}
-  - EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  - EnemyPrefab: {fileID: 7025602634865127855, guid: 055ce04ccb1df4a4a90f0d91ff41252e, type: 3}
     SpawnPosition: {fileID: 86910952}
   _rightBounds: {fileID: 242011995}
   _leftBounds: {fileID: 1316271583}

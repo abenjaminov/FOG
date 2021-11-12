@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace ScriptableObjects.Channels
@@ -8,9 +9,16 @@ namespace ScriptableObjects.Channels
     {
         public UnityAction PlayGameEvent;
 
+        public UnityAction<LevelBounds> HitLevelBoundsEvent;
+        
         public void OnPlayGame()
         {
             PlayGameEvent?.Invoke();
+        }
+
+        public void OnHitLevelBounds(LevelBounds levelBounds)
+        {
+            HitLevelBoundsEvent?.Invoke(levelBounds);
         }
     }
 }

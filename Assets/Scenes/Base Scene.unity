@@ -677,6 +677,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b6a8335fe7414daa8ec9a3e81b1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &858760745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 130614147542370564, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+  m_PrefabInstance: {fileID: 3745330991697032806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &858760746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858760745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2319d8a6ca5d49aea502eb87e5d291fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameChannel: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
 --- !u!114 &905552884 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5598236589815774509, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
@@ -1357,6 +1375,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1915938017193097133, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915938017193097133, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -1407,6 +1429,10 @@ PrefabInstance:
     - target: {fileID: 1915938018018350481, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_Name
       value: HomeScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915938018018350481, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
@@ -1730,6 +1756,30 @@ PrefabInstance:
       propertyPath: _fog
       value: 
       objectReference: {fileID: 1991787907}
+    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_Size.y
+      value: 0.38648504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.028735638
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6971344
+      objectReference: {fileID: 0}
+    - target: {fileID: 130614149427923322, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _gameChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
+    - target: {fileID: 130614149427923325, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 130614149427923325, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3745330991325047864, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
       propertyPath: m_RootOrder
       value: 3
