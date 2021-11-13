@@ -26,6 +26,8 @@ namespace Game
 
         private bool _isPickedUp;
 
+        public bool IsPickedUp => this._isPickedUp;
+        
         private StateMachine _stateMachine;
         
         private PickedUpState _pickedUpState;

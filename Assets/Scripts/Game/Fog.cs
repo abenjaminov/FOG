@@ -35,6 +35,7 @@ namespace Game
 
         public void Stop()
         {
+            _visualEffect.Reinit();
             _visualEffect.Stop();
         }
     }

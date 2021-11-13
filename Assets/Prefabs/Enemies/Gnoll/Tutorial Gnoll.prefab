@@ -552,10 +552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fc8a9314b34205be64ca46b3be3ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Traits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
+  Traits: {fileID: 11400000, guid: fbd1a93a7f5a1844f8771a68a3db6fe3, type: 2}
   _damageSpawnPosition: {fileID: 7025602634770100483}
   _damagePrefab: {fileID: 3057138722702352227, guid: 1e57467042b5ed04db2201b9f8cfcee6, type: 3}
   IsDead: 0
   EnemyID: a86d0e07-c9af-45ea-b3b8-01b889aa50a4
   _timeAgressive: 2
   isInvulnerable: 0
+  EnemyTraits: {fileID: 0}

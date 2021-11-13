@@ -35,6 +35,8 @@ namespace Character.Player
             if (_dropsInRange.Count == 0) return;
 
             var itemToPickup = _dropsInRange[0];
+            if (itemToPickup.IsPickedUp) return;
+            
             _dropsInRange.RemoveAt(0);
 
             itemToPickup.OnPickedUp(_pickupTransform);

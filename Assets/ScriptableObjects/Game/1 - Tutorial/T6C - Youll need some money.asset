@@ -22,7 +22,7 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: There are Bigger and stronger monsters out there, youll need all the help
+  - Text: There are bigger and stronger monsters out there, youll need all the help
       you can get.
     Options:
     - Text: Next

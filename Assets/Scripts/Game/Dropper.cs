@@ -10,7 +10,6 @@ namespace Game
         [SerializeField] private Transform _dropPosition;
         [SerializeField] private Drop _dropPrefab;
         
-        
         public void InstantiateDrop(InventoryItemMeta itemMeta, int amount,float xPositionOffset = 0)
         {
             var position = _dropPosition.position + new Vector3(xPositionOffset, 0, 0);

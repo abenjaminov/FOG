@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: K1C - Jims Request
   m_EditorClassIdentifier: 
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
   ItemRewards: []
   ChatItems:
@@ -22,7 +24,7 @@ MonoBehaviour:
     - Text: Next
       Action: 0
   - Text: "Let\u2019s start with something simple, open your map with {MAP_KEY} and
-      find {MAP1}. Go there and defeat 50 {GNOLL1}"
+      find {MAP1}. Go there and defeat 20 {GNOLL1}"
     Options:
     - Text: Accept
       Action: 2

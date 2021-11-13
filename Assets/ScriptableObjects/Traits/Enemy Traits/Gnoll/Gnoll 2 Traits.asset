@@ -19,4 +19,4 @@ MonoBehaviour:
   DelayBetweenAttacks: 0
   MaxHealth: 24
   Level: 2
-  ResistancePoints: 5
+  ResistancePoints: 12

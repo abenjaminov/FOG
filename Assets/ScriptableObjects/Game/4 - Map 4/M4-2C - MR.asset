@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionType: 2
   IsOneTime: 1
-  IsOneTimeDone: 1
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 0}
   ItemRewards:
   - ItemMeta: {fileID: 11400000, guid: 01ec003f1b4115e4b823311ca9988dbf, type: 2}

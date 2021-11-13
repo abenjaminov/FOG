@@ -18,7 +18,7 @@ MonoBehaviour:
   AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
   ItemRewards: []
   ChatItems:
-  - Text: '{NAME} This is no time to be confused!'
+  - Text: '{NAME} this is no time to be confused!'
     Options:
     - Text: Next
       Action: 0

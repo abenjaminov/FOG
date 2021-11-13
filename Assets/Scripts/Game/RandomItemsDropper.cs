@@ -23,17 +23,16 @@ namespace Game
                     dropItem.AssosiatedQuest.State != QuestState.Active) continue;
                 
                 var randomNumber = Random.Range(0f, 1f);
-                
-                if (randomNumber <= dropItem.Percentage)
-                {
-                    var offsetValue = (numberOfInstantiated + 1) / 2;
-                    float offset = numberOfInstantiated % 2 == 0 ? offsetValue : -offsetValue;
-                    var amount = DropsHelper.GetDropAmount(dropItem.ItemMetaData, _dropperTraits);
-                    
-                    InstantiateDrop(dropItem.ItemMetaData, amount, offset * multiDropOffset);
 
-                    numberOfInstantiated++;
-                }
+                if (randomNumber > dropItem.Percentage) continue;
+                
+                var offsetValue = (numberOfInstantiated + 1) / 2;
+                float offset = numberOfInstantiated % 2 == 0 ? offsetValue : -offsetValue;
+                var amount = DropsHelper.GetDropAmount(dropItem.ItemMetaData, _dropperTraits);
+                    
+                InstantiateDrop(dropItem.ItemMetaData, amount, offset * multiDropOffset);
+
+                numberOfInstantiated++;
             }
         }
     }

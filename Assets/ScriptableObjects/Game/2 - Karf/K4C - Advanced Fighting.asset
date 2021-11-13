@@ -22,7 +22,7 @@ MonoBehaviour:
     Options:
     - Text: Next
       Action: 0
-  - Text: Travel to {MAP2} or {MAP3} and defeat 50 {GNOLL2}s, you can look at the
+  - Text: Travel to {MAP2} or {MAP3} and defeat 40 {GNOLL2}s, you can look at the
       map by pressing the {MAP_KEY}
     Options:
     - Text: Accept

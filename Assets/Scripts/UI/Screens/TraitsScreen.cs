@@ -62,7 +62,7 @@ namespace UI.Screens
 
             if (_playerEquipment.PrimaryWeapon == null)
             {
-                _damageText.SetText("----");
+                _damageText.SetText("Equip a weapon");
             }
             else
             {

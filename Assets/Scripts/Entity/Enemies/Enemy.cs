@@ -1,4 +1,5 @@
 ﻿using Game;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Entity.Enemies
@@ -13,6 +14,7 @@ namespace Entity.Enemies
         [SerializeField] private float _timeAgressive;
         [SerializeField] private bool isInvulnerable;
         private float _activeAgressiveTime;
+        public EnemyTraits EnemyTraits;
 
         protected override void Awake()
         {
@@ -20,6 +22,8 @@ namespace Entity.Enemies
             
             _randomItemsDropper = GetComponentInParent<RandomItemsDropper>();
             _healthUI = GetComponent<EnemyHealthUI>();
+            
+            EnemyTraits = Traits as EnemyTraits;
         }
 
         private void Update()
