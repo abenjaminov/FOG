@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b8b9841c2d48cebe0619e1fe1a0f15, type: 3}
   m_Name: Input Channel
   m_EditorClassIdentifier: 
-  KeyToActionMap:
-  - KeyCode: 116
+  _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}

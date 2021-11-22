@@ -2,6 +2,7 @@
 using System.Text;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using UnityEngine;
 
@@ -10,14 +11,27 @@ namespace Persistence.PersistenceHandlers
     public class InventoryPersistenceHandler : PersistentMonoBehaviour
     {
         [SerializeField] private Inventory _playerInventory;
+        [SerializeField] private HotKeyInfo _hotKeyInfo;
+        [SerializeField] private InventoryChannel _inventoryChannel;
 
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
         {
-            if (Debug.isDebugBuild) return;
-            
             var persistence = accessor.GetValue<PlayerInventoryPersistence>("PlayerInventory");
-
+            
             if (persistence == null) return;
+            
+            foreach (var hotKeyCode in persistence.KeyCodeToItemIdMap.Keys)
+            {
+                var item = _playerInventory.OwnedItems.FirstOrDefault(x =>
+                    x.ItemMeta.Id == persistence.KeyCodeToItemIdMap[hotKeyCode]);
+
+                if (item == null) continue;
+                
+                _inventoryChannel.OnHotkeyAssigned(hotKeyCode, item);
+            }
+            
+            // Inventory items amount doesnt reset on debug so dont add the items
+            if (Debug.isDebugBuild) return;
             
             foreach (var ownedItem in persistence.OwnedItems)
             {
@@ -50,6 +64,11 @@ namespace Persistence.PersistenceHandlers
                 Amount = _playerInventory.CurrencyItem.Amount,
                 InventoryItemMetaId = _playerInventory.CurrencyItem.ItemMeta.Id
             };
+            
+            persistence.KeyCodeToItemIdMap =
+                _hotKeyInfo.HotkeyCodeToItemIdMap.ToDictionary(x => x.Key, 
+                    x => x.Value.Id);
+            
             return persistence;
         }
 

@@ -17,19 +17,19 @@ MonoBehaviour:
   RPReward:
     ApplyReward: 1
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
-    ResistancePointsReward: 750
+    ResistancePointsReward: 1250
   ItemReward:
     ApplyReward: 0
     _playerInventory: {fileID: 0}
     _itemRewards: []
   DependencyQuest: {fileID: 0}
-  State: 0
+  State: 3
   RequiredLevel: 4
   NextQuests: []
   _completeOnSpot: 0
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
-  MaxValue: 0
-  CurrentValue: 0
+  MaxValue: 1
+  CurrentValue: 1
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _inventoryItemMeta: {fileID: 11400000, guid: 9262d25f8bc9e4a4ba03702aa539e8d1, type: 2}
   _amountToCollect: 1

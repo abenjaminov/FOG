@@ -21,7 +21,7 @@ MonoBehaviour:
   _helmetMeta: {fileID: 11400000, guid: 8afd183e732e20e42bc8f92b48c65c23, type: 2}
   _sceneList: {fileID: 11400000, guid: 93543cfa9d1c5b540a403f3f6d24f000, type: 2}
   _primaryWeapon: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
-  _hpPotion: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+  _hpPotion: {fileID: 11400000, guid: 60a75ca54ba42f343b35b4c6b2417801, type: 2}
   _phase2QuestsToComplete:
   - {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
   - {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}

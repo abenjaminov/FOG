@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Abilities;
-using Assets.HeroEditor.Common.CharacterScripts;
-using Entity;
-using Entity.Player;
 using Entity.Player.Bow;
 using Entity.Player.Magic;
 using Entity.Player.Melee;
 using Game;
+using Player;
 using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
 using State;
@@ -15,7 +12,7 @@ using State.States;
 using State.States.PlayerStates;
 using UnityEngine;
 
-namespace Player
+namespace Entity.Player
 {
     public class PlayerStates : MonoBehaviour
     {
@@ -25,7 +22,8 @@ namespace Player
         
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
-
+        [SerializeField] private LocationsChannel _locationsChannel;
+        
         [Header("Weapon States")]
         [SerializeField] private BowStates _bowStates;
         [SerializeField] private OneHandedMeleeStates _oneHandedMeleeStates;
@@ -236,6 +234,8 @@ namespace Player
 
         protected virtual void Update()
         {
+            if (_locationsChannel.IsChangingLocation) return;
+            
             if (_timeUntillNextAttack > 0)
             {
                 _timeUntillNextAttack -= Time.deltaTime;

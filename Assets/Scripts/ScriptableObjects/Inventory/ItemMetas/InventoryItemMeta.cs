@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
 namespace ScriptableObjects.Inventory.ItemMetas
 {
@@ -11,5 +12,15 @@ namespace ScriptableObjects.Inventory.ItemMetas
 
         public abstract bool Use(Entity.Player.Player player);
         public abstract bool IsConsumable();
+
+        public virtual string GetAmountChangedText(int amountAdded)
+        {
+            if (amountAdded <= 0) return "";
+
+            var message = $"Gained {amountAdded} {Name}{(amountAdded > 1 ? 's' : ' ')}";
+            message += Name + " (" + amountAdded + ")";
+
+            return message;
+        }
     }
 }

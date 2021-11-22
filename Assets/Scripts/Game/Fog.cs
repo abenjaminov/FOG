@@ -33,6 +33,11 @@ namespace Game
             _visualEffect.Play();
         }
 
+        public void GradualStop()
+        {
+            _visualEffect.Stop();
+        }
+        
         public void Stop()
         {
             _visualEffect.Reinit();

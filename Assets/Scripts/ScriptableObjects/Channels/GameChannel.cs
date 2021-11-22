@@ -10,7 +10,7 @@ namespace ScriptableObjects.Channels
         public UnityAction PlayGameEvent;
 
         public UnityAction<LevelBounds> HitLevelBoundsEvent;
-        
+
         public void OnPlayGame()
         {
             PlayGameEvent?.Invoke();

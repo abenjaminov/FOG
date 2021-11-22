@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Helpers;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
@@ -16,15 +17,13 @@ namespace Game
         public void Drop()
         {
             var numberOfInstantiated = 0;
-
+            
             foreach (var dropItem in _dropItems)
             {
                 if (dropItem.AssosiatedQuest != null &&
                     dropItem.AssosiatedQuest.State != QuestState.Active) continue;
-                
-                var randomNumber = Random.Range(0f, 1f);
 
-                if (randomNumber > dropItem.Percentage) continue;
+                if (Random.value > dropItem.Percentage) continue;
                 
                 var offsetValue = (numberOfInstantiated + 1) / 2;
                 float offset = numberOfInstantiated % 2 == 0 ? offsetValue : -offsetValue;

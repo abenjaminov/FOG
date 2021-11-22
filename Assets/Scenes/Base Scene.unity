@@ -677,24 +677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b6a8335fe7414daa8ec9a3e81b1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &858760745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 130614147542370564, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-  m_PrefabInstance: {fileID: 3745330991697032806}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &858760746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858760745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2319d8a6ca5d49aea502eb87e5d291fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameChannel: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
 --- !u!114 &905552884 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5598236589815774509, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
@@ -1618,9 +1600,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1719,9 +1701,11 @@ MonoBehaviour:
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
   _gameChannel: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
   _locationsChannel: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
+  _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _homeScreenBackgroundMusic: {fileID: 8300000, guid: a7b450fb7980bcd4780aad4e8df2843c, type: 3}
   _levelUpSFX: {fileID: 8300000, guid: 581245304d1df9d49b0783c04abe7e16, type: 3}
   _questCompletedSFX: {fileID: 8300000, guid: 3b05e3cacccd055478aaf20cb4c3bfe0, type: 3}
+  _usePotionSFX: {fileID: 8300000, guid: 5863b2faa2e075e4bb004a92b5f8cfeb, type: 3}
 --- !u!81 &2840444360503644846
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1756,34 +1740,6 @@ PrefabInstance:
       propertyPath: _fog
       value: 
       objectReference: {fileID: 1991787907}
-    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: m_Size.y
-      value: 0.38648504
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.028735638
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919298266, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.6971344
-      objectReference: {fileID: 0}
-    - target: {fileID: 130614149427923322, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: _gameChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
-    - target: {fileID: 130614149427923325, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 130614149427923325, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3475966759909560506, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
-      propertyPath: _unitsPerSecond
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 3745330991325047864, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -17,8 +17,6 @@ namespace Persistence.PersistenceHandlers
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
-            return;
-            
             var quests = _questsList.GetAllRunningQuests();
             var killEnemiesQuests = quests.Where(x => x is KillEnemiesQuest).Select(
                 x => new KillEnemiesQuestPersistence()

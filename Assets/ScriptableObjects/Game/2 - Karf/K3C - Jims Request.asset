@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: K3C - Jims Request
   m_EditorClassIdentifier: 
+  Guid: 14814f0a-987b-460f-9330-28c26fbde8f8
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: aaf433b084bb3514cb1ba4211806d718, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Very impressive.
     Options:

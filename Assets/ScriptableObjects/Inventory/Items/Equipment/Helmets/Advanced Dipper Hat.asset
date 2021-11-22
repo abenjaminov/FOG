@@ -29,4 +29,7 @@ MonoBehaviour:
     Meta: 
     Tags: []
   Part: 1
-  RequiredLevel: 0
+  RequiredLevel: 3
+  _traits:
+    Attack: 1
+    Defense: 1

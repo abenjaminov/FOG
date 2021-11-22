@@ -239,19 +239,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073b576b76224efeb5910d14b01b4b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dropPosition: {fileID: 6864787256123778453, guid: a11f58ed06d2858409e1b0aa2f1ddc1a, type: 3}
+  _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
   _dropItems:
   - ItemMetaData: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
     Percentage: 0.87
-  - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+    AssosiatedQuest: {fileID: 0}
+  - ItemMetaData: {fileID: 11400000, guid: 9428b7b5834dae944b9b7bcc47708ae7, type: 2}
     Percentage: 0.07
-  - ItemMetaData: {fileID: 11400000, guid: 06794e41a3cfda14da47d7e114c8c0cf, type: 2}
+    AssosiatedQuest: {fileID: 0}
+  - ItemMetaData: {fileID: 11400000, guid: 5dd64ec95b31281408a9074810dfba61, type: 2}
     Percentage: 0.05
+    AssosiatedQuest: {fileID: 0}
   - ItemMetaData: {fileID: 11400000, guid: bdf77441dc7993648b9b13b40cde59de, type: 2}
     Percentage: 0.05
+    AssosiatedQuest: {fileID: 0}
   - ItemMetaData: {fileID: 11400000, guid: 4dc9be04ebdfe7144879fb632bc0d8fa, type: 2}
     Percentage: 0.07
-  _dropPosition: {fileID: 6864787256123778453, guid: a11f58ed06d2858409e1b0aa2f1ddc1a, type: 3}
-  _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
+    AssosiatedQuest: {fileID: 0}
   _dropperTraits: {fileID: 11400000, guid: 5375478384559484bab8c6b5f4ea497b, type: 2}
   multiDropOffset: 0.5
 --- !u!1 &2019617914000263636
@@ -329,7 +334,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1076383267
-  m_SortingLayer: 7
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4f4cba489aab9e846a0082f842bc2af9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -435,7 +440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-  _walkingSpeed: 3
   _maxIdleTimeBetweenTargets: 1.3
   _minIdleTimeBetweenTargets: 0.8
   _deadDelayTime: 1
@@ -459,6 +463,7 @@ MonoBehaviour:
   EnemyID: 61f4940c-7488-44d8-b131-3ac3272810fa
   _timeAgressive: 2
   isInvulnerable: 0
+  EnemyTraits: {fileID: 0}
 --- !u!1 &2019617914008884408
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,11 @@ namespace ScriptableObjects.Channels
 
         public SceneMeta CurrentScene;
 
+        public bool IsChangingLocation;
+
         public void OnChangeLocation(SceneMeta destination, SceneMeta source)
         {
+            IsChangingLocation = true;
             ChangeLocationEvent?.Invoke(destination, source);
         }
 
@@ -25,6 +28,7 @@ namespace ScriptableObjects.Channels
 
         public void OnChangeLocationComplete(SceneMeta destination, SceneMeta source)
         {
+            IsChangingLocation = false;
             CurrentScene = destination;
             ChangeLocationCompleteEvent?.Invoke(destination, source);
         }

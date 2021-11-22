@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: M5-3C - Stans Brother
   m_EditorClassIdentifier: 
+  Guid: c578b32d-dd09-43f9-9878-0374c16a2c68
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
   ItemRewards: []
   ChatItems:

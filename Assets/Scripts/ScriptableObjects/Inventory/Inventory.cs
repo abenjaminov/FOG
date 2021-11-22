@@ -66,10 +66,15 @@ namespace ScriptableObjects.Inventory
             
             return inventoryItem;
         }
-        
+
         public void AddItem(InventoryItemMeta itemMetaData, int amountToAdd)
         {
             var inventoryItem = AddItemSilent(itemMetaData, amountToAdd);
+
+            if (inventoryItem.Amount == 0)
+            {
+                RemoveItemInternal(inventoryItem);
+            }
 
             _inventoryChannel.OnItemAmountChanged(inventoryItem, amountToAdd);
         }

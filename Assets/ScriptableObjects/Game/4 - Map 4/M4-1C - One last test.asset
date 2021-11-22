@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: M4-1C - One last test
   m_EditorClassIdentifier: 
+  Guid: 01dd74e9-7488-46f3-8214-bbccd4a374d7
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: ad6b7a712bbf6c640bd2b29c03f89432, type: 2}
   ItemRewards: []
   ChatItems:

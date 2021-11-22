@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: M6-1C - Understanding Orcs
   m_EditorClassIdentifier: 
+  Guid: 394604f3-8586-4074-9c15-3a23d31b205e
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 0}
   ItemRewards: []
   ChatItems:

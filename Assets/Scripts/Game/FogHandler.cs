@@ -4,6 +4,7 @@ using Helpers;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Traits;
+using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -32,21 +33,24 @@ namespace Game
 
         private void LevelUpEvent()
         {
-            UpdateFog();
+            UpdateFog(false);
         }
 
         private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
         {
-            UpdateFog();
+            UpdateFog(true);
         }
 
-        private void UpdateFog()
+        private void UpdateFog(bool isInstant)
         {
             var isLowLevel = _locationsChannel.CurrentScene.LevelAloud > _playerTraits.Level;
 
             if (!isLowLevel)
             {
-                _fog.Stop();
+                if(isInstant)
+                    _fog.Stop();
+                else
+                    _fog.GradualStop();
                 return;
             }
             else

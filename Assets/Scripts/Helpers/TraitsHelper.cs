@@ -22,27 +22,37 @@ namespace Helpers
         
         private static int GetMaxBaseDamage(int level)
         {
-            var minBase = GetMinBaseDmg(level);
+            var minBase = GetMinBaseDamage(level);
             return (minBase + (2*minBase/level));
         }
-        private static int GetMinBaseDmg(int level)
+        private static int GetMinBaseDamage(int level)
         {
             return (int) (1 + Mathf.Pow(level, 2) * Mathf.Log10(level));
         }
 
-        private static int GetWeaponDamageAddition(PlayerTraits traits, PlayerEquipment equipment)
+        private static int GetEquipmentDamageAddition(PlayerTraits traits, PlayerEquipment equipment)
         {
-            var result = equipment.PrimaryWeapon.MonsterResistance * traits.Level;
+            var result = equipment.PrimaryWeapon.Traits.MonsterResistance;
+            result += equipment.Helmet == null ? 0 : equipment.Helmet.Traits.MonsterResistance;
+            result += equipment.Cape == null ? 0 : equipment.Cape.Traits.MonsterResistance;
+            result += equipment.Armour == null ? 0 : equipment.Armour.Traits.MonsterResistance;
+
+            result *= traits.Level;
+            
             return result;
         }
         
         public static int GetMinPlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
         {
-            var weaponAddition = GetWeaponDamageAddition(traits, equipment);
+            var weaponAddition = GetEquipmentDamageAddition(traits, equipment);
             
             int minTraitsDmg = 0;
 
-            if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
+            if (equipment.PrimaryWeapon.IsStaff)
+            {
+                minTraitsDmg = GetStaffMin(traits);
+            }
+            else if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
             {
                 minTraitsDmg = GetMeleeMin(traits);
             }
@@ -50,18 +60,22 @@ namespace Helpers
             {
                 minTraitsDmg = GetBowMin(traits);
             }
-            
+
             var minFinal = minTraitsDmg + weaponAddition;
             return minFinal;
         }
         
         public static int GetMaxPlayerDamage(PlayerTraits traits, PlayerEquipment equipment)
         {
-            var weaponAddition = GetWeaponDamageAddition(traits, equipment);
+            var weaponAddition = GetEquipmentDamageAddition(traits, equipment);
             
             int maxTraitsDmg = 0;
 
-            if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
+            if (equipment.PrimaryWeapon.IsStaff)
+            {
+                maxTraitsDmg = GetStaffMax(traits);
+            }
+            else if (equipment.PrimaryWeapon.Part == EquipmentPart.MeleeWeapon1H)
             {
                 maxTraitsDmg = GetMeleeMax(traits);
             }
@@ -69,6 +83,7 @@ namespace Helpers
             {
                 maxTraitsDmg = GetBowMax(traits);
             }
+            
             
             var minFinal = maxTraitsDmg + weaponAddition;
             return minFinal;
@@ -87,7 +102,7 @@ namespace Helpers
 
         private static int GetMeleeMin(PlayerTraits traits)
         {
-            var minBase = GetMinBaseDmg(traits.Level);
+            var minBase = GetMinBaseDamage(traits.Level);
 
             return MeleeFormula(minBase, traits);
         }
@@ -112,7 +127,7 @@ namespace Helpers
 
         private static int GetBowMin(PlayerTraits traits)
         {
-            var minBase = GetMinBaseDmg(traits.Level);
+            var minBase = GetMinBaseDamage(traits.Level);
 
             return BowFormula(minBase, traits);
         }
@@ -133,6 +148,31 @@ namespace Helpers
 
         #endregion
 
+        #region Staff
+
+        private static int GetStaffMin(PlayerTraits traits)
+        {
+            var minBase = GetMinBaseDamage(traits.Level);
+
+            return StaffFormula(minBase, traits);
+        }
+        
+        private static int GetStaffMax(PlayerTraits traits)
+        {
+            var minBase = GetMaxBaseDamage(traits.Level);
+
+            return StaffFormula(minBase, traits);
+        }
+        
+        private static int StaffFormula(int baseFactor, PlayerTraits traits)
+        {
+            return (int) Mathf.Ceil(baseFactor +
+                                    (traits.Intelligence * MainStatMultiplier * baseFactor) +
+                                    (traits.Dexterity * SecondaryStatMultiplier * baseFactor));
+        }
+
+        #endregion
+        
         public static float CalculateAttackRange(PlayerTraits attacker)
         {
             // TODO: Turn into ScriptableObject?

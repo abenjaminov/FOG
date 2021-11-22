@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: T6C - Youll need some money
   m_EditorClassIdentifier: 
+  Guid: d5d073ba-fc82-4a3a-bf80-a6ca045ad6a3
   SessionType: 1
   IsOneTime: 0
   IsOneTimeDone: 0

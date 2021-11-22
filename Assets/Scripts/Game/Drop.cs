@@ -1,11 +1,8 @@
 ﻿using System;
 using Entity;
-using Helpers;
-using Player;
 using ScriptableObjects;
-using ScriptableObjects.Inventory;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory.ItemMetas;
-using ScriptableObjects.Traits;
 using State;
 using State.States.DropStates;
 using UnityEngine;
@@ -16,6 +13,7 @@ namespace Game
     {
         [SerializeField] private float _lifeSpan;
         [SerializeField] private float _dropHeight;
+        [SerializeField] private LocationsChannel _locationsChannel;
 
         private GroundCheck _groundCheck;
         private FloatUpDown _floatComponent;
@@ -62,6 +60,18 @@ namespace Game
             _stateMachine.AddTransition(_pickedUpState,shouldBePickedUp, _floatState);
             
             _stateMachine.SetState(_droppedState);
+            
+            _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
+        }
+
+        private void OnDestroy()
+        {
+            _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
+        }
+
+        private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
+        {
+            _timeAlive += _lifeSpan;
         }
 
         public void SetInventoryItemMeta(InventoryItemMeta invItemMeta, int amount)

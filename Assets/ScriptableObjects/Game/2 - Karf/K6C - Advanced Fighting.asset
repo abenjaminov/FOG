@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: K6C - Advanced Fighting
   m_EditorClassIdentifier: 
+  Guid: f87df1de-5f4e-4e18-9789-f7c735b209b9
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 165c17cce855733459c91fc178794a39, type: 2}
   ItemRewards: []
   ChatItems:

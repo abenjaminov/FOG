@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: 11 - Chat - Collect coins
   m_EditorClassIdentifier: 
+  Guid: f3f68009-ec48-4d81-82a6-f004bd586e55
   SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: c27227744221a9e40bfead248b3bc79b, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Collect some coins
     Options:

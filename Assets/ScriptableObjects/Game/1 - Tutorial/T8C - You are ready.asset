@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: T8C - You are ready
   m_EditorClassIdentifier: 
+  Guid: 9b10664a-23d2-420c-9a45-73dc255b7eca
   SessionType: 1
   IsOneTime: 0
   IsOneTimeDone: 0

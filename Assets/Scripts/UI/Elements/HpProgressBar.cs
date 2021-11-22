@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using ScriptableObjects;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Traits;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,6 +12,10 @@ namespace UI
     {
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] private PlayerChannel _playerChannel;
+        [SerializeField] private Image _progressImage;
+        [SerializeField] private Color _alternateColor;
+        [SerializeField] private AudioSource _audioSource;
+        private bool _flashHealth;
         
         private void Awake()
         {
@@ -28,8 +34,33 @@ namespace UI
             MaxValue = _playerTraits.MaxHealth;
             CurrentValue = _playerTraits.GetCurrentHealth();
             base.UpdateUI();
+
+            if (!_flashHealth && CurrentValue <= (MaxValue * 0.12))
+            {
+                _flashHealth = true;
+                
+                StartCoroutine(nameof(FlashHealth));
+            }
+            else if (_flashHealth && CurrentValue > (MaxValue * 0.12))
+            {
+                _flashHealth = false;
+            }
         }
 
+        private IEnumerator FlashHealth()
+        {
+            yield return new WaitForEndOfFrame();
+            _audioSource.Play();
+            
+            while (_flashHealth)
+            {
+                yield return new WaitForSeconds(0.565f);
+                _progressImage.color = _progressImage.color == Color.red ? _alternateColor : Color.red;
+            }
+            
+            _audioSource.Stop();
+        }
+        
         private void OnDestroy()
         {
             _playerTraits.HealthChangedEvent -= UpdateUI;

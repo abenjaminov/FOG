@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.HeroEditor.Common.CommonScripts;
 using Helpers;
 using HeroEditor.Common.Enums;
 using Platformer;
@@ -13,17 +14,25 @@ using ScriptableObjects.Traits;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace UI.Screens
 {
     public class TraitsScreen : GUIScreen
     {
+        [SerializeField] private int _removeTraitBasicCost;
         [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private LevelConfiguration _levelConfiguration;
 
         [SerializeField] private List<GameObject> _addButtons;
+
+        [SerializeField] private Button _removeStr;
+        [SerializeField] private Button _removeDex;
+        [SerializeField] private Button _removeInt;
+        [SerializeField] private Button _removeConst;
     
         [SerializeField] private TextMeshProUGUI _dexText;
         [SerializeField] private TextMeshProUGUI _strText;
@@ -88,6 +97,11 @@ namespace UI.Screens
                     button.SetActive(true);
                 }
             }
+
+            _removeStr.SetActive(_playerTraits.Strength > 5);
+            _removeDex.SetActive(_playerTraits.Dexterity > 5);
+            _removeInt.SetActive(_playerTraits.Intelligence > 5);
+            _removeConst.SetActive(_playerTraits.Constitution > 5);
         }
 
         public override void ToggleView()
@@ -123,6 +137,15 @@ namespace UI.Screens
             _playerTraits.Strength++;
             UpdateUI();
         }
+        
+        public void RemoveStrength()
+        {
+            RemoveTrait(() =>
+            {
+                _playerTraits.PointsLeft++;
+                _playerTraits.Strength--;
+            });
+        }
 
         public void AddDexterity()
         {
@@ -131,11 +154,29 @@ namespace UI.Screens
             UpdateUI();
         }
         
+        public void RemoveDexterity()
+        {
+            RemoveTrait(() =>
+            {
+                _playerTraits.PointsLeft++;
+                _playerTraits.Dexterity--;
+            });
+        }
+        
         public void AddIntelligence()
         {
             _playerTraits.PointsLeft--;
             _playerTraits.Intelligence++;
             UpdateUI();
+        }
+        
+        public void RemoveIntelligence()
+        {
+            RemoveTrait(() =>
+            {
+                _playerTraits.PointsLeft++;
+                _playerTraits.Intelligence--;
+            });
         }
     
         public void AddConstitution()
@@ -144,10 +185,30 @@ namespace UI.Screens
             _playerTraits.Constitution++;
             UpdateUI();
         }
+        
+        public void RemoveConstitution()
+        {
+            RemoveTrait(() =>
+            {
+                _playerTraits.PointsLeft++;
+                _playerTraits.Constitution--;
+            });
+        }
 
         private void OnDestroy()
         {
             _playerChannel.WeaponChangedEvent -= WeaponChangedEvent;
+        }
+
+        private void RemoveTrait(Action removeAction)
+        {
+            var cost = _removeTraitBasicCost * _playerTraits.Level;
+            var usedCoins = _inventoryChannel.UseCoinsRequest(cost);
+
+            if (!usedCoins) return;
+            
+            removeAction();
+            UpdateUI();
         }
     }
 }

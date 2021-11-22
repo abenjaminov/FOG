@@ -69,11 +69,12 @@ namespace UI.Screens
 
         private void ItemAmountChanged(InventoryItem item, int amountAdded)
         {
-            var message = amountAdded > 0 ? "Gained " : "Lost ";
-            message += item.ItemMeta.Name + " (" + amountAdded + ")";
+            var message = item.ItemMeta.GetAmountChangedText(amountAdded);
+
+            if (message == string.Empty) return;
+            
             AddInfoItem(message);
         }
-
 
         private void GainedResistancePointsEvent(float gained)
         {

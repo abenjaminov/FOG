@@ -10,6 +10,7 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public SpriteGroupEntry Item;
         public EquipmentPart Part;
         public int RequiredLevel;
+        public EquipmentTraits Traits;
         
         public override bool Use(Entity.Player.Player player)
         {

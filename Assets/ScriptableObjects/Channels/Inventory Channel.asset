@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba9bbde237a4ee4b3bb383c6fb6dd3f, type: 3}
   m_Name: Inventory Channel
   m_EditorClassIdentifier: 
+  MainInventory: {fileID: 11400000, guid: 48ea0ab956ecd53449eca87985436ae5, type: 2}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: M5-1C - Stans Brother
   m_EditorClassIdentifier: 
+  Guid: a9920c47-e843-4a0c-a968-cebbd6d97dc9
   SessionType: 0
   IsOneTime: 0
   IsOneTimeDone: 0

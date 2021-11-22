@@ -31,4 +31,7 @@ MonoBehaviour:
     Tags:
     - Paint
   Part: 1
-  RequiredLevel: 0
+  RequiredLevel: 3
+  _traits:
+    Attack: 0
+    Defense: 2

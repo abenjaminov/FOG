@@ -356,7 +356,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1076383267
-  m_SortingLayer: 7
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2e502f2b9faedb64a890122b8c8126ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -485,6 +485,7 @@ MonoBehaviour:
   EnemyID: 4f8672e5-be3b-493b-91b1-a2724a6bbc52
   _timeAgressive: 2
   isInvulnerable: 0
+  EnemyTraits: {fileID: 0}
 --- !u!1 &3215571654241298141
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073b576b76224efeb5910d14b01b4b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dropPosition: {fileID: 3215571652681396085}
+  _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
   _dropItems:
   - ItemMetaData: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
     Percentage: 0.87
@@ -556,9 +559,7 @@ MonoBehaviour:
     Percentage: 0.1
     AssosiatedQuest: {fileID: 0}
   - ItemMetaData: {fileID: 11400000, guid: 0a07ebcf501581f4e935234841510226, type: 2}
-    Percentage: 0.06
+    Percentage: 0.05
     AssosiatedQuest: {fileID: 0}
-  _dropPosition: {fileID: 3215571652681396085}
-  _dropPrefab: {fileID: 2706639489328193745, guid: 0a217913aa9c98348acbcf1a99dbafbc, type: 3}
   _dropperTraits: {fileID: 11400000, guid: 64f1c088fb8d4354684f5f29930cc2ec, type: 2}
   multiDropOffset: 0.5

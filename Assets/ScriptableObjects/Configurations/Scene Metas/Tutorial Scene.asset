@@ -18,3 +18,4 @@ MonoBehaviour:
   LevelAloud: 1
   SceneAsset: {fileID: 102900000, guid: 171f7cec09ed8b94a9c5298174e98ee8, type: 3}
   RespawnScene: {fileID: 11400000}
+  SceneAudio: {fileID: 8300000, guid: 1156def61671b324bbebd85ff387d2b6, type: 3}

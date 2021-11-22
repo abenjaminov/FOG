@@ -41,8 +41,11 @@ namespace Entity.Player
 
         private void RestartResistanceCheck()
         {
-            innerEnabled = false;
+            if(innerEnabled)
+                StopCoroutine(nameof(ReduceMonsterResistance));
 
+            innerEnabled = false;
+            
             StartCoroutine(nameof(ReduceMonsterResistance));
         }
 

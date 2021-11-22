@@ -32,7 +32,7 @@ namespace UI.Screens
             else if (itemMeta is WeaponItemMeta weaponMeta)
             {
                 _topText.text = weaponMeta.Name;
-                _midText.text = "MR : " + weaponMeta.MonsterResistance;
+                _midText.text = "MR : " + weaponMeta.Traits.MonsterResistance;
                 
                 _bottomText.text = "Level : " + weaponMeta.RequiredLevel;
 
@@ -49,7 +49,7 @@ namespace UI.Screens
             {
                 _topText.text = equipmentMeta.Name;
                 _midText.text = "Level : " + equipmentMeta.RequiredLevel;
-                _bottomText.text = "";
+                _bottomText.text = "MR : " + equipmentMeta.Traits.MonsterResistance + ", Defense : " + equipmentMeta.Traits.Defense;
 
                 if (_playerTraits.Level < equipmentMeta.RequiredLevel)
                 {

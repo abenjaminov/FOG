@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
 namespace ScriptableObjects.Inventory.ItemMetas
 {
@@ -13,6 +14,16 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public override bool IsConsumable()
         {
             return false;
+        }
+
+        public override string GetAmountChangedText(int amountAdded)
+        {
+            if (amountAdded < 0)
+            {
+                return $"Used {Mathf.Abs(amountAdded)} coins";
+            }
+
+            return base.GetAmountChangedText(amountAdded);
         }
     }
 }

@@ -18,3 +18,4 @@ MonoBehaviour:
   InventoryItemSprite: {fileID: 21300000, guid: 92348abcda19e06458c632c5cdd59712, type: 3}
   PotionType: 0
   GainAmount: 250
+  _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: T3C - Traits talk
   m_EditorClassIdentifier: 
+  Guid: 97c8c54a-9dc7-4fb7-ab8d-4f2e20cb386a
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 3b4ce6b12bbd09e4a93a9208706c6e4e, type: 2}
   ItemRewards: []
   ChatItems:

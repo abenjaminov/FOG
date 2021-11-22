@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Player Traits
   m_EditorClassIdentifier: 
   Name: Name
-  WalkSpeed: 3
+  WalkSpeed: 3.5
   JumpHeight: 1.1
   BaseDelayBetweenAttacks: 0.8
-  DelayBetweenAttacks: 0.8
+  DelayBetweenAttacks: 0.6
   MaxHealth: 226
   Level: 4
   ClimbSpeed: 3
-  CurrentHealth: 200
+  CurrentHealth: 159
   PointsLeft: 0
   _playerChannel: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
-  _resistancePointsGained: 518
-  _monsterStateResistance: 100
-  ReceiveDamageCooldown: 2
-  _strength: 5
-  _dexterity: 20
+  _resistancePointsGained: 1018
+  _monsterStateResistance: 19
+  ReceiveDamageCooldown: 1.5
+  _strength: 20
+  _dexterity: 5
   _intelligence: 5
   _constitution: 5

@@ -9,11 +9,15 @@ namespace ScriptableObjects.Channels
     [CreateAssetMenu(fileName = "Input Channel", menuName = "Channels/Input Channel", order = 2)]
     public class InputChannel : ScriptableObject
     {
+        [SerializeField] private LocationsChannel _locationsChannel;
+        
         public Dictionary<KeyCode, UnityAction> MappedKeyDownActions = new Dictionary<KeyCode, UnityAction>();
         public Dictionary<KeyCode, UnityAction> MappedKeyUpActions = new Dictionary<KeyCode, UnityAction>();
 
         public void OnKeyDown(KeyCode keyCode)
         {
+            if (_locationsChannel.IsChangingLocation) return;
+            
             var action = MappedKeyDownActions[keyCode];
             action?.Invoke();
         }

@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
   m_Name: 23 - Chat - Get your rewards
   m_EditorClassIdentifier: 
+  Guid: 42059416-d670-4c0d-b95e-151693ed67ee
   SessionType: 1
+  IsOneTime: 0
+  IsOneTimeDone: 0
   AssociatedQuest: {fileID: 11400000, guid: 2da13c14553e65642a71b724aa2555a0, type: 2}
+  ItemRewards: []
   ChatItems:
   - Text: Nice Job!
     Options:

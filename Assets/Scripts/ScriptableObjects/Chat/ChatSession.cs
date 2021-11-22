@@ -9,6 +9,7 @@ namespace ScriptableObjects.Chat
     [CreateAssetMenu(fileName = "Chat Session", menuName = "Chat/Chat session", order = 0)]
     public class ChatSession : ScriptableObject
     {
+        public string Guid;
         public ChatSessionType SessionType;
         public bool IsOneTime;
         public bool IsOneTimeDone;

@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Channels;
+﻿using System.Runtime.InteropServices.WindowsRuntime;
+using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
@@ -25,33 +26,66 @@ namespace UI.Elements
         private void Awake()
         {
             _inventoryChannel.ItemAmountChangedEvent += ItemAmountChangedEvent;
+            _inventoryChannel.HotkeyAssignedEvent += HotkeyAssignedEvent;
+        }
+
+        private void HotkeyAssignedEvent(KeyCode code, InventoryItem item)
+        {
+            if (_keyCode != code) return;
+            
+            _currentInventoryItem = item;
+
+            if (_currentInventoryItem == null)
+            {
+                _hotKeySubscription?.Unsubscribe();
+            }
+            else
+            {
+                _hotKeySubscription = _inputChannel.SubscribeKeyDown(_keyCode, KeyDown);
+            }
+            
+            UpdateUI();
         }
 
         private void ItemAmountChangedEvent(InventoryItem inventoryItem, int amount)
         {
             if (_currentInventoryItem == null || _currentInventoryItem.ItemMeta.Id != inventoryItem.ItemMeta.Id) return;
-                
+
             if (inventoryItem.Amount == 0)
-                _currentInventoryItem = null;
-            
-            UpdateUI();
+            {
+                AssignItem(null);
+            }
+            else
+            {
+                UpdateUI();
+            }
         }
 
         public void DragDropped(IDraggable draggable)
         {
             if (!draggable.GetGameObject().TryGetComponent(typeof(InventoryItemView), out var component)) return;
 
-            _currentInventoryItem = ((InventoryItemView)component).InventoryItem;
+            var item = ((InventoryItemView)component).InventoryItem;
 
-            if (!_currentInventoryItem.ItemMeta.IsConsumable())
+            if (!item.ItemMeta.IsConsumable())
             {
-                _currentInventoryItem = null;
+                AssignItem(null);
                 return;
             }
-            
-            UpdateUI();
 
-            _hotKeySubscription = _inputChannel.SubscribeKeyDown(_keyCode, KeyDown);
+            AssignItem(item);
+        }
+
+        private void AssignItem(InventoryItem item)
+        {
+            if (item == null)
+            {
+                _inventoryChannel.OnHotkeyUnAssigned(_keyCode);
+            }
+            else
+            {
+                _inventoryChannel.OnHotkeyAssigned(_keyCode, item);    
+            }
         }
 
         private void UpdateUI()
@@ -86,15 +120,14 @@ namespace UI.Elements
         {
             _hotKeySubscription?.Unsubscribe();
             _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChangedEvent;
+            _inventoryChannel.HotkeyAssignedEvent -= HotkeyAssignedEvent;
         }
 
         public void HandleRightClick()
         {
             if (_currentInventoryItem == null) return;
             
-            _currentInventoryItem = null;
-            _hotKeySubscription.Unsubscribe();
-            UpdateUI();
+            AssignItem(null);
         }
     }
 }

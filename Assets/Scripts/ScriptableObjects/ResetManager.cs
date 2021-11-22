@@ -65,7 +65,7 @@ namespace ScriptableObjects
             ResetEquipment();
             ResetPersistence();
 
-            _playerInventory.AddItemSilent(_hpPotion, 50);
+            _playerInventory.AddItemSilent(_hpPotion, 500);
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
         }
 
@@ -96,6 +96,7 @@ namespace ScriptableObjects
             foreach (var quest in _phase2QuestsToComplete)
             {
                 quest.State = QuestState.Completed;
+                if (quest.ItemReward.ApplyReward) quest.ItemReward.Reward();
             }
             
             _playerEquipment.PrimaryWeapon = _primaryWeapon;
@@ -107,7 +108,7 @@ namespace ScriptableObjects
         private void Phase2()
         {
             Phase2Content();
-            
+
             ShowPhaseResetMessage("Phase 2 - Level 4");
         }
 
@@ -115,15 +116,19 @@ namespace ScriptableObjects
         {
             Phase2Content();
             
+            _playerTraits.Level = 5;
+            _playerTraits.Strength = 25;
+            
             foreach (var quest in _phase3QuestsToComplete)
             {
                 quest.State = QuestState.Completed;
+                if (quest.ItemReward.ApplyReward) quest.ItemReward.Reward();
             }
             
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{MAP5}");
         }
         
-        [ContextMenu("Phases/Phase 3 -Map 5 Level 4")]
+        [ContextMenu("Phases/Phase 3 -Map 5 Level 5")]
         private void Phase3()
         {
             Phase3Content();
@@ -136,19 +141,17 @@ namespace ScriptableObjects
         {
             var path = Application.persistentDataPath + "\\GamePersistence\\";
 
-            if (Directory.Exists(path))
+            if (!Directory.Exists(path)) return;
+            
+            var files = Directory.GetFiles(path);
+
+            foreach (var file in files)
             {
-                string[] files = Directory.GetFiles(path);
-                string[] dirs = Directory.GetDirectories(path);
-
-                foreach (string file in files)
-                {
-                    File.SetAttributes(file, FileAttributes.Normal);
-                    File.Delete(file);
-                }
-
-                Directory.Delete(path, false);
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
             }
+
+            Directory.Delete(path, false);
         }
         
         [ContextMenu("Specific/Reset Player Traits")]

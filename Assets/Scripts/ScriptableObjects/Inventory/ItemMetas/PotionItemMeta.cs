@@ -1,4 +1,5 @@
 ﻿using Platformer.ScriptableObjects.Enums;
+using ScriptableObjects.Channels;
 using UnityEngine;
 
 namespace ScriptableObjects.Inventory.ItemMetas
@@ -8,20 +9,30 @@ namespace ScriptableObjects.Inventory.ItemMetas
     {
         public PotionType PotionType;
         public int GainAmount;
+        [SerializeField] private InventoryChannel _inventoryChannel;
 
         public override bool Use(Entity.Player.Player player)
         {
+            var result = false;
             switch (PotionType)
             {
                 case PotionType.Hp:
                     player.PlayerTraits.ChangeCurrentHealth(GainAmount);
-                    return true;
+                    result = true;
+                    break;
                 case PotionType.MonsterResistance:
                     player.PlayerTraits.MonsterStateResistance += GainAmount;
-                    return true;
+                    result = true;
+                    break;
                 default:
-                    return false;
+                    result = false;
+                    break;
             }
+
+            if(result)
+                _inventoryChannel.OnUsePotion();
+            
+            return result;
         }
 
         public override bool IsConsumable()

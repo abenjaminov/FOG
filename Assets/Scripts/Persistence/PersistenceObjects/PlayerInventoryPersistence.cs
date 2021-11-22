@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Persistence.PersistenceObjects
 {
@@ -8,5 +10,6 @@ namespace Persistence.PersistenceObjects
     {
         public List<PlayerInventoryItemPersistence> OwnedItems = new List<PlayerInventoryItemPersistence>();
         public PlayerInventoryItemPersistence CurrencyItem;
+        public Dictionary<KeyCode, string> KeyCodeToItemIdMap = new Dictionary<KeyCode, string>();
     }
 }

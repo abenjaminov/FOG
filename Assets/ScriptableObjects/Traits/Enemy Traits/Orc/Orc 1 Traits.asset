@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b14b8e73164d148dd7b9a0842d9c47, type: 3}
   m_Name: Orc 1 Traits
   m_EditorClassIdentifier: 
+  Name: 
   WalkSpeed: 3
   JumpHeight: 0
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0
   MaxHealth: 92
-  Defense: 0
   Level: 4
-  ResistancePoints: 0
+  ResistancePoints: 24
