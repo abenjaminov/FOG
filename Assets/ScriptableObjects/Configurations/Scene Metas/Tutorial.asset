@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06f5e4fb4c874e38a7f52eaa3ffc9546, type: 3}
-  m_Name: Tutorial Scene
+  m_Name: Tutorial
   m_EditorClassIdentifier: 
   AssetName: Tutorial
   ReplacementPhrase: '{TUTORIAL}'
   Id: 5cd5fe7e-603b-415e-8ddc-b5ec1807dde8
   LevelAloud: 1
-  SceneAsset: {fileID: 102900000, guid: 171f7cec09ed8b94a9c5298174e98ee8, type: 3}
+  SceneName: Tutorial
   RespawnScene: {fileID: 11400000}
   SceneAudio: {fileID: 8300000, guid: 1156def61671b324bbebd85ff387d2b6, type: 3}

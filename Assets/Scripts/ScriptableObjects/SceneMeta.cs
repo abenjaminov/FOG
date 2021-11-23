@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ScriptableObjects
 {
@@ -8,7 +7,7 @@ namespace ScriptableObjects
     {
         public string Id;
         public int LevelAloud;
-        public SceneAsset SceneAsset;
+        public string SceneName;
         public SceneMeta RespawnScene;
         public AudioClip SceneAudio;
     }

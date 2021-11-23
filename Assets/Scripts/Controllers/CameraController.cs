@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System;
+using ScriptableObjects;
 using ScriptableObjects.Channels;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Controllers
     {
         private BoxCollider2D _boundsCollider;
         [SerializeField] private LocationsChannel _locationsChannel;
+        [SerializeField] private float _followSpeed;
         private Transform _playerTransform;
         private Camera _camera;
         
@@ -25,6 +27,11 @@ namespace Controllers
             _locationsChannel.ChangeLocationCompleteEvent += ChangeLocationCompleteEvent;
         }
 
+        private void OnDestroy()
+        {
+            _locationsChannel.ChangeLocationCompleteEvent -= ChangeLocationCompleteEvent;
+        }
+
         private void ChangeLocationCompleteEvent(SceneMeta arg0, SceneMeta arg1)
         {
             var levelBounds = GameObject.FindGameObjectWithTag("LevelBounds");
@@ -38,6 +45,9 @@ namespace Controllers
             _boundsCollider = GameObject.FindGameObjectWithTag("LevelBounds").GetComponent<BoxCollider2D>();
             
             UpdateBounds();
+            
+            var destination = GetClampedDestinationPosition(transform.position);
+            transform.position = destination;
         }
 
         private void UpdateBounds()
@@ -53,14 +63,22 @@ namespace Controllers
             _topBound = bounds.max.y - vertExtent;
         }
 
-        void Update () 
+        void FixedUpdate () 
         {
-            var position = _playerTransform.position;
+            var currentPosition = transform.position;
             
-            var pos = new Vector3(position.x, position.y, transform.position.z);
-            pos.x = Mathf.Clamp(pos.x, _leftBound, _rightBound);
-            pos.y = Mathf.Clamp(pos.y, _bottomBound, _topBound);
-            transform.position = pos;
+            var destination = GetClampedDestinationPosition(currentPosition);
+            currentPosition = Vector3.Lerp(currentPosition, destination, _followSpeed * Time.deltaTime);
+            transform.position = currentPosition;
+        }
+
+        private Vector3 GetClampedDestinationPosition(Vector3 currentPosition)
+        {
+            var playerPosition = _playerTransform.position;
+            var destination = new Vector3(playerPosition.x, playerPosition.y, currentPosition.z);
+            destination.x = Mathf.Clamp(destination.x, _leftBound, _rightBound);
+            destination.y = Mathf.Clamp(destination.y, _bottomBound, _topBound);
+            return destination;
         }
     }
 }

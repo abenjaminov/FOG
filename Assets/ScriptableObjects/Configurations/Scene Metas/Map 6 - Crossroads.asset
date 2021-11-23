@@ -16,5 +16,6 @@ MonoBehaviour:
   ReplacementPhrase: '{MAP6}'
   Id: 6ed33e47-99e8-4d73-a590-dbb11c76a5b6
   LevelAloud: 4
-  SceneAsset: {fileID: 102900000, guid: 0136c8fa946338946821bce224f79859, type: 3}
+  SceneName: Map 6 - Crossroads
   RespawnScene: {fileID: 11400000, guid: 91f62b1d7ecc91542a1e689993ff14e5, type: 2}
+  SceneAudio: {fileID: 0}

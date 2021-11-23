@@ -46,7 +46,7 @@ namespace Game
 
         private void LoadFirstScene()
         {
-            var operation = SceneManager.LoadSceneAsync(CurrentScene.SceneAsset.name, LoadSceneMode.Additive);
+            var operation = SceneManager.LoadSceneAsync(CurrentScene.SceneName, LoadSceneMode.Additive);
 
             operation.completed += asyncOperation =>
             {
@@ -75,7 +75,7 @@ namespace Game
 
         private async void ChangeLocation(SceneMeta destination, SceneMeta source, bool ignoreTeleports = false)
         {
-            SceneManager.UnloadSceneAsync(source.name);
+            SceneManager.UnloadSceneAsync(source.SceneName);
             
             var operation = SceneManager.LoadSceneAsync(destination.name, LoadSceneMode.Additive);
 

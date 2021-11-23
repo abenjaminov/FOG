@@ -1740,6 +1740,10 @@ PrefabInstance:
       propertyPath: _fog
       value: 
       objectReference: {fileID: 1991787907}
+    - target: {fileID: 3745330990357753641, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _followSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3745330991325047864, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
       propertyPath: m_RootOrder
       value: 3

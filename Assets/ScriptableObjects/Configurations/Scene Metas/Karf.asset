@@ -16,6 +16,6 @@ MonoBehaviour:
   ReplacementPhrase: '{KARF}'
   Id: d7bc1112-357b-4414-9531-6558fe1b8cb0
   LevelAloud: 2
-  SceneAsset: {fileID: 102900000, guid: 44429f2b525342441a5aeb5cdb798133, type: 3}
+  SceneName: Karf
   RespawnScene: {fileID: 11400000}
   SceneAudio: {fileID: 8300000, guid: 7be4ec0ee16749d42aa6164de0bb967e, type: 3}

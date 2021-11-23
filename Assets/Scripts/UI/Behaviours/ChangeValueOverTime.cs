@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEditor.AppleTV;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UI.Behaviours
 {

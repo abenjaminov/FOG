@@ -25,7 +25,6 @@ namespace Game
 
         private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type)
         {
-            
             if (Debug.isDebugBuild && (type == LogType.Exception || type == LogType.Warning))
             {
                 Debug.Log(condition);

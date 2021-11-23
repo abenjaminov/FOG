@@ -16,5 +16,6 @@ MonoBehaviour:
   ReplacementPhrase: '{MAP7}'
   Id: 9a4577aa-215f-4fd9-944b-a8316ef35386
   LevelAloud: 6
-  SceneAsset: {fileID: 102900000, guid: 3780e5e412361e34289e8d5e57518fe6, type: 3}
+  SceneName: Map 7
   RespawnScene: {fileID: 11400000, guid: 91f62b1d7ecc91542a1e689993ff14e5, type: 2}
+  SceneAudio: {fileID: 0}
