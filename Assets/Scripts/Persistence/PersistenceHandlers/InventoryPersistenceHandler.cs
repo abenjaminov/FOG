@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using System.Net;
 using System.Text;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects;
@@ -31,8 +33,8 @@ namespace Persistence.PersistenceHandlers
             }
             
             // Inventory items amount doesnt reset on debug so dont add the items
-            if (Debug.isDebugBuild) return;
-            
+            if(Application.isEditor) return;
+
             foreach (var ownedItem in persistence.OwnedItems)
             {
                 var itemMeta = _playerInventory.GetItemMetaById(ownedItem.InventoryItemMetaId);
@@ -83,7 +85,16 @@ namespace Persistence.PersistenceHandlers
             }
             strBuilder.AppendLine($"Currency : {persistence.CurrencyItem.Amount}");
             
+            #if UNITY_EDITOR
             Debug.Log(strBuilder.ToString());
+            #endif
+            
+            var directory = Application.persistentDataPath + "\\Persistence\\";
+
+            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+            var filePath = directory + "Inventory.txt";
+            File.WriteAllText(filePath, strBuilder.ToString());
+            
         }
     }
 }

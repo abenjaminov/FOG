@@ -17,8 +17,8 @@ MonoBehaviour:
   OwnedItems:
   - _itemMeta: {fileID: 11400000, guid: 60a75ca54ba42f343b35b4c6b2417801, type: 2}
     Amount: 500
-  - _itemMeta: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
-    Amount: 1
+  - _itemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+    Amount: 50
   CurrencyItem:
     _itemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 500
+    Amount: 0

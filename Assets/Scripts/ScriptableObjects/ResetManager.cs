@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Entity.Player;
 using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
-using UnityEditor;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -46,7 +43,9 @@ namespace ScriptableObjects
 
         private void ShowPhaseResetMessage(string text)
         {
-            EditorUtility.DisplayDialog("Phase reset", text, "Nice");
+            #if UNITY_EDITOR
+            UnityEditor.EditorUtility.DisplayDialog("Phase reset", text, "Nice");
+            #endif
         }
         
         [ContextMenu("Phases/Phase 0 - Tutorial")]

@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Helpers;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects;
 using ScriptableObjects.Chat;
-using UnityEditor;
+using ScriptableObjects.GameConfiguration;
+using UnityEngine;
 
 namespace Persistence.PersistenceHandlers
 {
     public class ChatsPersistenceHandler : PersistentMonoBehaviour
     {
+        [SerializeField] private ChatsList _chatsList;
         private Dictionary<string, ChatSession> _chats;
+
         protected override async void Awake()
         {
             base.Awake();
@@ -19,27 +22,8 @@ namespace Persistence.PersistenceHandlers
 
         private void LoadChats()
         {
-            var chatAssetsGuid = AssetDatabase.FindAssets($"t:{nameof(ChatSession)}");
 
-            _chats = new Dictionary<string, ChatSession>();
-
-            AssetDatabase.Refresh();
-            
-            foreach (var guid in chatAssetsGuid)
-            {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                
-                var chatSession = AssetDatabase.LoadAssetAtPath<ChatSession>(path);
-
-                if (string.IsNullOrEmpty(chatSession.Guid))
-                {
-                    chatSession.Guid = Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(chatSession);
-                }
-                _chats.Add(chatSession.Guid, chatSession);
-            }
-            
-            AssetDatabase.SaveAssets();
+            _chats = _chatsList.Chats.ToDictionary(x => x.Guid, x => x);
         }
         
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)

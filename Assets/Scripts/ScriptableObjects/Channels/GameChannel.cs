@@ -1,4 +1,7 @@
-﻿using Game;
+﻿using System;
+using System.Collections.Generic;
+using Game;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +13,7 @@ namespace ScriptableObjects.Channels
         public UnityAction PlayGameEvent;
 
         public UnityAction<LevelBounds> HitLevelBoundsEvent;
+        public UnityAction<string, List<MessageOptions>, UnityAction<MessageOptions>> ShowMessageRequest;
 
         public void OnPlayGame()
         {
@@ -19,6 +23,11 @@ namespace ScriptableObjects.Channels
         public void OnHitLevelBounds(LevelBounds levelBounds)
         {
             HitLevelBoundsEvent?.Invoke(levelBounds);
+        }
+
+        public void ShowGameMessage(string message, List<MessageOptions> options, UnityAction<MessageOptions> callback)
+        {
+            ShowMessageRequest?.Invoke(message, options, callback);
         }
     }
 }

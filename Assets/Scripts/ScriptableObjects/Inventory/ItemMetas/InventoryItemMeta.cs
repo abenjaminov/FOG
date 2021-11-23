@@ -18,7 +18,6 @@ namespace ScriptableObjects.Inventory.ItemMetas
             if (amountAdded <= 0) return "";
 
             var message = $"Gained {amountAdded} {Name}{(amountAdded > 1 ? 's' : ' ')}";
-            message += Name + " (" + amountAdded + ")";
 
             return message;
         }

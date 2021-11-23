@@ -18,6 +18,7 @@ namespace UI
         [SerializeField] private NpcChannel _NpcChannel;
         [SerializeField] private QuestsChannel _questsChannel;
         [SerializeField] private QuestsList _questsList;
+        [SerializeField] private GameChannel _gameChannel;
 
         [Header("Screens")]
         [SerializeField] private GUIScreen _traitsScreen;
@@ -65,8 +66,7 @@ namespace UI
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_inventory.GetActivationKey(), ToggleInventoryScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_map.GetActivationKey(), ToggleMapScreen));
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_equipment.GetActivationKey(), ToggleEquipmentScreen));
-            //_subscriptions.Add(_inputChannel.SubscribeKeyDown(_settings.GetActivationKey(), ToggleSettingsScreen));
-            
+
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(KeyCode.Escape, ClosePrevScreen));
 
             foreach (var gameObject in _defaultViews)
@@ -149,11 +149,25 @@ namespace UI
 
         private void ClosePrevScreen()
         {
-            if (_openScreens.Count == 0) return;
+            if (_openScreens.Count == 0)
+            {
+                _gameChannel.ShowMessageRequest("Are you sure you want to quit the game?", new List<MessageOptions>()
+                {
+                    MessageOptions.Yes, MessageOptions.No
+                }, (response) =>
+                {
+                    if (response == MessageOptions.Yes)
+                    {
+                        Application.Quit();
+                    }
+                });
+            }
+            else
+            {
+                var prevScreen = _openScreens.Pop();
             
-            var prevScreen = _openScreens.Pop();
-            
-            ToggleScreen(prevScreen);
+                ToggleScreen(prevScreen);    
+            }
         }
     }
 }

@@ -98,10 +98,7 @@ MonoBehaviour:
   _dropItems:
   - ItemMetaData: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
     Percentage: 0.87
-    AssosiatedQuest: {fileID: 0}
-  - ItemMetaData: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Percentage: 0.1
-    AssosiatedQuest: {fileID: 0}
+    AssosiatedQuest: {fileID: 11400000, guid: 783d6b61346392d4281c1f28cb230680, type: 2}
   _dropperTraits: {fileID: 11400000, guid: fbd1a93a7f5a1844f8771a68a3db6fe3, type: 2}
   multiDropOffset: 0.5
 --- !u!1 &7025602636074418409

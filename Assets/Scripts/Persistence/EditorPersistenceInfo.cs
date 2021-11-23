@@ -12,8 +12,6 @@ namespace Persistence
         
         private void Awake()
         {
-            if (!Application.isEditor) return;
-            
             _persistenceChannel.GameModulesSavedEvent += GameModulesSavedEvent;
         }
 
