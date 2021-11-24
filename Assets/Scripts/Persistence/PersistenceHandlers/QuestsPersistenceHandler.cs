@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Persistence.Accessors;
 using Persistence.PersistenceObjects.Quests;
 using ScriptableObjects.GameConfiguration;
@@ -12,7 +13,29 @@ namespace Persistence.PersistenceHandlers
         [SerializeField] private QuestsList _questsList;
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
         {
+            var killEnemiesQuest = accessor.GetValue<List<KillEnemiesQuestPersistence>>("RunningKillEnemiesQuests");
+            var collectItemsQuests = accessor.GetValue<List<QuestPersistence>>("RunningCollectItemsQuests");
+            var noProgressQuests = accessor.GetValue<List<QuestPersistence>>("RunningNoProgressQuests");
+
+            foreach (var quest in killEnemiesQuest)
+            {
+                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+
+                _questsList.QuestsMap[quest.Id].State = quest.State;
+                ((KillEnemiesQuest)_questsList.QuestsMap[quest.Id]).ActualEnemiesKilled = quest.ActualEnemiesKilled;
+            }
+
+            foreach (var quest in collectItemsQuests)
+            {
+                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+                _questsList.QuestsMap[quest.Id].State = quest.State;
+            }
             
+            foreach (var quest in noProgressQuests)
+            {
+                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+                _questsList.QuestsMap[quest.Id].State = quest.State;
+            }
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
@@ -24,7 +47,7 @@ namespace Persistence.PersistenceHandlers
                     Id = x.Id,
                     State = x.State,
                     ActualEnemiesKilled = ((KillEnemiesQuest) x).ActualEnemiesKilled
-                });
+                }).ToList();
             
             accessor.PersistData("RunningKillEnemiesQuests", killEnemiesQuests);
             
@@ -33,7 +56,7 @@ namespace Persistence.PersistenceHandlers
                 {
                     Id = x.Id,
                     State = x.State,
-                });
+                }).ToList();
             
             accessor.PersistData("RunningCollectItemsQuests", collectItemsQuests);
 
@@ -42,7 +65,7 @@ namespace Persistence.PersistenceHandlers
                 {
                     Id = x.Id,
                     State = x.State
-                });
+                }).ToList();
             accessor.PersistData("RunningNoProgressQuests", noProgressQuests);
         }
 
