@@ -24,6 +24,7 @@ namespace Persistence.PersistenceHandlers
             _playerTraits.PointsLeft = playerTraitsPersistence.PointsLeft;
             _playerTraits.Level = playerTraitsPersistence.Level;
             _playerTraits.Name = playerTraitsPersistence.Name;
+            _playerTraits.IsNameSet = playerTraitsPersistence.IsNameSet;
             _playerTraits.SetResistancePointsSilent(playerTraitsPersistence.ResistancePointsGained);
             _playerTraits.SetMonsterResistanceSilent(playerTraitsPersistence.MonsterStateResistance);
         }
@@ -48,7 +49,8 @@ namespace Persistence.PersistenceHandlers
                 Level = _playerTraits.Level,
                 ResistancePointsGained = _playerTraits.ResistancePointsGained,
                 MonsterStateResistance = _playerTraits.MonsterStateResistance,
-                Name = _playerTraits.Name
+                Name = _playerTraits.Name,
+                IsNameSet =  _playerTraits.IsNameSet
             };
             return playerTraitsPersistence;
         }

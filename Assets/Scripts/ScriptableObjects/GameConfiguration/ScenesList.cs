@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Helpers;
 using UnityEngine;
 
 namespace ScriptableObjects.GameConfiguration
@@ -9,6 +11,31 @@ namespace ScriptableObjects.GameConfiguration
     {
         public SceneMeta DefaultFirstScene;
         public List<SceneMeta> Scenes;
+
+        private void OnEnable()
+        {
+#if UNITY_EDITOR
+            var sceneAssets = AssetsHelper.GetAllAssets<SceneMeta>();
+
+            Scenes ??= new List<SceneMeta>();
+            Scenes.Clear();
+
+            UnityEditor.AssetDatabase.Refresh();
+            
+            foreach (var scene in sceneAssets)
+            {
+                if (string.IsNullOrEmpty(scene.Id))
+                {
+                    scene.Id = Guid.NewGuid().ToString();
+                    scene.SceneName = scene.SceneAsset.name;
+                    UnityEditor.EditorUtility.SetDirty(scene);
+                }
+                Scenes.Add(scene);
+            }
+            
+            UnityEditor.AssetDatabase.SaveAssets();
+#endif
+        }
 
         public SceneMeta GetSceneMetaById(string sceneId)
         {

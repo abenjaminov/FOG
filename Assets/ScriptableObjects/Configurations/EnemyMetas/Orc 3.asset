@@ -16,3 +16,4 @@ MonoBehaviour:
   ReplacementPhrase: '{ORC3}'
   _enemyTraits: {fileID: 11400000, guid: 5375478384559484bab8c6b5f4ea497b, type: 2}
   EnemyPrefab: {fileID: 2019617913211333601, guid: 8e1c3fc8fe9eba842b906955974a7123, type: 3}
+  Guid: 31f07a80-a84e-42c8-8b21-4a217f424e5a

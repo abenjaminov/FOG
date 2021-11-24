@@ -6,6 +6,7 @@ namespace Persistence.PersistenceObjects
     public class PlayerTraitsPersistence
     {
         internal string Name;
+        internal bool IsNameSet;
         internal float CurrentHealth;
         internal int Strength;
         internal int Dexterity;

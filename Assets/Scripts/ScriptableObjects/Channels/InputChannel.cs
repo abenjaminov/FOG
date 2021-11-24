@@ -14,9 +14,26 @@ namespace ScriptableObjects.Channels
         public Dictionary<KeyCode, UnityAction> MappedKeyDownActions = new Dictionary<KeyCode, UnityAction>();
         public Dictionary<KeyCode, UnityAction> MappedKeyUpActions = new Dictionary<KeyCode, UnityAction>();
 
+        private bool _pauseInput;
+
+        private void OnEnable()
+        {
+            _pauseInput = false;
+        }
+
+        public void PauseInput()
+        {
+            _pauseInput = true;
+        }
+        
+        public void ResumeInput()
+        {
+            _pauseInput = false;
+        }
+        
         public void OnKeyDown(KeyCode keyCode)
         {
-            if (_locationsChannel.IsChangingLocation) return;
+            if (_locationsChannel.IsChangingLocation || _pauseInput) return;
             
             var action = MappedKeyDownActions[keyCode];
             action?.Invoke();

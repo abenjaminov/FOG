@@ -10,5 +10,9 @@ namespace ScriptableObjects
         public string SceneName;
         public SceneMeta RespawnScene;
         public AudioClip SceneAudio;
+
+#if UNITY_EDITOR
+        public UnityEditor.SceneAsset SceneAsset;
+#endif
     }
 }

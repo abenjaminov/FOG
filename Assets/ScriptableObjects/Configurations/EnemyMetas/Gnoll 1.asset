@@ -16,3 +16,4 @@ MonoBehaviour:
   ReplacementPhrase: '{GNOLL1}'
   _enemyTraits: {fileID: 11400000, guid: f4cd2ba1f7aff6149a520837233a095b, type: 2}
   EnemyPrefab: {fileID: 7875276605173698155, guid: 8c8d183afe49dcd4d9a3a2dfe9d3290d, type: 3}
+  Guid: 8b0346f0-e899-4374-8bed-ec1ee2259c20

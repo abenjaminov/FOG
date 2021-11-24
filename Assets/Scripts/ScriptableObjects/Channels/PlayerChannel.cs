@@ -10,6 +10,7 @@ namespace ScriptableObjects.Channels
     public class PlayerChannel : BaseChannel
     {
         public UnityAction LevelUpEvent;
+        public UnityAction NameSetEvent;
         public UnityAction<float> GainedResistancePointsEvent;
         public UnityAction MonsterResistanceChangedEvent;
         public UnityAction TraitsChangedEvent;
@@ -18,6 +19,11 @@ namespace ScriptableObjects.Channels
         public UnityAction<EquipmentItemMeta, EquipmentPart> ItemEquippedEvent;
         public UnityAction<EquipmentItemMeta, EquipmentPart> ItemUnEquippedEvent;
 
+        public void OnNameSet()
+        {
+            NameSetEvent?.Invoke();
+        }
+        
         public void OnGainedResistancePointsEvent(float amount)
         {
             GainedResistancePointsEvent?.Invoke(amount);

@@ -16,7 +16,8 @@ namespace ScriptableObjects.Traits
         public const float MinMonsterStateResistance = 0;
 
         public float ClimbSpeed;
-        
+
+        [HideInInspector] public bool IsNameSet;
         [HideInInspector] public float CurrentHealth;
         [SerializeField] public int PointsLeft;
 
@@ -98,6 +99,13 @@ namespace ScriptableObjects.Traits
             }
         }
 
+        public void SetName(string newName)
+        {
+            Name = newName;
+            IsNameSet = true;
+            _playerChannel.OnNameSet();
+        }
+        
         public void SetResistancePointsSilent(int resistancePointsGained)
         {
             _resistancePointsGained = resistancePointsGained;
@@ -173,7 +181,8 @@ namespace ScriptableObjects.Traits
             _intelligence = 5;
             _constitution = 5;
             PointsLeft = 0;
-            Name = "Name";
+            Name = "????";
+            IsNameSet = false;
             MaxHealth = TraitsHelper.GetPlayerMaxHealth(this);
             CurrentHealth = MaxHealth;
         }

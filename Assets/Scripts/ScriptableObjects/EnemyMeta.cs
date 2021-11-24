@@ -8,5 +8,6 @@ namespace ScriptableObjects
     {
         [SerializeField] private EnemyTraits _enemyTraits;
         public GameObject EnemyPrefab;
+        public string Guid;
     }
 }
