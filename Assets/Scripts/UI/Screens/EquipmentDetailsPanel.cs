@@ -60,6 +60,12 @@ namespace UI.Screens
                     _midText.color = Color.white;
                 }
             }
+            else if (itemMeta is DropItemMeta dropItem)
+            {
+                _topText.text = "";
+                _midText.text = dropItem.Name;
+                _bottomText.text = "";
+            }
         }
 
         public void HideItemDetails()

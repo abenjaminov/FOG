@@ -21,7 +21,7 @@ MonoBehaviour:
   - ItemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
     Amount: 1
   - ItemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Amount: 50
+    Amount: 200
   ChatItems:
   - Text: You'll need some potions and a weapon to start fighting these monsters,
       take these HP potions and a baseball bat.

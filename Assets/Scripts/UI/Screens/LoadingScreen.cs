@@ -32,7 +32,8 @@ namespace UI.Screens
         {
             "Remove an item from a hotkey by pressing the right click when over it.",
             "Drop an item from your inventory by pressing right click while hovering above it.",
-            "Drop off ladders pressing the JUMP key."
+            "Drop off ladders pressing the JUMP key.",
+            "Respec your traits to use a weapon more efficiently"
         };
 
         private void Awake()

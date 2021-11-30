@@ -15,6 +15,7 @@ namespace UI
         [SerializeField] private Image _progressImage;
         [SerializeField] private Color _alternateColor;
         [SerializeField] private AudioSource _audioSource;
+        [Range(0,1)] [SerializeField] private float _warningPercentage;
         private bool _flashHealth;
         
         private void Awake()
@@ -35,13 +36,13 @@ namespace UI
             CurrentValue = _playerTraits.GetCurrentHealth();
             base.UpdateUI();
 
-            if (!_flashHealth && CurrentValue <= (MaxValue * 0.12))
+            if (!_flashHealth && CurrentValue <= (MaxValue * _warningPercentage))
             {
                 _flashHealth = true;
                 
                 StartCoroutine(nameof(FlashHealth));
             }
-            else if (_flashHealth && CurrentValue > (MaxValue * 0.12))
+            else if (_flashHealth && CurrentValue > (MaxValue * _warningPercentage))
             {
                 _flashHealth = false;
             }
@@ -57,6 +58,8 @@ namespace UI
                 yield return new WaitForSeconds(0.565f);
                 _progressImage.color = _progressImage.color == Color.red ? _alternateColor : Color.red;
             }
+
+            _progressImage.color = Color.red;
             
             _audioSource.Stop();
         }

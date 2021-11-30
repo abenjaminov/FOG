@@ -37,6 +37,8 @@ namespace UI
         
         private Stack<GUIScreen> _openScreens;
 
+        private string _currentCloseGameMessageId;
+
         private void Awake()
         {
             _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
@@ -44,8 +46,19 @@ namespace UI
             
             _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
             _questsChannel.QuestStateChangedEvent += QuestStateChangedEvent;
+            _gameChannel.MessageClosedEvent += MessageClosedEvent;
             
             CheckQuestsTracker();
+        }
+
+        private void MessageClosedEvent(string messageId, MessageOptions response)
+        {
+            if (messageId != _currentCloseGameMessageId) return;
+            
+            if (response == MessageOptions.Yes)
+            {
+                Application.Quit();
+            }
         }
 
         private void QuestStateChangedEvent(Quest arg0)
@@ -105,6 +118,7 @@ namespace UI
             _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
             _NpcChannel.RequestChatStartEvent -= RequestChatStartEvent;
             _questsChannel.QuestStateChangedEvent -= QuestStateChangedEvent;
+            _gameChannel.MessageClosedEvent -= MessageClosedEvent;
             
             foreach (var subscription in _subscriptions)
             {
@@ -151,15 +165,10 @@ namespace UI
         {
             if (_openScreens.Count == 0)
             {
-                _gameChannel.ShowMessageRequest("Are you sure you want to quit the game?", new List<MessageOptions>()
+                _currentCloseGameMessageId = _gameChannel.ShowGameMessage("Are you sure you want to quit the game?", 
+                    new List<MessageOptions>()
                 {
                     MessageOptions.Yes, MessageOptions.No
-                }, (response) =>
-                {
-                    if (response == MessageOptions.Yes)
-                    {
-                        Application.Quit();
-                    }
                 });
             }
             else

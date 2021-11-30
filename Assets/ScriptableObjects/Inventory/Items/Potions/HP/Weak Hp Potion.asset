@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 02dc9247-abdf-4d2c-925d-b52775cbfe5a
   Name: Basic HP Potion
+  PriceInShop: 10
+  PriceForSale: 5
   ItemSprite: {fileID: 21300000, guid: f9b68312d4776a6468a5c8731a7f412f, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 6b3567ae03b17de48a63c75a0a02c345, type: 3}
   PotionType: 0

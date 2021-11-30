@@ -12,7 +12,7 @@ namespace Game
 
         private void Awake()
         {
-            _renderer = GetComponent<SpriteRenderer>();
+            _renderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         public void SetTransformToFollow(Transform transform)

@@ -15,10 +15,12 @@ MonoBehaviour:
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _inventoryItemMetas: {fileID: 11400000, guid: 9cfb58f471d525447a8d51b7d6230a32, type: 2}
   OwnedItems:
+  - _itemMeta: {fileID: 11400000, guid: ad0f6896b381600499f224399e8df5b2, type: 2}
+    Amount: 1
+  - _itemMeta: {fileID: 11400000, guid: 8ef401106731c0549ba8c412a99a9f67, type: 2}
+    Amount: 1
   - _itemMeta: {fileID: 11400000, guid: 60a75ca54ba42f343b35b4c6b2417801, type: 2}
     Amount: 500
-  - _itemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Amount: 50
   CurrencyItem:
     _itemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 0
+    Amount: 6

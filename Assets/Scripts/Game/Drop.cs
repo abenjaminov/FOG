@@ -20,7 +20,7 @@ namespace Game
         private FadeoutToPoint _fadeoutComponent;
         private SpriteRenderer _renderer;
         private float _timeAlive;
-        private Collider2D _collider;
+        private BoxCollider2D _collider;
 
         private bool _isPickedUp;
 
@@ -38,9 +38,9 @@ namespace Game
         private void Awake()
         {
             
-            _renderer = GetComponent<SpriteRenderer>();
+            _renderer = GetComponentInChildren<SpriteRenderer>();
             _groundCheck = GetComponentInChildren<GroundCheck>();
-            _collider = GetComponent<Collider2D>();
+            _collider = GetComponent<BoxCollider2D>();
             _fadeoutComponent = GetComponent<FadeoutToPoint>();
             _fadeoutComponent.enabled = false;
             _floatComponent = GetComponent<FloatUpDown>();
@@ -78,6 +78,14 @@ namespace Game
         {
             InventoryItemMeta = invItemMeta;
             _renderer.sprite = invItemMeta.ItemSprite;
+
+            var width = invItemMeta.ItemSprite.rect.width;
+            var height = invItemMeta.ItemSprite.rect.height;
+
+            var destWidth = 100f;
+            var destHeight = 100f;
+
+            _renderer.transform.localScale = new Vector3(destWidth / width, destHeight / height, 1);
             Amount = amount;
         }
 

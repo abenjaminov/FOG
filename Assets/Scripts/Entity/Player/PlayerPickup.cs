@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game;
 using ScriptableObjects.Channels;
 using ScriptableObjects.GameConfiguration;
@@ -32,12 +33,12 @@ namespace Character.Player
 
         private void Pickup()
         {
+            _dropsInRange = _dropsInRange.Where(x => !x.IsPickedUp).ToList();
+                
             if (_dropsInRange.Count == 0) return;
 
             var itemToPickup = _dropsInRange[0];
             if (itemToPickup.IsPickedUp) return;
-            
-            _dropsInRange.RemoveAt(0);
 
             itemToPickup.OnPickedUp(_pickupTransform);
 

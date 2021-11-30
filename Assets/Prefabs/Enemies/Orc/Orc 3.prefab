@@ -246,7 +246,7 @@ MonoBehaviour:
     Percentage: 0.87
     AssosiatedQuest: {fileID: 0}
   - ItemMetaData: {fileID: 11400000, guid: 9428b7b5834dae944b9b7bcc47708ae7, type: 2}
-    Percentage: 0.07
+    Percentage: 0.2
     AssosiatedQuest: {fileID: 0}
   - ItemMetaData: {fileID: 11400000, guid: 5dd64ec95b31281408a9074810dfba61, type: 2}
     Percentage: 0.05

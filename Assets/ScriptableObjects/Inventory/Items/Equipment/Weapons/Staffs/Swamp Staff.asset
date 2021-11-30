@@ -30,5 +30,7 @@ MonoBehaviour:
     Tags: []
   Part: 7
   RequiredLevel: 15
-  MonsterResistance: 45
+  Traits:
+    MonsterResistance: 45
+    Defense: 0
   IsStaff: 1

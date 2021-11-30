@@ -11,14 +11,25 @@ namespace Entity.Player
 {
     public class PlayerAppearance : MonoBehaviour
     {
+        [SerializeField] protected PersistenceChannel _persistenceChannel;
         [SerializeField] protected PlayerChannel _playerChannel;
         [SerializeField] protected PlayerEquipment _playerEquipment;
         [SerializeField] protected Inventory _playerInventory;
         [SerializeField] protected Player _player;
 
         private Assets.HeroEditor.Common.CharacterScripts.Character _character;
-        
-        protected virtual void Start()
+
+        private void Awake()
+        {
+            _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
+        }
+
+        private void OnDestroy()
+        {
+            _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
+        }
+
+        private void GameModulesLoadedEvent()
         {
             _character = _player.GetCharacter();
 

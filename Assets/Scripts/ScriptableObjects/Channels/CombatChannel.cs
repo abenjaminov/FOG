@@ -3,6 +3,8 @@ using Entity;
 using Entity.Enemies;
 using Helpers;
 using Platformer;
+using ScriptableObjects.Inventory;
+using ScriptableObjects.Traits;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +13,9 @@ namespace ScriptableObjects.Channels
     [CreateAssetMenu(fileName = "Combat Channel", menuName = "Channels/Combat Channel", order = 1)]
     public class CombatChannel : ScriptableObject
     {
+        [SerializeField] private PlayerEquipment _playerEquipment;
+        [SerializeField] private PlayerTraits _playerTraits;
+        
         public UnityAction<Enemy> EnemyDiedEvent;
         public UnityAction<Buff> BuffAppliedEvent;
         public UnityAction<Buff> BuffExpiredEvent;
@@ -24,7 +29,7 @@ namespace ScriptableObjects.Channels
 
         public void OnPlayerHit(Entity.Player.Player player, Enemy enemy)
         {
-            var damageToPlayer = TraitsHelper.GetEnemyDamage(enemy);
+            var damageToPlayer = TraitsHelper.GetEnemyDamage(enemy, _playerEquipment, _playerTraits);
             player.ReceiveDamage(damageToPlayer);
         }
 

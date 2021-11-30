@@ -9,6 +9,7 @@ public class GameStatsPanel : MonoBehaviour
 {
     [SerializeField] private PlayerTraits _playerTraits;
     [SerializeField] private PlayerChannel _playerChannel;
+    [SerializeField] private PersistenceChannel _persistenceChannel;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _levelText;
     
@@ -17,7 +18,11 @@ public class GameStatsPanel : MonoBehaviour
         UpdateLevelText();
         _playerChannel.LevelUpEvent += LevelUpEvent;
         _playerChannel.NameSetEvent += NameSetEvent;
-        
+        _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
+    }
+
+    private void GameModulesLoadedEvent()
+    {
         _nameText.SetText(_playerTraits.Name);
     }
 
@@ -40,5 +45,6 @@ public class GameStatsPanel : MonoBehaviour
     {
         _playerChannel.LevelUpEvent -= LevelUpEvent;
         _playerChannel.NameSetEvent -= NameSetEvent;
+        _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
     }
 }

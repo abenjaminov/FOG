@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Helpers;
 using ScriptableObjects.GameConfiguration;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
+using UnityEditor;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -13,6 +15,8 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "Reset Manager", menuName = "Reset Manager", order = 0)]
     public class ResetManager : ScriptableObject
     {
+        [SerializeField] private bool _resetPersistence;
+        
         [Header("Player Traits")]
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] private LevelConfiguration _levelConfiguration;
@@ -41,15 +45,55 @@ namespace ScriptableObjects
         [Header("Phase 3")] 
         [SerializeField] private List<Quest> _phase3QuestsToComplete;
 
+        private static ResetManager _manager;
+        
         private void ShowPhaseResetMessage(string text)
         {
             #if UNITY_EDITOR
             UnityEditor.EditorUtility.DisplayDialog("Phase reset", text, "Nice");
             #endif
         }
+
+        private static ResetManager GetManager()
+        {
+            if(_manager == null)
+                _manager = AssetsHelper.GetAllAssets<ResetManager>().FirstOrDefault();
+
+            return _manager;
+        }
+        
+        [MenuItem("Reset/Phases/Phase 0 - Tutorial")]
+        private static void ResetPhase0()
+        {
+            GetManager().Phase0();
+        }
+        
+        [MenuItem("Reset/Phases/Phase 1 - Karf")]
+        private static void ResetPhase1()
+        {
+            GetManager().Phase1();
+        }
+        
+        [MenuItem("Reset/Phases/Phase 2 - Karf Level 4")]
+        private static void ResetPhase2()
+        {
+            GetManager().Phase2();
+        }
+        
+        [MenuItem("Reset/Phases/Phase 3 - Map 5 Level 5")]
+        private static void ResetPhase3()
+        {
+            GetManager().Phase3();
+        }
+
+        [MenuItem("Reset/Reset Persistence")]
+        private static void S_ResetPersistence()
+        {
+            GetManager().ResetPersistence();
+        }
         
         [ContextMenu("Phases/Phase 0 - Tutorial")]
-        private void Phase0()
+        public void Phase0()
         {
             Phase0Content();
             
@@ -64,7 +108,7 @@ namespace ScriptableObjects
             ResetEquipment();
             ResetPersistence();
 
-            _playerInventory.AddItemSilent(_hpPotion, 500);
+            //_playerInventory.AddItemSilent(_hpPotion, 500);
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
         }
 
@@ -79,7 +123,7 @@ namespace ScriptableObjects
         }
         
         [ContextMenu("Phases/Phase 1 - Karf")]
-        private void Phase1()
+        public void Phase1()
         {
             Phase1Content();
             
@@ -104,7 +148,7 @@ namespace ScriptableObjects
         }
         
         [ContextMenu("Phases/Phase 2 - Karf Level 4")]
-        private void Phase2()
+        public void Phase2()
         {
             Phase2Content();
 
@@ -127,8 +171,8 @@ namespace ScriptableObjects
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{MAP5}");
         }
         
-        [ContextMenu("Phases/Phase 3 -Map 5 Level 5")]
-        private void Phase3()
+        [ContextMenu("Phases/Phase 3 - Map 5 Level 5")]
+        public void Phase3()
         {
             Phase3Content();
             
@@ -136,8 +180,10 @@ namespace ScriptableObjects
         }
 
         [ContextMenu("Specific/Reset Persistence")]
-        private void ResetPersistence()
+        public void ResetPersistence()
         {
+            if (!_resetPersistence) return;
+            
             var path = Application.persistentDataPath + "\\GamePersistence\\";
 
             if (!Directory.Exists(path)) return;
@@ -154,33 +200,32 @@ namespace ScriptableObjects
         }
         
         [ContextMenu("Specific/Reset Player Traits")]
-        private void ResetPlayerTraits()
+        public void ResetPlayerTraits()
         {
             _playerTraits.Reset();
             _playerTraits._levelConfiguration = _levelConfiguration;
         }
 
         [ContextMenu("Specific/Reset Quests")]
-        private void ResetQuests()
+        public void ResetQuests()
         {
             _questsList.ResetQuests();
         }
 
         [ContextMenu("Specific/Reset Inventory")]
-        private void ResetInventory()
+        public void ResetInventory()
         {
             _playerInventory.OwnedItems.Clear();
             _playerInventory.CurrencyItem.Amount = 0;
         }
 
         [ContextMenu("Specific/Reset Equipment")]
-        private void ResetEquipment()
+        public void ResetEquipment()
         {
             _playerEquipment.Armour = _defaultArmourMeta;
             _playerEquipment.Cape = null;
             _playerEquipment.Helmet = null;
             _playerEquipment.PrimaryWeapon = null;
-            _playerEquipment.SecondaryWeapon = null;
         }
     }
 }

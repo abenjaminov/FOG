@@ -13,29 +13,22 @@ using UnityEngine.UI;
 
 namespace Entity.NPCs
 {
-    public class ChatNpc : MonoBehaviour, IDoubleClickHandler
+    public class ChatNpc : Npc
     {
-        [Header("Visuals")] [SerializeField] private GameObject _npcVisuals;
-        [SerializeField] bool faceLeft;
-        [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private string _name;
         [SerializeField] private RawImage _indicator;
         [SerializeField] private Texture _completedIndicator;
         [SerializeField] private Texture _availableIndicator;
         
-        public string NpcId;
-        [SerializeField] private NpcChannel _npcChannel;
+        
         [SerializeField] private QuestsChannel _questChannel;
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] public List<ChatSession> ChatSessions;
 
         [SerializeField] public List<string> GeneralTextLines;
         
-        private void Awake()
+        protected override void Awake()
         {
-            var visuals = Instantiate(_npcVisuals, Vector3.zero, Quaternion.Euler(0, faceLeft ? 180 : 0, 0), this.transform);
-            visuals.transform.localPosition = Vector3.zero;
-            _nameText.SetText(_name);
+            base.Awake();
             
             if(GeneralTextLines.Count == 0)
                 GeneralTextLines.Add("Hello there!");
@@ -90,9 +83,9 @@ namespace Entity.NPCs
             }
         }
 
-        public void HandleDoubleClick()
+        public override void HandleDoubleClick()
         {
-            _npcChannel.OnRequestChatStart(this);
+            _npcChannel.StartChatRequest(this);
         }
 
         public List<ChatSession> GetAvailableChatSessions()

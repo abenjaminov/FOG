@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T7Q - Currency
   m_EditorClassIdentifier: 
   Id: 213862c5-e8fb-4538-88fd-c26b1b446c5e
-  _name: Currency
+  _name: Collect Coins
   RPReward:
     ApplyReward: 1
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}

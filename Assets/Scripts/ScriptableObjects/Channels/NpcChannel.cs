@@ -1,5 +1,6 @@
 ﻿using Entity.NPCs;
 using ScriptableObjects.Chat;
+using ScriptableObjects.Shops;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +13,14 @@ namespace ScriptableObjects.Channels
         public UnityAction<ChatNpc, ChatSession, ChatDialogOptionAction> ChatEndedEvent;
         public UnityAction<ChatNpc, ChatSession> ChatStartedEvent;
 
-        public void OnRequestChatStart(ChatNpc chatNpc)
+        public UnityAction<ShopInfo> RequestOpenShopEvent;
+
+        public void OpenShopRequest(ShopInfo shopInfo)
+        {
+            RequestOpenShopEvent?.Invoke(shopInfo);
+        }
+        
+        public void StartChatRequest(ChatNpc chatNpc)
         {
             RequestChatStartEvent?.Invoke(chatNpc);
         }

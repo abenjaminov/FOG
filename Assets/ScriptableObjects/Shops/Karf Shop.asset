@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f781caeb1eb84069a64afc5c9bce97d3, type: 3}
+  m_Name: Karf Shop
+  m_EditorClassIdentifier: 
+  ShopItems:
+  - {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
+  - {fileID: 11400000, guid: 8afd183e732e20e42bc8f92b48c65c23, type: 2}

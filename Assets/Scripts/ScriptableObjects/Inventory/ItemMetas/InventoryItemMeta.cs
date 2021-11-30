@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ScriptableObjects.Inventory.ItemMetas
 {
@@ -7,7 +6,14 @@ namespace ScriptableObjects.Inventory.ItemMetas
     {
         public string Id;
         public string Name;
+
+        [Header("Shop")] 
+        public int PriceInShop;
+        public int PriceForSale;
+        
+        [HideInInspector]
         public Sprite ItemSprite;
+        [HideInInspector]
         public Sprite InventoryItemSprite;
 
         public abstract bool Use(Entity.Player.Player player);

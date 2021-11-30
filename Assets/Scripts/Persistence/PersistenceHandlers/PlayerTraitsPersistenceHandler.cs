@@ -16,7 +16,6 @@ namespace Persistence.PersistenceHandlers
 
             if (playerTraitsPersistence == null) return;
             
-            _playerTraits.Constitution = playerTraitsPersistence.Constitution;
             _playerTraits.Dexterity = playerTraitsPersistence.Dexterity;
             _playerTraits.Intelligence = playerTraitsPersistence.Intelligence;
             _playerTraits.Strength = playerTraitsPersistence.Strength;
@@ -40,7 +39,6 @@ namespace Persistence.PersistenceHandlers
         {
             var playerTraitsPersistence = new PlayerTraitsPersistence()
             {
-                Constitution = _playerTraits.Constitution,
                 Dexterity = _playerTraits.Dexterity,
                 Intelligence = _playerTraits.Intelligence,
                 Strength = _playerTraits.Strength,
@@ -60,8 +58,7 @@ namespace Persistence.PersistenceHandlers
             var strBuilder = new StringBuilder();
             strBuilder.AppendLine("##### PLAYER TRAITS PERSISTENCE #####");
             var playerTraitsPersistence = GetPlayerPersistence();
-
-            strBuilder.AppendLine($"Constitution {playerTraitsPersistence.Constitution}");
+            
             strBuilder.AppendLine($"Dexterity {playerTraitsPersistence.Dexterity}");
             strBuilder.AppendLine($"Intelligence {playerTraitsPersistence.Intelligence}");
             strBuilder.AppendLine($"Strength {playerTraitsPersistence.Strength}");
@@ -72,7 +69,11 @@ namespace Persistence.PersistenceHandlers
             strBuilder.AppendLine($"MonsterStateResistance {playerTraitsPersistence.MonsterStateResistance}");
             strBuilder.AppendLine($"Name {playerTraitsPersistence.Name}");
             
+#if UNITY_EDITOR
             Debug.Log(strBuilder.ToString());
+#endif
+            
+            base.PrintPersistenceAsTextInternal(strBuilder.ToString(), "Player Traits");
         }
     }
 }

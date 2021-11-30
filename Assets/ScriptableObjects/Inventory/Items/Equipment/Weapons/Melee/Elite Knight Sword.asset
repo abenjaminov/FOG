@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 9267b0ac-3d79-40b0-ad38-0b05f3325c18
   Name: Elite Knight Sword
-  ItemSprite: {fileID: 21300000, guid: c926f774572f477985278f5daebca71a, type: 3}
+  ItemSprite: {fileID: 21300000, guid: de304519693c487d88d0aefeb8e93fa8, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: de304519693c487d88d0aefeb8e93fa8, type: 3}
   Item:
     Name: EliteKnightSword [Paint]
@@ -32,5 +32,7 @@ MonoBehaviour:
     - Paint
   Part: 7
   RequiredLevel: 15
-  MonsterResistance: 45
+  Traits:
+    MonsterResistance: 45
+    Defense: 0
   IsStaff: 0

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5f30b1bbe44339f511430594508ff, type: 3}
   m_Name: Combat Channel
   m_EditorClassIdentifier: 
+  _playerEquipment: {fileID: 11400000, guid: 03623857bbd37d34bb4a31d44f4b6b2e, type: 2}
+  _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}

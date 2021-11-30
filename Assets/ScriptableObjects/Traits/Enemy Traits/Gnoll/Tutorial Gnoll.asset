@@ -17,7 +17,7 @@ MonoBehaviour:
   JumpHeight: 0
   BaseDelayBetweenAttacks: 0
   DelayBetweenAttacks: 0
-  MaxHealth: 18
+  MaxHealth: 12
   Level: 1
   ResistancePoints: 2
   FixedDamage: 1

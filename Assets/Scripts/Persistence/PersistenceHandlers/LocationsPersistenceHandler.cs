@@ -31,7 +31,11 @@ namespace Persistence.PersistenceHandlers
             strBuilder.AppendLine("##### LOCATION PERSISTENCE #####");
             strBuilder.AppendLine($"{_locationsManager.CurrentScene.AssetName}");
             
+#if UNITY_EDITOR
             Debug.Log(strBuilder.ToString());
+#endif
+            
+            base.PrintPersistenceAsTextInternal(strBuilder.ToString(), "Locations");
         }
     }
 }

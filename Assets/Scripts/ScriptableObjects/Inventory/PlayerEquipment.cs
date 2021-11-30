@@ -19,7 +19,6 @@ namespace ScriptableObjects.Inventory
         public EquipmentItemMeta Cape;
         public EquipmentItemMeta Armour;
         public WeaponItemMeta PrimaryWeapon;
-        public WeaponItemMeta SecondaryWeapon;
 
         private Dictionary<EquipmentPart, Func<EquipmentItemMeta>> MetaByType;
         
@@ -68,6 +67,24 @@ namespace ScriptableObjects.Inventory
         {
             PrimaryWeapon = meta;
             _playerChannel.OnWeaponChanged(meta, part);
+        }
+
+        public int GetCombinedDefense()
+        {
+            var defense = 0;
+            if (Helmet != null)
+                defense += Helmet.Traits.Defense;
+
+            if(Cape != null)
+                defense += Cape.Traits.Defense;
+            
+            if(Armour != null)
+                defense += Armour.Traits.Defense;    
+
+            if(PrimaryWeapon != null)
+                defense += PrimaryWeapon.Traits.Defense;
+
+            return defense;
         }
     }
 }

@@ -308,6 +308,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 26e7e52715a9c4a4b9281244bf9bf407, type: 3}
   - {fileID: 21300000, guid: a066e9271b6546e09114dd098505b57e, type: 3}
   - {fileID: 21300000, guid: 03b8ac2709544e2894cc6bb5f61fbd11, type: 3}
+  - {fileID: 21300000, guid: 5d7ea137507830245ac483c7e664ced3, type: 3}
   - {fileID: 21300000, guid: 84a6f537f57a400698280868a26225e8, type: 3}
   - {fileID: 21300000, guid: ecb3084782ad48a4cbb78e4d3a0836b0, type: 3}
   - {fileID: 21300000, guid: 5a2cc1571eaf4d7c83bef0f8822bcf70, type: 3}
@@ -563,7 +564,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 85e4dc7ee04843ae985158c0a3ae9aa9, type: 3}
   - {fileID: 21300000, guid: 5e0be48ed16d40fea611d3bf39af2547, type: 3}
   - {fileID: 21300000, guid: 2200758e563a45a49b06406b97a223c7, type: 3}
-  - {fileID: 21300000, guid: 680bd69e9e804d6381511dbb6f41495b, type: 3}
   - {fileID: 21300000, guid: 695a7d9eaaed573429bda9ab8a53b7af, type: 3}
   - {fileID: 21300000, guid: 8b5c42ae1982488fa0a01bd28d841bd5, type: 3}
   - {fileID: 21300000, guid: 8022e3ae4048d5449962784927e5fbb8, type: 3}
@@ -875,6 +875,7 @@ SpriteAtlas:
   - Jackal
   - ArmyKnife
   - Radio2
+  - Adventurer
   - 1
   - Policeman
   - DesertEagle
@@ -1130,7 +1131,6 @@ SpriteAtlas:
   - Horns3 [Paint] [FullHair]
   - Normal2
   - RocketLauncher
-  - Adventurer
   - Jackal
   - ShortPonytail
   - Goth

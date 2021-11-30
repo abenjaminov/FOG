@@ -2,7 +2,10 @@
 {
     public enum MessageOptions
     {
+        NoOptions,
         Yes,
-        No
+        No,
+        Buy,
+        Cancel
     }
 }

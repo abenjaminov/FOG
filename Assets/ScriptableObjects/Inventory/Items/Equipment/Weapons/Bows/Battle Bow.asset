@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2a73a78d-ea6e-402f-a77d-eb34c4bf3d54
   Name: Battle Bow
-  ItemSprite: {fileID: 21300002, guid: aeac6c28b23047bd96ee7f9c5ce008cf, type: 3}
+  ItemSprite: {fileID: 21300000, guid: 0a7a56d01206448e856955e7144a23f4, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: af9e8633dcc643f482064d5bc2b2d9ea, type: 3}
   Item:
     Name: BattleBow
@@ -35,5 +35,4 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 3
     Defense: 0
-  MonsterResistance: 3
   IsStaff: 0

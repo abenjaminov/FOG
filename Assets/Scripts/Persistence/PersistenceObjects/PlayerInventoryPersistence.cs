@@ -10,6 +10,6 @@ namespace Persistence.PersistenceObjects
     {
         public List<PlayerInventoryItemPersistence> OwnedItems = new List<PlayerInventoryItemPersistence>();
         public PlayerInventoryItemPersistence CurrencyItem;
-        public Dictionary<KeyCode, string> KeyCodeToItemIdMap = new Dictionary<KeyCode, string>();
+        public List<HotkeyPersistence> HotKeys;
     }
 }

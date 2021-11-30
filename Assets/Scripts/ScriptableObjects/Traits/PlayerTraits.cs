@@ -31,7 +31,7 @@ namespace ScriptableObjects.Traits
         [SerializeField] private int _strength;
         [SerializeField] private int _dexterity;
         [SerializeField] private int _intelligence;
-        [SerializeField] private int _constitution;
+        [SerializeField] private int _defense;
 
         public int Strength
         {
@@ -61,12 +61,12 @@ namespace ScriptableObjects.Traits
             }
         }
 
-        public int Constitution
+        public int Defense
         {
-            get => _constitution;
+            get => _defense;
             set
             {
-                _constitution = value;
+                _defense = value;
                 UpdateMaxHealth();
                 _playerChannel.OnTraitsChangedEvent();
             }
@@ -179,7 +179,7 @@ namespace ScriptableObjects.Traits
             _dexterity = 5;
             _intelligence = 5;
             _intelligence = 5;
-            _constitution = 5;
+            _defense = 5;
             PointsLeft = 0;
             Name = "????";
             IsNameSet = false;

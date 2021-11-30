@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -22,14 +23,14 @@ namespace Persistence.PersistenceHandlers
             
             if (persistence == null) return;
             
-            foreach (var hotKeyCode in persistence.KeyCodeToItemIdMap.Keys)
+            foreach (var hotKey in persistence.HotKeys)
             {
                 var item = _playerInventory.OwnedItems.FirstOrDefault(x =>
-                    x.ItemMeta.Id == persistence.KeyCodeToItemIdMap[hotKeyCode]);
+                    x.ItemMeta.Id == hotKey.ItemId);
 
                 if (item == null) continue;
                 
-                _inventoryChannel.OnHotkeyAssigned(hotKeyCode, item);
+                _inventoryChannel.OnHotkeyAssigned(hotKey.Key, item);
             }
             
             // Inventory items amount doesnt reset on debug so dont add the items
@@ -66,10 +67,14 @@ namespace Persistence.PersistenceHandlers
                 Amount = _playerInventory.CurrencyItem.Amount,
                 InventoryItemMetaId = _playerInventory.CurrencyItem.ItemMeta.Id
             };
-            
-            persistence.KeyCodeToItemIdMap =
-                _hotKeyInfo.HotkeyCodeToItemIdMap.ToDictionary(x => x.Key, 
-                    x => x.Value.Id);
+
+            persistence.HotKeys =
+                _hotKeyInfo.HotkeyCodeToItemIdMap.Select(x => new HotkeyPersistence()
+                {
+                    Key = x.Key,
+                    ItemId = x.Value.Id,
+                    Name = x.Value.Name
+                }).ToList();
             
             return persistence;
         }
@@ -79,22 +84,25 @@ namespace Persistence.PersistenceHandlers
             var strBuilder = new StringBuilder();
             strBuilder.AppendLine("##### INVENTORY PERSISTENCE #####");
             var persistence = GetPersistenceItem();
+            strBuilder.AppendLine("1. Items:");
             foreach (var persistentItem in persistence.OwnedItems)
             {
-                strBuilder.AppendLine($"Item : {persistentItem.Name}, {persistentItem.Amount}");
+                strBuilder.AppendLine($"\tItem : {persistentItem.Name}, {persistentItem.Amount}");
             }
-            strBuilder.AppendLine($"Currency : {persistence.CurrencyItem.Amount}");
+            strBuilder.AppendLine($"\tCurrency : {persistence.CurrencyItem.Amount}");
+            
+            strBuilder.AppendLine("2. Hotkeys:");
+            
+            foreach (var hotKey in persistence.HotKeys)
+            {
+                strBuilder.AppendLine($"{Enum.GetName(typeof(KeyCode), hotKey.Key)} -> {hotKey.ItemId}");
+            }
             
             #if UNITY_EDITOR
             Debug.Log(strBuilder.ToString());
             #endif
             
-            var directory = Application.persistentDataPath + "\\Persistence\\";
-
-            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
-            var filePath = directory + "Inventory.txt";
-            File.WriteAllText(filePath, strBuilder.ToString());
-            
+            base.PrintPersistenceAsTextInternal(strBuilder.ToString(), "Inventory");
         }
     }
 }

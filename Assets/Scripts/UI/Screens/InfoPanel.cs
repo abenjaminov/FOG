@@ -10,7 +10,7 @@ namespace UI.Screens
     public class InfoPanel : MonoBehaviour
     {
         [SerializeField] private InventoryChannel _inventoryChannel;
-        [SerializeField] private PlayerTraits _playerTraits;
+        [SerializeField] private GameChannel _gameChannel;
         [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] TextMeshProUGUI _infoTextPrefab;
         [SerializeField] private int _maxInfos;
@@ -27,6 +27,7 @@ namespace UI.Screens
             _playerChannel.GainedResistancePointsEvent += GainedResistancePointsEvent;
             _inventoryChannel.ItemAmountChangedEvent += ItemAmountChanged;
             _inventoryChannel.FailedToUseItemEvent += FailedToUseItemEvent;
+            _gameChannel.GameErrorEvent += AddErrorItem;
             
             _rectTransform = GetComponent<RectTransform>();
             _textHeight = _infoTextPrefab.rectTransform.sizeDelta.y;
@@ -80,12 +81,23 @@ namespace UI.Screens
         {
             if (gained == 0) return;
             
-            AddInfoItem(gained + " RP Gained");
+            AddInfoItem($"Gained {gained} RP");
+        }
+
+        private void AddErrorItem(string errorText)
+        {
+            AddItem(errorText, Color.red);
         }
         
         private void AddInfoItem(string itemText)
         {
+            AddItem(itemText, Color.yellow);
+        }
+
+        private void AddItem(string itemText, Color color)
+        {
             var infoText = _allTexts[_nextInfoIndex].TextMesh;
+            infoText.color = color;
             infoText.rectTransform.localPosition =
                 new Vector2(-_rectTransform.sizeDelta.x, _initialYForText - _textHeight);
             infoText.SetText(itemText);
@@ -105,6 +117,7 @@ namespace UI.Screens
             _playerChannel.GainedResistancePointsEvent -= GainedResistancePointsEvent;
             _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChanged;
             _inventoryChannel.FailedToUseItemEvent -= FailedToUseItemEvent;
+            _gameChannel.GameErrorEvent -= AddErrorItem;
         }
     }
 

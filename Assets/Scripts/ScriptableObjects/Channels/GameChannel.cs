@@ -13,21 +13,56 @@ namespace ScriptableObjects.Channels
         public UnityAction PlayGameEvent;
 
         public UnityAction<LevelBounds> HitLevelBoundsEvent;
-        public UnityAction<string, List<MessageOptions>, UnityAction<MessageOptions>> ShowMessageRequest;
+        public UnityAction<string, string, List<MessageOptions>> ShowMessageRequestEvent;
+        public UnityAction<string, MessageOptions> MessageClosedEvent;
 
+        public UnityAction<string, string, List<MessageOptions>> ShowInputRequestEvent;
+        public UnityAction<string, string, MessageOptions> InputRequestClosedEvent;
+        
+
+        public UnityAction<string> GameErrorEvent;
+        
         public void OnPlayGame()
         {
             PlayGameEvent?.Invoke();
         }
 
+        public void OnGameErrorEvent(string message)
+        {
+            GameErrorEvent?.Invoke(message);
+        }
+        
         public void OnHitLevelBounds(LevelBounds levelBounds)
         {
             HitLevelBoundsEvent?.Invoke(levelBounds);
         }
 
-        public void ShowGameMessage(string message, List<MessageOptions> options, UnityAction<MessageOptions> callback)
+        public string ShowGameMessage(string message, List<MessageOptions> options)
         {
-            ShowMessageRequest?.Invoke(message, options, callback);
+            var messageId = Guid.NewGuid().ToString();
+
+            ShowMessageRequestEvent?.Invoke(messageId, message, options);
+
+            return messageId;
+        }
+
+        public void OnMessageClosed(string messageId, MessageOptions result)
+        {
+            MessageClosedEvent?.Invoke(messageId, result);
+        }
+
+        public string ShowInputMessage(string message, List<MessageOptions> options)
+        {
+            var messageId = Guid.NewGuid().ToString();
+
+            ShowInputRequestEvent?.Invoke(messageId, message, options);
+
+            return messageId;
+        }
+        
+        public void OnInputRequestClosed(string messageId, string result, MessageOptions reason)
+        {
+            InputRequestClosedEvent?.Invoke(messageId, result, reason);   
         }
     }
 }

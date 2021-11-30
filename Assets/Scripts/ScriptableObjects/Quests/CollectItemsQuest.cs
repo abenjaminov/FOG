@@ -21,6 +21,11 @@ namespace ScriptableObjects.Quests
             MaxValue = _amountToCollect;
         }
 
+        public override string GetName()
+        {
+            return "Collect " + _amountToCollect + " " + _inventoryItemMeta.Name;
+        }
+        
         public override void Complete()
         {
             _inventoryChannel.ItemAmountChangedEvent -= ItemAddedEvent;

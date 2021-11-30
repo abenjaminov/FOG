@@ -19,7 +19,7 @@ MonoBehaviour:
   AssociatedQuest: {fileID: 0}
   ItemRewards:
   - ItemMeta: {fileID: 11400000, guid: 01ec003f1b4115e4b823311ca9988dbf, type: 2}
-    Amount: 10
+    Amount: 25
   ChatItems:
   - Text: '{NAME} you are too weak for this place!'
     Options:

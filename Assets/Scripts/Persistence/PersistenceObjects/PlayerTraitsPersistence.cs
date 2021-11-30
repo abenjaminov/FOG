@@ -11,7 +11,6 @@ namespace Persistence.PersistenceObjects
         internal int Strength;
         internal int Dexterity;
         internal int Intelligence;
-        internal int Constitution;
         internal int PointsLeft;
         internal int Level;
         internal int ResistancePointsGained;

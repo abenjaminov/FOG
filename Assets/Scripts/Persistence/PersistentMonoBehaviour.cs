@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Persistence.Accessors;
 using UnityEngine;
 
@@ -25,5 +26,14 @@ namespace Persistence
         public abstract void OnModuleClosing(IPersistenceModuleAccessor accessor);
 
         public abstract void PrintPersistantData();
+
+        protected void PrintPersistenceAsTextInternal(string persistence, string moduleName)
+        {
+            var directory = Application.persistentDataPath + "\\Persistence\\";
+
+            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+            var filePath = directory + $"{moduleName}.txt";
+            File.WriteAllText(filePath, persistence);
+        }
     }
 }

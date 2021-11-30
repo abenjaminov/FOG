@@ -24,6 +24,7 @@ namespace UI.Screens
         [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private PlayerTraits _playerTraits;
         [SerializeField] private InventoryChannel _inventoryChannel;
+        [SerializeField] private GameChannel _gameChannel;
         [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private LevelConfiguration _levelConfiguration;
 
@@ -32,11 +33,10 @@ namespace UI.Screens
         [SerializeField] private Button _removeStr;
         [SerializeField] private Button _removeDex;
         [SerializeField] private Button _removeInt;
-        [SerializeField] private Button _removeConst;
-    
+
         [SerializeField] private TextMeshProUGUI _dexText;
         [SerializeField] private TextMeshProUGUI _strText;
-        [SerializeField] private TextMeshProUGUI _constText;
+        [SerializeField] private TextMeshProUGUI _defText;
         [SerializeField] private TextMeshProUGUI _intText;
         [SerializeField] private TextMeshProUGUI _levelText;
         [SerializeField] private TextMeshProUGUI _pointsText;
@@ -50,6 +50,18 @@ namespace UI.Screens
             base.Awake();
             
             _playerChannel.WeaponChangedEvent += WeaponChangedEvent;
+            _playerChannel.ItemEquippedEvent += ItemEquippedEvent;
+            _playerChannel.ItemUnEquippedEvent += ItemUnEquippedEvent;
+        }
+
+        private void ItemUnEquippedEvent(EquipmentItemMeta arg0, EquipmentPart arg1)
+        {
+            UpdateUI();
+        }
+
+        private void ItemEquippedEvent(EquipmentItemMeta arg0, EquipmentPart arg1)
+        {
+            UpdateUI();
         }
 
         private void WeaponChangedEvent(WeaponItemMeta arg0, EquipmentPart arg1)
@@ -67,7 +79,7 @@ namespace UI.Screens
             _dexText.SetText(_playerTraits.Dexterity.ToString());
             _strText.SetText(_playerTraits.Strength.ToString());
             _intText.SetText(_playerTraits.Intelligence.ToString());
-            _constText.SetText(_playerTraits.Constitution.ToString());
+            _defText.SetText(_playerEquipment.GetCombinedDefense().ToString());
 
             if (_playerEquipment.PrimaryWeapon == null)
             {
@@ -101,7 +113,6 @@ namespace UI.Screens
             _removeStr.SetActive(_playerTraits.Strength > 5);
             _removeDex.SetActive(_playerTraits.Dexterity > 5);
             _removeInt.SetActive(_playerTraits.Intelligence > 5);
-            _removeConst.SetActive(_playerTraits.Constitution > 5);
         }
 
         public override void ToggleView()
@@ -118,9 +129,9 @@ namespace UI.Screens
         
             if (previousExp == _playerTraits.ResistancePointsGained) return;
         
-            var nextLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level + 1);
-            var expText = nextLevel != null
-                ? _playerTraits.ResistancePointsGained.ToString() + " / " + (nextLevel.ExpForNextLevel)
+            var currentLevel = _levelConfiguration.Levels.FirstOrDefault(x => x.Order == _playerTraits.Level);
+            var expText = currentLevel != null
+                ? _playerTraits.ResistancePointsGained.ToString() + " / " + (currentLevel.ExpForNextLevel)
                 : "Max Level";
 
             _expText.SetText(expText);
@@ -178,26 +189,12 @@ namespace UI.Screens
                 _playerTraits.Intelligence--;
             });
         }
-    
-        public void AddConstitution()
-        {
-            _playerTraits.PointsLeft--;
-            _playerTraits.Constitution++;
-            UpdateUI();
-        }
-        
-        public void RemoveConstitution()
-        {
-            RemoveTrait(() =>
-            {
-                _playerTraits.PointsLeft++;
-                _playerTraits.Constitution--;
-            });
-        }
 
         private void OnDestroy()
         {
             _playerChannel.WeaponChangedEvent -= WeaponChangedEvent;
+            _playerChannel.ItemEquippedEvent -= ItemEquippedEvent;
+            _playerChannel.ItemUnEquippedEvent -= ItemUnEquippedEvent;
         }
 
         private void RemoveTrait(Action removeAction)
@@ -205,7 +202,11 @@ namespace UI.Screens
             var cost = _removeTraitBasicCost * _playerTraits.Level;
             var usedCoins = _inventoryChannel.UseCoinsRequest(cost);
 
-            if (!usedCoins) return;
+            if (!usedCoins)
+            {
+                _gameChannel.OnGameErrorEvent($"Insufficient funds ({cost})");
+                return;
+            }
             
             removeAction();
             UpdateUI();

@@ -11,13 +11,13 @@ namespace Helpers
 {
     public static class TraitsHelper
     {
-        private static float MainStatMultiplier = 1/75f;
-        private static float SecondaryStatMultiplier = 1/150f;
+        private static float MainStatMultiplier = 1/65f;
+        private static float SecondaryStatMultiplier = 1/125f;
 
         public static int GetPlayerMaxHealth(PlayerTraits traits)
         {
             return 100 + (35 * (traits.Level - 1)) + (7 * (traits.Level - 1)) +
-                          (traits.Constitution - 5) * traits.Level;
+                          (traits.Defense - 5) * traits.Level;
         }
         
         private static int GetMaxBaseDamage(int level)
@@ -186,9 +186,17 @@ namespace Helpers
 
         #region Enemies
 
-        public static int GetEnemyDamage(Enemy enemy)
+        public static int GetEnemyDamage(Enemy enemy, PlayerEquipment equipment, PlayerTraits traits)
         {
-            return ((EnemyTraits)enemy.Traits).GetDamage();
+            if(enemy.Traits is FixedDamageEnemyTraits)
+                return ((EnemyTraits)enemy.Traits).GetDamage();
+            
+            var playerDefense = equipment.GetCombinedDefense();
+            var rawDamage = ((EnemyTraits)enemy.Traits).GetDamage();
+
+            var result = rawDamage - (playerDefense * traits.Level);
+
+            return Mathf.Max(1,result);
         }
 
         #endregion

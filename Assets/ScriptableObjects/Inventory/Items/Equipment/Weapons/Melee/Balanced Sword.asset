@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: fcc065ef-3cb9-4b7b-9e39-6731354915ee
   Name: Balanced Sword
-  ItemSprite: {fileID: 21300000, guid: d5d8ac770f724d9596951f76e0ad2d33, type: 3}
+  ItemSprite: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
   Item:
     Name: BalancedSword [Paint]
@@ -32,5 +32,7 @@ MonoBehaviour:
     - Paint
   Part: 7
   RequiredLevel: 10
-  MonsterResistance: 25
+  Traits:
+    MonsterResistance: 25
+    Defense: 0
   IsStaff: 0

@@ -27,22 +27,24 @@ namespace ScriptableObjects.Quests
 
         public override void Complete()
         {
-            _npcChannel.ChatStartedEvent -= ChatStartedEvent;
+            _npcChannel.ChatEndedEvent -= ChatEndedEvent;
             
             base.Complete();
         }
 
         public override void Activate()
         {
-            _npcChannel.ChatStartedEvent += ChatStartedEvent;
+            _npcChannel.ChatEndedEvent += ChatEndedEvent;
             State = QuestState.PendingComplete;
             _questsChannel.OnQuestAssigned(this);
         }
 
-        private void ChatStartedEvent(ChatNpc chatNpc, ChatSession chatSession)
+        private void ChatEndedEvent(ChatNpc chatNpc, ChatSession session, ChatDialogOptionAction reason)
         {
+            if (reason != ChatDialogOptionAction.Accept) return;
+            
             if (chatNpc.NpcId != NpcPrefab.NpcId || 
-                chatSession.AssociatedQuest.Id != Id) return;
+                session.AssociatedQuest.Id != Id) return;
             
             Complete();
         }
