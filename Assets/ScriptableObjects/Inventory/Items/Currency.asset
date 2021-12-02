@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 00d7863c-ec09-423a-9a91-27c41bd8d850
   Name: Coin
+  IsQuestItem: 0
+  PriceInShop: 1
+  PriceForSale: 1
   ItemSprite: {fileID: 21300000, guid: aeacf3fc4e316414d80c02235afe3327, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: aeacf3fc4e316414d80c02235afe3327, type: 3}

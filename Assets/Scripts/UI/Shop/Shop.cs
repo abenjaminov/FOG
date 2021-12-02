@@ -4,6 +4,7 @@ using Assets.HeroEditor.Common.CommonScripts;
 using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
+using UI.Screens;
 using UnityEngine;
 
 namespace UI.Shop
@@ -17,24 +18,34 @@ namespace UI.Shop
         [SerializeField] protected GameObject _itemsArea;
         [SerializeField] protected Inventory _inventory;
         [SerializeField] protected float _itemOffset;
+        [SerializeField] private EquipmentDetailsPanel _equipmentDetailsPanel;
         
-        protected InventoryItemMeta _currentItem;
+        protected ShopItem _currentItem;
         protected string _currentInputMessageId;
-        protected List<InventoryItemMeta> _itemsInShop;
+        protected List<ShopItemInfo> _itemsInShop;
         private  List<ShopItem> _shopItems;
         private float shopItemHeight;
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            _itemsInShop = new List<InventoryItemMeta>();
+            _itemsInShop = new List<ShopItemInfo>();
             _shopItems = new List<ShopItem>();
             shopItemHeight = ((RectTransform)_shopItemPrefab.transform).sizeDelta.y + _itemOffset;
             _gameChannel.InputRequestClosedEvent += InputRequestClosedEvent;
+            _gameChannel.MessageClosedEvent += MessageClosedEvent;
         }
         
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             _gameChannel.InputRequestClosedEvent -= InputRequestClosedEvent;
+            _gameChannel.MessageClosedEvent -= MessageClosedEvent;
+
+            foreach (var shopItem in _shopItems)
+            {
+                shopItem.ShopItemDoubleClicked -= ShopItemDoubleClicked;
+                shopItem.ShopItemMouseEnter -= ShopItemMouseEnter;
+                shopItem.ShopItemMouseExit -= ShopItemMouseExit;
+            }
         }
 
         public void UpdateShop()
@@ -50,6 +61,8 @@ namespace UI.Shop
                 if (index > _itemsInShop.Count - 1)
                 {
                     _shopItems[index].ShopItemDoubleClicked -= ShopItemDoubleClicked;
+                    _shopItems[index].ShopItemMouseEnter -= ShopItemMouseEnter;
+                    _shopItems[index].ShopItemMouseExit -= ShopItemMouseExit;
                     _shopItems[index].SetActive(false);
                     continue;
                 }
@@ -62,9 +75,21 @@ namespace UI.Shop
                 
                 SetItemInfo(_itemsInShop[index], currentShopItem);
                 currentShopItem.ShopItemDoubleClicked += ShopItemDoubleClicked;
+                currentShopItem.ShopItemMouseEnter += ShopItemMouseEnter;
+                currentShopItem.ShopItemMouseExit += ShopItemMouseExit;
             }            
         }
-        
+
+        private void ShopItemMouseExit(ShopItem item)
+        {
+            _equipmentDetailsPanel.HideItemDetails();
+        }
+
+        private void ShopItemMouseEnter(ShopItem item)
+        {
+            _equipmentDetailsPanel.ShowItemDetails(item.ItemMeta, item.GetBottomLeftCorner());
+        }
+
         private void AddShopItem()
         {
             var newShopItem = Instantiate(_shopItemPrefab, _itemsArea.transform);
@@ -73,7 +98,8 @@ namespace UI.Shop
 
         protected abstract void UpdateItemsDisplayed();
         protected abstract void InputRequestClosedEvent(string messageId, string result, MessageOptions reason);
-        protected abstract void SetItemInfo(InventoryItemMeta item, ShopItem shopItem);
+        protected abstract void SetItemInfo(ShopItemInfo info, ShopItem shopItem);
         protected abstract void ShopItemDoubleClicked(ShopItem item);
+        protected abstract void MessageClosedEvent(string messageId, MessageOptions reason);
     }
 }

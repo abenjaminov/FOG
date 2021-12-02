@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: ad81ae48-30e0-4088-8545-28a31918ce66
   Name: Witch Hunter Bow
+  IsQuestItem: 0
+  PriceInShop: 20000
+  PriceForSale: 17500
   ItemSprite: {fileID: 21300000, guid: 85f559ab5a314515b3a34fa5ef414260, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 85f559ab5a314515b3a34fa5ef414260, type: 3}
   Item:

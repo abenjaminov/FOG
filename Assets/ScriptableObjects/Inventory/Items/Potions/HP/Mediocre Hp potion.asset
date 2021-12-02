@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: da7c11e7-72ee-4067-9804-0488e12c6948
   Name: Mediocre Hp Potion
+  PriceInShop: 130
+  PriceForSale: 105
   ItemSprite: {fileID: 21300000, guid: edb16191a9d0d124bb0a2e31eca41767, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: b628d25087134f14eb8c9efef1da4314, type: 3}
   PotionType: 0

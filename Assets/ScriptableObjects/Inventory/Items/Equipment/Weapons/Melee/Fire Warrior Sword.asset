@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1cf979a7-0d99-4093-9fe2-4f88bce88df5
   Name: Fire Warrior Sword
+  IsQuestItem: 0
+  PriceInShop: 20000
+  PriceForSale: 17500
   ItemSprite: {fileID: 21300000, guid: 637c5f33f41a480fb696713864f30c1d, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 637c5f33f41a480fb696713864f30c1d, type: 3}
   Item:

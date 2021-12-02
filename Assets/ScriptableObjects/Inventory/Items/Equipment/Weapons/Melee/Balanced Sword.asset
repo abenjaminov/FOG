@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: fcc065ef-3cb9-4b7b-9e39-6731354915ee
   Name: Balanced Sword
+  IsQuestItem: 0
+  PriceInShop: 8000
+  PriceForSale: 6350
   ItemSprite: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
   Item:

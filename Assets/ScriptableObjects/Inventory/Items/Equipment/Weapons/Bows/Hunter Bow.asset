@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 81547f25-9516-405e-ba0e-df99f856d211
   Name: Hunter Bow
+  IsQuestItem: 0
+  PriceInShop: 1900
+  PriceForSale: 1250
   ItemSprite: {fileID: 21300000, guid: 188ee285adf84448b307a36f963d5760, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 188ee285adf84448b307a36f963d5760, type: 3}
   Item:
@@ -34,5 +37,5 @@ MonoBehaviour:
   RequiredLevel: 1
   Traits:
     MonsterResistance: 3
-    Defense: 0
+    Defense: 1
   IsStaff: 0

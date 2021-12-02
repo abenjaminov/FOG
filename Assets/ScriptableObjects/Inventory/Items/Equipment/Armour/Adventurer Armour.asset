@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 24ed08cd-f811-43ef-a8ed-01189d410c68
   Name: Adventurer Armour
+  IsQuestItem: 0
+  PriceInShop: 0
+  PriceForSale: 300
   ItemSprite: {fileID: 21300000, guid: 5d7ea137507830245ac483c7e664ced3, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 5d7ea137507830245ac483c7e664ced3, type: 3}
   Item:

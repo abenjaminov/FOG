@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 556090363}
   - component: {fileID: 556090366}
   - component: {fileID: 915011443}
-  - component: {fileID: 3745330991697032811}
+  - component: {fileID: 4679426517898233328}
   - component: {fileID: 9550234}
   m_Layer: 0
   m_Name: Persistence
@@ -116,7 +116,7 @@ MonoBehaviour:
   - {fileID: 556090363}
   - {fileID: 556090366}
   - {fileID: 556090365}
---- !u!114 &3745330991697032811
+--- !u!114 &4679426517898233328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3745330991325047864
 Transform:
   m_ObjectHideFlags: 0

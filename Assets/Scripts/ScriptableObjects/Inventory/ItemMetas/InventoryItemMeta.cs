@@ -7,6 +7,8 @@ namespace ScriptableObjects.Inventory.ItemMetas
         public string Id;
         public string Name;
 
+        public bool IsQuestItem;
+        
         [Header("Shop")] 
         public int PriceInShop;
         public int PriceForSale;

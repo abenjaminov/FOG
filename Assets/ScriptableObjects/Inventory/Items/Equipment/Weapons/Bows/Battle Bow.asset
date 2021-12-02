@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2a73a78d-ea6e-402f-a77d-eb34c4bf3d54
   Name: Battle Bow
+  IsQuestItem: 0
+  PriceInShop: 1800
+  PriceForSale: 1100
   ItemSprite: {fileID: 21300000, guid: 0a7a56d01206448e856955e7144a23f4, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: af9e8633dcc643f482064d5bc2b2d9ea, type: 3}
   Item:

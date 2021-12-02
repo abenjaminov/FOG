@@ -18,6 +18,14 @@ namespace ScriptableObjects.Inventory
         private void OnEnable()
         {
             _inventoryChannel.UseItemRequestEvent += UseItem;
+
+            foreach (var item in OwnedItems)
+            {
+                if (string.IsNullOrEmpty(item.Id))
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                }
+            }
         }
 
         private void OnDisable()
@@ -36,11 +44,7 @@ namespace ScriptableObjects.Inventory
             }
             else if (itemMetaData is EquipmentItemMeta)
             {
-                inventoryItem = new InventoryItem()
-                {
-                    ItemMeta = itemMetaData,
-                    Amount = 1
-                };
+                inventoryItem = GetNewInventoryItem(itemMetaData, 1);
                 OwnedItems.Add(inventoryItem);
             }
             else
@@ -53,11 +57,7 @@ namespace ScriptableObjects.Inventory
                 }
                 else
                 {
-                    inventoryItem = new InventoryItem()
-                    {
-                        ItemMeta = itemMetaData,
-                        Amount = amountToAdd
-                    };
+                    inventoryItem = GetNewInventoryItem(itemMetaData, amountToAdd);
                     OwnedItems.Add(inventoryItem);
                 }
             }
@@ -65,6 +65,16 @@ namespace ScriptableObjects.Inventory
             _inventoryChannel.OnItemAmountChangedSilent(inventoryItem, amountToAdd);
             
             return inventoryItem;
+        }
+
+        private InventoryItem GetNewInventoryItem(InventoryItemMeta meta, int amount)
+        {
+            return new InventoryItem()
+            {
+                Id = Guid.NewGuid().ToString(),
+                ItemMeta = meta,
+                Amount = amount
+            };
         }
 
         public void AddItem(InventoryItemMeta itemMetaData, int amountToAdd)
@@ -87,9 +97,20 @@ namespace ScriptableObjects.Inventory
             _inventoryChannel.OnItemAmountChanged(item, -1);
         }
 
+        public void DecreaseItem(InventoryItem item, int? amount)
+        {
+            if (item.ItemMeta is EquipmentItemMeta)
+            {
+                RemoveItem(item);
+                return;
+            }
+            
+            AddItem(item.ItemMeta, -1 * (amount ?? 1));
+        }
+
         private void RemoveItemInternal(InventoryItem item)
         {
-            var itemToRemove = OwnedItems.FirstOrDefault(x => x == item);
+            var itemToRemove = OwnedItems.FirstOrDefault(x => x.Id == item.Id);
 
             if (itemToRemove != null)
             {

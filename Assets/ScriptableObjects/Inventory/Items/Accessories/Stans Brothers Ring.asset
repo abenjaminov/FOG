@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 978c958e-5738-4b9d-9faf-7ddcc48043af
   Name: Stans Brothers Ring
+  IsQuestItem: 1
+  PriceInShop: 0
+  PriceForSale: 0
   ItemSprite: {fileID: 21300000, guid: 005b94239ea8d8249861abe4469dc8fd, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 31f7731b8a851fd4a9cd2aec8f71cbd0, type: 3}

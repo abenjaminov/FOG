@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: d4277a22-9ea8-47df-aace-0c2da4330da6
   Name: Orc Bow
+  IsQuestItem: 0
+  PriceInShop: 8000
+  PriceForSale: 6350
   ItemSprite: {fileID: 21300000, guid: bfced7af3179499a87980dc461d0e1b8, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: bfced7af3179499a87980dc461d0e1b8, type: 3}
   Item:

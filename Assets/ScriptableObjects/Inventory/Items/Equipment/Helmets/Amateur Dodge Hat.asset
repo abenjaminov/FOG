@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2ca88128-081c-445e-86eb-e951f7245101
   Name: Amateur Dodge Hat
+  IsQuestItem: 0
+  PriceInShop: 3500
+  PriceForSale: 1900
   ItemSprite: {fileID: 21300000, guid: 878803e031b44940bdbf9bd7726b8761, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 878803e031b44940bdbf9bd7726b8761, type: 3}
   Item:

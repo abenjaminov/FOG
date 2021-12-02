@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2def7995-b4bb-41cf-8ab1-a6b1d045d7d0
   Name: Gold Dragon Bow
+  IsQuestItem: 0
+  PriceInShop: 30000
+  PriceForSale: 26750
   ItemSprite: {fileID: 21300000, guid: b6a818ef96f74851a0655890eb4241a7, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: b6a818ef96f74851a0655890eb4241a7, type: 3}
   Item:

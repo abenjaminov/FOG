@@ -7,6 +7,7 @@ namespace ScriptableObjects.Inventory
     [Serializable]
     public class InventoryItem
     {
+        public string Id;
         [SerializeField] private InventoryItemMeta _itemMeta;
 
         public InventoryItemMeta ItemMeta
