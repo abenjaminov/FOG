@@ -15,13 +15,29 @@ namespace UI.Shop
         public UnityAction<ShopItem> ShopItemDoubleClicked;
         public InventoryItemMeta Item;
 
-        public void SetItem(InventoryItemMeta item, CurrencyItemMeta currencyItemMeta)
+        public void SetItem(InventoryItemMeta item)
         {
-            Icon.sprite = item.InventoryItemSprite;
-            NameText.SetText(item.Name);
-            PriceText.SetText(item.PriceInShop + " " + currencyItemMeta.Name);
-
             Item = item;
+        }
+
+        public void SetIcon(Sprite icon)
+        {
+            Icon.sprite = icon;
+        }
+        
+        public void SetNameText(string nameText)
+        {
+            NameText.SetText(nameText);
+        }
+
+        public void SetPriceText(int price, InventoryItemMeta currencyItem)
+        {
+            PriceText.SetText(price + " " + currencyItem.Name);
+        }
+
+        public void SetAdditionalLineText(string additionalLine)
+        {
+            
         }
 
         public void HandleDoubleClick()

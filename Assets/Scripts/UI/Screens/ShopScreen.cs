@@ -12,6 +12,7 @@ namespace UI.Screens
         [SerializeField] private GameObject _shopScreen;
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private BuyShop _buyShop;
+        [SerializeField] private SellShop _sellShop;
 
         private KeySubscription _closeSubscription;
 
@@ -36,8 +37,10 @@ namespace UI.Screens
             });
             
             _shopScreen.SetActive(true);
-            
-            _buyShop.UpdateShop(shopInfo);
+
+            _buyShop.ShopInfo = shopInfo;
+            _buyShop.UpdateShop();
+            _sellShop.UpdateShop();
         }
     }
 }

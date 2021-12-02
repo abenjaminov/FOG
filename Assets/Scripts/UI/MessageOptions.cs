@@ -6,6 +6,7 @@
         Yes,
         No,
         Buy,
+        Sell,
         Cancel
     }
 }
