@@ -1,7 +1,7 @@
-﻿using Animations;
-using Assets.HeroEditor.Common.CharacterScripts;
+﻿using Assets.HeroEditor.Common.CharacterScripts;
 using Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace State.States
 {
@@ -13,6 +13,8 @@ namespace State.States
         private float _jumpHeight;
         private CharacterState _previousState;
         private Collider2D _collider;
+        
+        public UnityAction OnEnterEvent;
 
         public PlayerJumpingState(Entity.Player.Player player,
             PlayerMovement playerMovement, 
@@ -39,6 +41,8 @@ namespace State.States
             _collider.enabled = false;
             _previousState = _player.GetCharacter().GetState();
             _player.GetCharacter().SetState(CharacterState.Jump);
+            
+            OnEnterEvent?.Invoke();
         }
 
         public void OnExit()

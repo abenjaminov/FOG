@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 6868618e-3746-40d9-897a-7ce2315f28cc
   Name: Cleric Wand
+  IsQuestItem: 0
+  PriceInShop: 0
+  PriceForSale: 0
   ItemSprite: {fileID: 21300000, guid: 4599c648f5c04f598e27127a75f49b38, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 412e755934834965b045d531da84d4df, type: 3}
   Item:
@@ -33,4 +36,6 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 10
     Defense: 0
+  UseSFX: {fileID: 8300000, guid: ecfcbfd2d2adca54eae1b2a2aca28e85, type: 3}
+  HitSFX: {fileID: 0}
   IsStaff: 1

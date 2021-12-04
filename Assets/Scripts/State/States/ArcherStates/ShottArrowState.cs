@@ -24,6 +24,8 @@ namespace State.States.ArcherStates
 
         public override void OnEnter()
         {
+            base.OnEnter();
+            
             _character.GetCharacter().Animator.SetInteger(CachedAnimatorPropertyNames.Charge, 1);
             
             base.OnEnter();

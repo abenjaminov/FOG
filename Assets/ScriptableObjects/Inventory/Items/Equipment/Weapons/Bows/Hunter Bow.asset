@@ -38,4 +38,6 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 3
     Defense: 1
+  UseSFX: {fileID: 8300000, guid: a888671724f44405b17ac762bc4ec764, type: 3}
+  HitSFX: {fileID: 8300000, guid: 7b2089ab60824b53afef6bb3a8850bfb, type: 3}
   IsStaff: 0

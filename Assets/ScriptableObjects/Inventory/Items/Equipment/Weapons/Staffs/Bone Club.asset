@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0959654f-093d-45d4-8115-66e376fa86ac
   Name: Bone Club
+  IsQuestItem: 0
+  PriceInShop: 0
+  PriceForSale: 0
   ItemSprite: {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 1f05f7d282a343489ba374a0bba09a51, type: 3}
   Item:
@@ -33,4 +36,6 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 3
     Defense: 0
+  UseSFX: {fileID: 8300000, guid: ecfcbfd2d2adca54eae1b2a2aca28e85, type: 3}
+  HitSFX: {fileID: 0}
   IsStaff: 1

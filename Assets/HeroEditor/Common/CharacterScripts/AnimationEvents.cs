@@ -17,6 +17,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
 		// Asaf Added
 		public UnityAction BowChargeEndEvent;
+		public UnityAction SlashStartEvent;
 		public UnityAction SlashEndEvent;
 		public UnityAction MeleeStrikeEvent;
 		public UnityAction ShootEndEvent;
@@ -70,6 +71,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		    BowChargeEndEvent?.Invoke();
 	    }
 
+	    public void OnSlashStart()
+	    {
+		    SlashStartEvent?.Invoke();
+	    }
+	    
 	    public void OnSlashEnd()
 	    {
 		    SlashEndEvent?.Invoke();

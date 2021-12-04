@@ -14,8 +14,10 @@ namespace State.States.ArcherStates
             _buffs = character.GetComponent<WorldEntitiyBuffs>();
         }
 
-        public override void OnEnter()
+        public void OnEnter()
         {
+            base.OnEnter();
+            
             _buffs.ApplyBuff(Ability);
             IsBuffApplied = true;
         }

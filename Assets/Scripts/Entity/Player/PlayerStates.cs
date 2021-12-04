@@ -19,7 +19,8 @@ namespace Entity.Player
         private bool _isBasicAttackKeyDown;
 
         protected StateMachine _stateMachine;
-        
+
+        [SerializeField] private PlayerChannel _playerChannel;
         [SerializeField] private InputChannel _inputChannel;
         [SerializeField] private KeyboardConfiguration _keyboardConfiguration;
         [SerializeField] private LocationsChannel _locationsChannel;
@@ -52,7 +53,7 @@ namespace Entity.Player
         protected JumpFromLadderState _jumpFromLadder;
         protected PlayerFallState _fall;
         protected DieState _dead;
-        protected IAbilityState _basicAttackState;
+        //protected IAbilityState _basicAttackState;
         protected PlayerClimbState _climb;
 
         // Transition conditions
@@ -212,11 +213,18 @@ namespace Entity.Player
             _walkLeft = new PlayerWalkLeftState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _walkRight = new PlayerWalkRightState(_player, _playerMovement, _animator, _player.Traits.WalkSpeed);
             _jump = new PlayerJumpingState(_player, _playerMovement, _player.Traits.JumpHeight, _rigidBody, _hitBoxCollider);
+            _jump.OnEnterEvent += OnEnterEvent; 
+            
             _jumpFromLadder = new JumpFromLadderState(_player, _playerMovement, _rigidBody, _hitBoxCollider);
             _fall = new PlayerFallState(_player, _hitBoxCollider);
             _dead = new PlayerDieState(_player, _playerMovement, _animator);
             _climb = new PlayerClimbState(_player, _playerClimb, _playerMovement, _rigidBody, _hitBoxCollider, _inputChannel,
                 _player.PlayerTraits.ClimbSpeed, _keyboardConfiguration);
+        }
+
+        private void OnEnterEvent()
+        {
+            _playerChannel.OnPlayerJump();
         }
 
         private void ConfigureDeadState()
@@ -244,15 +252,15 @@ namespace Entity.Player
             _stateMachine.Tick();
         }
 
-        internal void AddAttackState(IAbilityState abilityState, WeaponStates weaponStates, Func<bool> shouldTransitionFrom = null)
-        {
-            AddAbilityState(abilityState, _attackTransitionLogicWrapper(weaponStates), shouldTransitionFrom);
-        }
-        
-        internal void AddBuffState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
-        {
-            AddAbilityState(abilityState, _buffTransitionLogic, shouldTransitionFrom);
-        }
+        // internal void AddAttackState(IAbilityState abilityState, WeaponStates weaponStates, Func<bool> shouldTransitionFrom = null)
+        // {
+        //     AddAbilityState(abilityState, _attackTransitionLogicWrapper(weaponStates), shouldTransitionFrom);
+        // }
+        //
+        // internal void AddBuffState(IAbilityState abilityState, Func<bool> shouldTransitionFrom = null)
+        // {
+        //     AddAbilityState(abilityState, _buffTransitionLogic, shouldTransitionFrom);
+        // }
         
         private void AddAbilityState(IAbilityState abilityState,
                                       Action transitionLogic = null,
@@ -301,6 +309,7 @@ namespace Entity.Player
             _bowStates.StatesActivatedEvent -= StatesActivatedEvent;
             _oneHandedMeleeStates.StatesActivatedEvent -= StatesActivatedEvent;
             _magicStates.StatesActivatedEvent -= StatesActivatedEvent;
+            _jump.OnEnterEvent -= OnEnterEvent; 
         }
     }
 }

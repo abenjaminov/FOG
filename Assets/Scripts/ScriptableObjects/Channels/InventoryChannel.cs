@@ -20,6 +20,8 @@ namespace ScriptableObjects.Channels
         
         public UnityAction<KeyCode, InventoryItem> HotkeyAssignedEvent;
         public UnityAction<KeyCode> HotkeyUnAssignedEvent;
+        public UnityAction InsufficientFundsEvent;
+        public UnityAction UsedCoinsEvent;
 
         public UnityAction UsedPotionEvent;
 
@@ -65,9 +67,14 @@ namespace ScriptableObjects.Channels
 
         public bool UseCoinsRequest(int coinsAmount)
         {
-            if (MainInventory.CurrencyItem.Amount < coinsAmount) return false;
+            if (MainInventory.CurrencyItem.Amount < coinsAmount)
+            {
+                InsufficientFundsEvent?.Invoke();
+                return false;
+            };
             
             MainInventory.AddItem(MainInventory.CurrencyItem.ItemMeta, -coinsAmount);
+            UsedCoinsEvent?.Invoke();
             return true;
         }
     }

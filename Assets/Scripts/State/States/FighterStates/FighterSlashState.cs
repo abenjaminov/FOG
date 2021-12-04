@@ -16,6 +16,7 @@ namespace State.States.FighterStates
         public override void OnEnter()
         {
             base.OnEnter();
+            
             Ability.Use();
         }
     }

@@ -1,8 +1,7 @@
 ﻿using Abilities;
-using Entity;
 using Entity.Enemies;
 using Helpers;
-using Platformer;
+using ScriptableObjects.Channels.Info;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Traits;
 using UnityEngine;
@@ -15,16 +14,33 @@ namespace ScriptableObjects.Channels
     {
         [SerializeField] private PlayerEquipment _playerEquipment;
         [SerializeField] private PlayerTraits _playerTraits;
-        
+
+        public UnityAction<UseAbilityEventInfo> UseAbilityEvent;
+        public UnityAction<EnemyHitEventInfo> EnemyHitEvent;
         public UnityAction<Enemy> EnemyDiedEvent;
         public UnityAction<Buff> BuffAppliedEvent;
         public UnityAction<Buff> BuffExpiredEvent;
+
+        public void OnUseAbility(Entity.Player.Player player)
+        {
+            UseAbilityEvent?.Invoke(new UseAbilityEventInfo()
+            {
+                Weapon = player.Equipment.PrimaryWeapon
+            });
+        }
         
         public void OnEnemyHit(Entity.Player.Player player, Enemy enemy, Ability ability = null)
         {
             var damage = TraitsHelper.CalculateDamageInflictedByPlayer(player.PlayerTraits, player.Equipment);
             var damageWithAbilityFactor = Mathf.Ceil(damage * (ability != null ? ability.DamagePercentage : 1));
             enemy.ReceiveDamage(damageWithAbilityFactor);
+            
+            EnemyHitEvent?.Invoke(new EnemyHitEventInfo()
+            {
+                Damage = damageWithAbilityFactor,
+                Enemy = enemy,
+                Weapon = player.Equipment.PrimaryWeapon
+            });
         }
 
         public void OnPlayerHit(Entity.Player.Player player, Enemy enemy)

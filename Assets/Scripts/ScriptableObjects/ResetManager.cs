@@ -7,7 +7,6 @@ using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
 using ScriptableObjects.Quests;
 using ScriptableObjects.Traits;
-using UnityEditor;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -62,31 +61,32 @@ namespace ScriptableObjects
             return _manager;
         }
         
-        [MenuItem("Reset/Phases/Phase 0 - Tutorial")]
+        #if UNITY_EDITOR
+        [UnityEditor.MenuItem("Reset/Phases/Phase 0 - Tutorial")]
         private static void ResetPhase0()
         {
             GetManager().Phase0();
         }
         
-        [MenuItem("Reset/Phases/Phase 1 - Karf")]
+        [UnityEditor.MenuItem("Reset/Phases/Phase 1 - Karf")]
         private static void ResetPhase1()
         {
             GetManager().Phase1();
         }
         
-        [MenuItem("Reset/Phases/Phase 2 - Karf Level 4")]
+        [UnityEditor.MenuItem("Reset/Phases/Phase 2 - Karf Level 4")]
         private static void ResetPhase2()
         {
             GetManager().Phase2();
         }
         
-        [MenuItem("Reset/Phases/Phase 3 - Map 5 Level 5")]
+        [UnityEditor.MenuItem("Reset/Phases/Phase 3 - Map 5 Level 5")]
         private static void ResetPhase3()
         {
             GetManager().Phase3();
         }
 
-        [MenuItem("Reset/Reset Persistence")]
+        [UnityEditor.MenuItem("Reset/Reset Persistence")]
         private static void S_ResetPersistence()
         {
             GetManager().ResetPersistence();
@@ -99,7 +99,8 @@ namespace ScriptableObjects
             
             ShowPhaseResetMessage("Phase 0 - Tutorial beggining");
         }
-
+        #endif
+        
         private void Phase0Content()
         {
             ResetPlayerTraits();

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: a6eeb339-8d9e-4732-80e3-4f2017a090fd
   Name: Elder Staff
+  IsQuestItem: 0
+  PriceInShop: 0
+  PriceForSale: 0
   ItemSprite: {fileID: 21300000, guid: cf147a92a61b4418a3d262d5088c229c, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: df14cbe6c499433989b445816e3a91cd, type: 3}
   Item:
@@ -33,4 +36,6 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 25
     Defense: 0
+  UseSFX: {fileID: 8300000, guid: ecfcbfd2d2adca54eae1b2a2aca28e85, type: 3}
+  HitSFX: {fileID: 0}
   IsStaff: 1

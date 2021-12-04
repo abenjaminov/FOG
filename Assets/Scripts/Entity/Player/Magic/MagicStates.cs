@@ -1,14 +1,14 @@
-﻿using Abilities.Magic;
+﻿using Abilities;
+using Abilities.Magic;
 using HeroEditor.Common.Enums;
 using ScriptableObjects.Inventory.ItemMetas;
 using State.States.MagicStates;
-using UnityEngine;
 
 namespace Entity.Player.Magic
 {
     public class MagicStates : WeaponStates<MagicAttackAbility>
     {
-        private Entity.Player.Player _player;
+        private Player _player;
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.MeleeWeapon1H;
 
         public override void Initialize()
@@ -25,7 +25,13 @@ namespace Entity.Player.Magic
         protected override void ActivateStates()
         {
             AnimationEvents.SlashEndEvent += SlashEndEvent;
+            AnimationEvents.SlashStartEvent += SlashStartEvent;
             BasicAttackState.Ability.Activate();
+        }
+
+        private void SlashStartEvent()
+        {
+            _combatChannel.OnUseAbility(_player);
         }
 
         private void SlashEndEvent()
@@ -36,6 +42,7 @@ namespace Entity.Player.Magic
         protected override void DeActivateStates()
         {
             AnimationEvents.SlashEndEvent -= SlashEndEvent;
+            AnimationEvents.SlashStartEvent -= SlashStartEvent;
             BasicAttackState.Ability.Deactivate();
         }
         

@@ -18,7 +18,13 @@ namespace ScriptableObjects.Channels
         public UnityAction<WeaponItemMeta, EquipmentPart> WeaponChangedEvent;
         public UnityAction<EquipmentItemMeta, EquipmentPart> ItemEquippedEvent;
         public UnityAction<EquipmentItemMeta, EquipmentPart> ItemUnEquippedEvent;
+        public UnityAction PlayerJumpEvent;
 
+        public void OnPlayerJump()
+        {
+            PlayerJumpEvent?.Invoke();
+        }
+        
         public void OnNameSet()
         {
             NameSetEvent?.Invoke();

@@ -1,4 +1,5 @@
-﻿using Abilities.Bow;
+﻿using Abilities;
+using Abilities.Bow;
 using HeroEditor.Common.Enums;
 using Player;
 using State.States.ArcherStates;
@@ -47,15 +48,17 @@ namespace Entity.Player.Bow
 
         protected override void DeActivateStates()
         {
-            AnimationEvents.BowChargeEndEvent -= BowChargeEndEvent;
             BasicAttackState.Ability.Deactivate();
             _strongArrowState.Ability.Deactivate();
             _fastAttackBuffState.Ability.Deactivate();
+            
+            AnimationEvents.BowChargeEndEvent -= BowChargeEndEvent;
         }
 
         private void BowChargeEndEvent()
         {
             IsAbilityAnimationActivated = false;
+            _combatChannel.OnUseAbility(_archer);
         }
     }
 }

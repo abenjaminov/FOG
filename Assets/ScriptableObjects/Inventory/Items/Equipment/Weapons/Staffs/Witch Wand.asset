@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 537f34b2-c42f-4971-9707-fd2d89b41599
   Name: Witch Wand
+  IsQuestItem: 0
+  PriceInShop: 0
+  PriceForSale: 0
   ItemSprite: {fileID: 21300000, guid: b52e06d01b114ad6aa6a464809484ce4, type: 3}
   InventoryItemSprite: {fileID: 21300000, guid: 98cc71e83df84749a0cfb43dbe4fc0c1, type: 3}
   Item:
@@ -33,4 +36,6 @@ MonoBehaviour:
   Traits:
     MonsterResistance: 100
     Defense: 0
+  UseSFX: {fileID: 8300000, guid: ecfcbfd2d2adca54eae1b2a2aca28e85, type: 3}
+  HitSFX: {fileID: 0}
   IsStaff: 1

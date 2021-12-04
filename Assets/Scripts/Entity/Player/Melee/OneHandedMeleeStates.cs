@@ -1,4 +1,5 @@
-﻿using Abilities.Melee;
+﻿using Abilities;
+using Abilities.Melee;
 using HeroEditor.Common.Enums;
 using Player;
 using ScriptableObjects.Inventory.ItemMetas;
@@ -8,7 +9,7 @@ namespace Entity.Player.Melee
 {
     public class OneHandedMeleeStates : WeaponStates<SlashAbility>
     {
-        private Entity.Player.Player _player;
+        private Player _player;
 
         protected override EquipmentPart WeaponEquipmentType => EquipmentPart.MeleeWeapon1H;
 
@@ -25,12 +26,19 @@ namespace Entity.Player.Melee
 
         protected override void ActivateStates()
         {
+            AnimationEvents.SlashStartEvent += SlashStartEvent;
             AnimationEvents.SlashEndEvent += SlashEndEvent;
             BasicAttackState.Ability.Activate();
         }
 
+        private void SlashStartEvent()
+        {
+            _combatChannel.OnUseAbility(_player);
+        }
+
         protected override void DeActivateStates()
         {
+            AnimationEvents.SlashStartEvent -= SlashStartEvent;
             AnimationEvents.SlashEndEvent -= SlashEndEvent;
             BasicAttackState.Ability.Deactivate();
         }

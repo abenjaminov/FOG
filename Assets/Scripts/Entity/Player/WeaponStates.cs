@@ -17,6 +17,8 @@ namespace Entity.Player
         protected AnimationEvents AnimationEvents;
         [SerializeField] protected PlayerChannel _playerChannel;
 
+        [SerializeField] protected CombatChannel _combatChannel;
+
         [HideInInspector] public bool IsEnabled;
 
         [SerializeField] protected PlayerStates _playerStates;
