@@ -1,7 +1,5 @@
-﻿using System.Runtime.InteropServices.WindowsRuntime;
-using ScriptableObjects.Channels;
+﻿using ScriptableObjects.Channels;
 using ScriptableObjects.Inventory;
-using ScriptableObjects.Inventory.ItemMetas;
 using TMPro;
 using UI.Behaviours;
 using UI.Mouse;
@@ -18,38 +16,20 @@ namespace UI.Elements
         [SerializeField] private InventoryChannel _inventoryChannel;
         [SerializeField] private TextMeshProUGUI _amountText;
         [SerializeField] private Image _itemImage;
-        [SerializeField] private KeyCode _keyCode;
+        public KeyCode KeyCode;
 
         private KeySubscription _hotKeySubscription;
-        private InventoryItem _currentInventoryItem;
+        [HideInInspector] public InventoryItem InventoryItem;
 
         private void Awake()
         {
             _inventoryChannel.ItemAmountChangedEvent += ItemAmountChangedEvent;
-            _inventoryChannel.HotkeyAssignedEvent += HotkeyAssignedEvent;
-        }
-
-        private void HotkeyAssignedEvent(KeyCode code, InventoryItem item)
-        {
-            if (_keyCode != code) return;
-            
-            _currentInventoryItem = item;
-
-            if (_currentInventoryItem == null)
-            {
-                _hotKeySubscription?.Unsubscribe();
-            }
-            else
-            {
-                _hotKeySubscription = _inputChannel.SubscribeKeyDown(_keyCode, KeyDown);
-            }
-            
-            UpdateUI();
+            _inventoryChannel.DropItemRequestEvent += DropItemRequestEvent;
         }
 
         private void ItemAmountChangedEvent(InventoryItem inventoryItem, int amount)
         {
-            if (_currentInventoryItem == null || _currentInventoryItem.ItemMeta.Id != inventoryItem.ItemMeta.Id) return;
+            if (InventoryItem == null || InventoryItem.Id != inventoryItem.Id) return;
 
             if (inventoryItem.Amount == 0)
             {
@@ -61,38 +41,55 @@ namespace UI.Elements
             }
         }
 
+        private void DropItemRequestEvent(InventoryItem inventoryItem)
+        {
+            if (InventoryItem == null || InventoryItem.Id != inventoryItem.Id) return;
+            
+            AssignItem(null);
+        }
+        
         public void DragDropped(IDraggable draggable)
         {
             if (!draggable.GetGameObject().TryGetComponent(typeof(InventoryItemView), out var component)) return;
 
             var item = ((InventoryItemView)component).InventoryItem;
 
-            if (!item.ItemMeta.IsConsumable())
-            {
-                AssignItem(null);
-                return;
-            }
+            if (!item.ItemMeta.IsConsumable()) return;
 
-            AssignItem(item);
+            _inventoryChannel.OnHotkeyAssigned(KeyCode, item);
         }
 
-        private void AssignItem(InventoryItem item)
+        public void UnAssignItem()
         {
-            if (item == null)
+            AssignItemInternal(null);
+        }
+        
+        public void AssignItem(InventoryItem item)
+        {
+            AssignItemInternal(item);
+        }
+
+        private void AssignItemInternal(InventoryItem item)
+        {
+            InventoryItem = item;
+
+            if (InventoryItem == null)
             {
-                _inventoryChannel.OnHotkeyUnAssigned(_keyCode);
+                _hotKeySubscription?.Unsubscribe();
             }
             else
             {
-                _inventoryChannel.OnHotkeyAssigned(_keyCode, item);    
+                _hotKeySubscription = _inputChannel.SubscribeKeyDown(KeyCode, KeyDown);
             }
+            
+            UpdateUI();
         }
 
         private void UpdateUI()
         {
             var color = _itemImage.color;
             
-            if (_currentInventoryItem == null)
+            if (InventoryItem == null)
             {
                 _itemImage.sprite = null;
                 _itemImage.color = new Color(color.r, color.g, color.b, 0);
@@ -100,15 +97,15 @@ namespace UI.Elements
             }
             else
             {
-                _itemImage.sprite = _currentInventoryItem.ItemMeta.InventoryItemSprite;
+                _itemImage.sprite = InventoryItem.ItemMeta.InventoryItemSprite;
                 _itemImage.color = new Color(color.r, color.g, color.b, 255);
-                _amountText.SetText(_currentInventoryItem.Amount.ToString());    
+                _amountText.SetText(InventoryItem.Amount.ToString());    
             }
         }
 
         private void KeyDown()
         {
-            _inventoryChannel.OnUseItemRequest(_currentInventoryItem, _player);
+            _inventoryChannel.OnUseItemRequest(InventoryItem, _player);
         }
 
         public bool IsEmpty()
@@ -120,14 +117,14 @@ namespace UI.Elements
         {
             _hotKeySubscription?.Unsubscribe();
             _inventoryChannel.ItemAmountChangedEvent -= ItemAmountChangedEvent;
-            _inventoryChannel.HotkeyAssignedEvent -= HotkeyAssignedEvent;
+            _inventoryChannel.DropItemRequestEvent -= DropItemRequestEvent;
         }
 
         public void HandleRightClick()
         {
-            if (_currentInventoryItem == null) return;
+            if (InventoryItem == null) return;
             
-            AssignItem(null);
+            AssignItemInternal(null);
         }
     }
 }

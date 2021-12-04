@@ -39,10 +39,7 @@ namespace UI.Behaviours
 
             var target = (IDragTarget)component;
 
-            if (target.IsEmpty())
-            {
-                CurrentTarget = target;
-            }
+            CurrentTarget = target;
         }
         
         private void OnCollisionExit2D(Collision2D other)

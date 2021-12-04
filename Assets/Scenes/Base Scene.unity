@@ -269,6 +269,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146231739}
   m_CullTransparentMesh: 1
+--- !u!114 &171081877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1915844179385396078, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+  m_PrefabInstance: {fileID: 3745330991697032806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8b6e3995fd4a49aa3bb2fb62141900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &214150836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 929501103621775981, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
@@ -278,6 +289,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &298417115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7288975922927294795, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+  m_PrefabInstance: {fileID: 3745330991697032806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8b6e3995fd4a49aa3bb2fb62141900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &326357290
@@ -1165,6 +1187,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633365458}
   m_CullTransparentMesh: 1
+--- !u!114 &1666228416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3641105921211620173, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+  m_PrefabInstance: {fileID: 3745330991697032806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8b6e3995fd4a49aa3bb2fb62141900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1674807587 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5598236589886300461, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
@@ -1775,6 +1808,34 @@ PrefabInstance:
       propertyPath: _fog
       value: 
       objectReference: {fileID: 1991787907}
+    - target: {fileID: 1915844179385396078, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: KeyCode
+      value: 279
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641105921211620173, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: KeyCode
+      value: 127
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745330989735758142, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _inventoryChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
+    - target: {fileID: 3745330989735758142, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _hotKeySpots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745330989735758142, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _hotKeySpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1666228416}
+    - target: {fileID: 3745330989735758142, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _hotKeySpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 171081877}
+    - target: {fileID: 3745330989735758142, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: _hotKeySpots.Array.data[2]
+      value: 
+      objectReference: {fileID: 298417115}
     - target: {fileID: 3745330991325047864, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1822,6 +1883,14 @@ PrefabInstance:
     - target: {fileID: 3745330991325047867, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
       propertyPath: m_Name
       value: PlayGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268044058177907769, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: m_Name
+      value: _Hotkeys Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288975922927294795, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
+      propertyPath: KeyCode
+      value: 281
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9416cbf7dcdd9f479116b9836d69849, type: 3}
