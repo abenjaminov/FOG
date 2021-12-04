@@ -28,13 +28,14 @@ namespace UI.Screens
 
         private void RequestOpenShopEvent(ShopInfo shopInfo)
         {
-            //_inputChannel.PauseInput();
             _closeSubscription = _inputChannel.SubscribeKeyDown(KeyCode.Escape, () =>
             {
-                //_inputChannel.ResumeInput();
+                _inputChannel.ResumeInput();
                 _closeSubscription.Unsubscribe();
                 _shopScreen.SetActive(false);
             });
+            
+            _inputChannel.PauseInput(_closeSubscription);
             
             _shopScreen.SetActive(true);
 

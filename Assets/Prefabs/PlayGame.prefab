@@ -280,7 +280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3745330990357753643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -2.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3745330991325047864}
@@ -545,7 +545,15 @@ PrefabInstance:
       propertyPath: _gameChannel
       value: 
       objectReference: {fileID: 11400000, guid: 0152f92d255b21e4bad963e9e223f7d5, type: 2}
+    - target: {fileID: 1805480605480687899, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _combatChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
     - target: {fileID: 1805480605480687913, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _playerChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
+    - target: {fileID: 1805480605480687916, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: _playerChannel
       value: 
       objectReference: {fileID: 11400000, guid: 6488358fdc5fba54ba78f1534f77fe2e, type: 2}
@@ -557,6 +565,14 @@ PrefabInstance:
       propertyPath: _locationsChannel
       value: 
       objectReference: {fileID: 11400000, guid: 29da3ab90a50352429cd9d809698437c, type: 2}
+    - target: {fileID: 1805480605480687917, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _combatChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
+    - target: {fileID: 3108685895997719504, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
+      propertyPath: _combatChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
     - target: {fileID: 3842782147808337647, guid: 2c6329ad6e59a4c43901e2f7ea0927e0, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1044,6 +1060,36 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 130614149304491100}
+    - target: {fileID: 9100358905796114700, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_text
+      value: 'Resistence
+
+        Points'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358905796114700, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358905796114700, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_margin.z
+      value: -35.443005
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358905796114700, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358906865660007, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 112.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358906865660009, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_text
+      value: 1 / 100000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358906869095171, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.1
+      objectReference: {fileID: 0}
     - target: {fileID: 9100358907154112593, guid: 9ba82468c02bc9044971460d33580712, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -1131,6 +1177,10 @@ PrefabInstance:
     - target: {fileID: 9100358907154112599, guid: 9ba82468c02bc9044971460d33580712, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100358907439039081, guid: 9ba82468c02bc9044971460d33580712, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -52.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba82468c02bc9044971460d33580712, type: 3}

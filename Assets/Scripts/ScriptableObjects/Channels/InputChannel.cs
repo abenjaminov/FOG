@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Utilities;
+using UI.Behaviours;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,68 +13,95 @@ namespace ScriptableObjects.Channels
     {
         [SerializeField] private LocationsChannel _locationsChannel;
         
-        public Dictionary<KeyCode, UnityAction> MappedKeyDownActions = new Dictionary<KeyCode, UnityAction>();
-        public Dictionary<KeyCode, UnityAction> MappedKeyUpActions = new Dictionary<KeyCode, UnityAction>();
+        public Dictionary<KeyCode, List<KeySubscription>> MappedKeyDownActions = new Dictionary<KeyCode, List<KeySubscription>>();
+        public Dictionary<KeyCode, List<KeySubscription>> MappedKeyUpActions = new Dictionary<KeyCode, List<KeySubscription>>();
 
         private bool _pauseInput;
 
+        private List<KeySubscription> _currentExceptionsForPause;
+        
         private void OnEnable()
         {
             _pauseInput = false;
+            _currentExceptionsForPause = new List<KeySubscription>();
         }
 
-        public void PauseInput()
+        public void PauseInput(params KeySubscription[] exceptions)
         {
+            _currentExceptionsForPause = exceptions.ToList();
             _pauseInput = true;
         }
         
         public void ResumeInput()
         {
+            _currentExceptionsForPause.Clear();
             _pauseInput = false;
         }
         
         public void OnKeyDown(KeyCode keyCode)
         {
-            if (_locationsChannel.IsChangingLocation || _pauseInput) return;
+            if (!MappedKeyDownActions.ContainsKey(keyCode)) return;
             
-            var action = MappedKeyDownActions[keyCode];
-            action?.Invoke();
+            var isInputPaused = _locationsChannel.IsChangingLocation || _pauseInput;
+
+            MappedKeyDownActions[keyCode] = MappedKeyDownActions[keyCode].Where(x => x.IsActive).ToList();
+            
+            var allSubs = MappedKeyDownActions[keyCode];
+
+            allSubs?.ForEach(keySub =>
+            {
+                if (!isInputPaused ||
+                    (MappedKeyDownActions.ContainsKey(keyCode) &&
+                     _currentExceptionsForPause.Count(e => e.Id == keySub.Id) > 0))
+                {
+                    keySub.Invoke();
+                }
+            });
         }
         
         public void OnKeyUp(KeyCode keyCode)
         {
-            var action = MappedKeyUpActions[keyCode];
-            action?.Invoke();
+            if (!MappedKeyUpActions.ContainsKey(keyCode)) return;
+            
+            MappedKeyUpActions[keyCode] = MappedKeyUpActions[keyCode].Where(x => x.IsActive).ToList();
+            var allSubs = MappedKeyUpActions[keyCode];
+
+            allSubs?.ForEach(x =>
+            {
+                x.Invoke();
+            });
         }
 
         public KeySubscription SubscribeKeyDown(KeyCode keyCode, UnityAction action)
         {
-            if (MappedKeyDownActions.TryGetValue(keyCode, out var keyEvent))
+            var subscription = new KeyDownSubscription(keyCode, action);
+
+            if (MappedKeyDownActions.ContainsKey(keyCode))
             {
-                MappedKeyDownActions[keyCode] += action;
+                MappedKeyDownActions[keyCode].Add(subscription);
             }
             else
             {
-                keyEvent += action;
-                MappedKeyDownActions.Add(keyCode, keyEvent);
+                MappedKeyDownActions.Add(keyCode, new List<KeySubscription>() { subscription });
             }
 
-            return new KeyDownSubscription(this, keyCode, action);
+            return subscription;
         }
         
         public KeySubscription SubscribeKeyUp(KeyCode keyCode, UnityAction action)
         {
-            if (MappedKeyUpActions.TryGetValue(keyCode, out var keyEvent))
+            var subscription = new KeyDownSubscription(keyCode, action);
+
+            if (MappedKeyUpActions.ContainsKey(keyCode))
             {
-                MappedKeyUpActions[keyCode] += action;
+                MappedKeyUpActions[keyCode].Add(subscription);
             }
             else
             {
-                keyEvent += action;
-                MappedKeyUpActions.Add(keyCode, keyEvent);
+                MappedKeyUpActions.Add(keyCode, new List<KeySubscription>() { subscription });
             }
 
-            return new KeyUpSubscription(this, keyCode, action);
+            return subscription;
         }
     }
 
@@ -80,41 +109,48 @@ namespace ScriptableObjects.Channels
     {
         protected KeyCode Key;
         protected UnityAction _action;
-        protected InputChannel _channel;
+        public string Id;
+        public bool IsActive;
 
-        internal KeySubscription(InputChannel channel, KeyCode code, UnityAction action)
+        internal KeySubscription(KeyCode code, UnityAction action)
         {
             Key = code;
             _action = action;
-            _channel = channel;
+            Id = Guid.NewGuid().ToString();
+            IsActive = true;
         }
 
         public abstract void Unsubscribe();
+
+        public void Invoke()
+        {
+            _action?.Invoke();
+        }
     }
 
     public class KeyDownSubscription : KeySubscription
     {
-        public KeyDownSubscription(InputChannel channel, KeyCode code, UnityAction action) 
-            : base(channel, code, action)
+        public KeyDownSubscription(KeyCode code, UnityAction action) 
+            : base(code, action)
         {
         }
 
         public override void Unsubscribe()
         {
-            _channel.MappedKeyDownActions[Key] -= _action;
+            IsActive = false;
         }
     }
     
     public class KeyUpSubscription : KeySubscription
     {
-        public KeyUpSubscription(InputChannel channel, KeyCode code, UnityAction action) 
-            : base(channel, code, action)
+        public KeyUpSubscription(KeyCode code, UnityAction action) 
+            : base(code, action)
         {
         }
 
         public override void Unsubscribe()
         {
-            _channel.MappedKeyUpActions[Key] -= _action;
+            IsActive = false;
         }
     }
 }

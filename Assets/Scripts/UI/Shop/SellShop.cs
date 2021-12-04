@@ -2,16 +2,21 @@
 using System.Linq;
 using ScriptableObjects.Inventory;
 using ScriptableObjects.Inventory.ItemMetas;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Shop
 {
     public class SellShop : Shop
     {
+        [SerializeField] private TextMeshProUGUI _coinsText;
+        [SerializeField] private Image _coinsImage;
+        
         protected override void Awake()
         {
             base.Awake();
-            
-            
+
             _inventoryChannel.ItemAmountChangedSilentEvent += ItemAmountChangedSilentEvent;
         }
 
@@ -25,6 +30,14 @@ namespace UI.Shop
         private void ItemAmountChangedSilentEvent(InventoryItem item, int amount)
         {
             UpdateShop();
+        }
+
+        public override void UpdateShop()
+        {
+            base.UpdateShop();
+            
+            _coinsText.SetText(_inventory.CurrencyItem.Amount.ToString());
+            _coinsImage.sprite = _inventory.CurrencyItem.ItemMeta.InventoryItemSprite;
         }
 
         protected override void MessageClosedEvent(string messageId, MessageOptions reason)

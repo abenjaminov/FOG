@@ -48,7 +48,7 @@ namespace UI.Shop
             }
         }
 
-        public void UpdateShop()
+        public virtual void UpdateShop()
         {
             UpdateItemsDisplayed();
             
