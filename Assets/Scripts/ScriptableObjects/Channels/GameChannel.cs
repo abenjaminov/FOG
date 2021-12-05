@@ -27,7 +27,7 @@ namespace ScriptableObjects.Channels
             PlayGameEvent?.Invoke();
         }
 
-        public void OnGameErrorEvent(string message)
+        public void OnGameError(string message)
         {
             GameErrorEvent?.Invoke(message);
         }

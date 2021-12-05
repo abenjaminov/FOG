@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471f4f7f1f084ef2a6343a7f455b9237, type: 3}
   m_Name: Reset Manager
   m_EditorClassIdentifier: 
-  _resetPersistence: 1
+  _resetPersistence: 0
   _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
   _levelConfiguration: {fileID: 11400000, guid: 4e9b981c476bb714d9807ad63bb7a9e5, type: 2}
   _questsList: {fileID: 11400000, guid: 948d09ae50d215a43b1925b1792c1392, type: 2}

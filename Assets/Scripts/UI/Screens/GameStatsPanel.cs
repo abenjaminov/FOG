@@ -23,7 +23,8 @@ public class GameStatsPanel : MonoBehaviour
 
     private void GameModulesLoadedEvent()
     {
-        _nameText.SetText(_playerTraits.Name);
+        NameSetEvent();
+        UpdateLevelText();
     }
 
     private void NameSetEvent()

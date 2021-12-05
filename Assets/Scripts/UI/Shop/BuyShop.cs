@@ -44,6 +44,12 @@ namespace UI.Shop
         private void TryBuyItem(string result)
         {
             if (!int.TryParse(result, out var amount)) return;
+
+            if (amount < 1)
+            {
+                _gameChannel.OnGameError("Buy positive amounts only");
+                return;
+            }
             
             if (_inventoryChannel.UseCoinsRequest(amount * _currentItem.ItemMeta.PriceInShop))
             {
@@ -51,7 +57,7 @@ namespace UI.Shop
             }
             else
             {
-                _gameChannel.OnGameErrorEvent("Insufficient Funds");
+                _gameChannel.OnGameError("Insufficient Funds");
             }
         }
 

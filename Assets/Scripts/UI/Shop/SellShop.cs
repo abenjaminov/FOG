@@ -112,13 +112,19 @@ namespace UI.Shop
         private void TrySellItem(string amountToSell)
         {
             if (!int.TryParse(amountToSell, out var amount)) return;
+            if (amount < 1)
+            {
+                _gameChannel.OnGameError("Sell positive amounts only");
+                return;
+            }
+            
             var inventoryItem = _inventory.OwnedItems.FirstOrDefault(x => x.Id == _currentItem.Item.Id);
             
             if(inventoryItem == null) return;
 
             if (inventoryItem.Amount < amount)
             {
-                _gameChannel.OnGameErrorEvent($"Only {inventoryItem.Amount} {inventoryItem.ItemMeta.Name} left");
+                _gameChannel.OnGameError($"Only {inventoryItem.Amount} {inventoryItem.ItemMeta.Name} left");
             }
             else
             {

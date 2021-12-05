@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryChannel: {fileID: 11400000, guid: d0c0f4cda63364f489df5e3ca51fecb0, type: 2}
   _inventoryItemMetas: {fileID: 11400000, guid: 9cfb58f471d525447a8d51b7d6230a32, type: 2}
-  OwnedItems:
-  - Id: asd231d12d
-    _itemMeta: {fileID: 11400000, guid: 0be76d646787b1f46869486de8321628, type: 2}
-    Amount: 500
+  OwnedItems: []
   CurrencyItem:
-    Id: 
+    Id: 07b15ecd-fc01-4100-8ff3-7354e52bb98d
     _itemMeta: {fileID: 11400000, guid: 235539c2807a552408b003b641b2a258, type: 2}
-    Amount: 0
+    Amount: 16

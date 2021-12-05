@@ -204,7 +204,7 @@ namespace UI.Screens
 
             if (!usedCoins)
             {
-                _gameChannel.OnGameErrorEvent($"Insufficient funds ({cost})");
+                _gameChannel.OnGameError($"Insufficient funds ({cost})");
                 return;
             }
             
