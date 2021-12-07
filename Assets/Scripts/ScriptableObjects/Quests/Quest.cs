@@ -31,9 +31,11 @@ namespace ScriptableObjects.Quests
         {
             return _name;
         }
-        
-        protected virtual void OnEnable()
+
+        public virtual void SetState(QuestState newState)
         {
+            State = newState;
+            
             if (State == QuestState.Active || (_completeOnSpot && State == QuestState.PendingComplete))
             {
                 Activate();

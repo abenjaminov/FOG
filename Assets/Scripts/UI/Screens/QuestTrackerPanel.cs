@@ -13,8 +13,10 @@ namespace UI.Screens
 {
     public class QuestTrackerPanel : MonoBehaviour
     {
+        [SerializeField] private PersistenceChannel _persistenceChannel;
         [SerializeField] private QuestsChannel _questsChannel;
         [SerializeField] private QuestsList _questsList;
+        [SerializeField] private GameObject _screen;
         private List<IQuestInfoItem> _questInfos = new List<IQuestInfoItem>();
 
         [SerializeField] private QuestProgressInfo _progressQuestInfoPrefab;
@@ -28,8 +30,27 @@ namespace UI.Screens
         {
             _questsChannel.QuestActivatedEvent += QuestActivatedEvent;
             _questsChannel.QuestCompleteEvent += QuestCompleteEvent;
+            _questsChannel.QuestStateChangedEvent += QuestStateChangedEvent;
+            _persistenceChannel.GameModulesLoadedEvent += GameModulesLoadedEvent;
             _totalHeightTaken = -_topOffset - Margin;
+            
+            UpdateUI();
+        }
 
+        private void QuestStateChangedEvent(Quest quest)
+        {
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            var runningQuests = _questsList.GetAllRunningQuests();
+
+            _screen.SetActive(runningQuests.Count > 0);
+        }
+
+        private void GameModulesLoadedEvent()
+        {
             CheckQuestsList();
         }
 
@@ -58,18 +79,22 @@ namespace UI.Screens
 
         private void QuestActivatedEvent(Quest activatedQuest)
         {
-            this.SetActive(true);
+            var questInfo = _questInfos.FirstOrDefault(x => x.GetQuestId() == activatedQuest.Id);
+
+            if (questInfo != null) return;
             
-            StartCoroutine(QuestActivatedSequence(activatedQuest));
+            _screen.SetActive(true);
+            
+            QuestActivatedSequence(activatedQuest);
         }
 
-        IEnumerator QuestActivatedSequence(Quest activatedQuest)
+        void QuestActivatedSequence(Quest activatedQuest)
         {
             if (activatedQuest is ProgressQuest progressQuest)
             {
-                var infoItem = Instantiate(_progressQuestInfoPrefab, this.transform);
+                var infoItem = Instantiate(_progressQuestInfoPrefab, _screen.transform);
 
-                yield return new WaitForEndOfFrame();
+                //yield return new WaitForEndOfFrame();
                 
                 infoItem.SetQuest(progressQuest);
                 
@@ -77,16 +102,16 @@ namespace UI.Screens
             }
             else
             {
-                var infoItem = Instantiate(_noProgressQuestInfoPrefab, this.transform);
+                var infoItem = Instantiate(_noProgressQuestInfoPrefab, _screen.transform);
                 
-                yield return new WaitForEndOfFrame();
+                //yield return new WaitForEndOfFrame();
                 
                 infoItem.SetQuest(activatedQuest);
                 
                 AddInfoItem(infoItem);
             }
             
-            yield break;
+            //yield break;
         }
 
         private void AddInfoItem(IQuestInfoItem infoItem)
@@ -118,6 +143,8 @@ namespace UI.Screens
         {
             _questsChannel.QuestActivatedEvent -= QuestActivatedEvent;
             _questsChannel.QuestCompleteEvent -= QuestCompleteEvent;
+            _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
+            _questsChannel.QuestStateChangedEvent -= QuestStateChangedEvent;
         }
     }
 }

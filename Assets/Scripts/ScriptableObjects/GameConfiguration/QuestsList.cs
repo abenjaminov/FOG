@@ -39,6 +39,14 @@ namespace ScriptableObjects.GameConfiguration
             QuestsMap = AllQuests.ToDictionary(x => x.Id, x => x);
         }
 
+        public List<Quest> GetAllActivatedQuests()
+        {
+            var activatedQuests = AllQuests
+                .Where(x => x.State != QuestState.PendingActive).ToList();
+
+            return activatedQuests;
+        }
+
         public List<Quest> GetAllRunningQuests()
         {
             var runningQuests = AllQuests

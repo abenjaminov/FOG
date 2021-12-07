@@ -90,6 +90,11 @@ namespace UI.Shop
             _equipmentDetailsPanel.ShowItemDetails(item.ItemMeta, item.GetBottomLeftCorner());
         }
 
+        public void CloseShop()
+        {
+            _equipmentDetailsPanel.HideItemDetails();
+        }
+        
         private void AddShopItem()
         {
             var newShopItem = Instantiate(_shopItemPrefab, _itemsArea.transform);

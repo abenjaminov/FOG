@@ -14,13 +14,6 @@ namespace ScriptableObjects.Quests
         [SerializeField] private int _amountToCollect;
         [SerializeField] private Inventory.Inventory _playerInventory;
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            MaxValue = _amountToCollect;
-        }
-
         public override string GetName()
         {
             return "Collect " + _amountToCollect + " " + _inventoryItemMeta.Name;
@@ -41,6 +34,8 @@ namespace ScriptableObjects.Quests
         public override void Activate()
         {
             base.Activate();
+            
+            MaxValue = _amountToCollect;
             
             _inventoryChannel.ItemAmountChangedEvent += ItemAddedEvent;
             

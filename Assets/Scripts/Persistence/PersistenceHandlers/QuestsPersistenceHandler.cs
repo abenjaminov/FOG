@@ -17,30 +17,39 @@ namespace Persistence.PersistenceHandlers
             var collectItemsQuests = accessor.GetValue<List<QuestPersistence>>("RunningCollectItemsQuests");
             var noProgressQuests = accessor.GetValue<List<QuestPersistence>>("RunningNoProgressQuests");
 
-            foreach (var quest in killEnemiesQuest)
+            if (killEnemiesQuest != null)
             {
-                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
-
-                _questsList.QuestsMap[quest.Id].State = quest.State;
-                ((KillEnemiesQuest)_questsList.QuestsMap[quest.Id]).ActualEnemiesKilled = quest.ActualEnemiesKilled;
+                foreach (var quest in killEnemiesQuest)
+                {
+                    if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+                    
+                    ((KillEnemiesQuest)_questsList.QuestsMap[quest.Id]).ActualEnemiesKilled = quest.ActualEnemiesKilled;
+                    _questsList.QuestsMap[quest.Id].SetState(quest.State);
+                }
             }
 
-            foreach (var quest in collectItemsQuests)
+            if (collectItemsQuests != null)
             {
-                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
-                _questsList.QuestsMap[quest.Id].State = quest.State;
+                foreach (var quest in collectItemsQuests)
+                {
+                    if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+                    _questsList.QuestsMap[quest.Id].SetState(quest.State);
+                }
             }
-            
-            foreach (var quest in noProgressQuests)
+
+            if (noProgressQuests != null)
             {
-                if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
-                _questsList.QuestsMap[quest.Id].State = quest.State;
+                foreach (var quest in noProgressQuests)
+                {
+                    if (!_questsList.QuestsMap.ContainsKey(quest.Id)) continue;
+                    _questsList.QuestsMap[quest.Id].SetState(quest.State);
+                }
             }
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)
         {
-            var quests = _questsList.GetAllRunningQuests();
+            var quests = _questsList.GetAllActivatedQuests();
             var killEnemiesQuests = quests.Where(x => x is KillEnemiesQuest).Select(
                 x => new KillEnemiesQuestPersistence()
                 {

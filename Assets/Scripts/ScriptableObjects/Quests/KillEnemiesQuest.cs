@@ -24,20 +24,15 @@ namespace ScriptableObjects.Quests
             return "Defeat " + NumberOfEnemiesToKill + " " + EnemyMeta.ReplacementPhrase;
         }
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            _questEnemy = EnemyMeta.EnemyPrefab.GetComponentInChildren<Enemy>();
-            MaxValue = NumberOfEnemiesToKill;
-            
-            ProgressMade(ActualEnemiesKilled);
-        }
-
         public override void Activate()
         {
             base.Activate();
             
             _combatChannel.EnemyDiedEvent += EnemyDiedEvent;
+            MaxValue = NumberOfEnemiesToKill;
+            ProgressMade(ActualEnemiesKilled);
+                        
+            _questEnemy = EnemyMeta.EnemyPrefab.GetComponentInChildren<Enemy>();
         }
 
         public override void Complete()

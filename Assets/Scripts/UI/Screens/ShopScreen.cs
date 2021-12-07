@@ -32,6 +32,8 @@ namespace UI.Screens
             {
                 _inputChannel.ResumeInput();
                 _closeSubscription.Unsubscribe();
+                _buyShop.CloseShop();
+                _sellShop.CloseShop();
                 _shopScreen.SetActive(false);
             });
             

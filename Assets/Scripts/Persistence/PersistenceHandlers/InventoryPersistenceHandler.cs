@@ -17,9 +17,18 @@ namespace Persistence.PersistenceHandlers
 
         public override void OnModuleLoaded(IPersistenceModuleAccessor accessor)
         {
+            // Inventory items amount doesnt reset on debug so dont add the items
+            //if(Application.isEditor) return;
+
             var persistence = accessor.GetValue<PlayerInventoryPersistence>("PlayerInventory");
             
             if (persistence == null) return;
+            
+            foreach (var ownedItem in persistence.OwnedItems)
+            {
+                var itemMeta = _playerInventory.GetItemMetaById(ownedItem.InventoryItemMetaId);
+                _playerInventory.AddItem(itemMeta, ownedItem.Amount);
+            }
             
             foreach (var hotKey in persistence.HotKeys)
             {
@@ -31,14 +40,7 @@ namespace Persistence.PersistenceHandlers
                 _inventoryChannel.OnHotkeyAssigned(hotKey.Key, item);
             }
             
-            // Inventory items amount doesnt reset on debug so dont add the items
-            if(Application.isEditor) return;
-
-            foreach (var ownedItem in persistence.OwnedItems)
-            {
-                var itemMeta = _playerInventory.GetItemMetaById(ownedItem.InventoryItemMetaId);
-                _playerInventory.AddItem(itemMeta, ownedItem.Amount);
-            }
+            
         }
 
         public override void OnModuleClosing(IPersistenceModuleAccessor accessor)

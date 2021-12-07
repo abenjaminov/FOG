@@ -45,10 +45,7 @@ namespace UI
             _openScreens = new Stack<GUIScreen>();
             
             _NpcChannel.RequestChatStartEvent += RequestChatStartEvent;
-            _questsChannel.QuestStateChangedEvent += QuestStateChangedEvent;
             _gameChannel.MessageClosedEvent += MessageClosedEvent;
-            
-            CheckQuestsTracker();
         }
 
         private void MessageClosedEvent(string messageId, MessageOptions response)
@@ -61,18 +58,6 @@ namespace UI
             }
         }
 
-        private void QuestStateChangedEvent(Quest arg0)
-        {
-            CheckQuestsTracker(); 
-        }
-
-        private void CheckQuestsTracker()
-        {
-            var runningQuests = _questsList.GetAllRunningQuests();
-
-            _questTrackerPanel.SetActive(runningQuests.Count > 0);
-        }
-        
         private void GameModulesLoadedEvent()
         {
             _subscriptions.Add(_inputChannel.SubscribeKeyDown(_traitsScreen.GetActivationKey(), ToggleTraitsScreen));
@@ -117,7 +102,6 @@ namespace UI
         {
             _persistenceChannel.GameModulesLoadedEvent -= GameModulesLoadedEvent;
             _NpcChannel.RequestChatStartEvent -= RequestChatStartEvent;
-            _questsChannel.QuestStateChangedEvent -= QuestStateChangedEvent;
             _gameChannel.MessageClosedEvent -= MessageClosedEvent;
             
             foreach (var subscription in _subscriptions)

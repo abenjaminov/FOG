@@ -20,7 +20,7 @@ namespace UI.Elements.Quests
         
         private void Awake()
         {
-            _questInfoLogic = new QuestInfoLogic<Quest>(this.gameObject, _questName, _slider, _phraseMapper);
+            _questInfoLogic = new QuestInfoLogic<Quest>(gameObject, _questName, _slider, _phraseMapper);
         }
 
         public void SetQuest(Quest quest)

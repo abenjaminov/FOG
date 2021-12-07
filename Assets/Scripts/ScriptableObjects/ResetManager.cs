@@ -107,9 +107,12 @@ namespace ScriptableObjects
             ResetQuests();
             ResetInventory();
             ResetEquipment();
-            ResetPersistence();
-
-            //_playerInventory.AddItemSilent(_hpPotion, 500);
+            
+            if (_resetPersistence)
+            {
+                ResetPersistence();    
+            }
+            
             _sceneList.DefaultFirstScene = _sceneList.Scenes.FirstOrDefault(x => x.ReplacementPhrase == "{TUTORIAL}");
         }
 
@@ -183,8 +186,6 @@ namespace ScriptableObjects
         [ContextMenu("Specific/Reset Persistence")]
         public void ResetPersistence()
         {
-            if (!_resetPersistence) return;
-            
             var path = Application.persistentDataPath + "\\GamePersistence\\";
 
             if (!Directory.Exists(path)) return;

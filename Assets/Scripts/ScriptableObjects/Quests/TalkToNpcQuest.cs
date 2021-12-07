@@ -13,15 +13,10 @@ namespace ScriptableObjects.Quests
         public ChatNpc NpcPrefab;
         [SerializeField] private NpcChannel _npcChannel;
 
-        protected override void OnEnable()
+        public override void SetState(QuestState newState)
         {
-            base.OnEnable();
+            base.SetState(newState);
 
-            if (State == QuestState.PendingComplete)
-            {
-                
-            }
-            
             _completeOnSpot = true;
         }
 

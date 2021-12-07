@@ -37,28 +37,31 @@ namespace ScriptableObjects.Inventory
         {
             InventoryItem inventoryItem;
             
-            if (itemMetaData is CurrencyItemMeta)
+            switch (itemMetaData)
             {
-                CurrencyItem.Amount += amountToAdd;
-                inventoryItem = CurrencyItem;
-            }
-            else if (itemMetaData is EquipmentItemMeta)
-            {
-                inventoryItem = GetNewInventoryItem(itemMetaData, 1);
-                OwnedItems.Add(inventoryItem);
-            }
-            else
-            {
-                inventoryItem = OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == itemMetaData.Id);
-            
-                if (inventoryItem != null)
-                {
-                    inventoryItem.Amount += amountToAdd;
-                }
-                else
-                {
-                    inventoryItem = GetNewInventoryItem(itemMetaData, amountToAdd);
+                case CurrencyItemMeta currentItemMeta:
+                    CurrencyItem.Amount += amountToAdd;
+                    inventoryItem = CurrencyItem;
+                    break;
+                case EquipmentItemMeta equipmentItemMeta:
+                    inventoryItem = GetNewInventoryItem(itemMetaData, 1);
                     OwnedItems.Add(inventoryItem);
+                    break;
+                default:
+                {
+                    inventoryItem = OwnedItems.FirstOrDefault(x => x.ItemMeta.Id == itemMetaData.Id);
+            
+                    if (inventoryItem != null)
+                    {
+                        inventoryItem.Amount += amountToAdd;
+                    }
+                    else
+                    {
+                        inventoryItem = GetNewInventoryItem(itemMetaData, amountToAdd);
+                        OwnedItems.Add(inventoryItem);
+                    }
+
+                    break;
                 }
             }
 
