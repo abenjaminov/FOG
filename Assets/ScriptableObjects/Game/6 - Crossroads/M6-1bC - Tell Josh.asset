@@ -10,29 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: M6-1C - Understanding Orcs
+  m_Name: M6-1bC - Tell Josh
   m_EditorClassIdentifier: 
-  Guid: 394604f3-8586-4074-9c15-3a23d31b205e
-  SessionType: 0
+  Guid: 606862c7-73f7-4b39-9fbf-7039b3620719
+  SessionType: 1
   IsOneTime: 0
   IsOneTimeDone: 0
-  AssociatedQuest: {fileID: 0}
+  AssociatedQuest: {fileID: 11400000, guid: 3902d39eb5ca450498966b3fb5df8c01, type: 2}
   ItemRewards: []
   ChatItems:
-  - Text: Oh hi, I've been studying these Orcs since I have level 4 resistance
+  - Text: Hi {NAME}, heard you were coming my way.
     Options:
     - Text: Next
       Action: 0
-  - Text: Im not sure yet if all of them were humans before, some of them must of
-      arrived with the fog.
+  - Text: 'No, dont tell me Stans'' brother turned into an Orc.
+
+      That poor
+      man.'
     Options:
     - Text: Next
       Action: 0
     - Text: Back
       Action: 1
-  - Text: Help me defeat some {ORC2} so we can understand them better.
+  - Text: Thank you for that information, i still dont know what we can do about
+      it.
     Options:
-    - Text: Accept
+    - Text: Next
+      Action: 0
+    - Text: Back
+      Action: 1
+  - Text: Let me think. Come back later.
+    Options:
+    - Text: Ok
       Action: 2
     - Text: Back
       Action: 1

@@ -10,33 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
-  m_Name: M5-1C - Stans Brother
+  m_Name: M6-1aC - Understanding Orcs
   m_EditorClassIdentifier: 
-  Guid: a9920c47-e843-4a0c-a968-cebbd6d97dc9
+  Guid: 394604f3-8586-4074-9c15-3a23d31b205e
   SessionType: 0
   IsOneTime: 0
   IsOneTimeDone: 0
-  AssociatedQuest: {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
+  AssociatedQuest: {fileID: 0}
   ItemRewards: []
   ChatItems:
-  - Text: '{NAME}! Youre actually still alive.'
+  - Text: Oh hi, I've been studying these Orcs since I have level 4 resistance
     Options:
     - Text: Next
       Action: 0
-  - Text: I think my brother turned into an Orc.
-    Options:
-    - Text: Next
-      Action: 0
-    - Text: Back
-      Action: 1
-  - Text: I gave him a ring that belonged to my father, i need you to help me find
-      it.
+  - Text: Im not sure yet if all of them were humans before, some of them must of
+      arrived with the fog.
     Options:
     - Text: Next
       Action: 0
     - Text: Back
       Action: 1
-  - Text: Try to defeath some of the Orcs here and find me that ring.
+  - Text: Help me defeat some {ORC2} so we can understand them better.
     Options:
     - Text: Accept
       Action: 2

@@ -4848,7 +4848,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: ChatSessions.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: ChatSessions.Array.data[0]
@@ -4858,6 +4858,10 @@ PrefabInstance:
       propertyPath: ChatSessions.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 863a22c4bd449e54e9fb001b794ca58e, type: 2}
+    - target: {fileID: 990752858139293592, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
+      propertyPath: ChatSessions.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b9c212e95d549e64fb4a2430fe532b03, type: 2}
     - target: {fileID: 990752858139293593, guid: 0be6ff2ae2672454eb81b1846f546510, type: 3}
       propertyPath: m_RootOrder
       value: 4

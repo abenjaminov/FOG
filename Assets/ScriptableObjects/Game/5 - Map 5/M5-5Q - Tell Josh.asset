@@ -9,28 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ae56be1be6412ca17b86f386276c7f, type: 3}
-  m_Name: M6-2Q - Understanding Orcs
+  m_Script: {fileID: 11500000, guid: f13ceebbe2844ccb918efcaa9a8089de, type: 3}
+  m_Name: M5-5Q - Tell Josh
   m_EditorClassIdentifier: 
-  Id: 68385b96-30c6-4a7c-bba8-20deb7be217b
-  _name: Understanding Orcs
+  Id: 98b38ca2-5aa0-4ecd-b758-8cdfcacd7d59
+  _name: Tell Josh
   RPReward:
-    ApplyReward: 1
+    ApplyReward: 0
     _playerTraits: {fileID: 11400000, guid: 88e4703c7e7d4c64fbf686dc98252fe0, type: 2}
-    ResistancePointsReward: 1250
+    ResistancePointsReward: 1600
   ItemReward:
     ApplyReward: 0
     _playerInventory: {fileID: 0}
     _itemRewards: []
-  DependencyQuest: {fileID: 0}
-  State: 0
+  DependencyQuest: {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
+  State: 3
   RequiredLevel: 5
   NextQuests: []
-  _completeOnSpot: 0
+  _completeOnSpot: 1
   _questsChannel: {fileID: 11400000, guid: be3f8b9fa8f88b14c96a9586466f8128, type: 2}
-  MaxValue: 50
-  CurrentValue: 0
-  EnemyMeta: {fileID: 11400000, guid: 115dd72ce2709f946ab0dfbffcdaefd5, type: 2}
-  _combatChannel: {fileID: 11400000, guid: 96bb125f591291549968ba4683b4468d, type: 2}
-  NumberOfEnemiesToKill: 50
-  ActualEnemiesKilled: 0
+  NpcPrefab: {fileID: 7134847650821858304, guid: 02b2ea7035c725e4d9e6915f73b4267c, type: 3}
+  _npcChannel: {fileID: 11400000, guid: 282544b41ff5ffc4ab03d69ffd1f351d, type: 2}

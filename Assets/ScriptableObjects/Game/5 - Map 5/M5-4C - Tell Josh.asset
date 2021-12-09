@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fe3604ee2d41c1900c08b78353ab8d, type: 3}
+  m_Name: M5-4C - Tell Josh
+  m_EditorClassIdentifier: 
+  Guid: 82bf3739-ca39-401f-862f-2eacfc52fbd2
+  SessionType: 0
+  IsOneTime: 0
+  IsOneTimeDone: 0
+  AssociatedQuest: {fileID: 11400000, guid: 3902d39eb5ca450498966b3fb5df8c01, type: 2}
+  ItemRewards: []
+  ChatItems:
+  - Text: Josh would want to know about my brother.
+    Options:
+    - Text: Next
+      Action: 0
+  - Text: Go meet him in the crossroads and tell him about it
+    Options:
+    - Text: Ok
+      Action: 2
+    - Text: No
+      Action: 3
