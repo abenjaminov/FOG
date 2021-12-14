@@ -23,7 +23,7 @@ MonoBehaviour:
     _playerInventory: {fileID: 0}
     _itemRewards: []
   DependencyQuest: {fileID: 11400000, guid: b0fa0991b597c124986073a5e2cd01a4, type: 2}
-  State: 3
+  State: 2
   RequiredLevel: 5
   NextQuests: []
   _completeOnSpot: 1
