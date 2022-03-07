@@ -8,6 +8,16 @@ namespace Game
     {
         [SerializeField] private VisualEffect _visualEffect;
 
+        [SerializeField] private bool DebugFog;
+        [Range(0, 1)] [SerializeField] private float FogAlpha;
+        
+        private Camera _mainCamera;
+
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+        }
+
         private void Start()
         {
             Stop();
@@ -28,6 +38,7 @@ namespace Game
             _visualEffect.SetVector3("SpawnSize", size);
         }
 
+        [ContextMenu("Play")]
         public void Play()
         {
             _visualEffect.Play();
@@ -42,6 +53,18 @@ namespace Game
         {
             _visualEffect.Reinit();
             _visualEffect.Stop();
+        }
+
+        private void Update()
+        {
+            if (DebugFog)
+            {
+                SetAlpha(FogAlpha);
+            }
+            
+            if (_mainCamera == null) return;
+            
+            transform.position = _mainCamera.transform.position + new Vector3(0,0,5f);
         }
     }
 }

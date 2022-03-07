@@ -1282,33 +1282,39 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 500
+      - m_Value: 10000
         m_Name: Fog amount
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 200
         m_Name: ParticleSizeMax
         m_Overridden: 1
-      - m_Value: 4.5
+      - m_Value: 16
         m_Name: ParticleSizeMin
         m_Overridden: 1
-      - m_Value: 0.2
+      - m_Value: 0.1
         m_Name: FogAlpha
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 2, y: 0.2, z: 0}
+      - m_Value: {x: 40, y: 20, z: 0}
         m_Name: WindSpeedMax
         m_Overridden: 1
-      - m_Value: {x: 0, y: -0.2, z: 0}
+      - m_Value: {x: 0, y: -20, z: 0}
         m_Name: WindSpeedMin
         m_Overridden: 1
-      - m_Value: {x: 36, y: 24, z: 0}
+      - m_Value: {x: 1920, y: 1080, z: 0}
         m_Name: SpawnSize
         m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: SpawnLocation
+        m_Overridden: 0
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0.35152435, y: 0.4716981, z: 0.23362406, w: 0}
+        m_Name: FogBaseColor
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -1330,8 +1336,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991787903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 907.04443, y: 263.42618, z: -622.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1350,6 +1356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visualEffect: {fileID: 1991787905}
+  DebugFog: 0
+  FogAlpha: 0
 --- !u!1001 &1994148752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,11 +1367,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1915938017193097133, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1915938017193097133, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915938017193097135, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1915938018018350480, guid: 52f20e82d0e5a2f43b340c04098a9913, type: 3}
       propertyPath: m_RootOrder
